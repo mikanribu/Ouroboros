@@ -39,6 +39,10 @@
             android:name="epf.domethic.ouroboros.activity.ListerPatientsFragment"
             android:label="@string/title_activity_lister_patients_fragment" >
         </activity>
+        <activity
+            android:name="epf.domethic.ouroboros.activity.ConnexionActivity"
+            android:label="@string/title_activity_connexion" >
+        </activity>
     </application>
 
 </manifest>

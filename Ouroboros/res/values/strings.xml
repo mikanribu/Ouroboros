@@ -8,5 +8,30 @@
     <string name="search_hint">Recherche</string>
     <string name="title_activity_recherche">RechercheActivity</string>
     <string name="title_activity_lister_patients_fragment">ListerPatientsFragment</string>
+    <string name="title_activity_connexion">ConnexionActivity</string>
+    <string name="HospiService">Hospitalisation service</string>
+    <string name="CreerDos">Création dossier</string>
+    <string name="AjoutDoc">Ajout document</string>
+    <string name="transfert">Transfert</string>
+    <string name="Acodifier">A codifier</string>
+    <string name="Archives">Archives</string>
+    <string name="MonCompte">Mon compte</string>
+    <string name="Recherche">Recherche</string>
+    <string name="ModifCompte">Modifier compte</string>
+    <string name="CreaCompte">Créer compte</string>
+    <string name="CreaDos">Créer dossier</string>
+    <string name="SuppressionCompte">Supprimer compte</string>
+    <string name="GererInfra">Infrastructure</string>
+    <string name="LastAction">Dernières actions</string>
+    <string name="Modif">Modifier</string>
+    <string name="VisDMP">Visualisez le DMP</string>
+    <string name="Imprimer">Imprimer le DMP</string>
+    <string name="Affiliation">Affilier à un service</string>
+    <string name="Ajouter">Ajouter</string>
+    <string name="Annuler">Annuler</string>
+    <string name="ModifMdp">Modifier mdp</string>
+    <string name="Valider">Valider</string>
+    <string name="Retour">Retour</string>
+    <string name="Archiver">Archiver</string>
 
 </resources>
