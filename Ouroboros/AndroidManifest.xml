@@ -14,7 +14,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppBaseTheme" >
         <activity
-            android:name="epf.domethic.ouroboros.activity.AccueilActivity"
+            android:name="epf.domethic.ouroboros.activity.HospitalisationsActivity"
             android:label="@string/app_name"
             android:screenOrientation="landscape" >
             <intent-filter>
@@ -34,10 +34,6 @@
             <meta-data
                 android:name="android.app.searchable"
                 android:resource="@xml/searchable" />
-        </activity>
-        <activity
-            android:name="epf.domethic.ouroboros.activity.ListerPatientsFragment"
-            android:label="@string/title_activity_lister_patients_fragment" >
         </activity>
         <activity
             android:name="epf.domethic.ouroboros.activity.ConnexionActivity"

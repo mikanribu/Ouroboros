@@ -1,12 +1,17 @@
 package epf.domethic.ouroboros.activity;
 
 
+import java.util.List;
+
 import epf.domethic.ouroboros.R;
+import epf.domethic.ouroboros.adapter.PatientAdapter;
 import epf.domethic.ouroboros.animations.CollapseAnimation;
 import epf.domethic.ouroboros.animations.ExpandAnimation;
+import epf.domethic.ouroboros.model.Patient;
 import android.os.Bundle;
 import android.app.ActionBar;
 import android.app.Activity;
+import android.app.ListActivity;
 import android.app.SearchManager;
 import android.content.Context;
 import android.graphics.drawable.ColorDrawable;
@@ -15,9 +20,10 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.SearchView;
 
-public class AccueilActivity extends Activity {
+public class HospitalisationsActivity extends Activity {
 	/** Called when the activity is first created. */
 	
 	//The menu configuration
@@ -29,7 +35,7 @@ public class AccueilActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
     	
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_accueil);
+        setContentView(R.layout.activity_hospitalisations);
         ColorDrawable colorDrawable =new ColorDrawable();
         ActionBar actionBar = getActionBar();
         colorDrawable.setColor(0xff7184fa);
@@ -44,7 +50,13 @@ public class AccueilActivity extends Activity {
         DisplayMetrics metrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(metrics);
         screenWidth = metrics.widthPixels;//Get the horizontal size of the screen who uses the application
-        
+                
+        List<Patient> patients = Patient.ALL;
+        ListView liste = (ListView) findViewById(R.id.list);
+        PatientAdapter aa = 
+        new PatientAdapter(this, patients);
+        liste.setAdapter(aa);       
+
     }
 
 

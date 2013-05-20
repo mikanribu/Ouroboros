@@ -1,11 +1,24 @@
 package epf.domethic.ouroboros.model;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Patient {
 	private String nom;
 	private String prenom;
 	private Date dateNaissance;
+	
+	public static List<Patient> ALL;
+	
+	static{
+		ALL = new ArrayList<Patient>();
+		for(int i = 0; i < 20; i++){
+			Patient p = new Patient("Nom" + i, "Prénom" + i, new Date(), Sexe.FEMME);
+			ALL.add(p);		
+		}
+	}
+	
 	private enum Sexe {
 		HOMME,
 		FEMME;

@@ -8,16 +8,6 @@
         android:id="@+id/linearLayout1"
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
-        
-        <fragment
-        android:id="@+id/fragment1"
-        android:name="android.app.ListFragment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true" />
  
         <LinearLayout
             android:id="@+id/slideMenu"
@@ -67,7 +57,7 @@
        		    android:textColor="@color/BleuMedecin"
        		    android:text="Trouver Patient"  
        		    />
-      		"
+      		
       		<Button
 		        android:id="@+id/Hospitalisation"
 		        android:layout_gravity="center_horizontal"
@@ -273,7 +263,17 @@
     </LinearLayout>
  
                 </TableRow>
+
+
  
 </LinearLayout>
+  <ListView
+      android:id="@+id/list"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginLeft="2dp" >
+  </ListView>
 </LinearLayout>
+
+
 </FrameLayout>
