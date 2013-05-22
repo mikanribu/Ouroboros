@@ -13,9 +13,9 @@
         android:icon="@drawable/uroboroslogoseul"
         android:label="@string/app_name"
         android:theme="@style/AppBaseTheme" >
-        <activity
-            android:name="epf.domethic.ouroboros.activity.HospitalisationsActivity"
-            android:label="@string/app_name"
+        <activity            
+            android:name="epf.domethic.ouroboros.activity.ConnexionActivity"
+            android:label="@string/title_activity_connexion"
             android:screenOrientation="landscape" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -36,8 +36,8 @@
                 android:resource="@xml/searchable" />
         </activity>
         <activity
-            android:name="epf.domethic.ouroboros.activity.ConnexionActivity"
-            android:label="@string/title_activity_connexion" >
+            android:name="epf.domethic.ouroboros.activity.HospitalisationsActivity"
+            android:label="@string/app_name">
         </activity>
         <activity
             android:name="epf.domethic.ouroboros.activity.ArchivesActivity"

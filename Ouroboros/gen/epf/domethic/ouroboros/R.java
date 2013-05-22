@@ -38,7 +38,8 @@ public final class R {
         public static final int ic_launcher=0x7f020009;
         public static final int ic_menu_search=0x7f02000a;
         public static final int infos_g=0x7f02000b;
-        public static final int uroboroslogoseul=0x7f02000c;
+        public static final int logo_blanc=0x7f02000c;
+        public static final int uroboroslogoseul=0x7f02000d;
     }
     public static final class id {
         public static final int ACodifier=0x7f0a000f;

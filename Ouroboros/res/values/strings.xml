@@ -8,7 +8,7 @@
     <string name="search_hint">Recherche</string>
     <string name="title_activity_recherche">RechercheActivity</string>
     <string name="title_activity_lister_patients_fragment">ListerPatientsFragment</string>
-    <string name="title_activity_connexion">ConnexionActivity</string>
+    <string name="title_activity_connexion">Connexion</string>
     <string name="HospiService">Hospitalisation service</string>
     <string name="CreerDos">Création dossier</string>
     <string name="AjoutDoc">Ajout document</string>
