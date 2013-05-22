@@ -33,5 +33,25 @@
     <string name="Valider">Valider</string>
     <string name="Retour">Retour</string>
     <string name="Archiver">Archiver</string>
+    <string name="title_activity_hospitalisations_fragment">HospitalisationsFragment</string>
+    <string name="pseudo">Pseudo</string>
+    <string name="pswd">Mot de passe</string>
+    <string name="grand_logo">Logo complet de l\'application</string>
+    <string name="encadre">Encadré pour les identifiants de connexion</string>
+    <string name="bouton_connexion">Validation de connexion</string>
+    <string name="infos_generales">Informations générales</string>
+    <string name="hospi_en_cours">Hospitalisation en cours</string>
+    <string name="archives">Archives</string>
+    <string name="codification">Codification</string>
+    <string name="vue_patient">Voir le dossier du patient</string>
+    <string name="ajout_consult">Ajouter une consultation</string>
+    <string name="ajout_doc">Ajouter un document</string>
+    <string name="modif_data">Modification des données socio-démographiques du patient</string>
+    <string name="ajout_hospi">Ajouter une hospitalisation</string>
+    <string name="diag_principal">Diagnostic principal</string>
+    <string name="title_activity_hospi_en_cours">Hospitalisation En Cours</string>
+    <string name="title_activity_archives">Archives</string>
+    <string name="title_activity_codification">Codification</string>
+    <string name="title_activity_vue_donnees_socio">Données socio-démographiques</string>
 
 </resources>

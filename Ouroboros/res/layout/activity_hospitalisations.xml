@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
- 
- 
+    android:layout_height="match_parent" >
+
     <LinearLayout
         android:id="@+id/linearLayout1"
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
- 
+
         <LinearLayout
             android:id="@+id/slideMenu"
             android:layout_width="wrap_content"
@@ -16,264 +15,257 @@
             android:layout_weight="0.01"
             android:background="@color/GrisMenu"
             android:orientation="vertical" >
-            
-      		<!--  On crée le menu ici -->
-       		<TextView
-       		    android:id="@+id/NomMedecin" 
-       		    android:paddingTop="3dp"
-       		    android:layout_gravity="left"
-       		    android:layout_width="wrap_content"
-        		android:layout_height="wrap_content"
-       		    android:textSize="24sp" 
- 		        android:textStyle="bold" 
- 		        android:layout_centerHorizontal="true"
-		        android:layout_marginTop="4dp"
-		        android:padding="0dip"
-       		    android:textColor="@color/BleuMedecin"
-       		    android:text="Paul Durand"  
-       		    />
-       		<TextView
-       		    android:id="@+id/Deconnexion" 
-       		    android:layout_gravity="right"
-       		    android:layout_width="wrap_content"
-        		android:layout_height="wrap_content"
-       		    android:textSize="16sp" 
- 		        android:layout_centerHorizontal="true"
-		        android:layout_marginTop="0dp"
-		        android:padding="0dip"
-       		    android:textColor="@color/BleuMedecin"
-       		    android:text="> Déconnexion"  
-       		    />
-       		<TextView
-       		    android:id="@+id/TrouverPatient" 
-       		    android:layout_gravity="left"
-       		    android:layout_width="wrap_content"
-        		android:layout_height="wrap_content"
-       		    android:textSize="20sp" 
- 		        android:layout_centerHorizontal="true"
-		        android:layout_marginTop="0dp"
-		        android:paddingTop="40dp"
-		        android:paddingBottom="2dp"
-       		    android:textColor="@color/BleuMedecin"
-       		    android:text="Trouver Patient"  
-       		    />
-      		
-      		<Button
-		        android:id="@+id/Hospitalisation"
-		        android:layout_gravity="center_horizontal"
-		        android:layout_width="140dp"
-		        android:layout_height="40dp"
-		        
-		        android:layout_centerHorizontal="true"
-		        android:layout_marginTop="4dp"
-		        android:text="@string/HospiService" 
-		        android:textSize="16sp"
-		        android:textStyle="bold"
-		        android:textColor="@color/White"
-		        android:gravity="center"
-		        android:shadowColor="#000000"
-		        android:shadowDx="1"
-		        android:shadowDy="1"
-		        android:shadowRadius="0.6"
-		        android:background="@drawable/custom_btn_breaker_bay"
-		        android:padding="10dip"
-	        />
-      		<TextView
-       		    android:id="@+id/GererVosDossier" 
-       		    android:paddingTop="30dp"
-		        android:paddingBottom="2dp"
-		        android:layout_gravity="left"
-       		    android:layout_width="wrap_content"
-        		android:layout_height="wrap_content"
-       		    android:textSize="20sp" 
- 		        android:layout_centerHorizontal="true"
-		        android:layout_marginTop="0dp"
-       		    android:textColor="@color/BleuMedecin"
-       		    android:text="Gérer vos dossiers"  
-       		    />
-      		<Button
-		        android:id="@+id/CreationDossier"
-		        android:layout_gravity="center_horizontal"
-		        android:layout_width="140dp"
-		        android:layout_height="40dp"
-		        android:layout_centerHorizontal="true"
-		        android:layout_marginTop="4dp"
-		        android:text="@string/CreaDos" 
-		        android:textSize="16sp"
-		        android:textStyle="bold"
-		        android:textColor="#FFFFFF"
-		        android:gravity="center"
-		        android:shadowColor="#000000"
-		        android:shadowDx="1"
-		        android:shadowDy="1"
-		        android:shadowRadius="0.6"
-		        android:background="@drawable/custom_btn_breaker_bay"
-		        android:padding="10dip"
-	        />
-      		<Button
-		        android:id="@+id/AjoutDocument"
-		        android:layout_gravity="center_horizontal"
-		        android:layout_width="140dp"
-		        android:layout_height="40dp"
-		        android:layout_centerHorizontal="true"
-		        android:layout_marginTop="4dp" 
-		        android:text="@string/AjoutDoc" 
-		        android:textSize="16sp"
-		        android:textStyle="bold"
-		        android:textColor="#FFFFFF"
-		        android:gravity="center"
-		        android:shadowColor="#000000"
-		        android:shadowDx="1"
-		        android:shadowDy="1"
-		        android:shadowRadius="0.6"
-		        android:background="@drawable/custom_btn_breaker_bay"
-		        android:padding="10dip"
-	        />
-      		<Button
-		        android:id="@+id/Transfert"
-		        android:layout_gravity="center_horizontal"
-		        android:layout_width="140dp"
-		        android:layout_height="40dp"
-		        android:layout_centerHorizontal="true"
-		        android:layout_marginTop="4dp"
-		        android:text="@string/transfert" 
-		        android:textSize="16sp"
-		        android:textStyle="bold"
-		        android:textColor="#FFFFFF"
-		        android:gravity="center"
-		        android:shadowColor="#000000"
-		        android:shadowDx="1"
-		        android:shadowDy="1"
-		        android:shadowRadius="0.6"
-		        android:background="@drawable/custom_btn_breaker_bay"
-		        android:padding="10dip"
-	        />
-      		<Button
-		        android:id="@+id/ACodifier"		        
-		        android:layout_gravity="center_horizontal"		        
-		        android:layout_width="140dp"
-		        android:layout_height="40dp"
-		        android:layout_centerHorizontal="true"
-		        android:layout_marginTop="4dp"
-		        android:text="@string/Acodifier" 
-		        android:textSize="16sp"
-		        android:textStyle="bold"
-		        android:textColor="#FFFFFF"
-		        android:gravity="center"
-		        android:shadowColor="#000000"
-		        android:shadowDx="1"
-		        android:shadowDy="1"
-		        android:shadowRadius="0.6"
-		        android:background="@drawable/custom_btn_breaker_bay"
-		        android:padding="10dip"
-	        />
-      		<TextView
-       		    android:id="@+id/AutresActions" 
-       		    android:paddingTop="30dp"
-		        android:paddingBottom="2dp"
-		        android:layout_gravity="left"
-       		    android:layout_width="wrap_content"
-        		android:layout_height="wrap_content"
-       		    android:textSize="20sp" 
- 		        android:layout_centerHorizontal="true"
-		        android:layout_marginTop="0dp"
-       		    android:textColor="@color/BleuMedecin"
-       		    android:text="Autres Actions"  
-       		    />
-      		<Button
-		        android:id="@+id/Archives"
-		        android:layout_gravity="center_horizontal"
-		        android:layout_width="140dp"
-		        android:layout_height="40dp"
-		        android:layout_centerHorizontal="true"
-		        android:layout_marginTop="4dp"
-		        android:text="@string/Archives" 
-		        android:textSize="16sp"
-		        android:textStyle="bold"
-		        android:textColor="#FFFFFF"
-		        android:gravity="center"
-		        android:shadowColor="#000000"
-		        android:shadowDx="1"
-		        android:shadowDy="1"
-		        android:shadowRadius="0.6"
-		        android:background="@drawable/custom_btn_breaker_bay"
-		        android:padding="10dip"
-	        />
-      		<Button
-		        android:id="@+id/MonCompte"
-		        android:layout_gravity="center_horizontal"
-		        android:layout_width="140dp"
-		        android:layout_height="40dp"
-		        android:layout_centerHorizontal="true"
-		        android:layout_marginTop="4dp"
-		        android:text="@string/MonCompte" 
-		        android:textSize="16sp"
-		        android:textStyle="bold"
-		        android:textColor="#FFFFFF"
-		        android:gravity="center"
-		        android:shadowColor="#000000"
-		        android:shadowDx="1"
-		        android:shadowDy="1"
-		        android:shadowRadius="0.6"
-		        android:background="@drawable/custom_btn_breaker_bay"
-		        android:padding="10dip"
-	        />
-      		<TextView
-       		    android:id="@+id/HostAnd" 
-		        android:layout_gravity="left"
-		        android:paddingTop="80dp"
-       		    android:layout_width="wrap_content"
-        		android:layout_height="wrap_content"
-        		android:textStyle="italic"
-       		    android:textSize="18sp" 
-       		    android:textColor="@color/BleuMedecin"
-       		    android:text="- Host and"  
-       		    />
-      		
-      		<TextView
-       		    android:id="@+id/saveLife"
-       		    android:layout_gravity="right"
-       		    android:layout_width="wrap_content"
-        		android:layout_height="wrap_content"    		    
-		        android:textStyle="italic"
-		        android:textSize="18sp" 
-       		    android:textColor="@color/BleuMedecin"
-       		    android:text="save lifes."  
-       		    />
- 
-        </LinearLayout>
- 
-            <LinearLayout
-                android:id="@+id/linearLayout3"
+
+            <!-- On crée le menu ici -->
+
+            <TextView
+                android:id="@+id/NomMedecin"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="0.99"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="left"
+                android:layout_marginTop="4dp"
+                android:padding="0dip"
+                android:paddingTop="3dp"
+                android:text="Paul Durand"
+                android:textColor="@color/BleuMedecin"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/Deconnexion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="right"
+                android:layout_marginTop="0dp"
+                android:padding="0dip"
+                android:text="> Déconnexion"
+                android:textColor="@color/BleuMedecin"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/TrouverPatient"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="left"
+                android:layout_marginTop="0dp"
+                android:paddingBottom="2dp"
+                android:paddingTop="40dp"
+                android:text="Trouver Patient"
+                android:textColor="@color/BleuMedecin"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/Hospitalisation"
+                android:layout_width="140dp"
+                android:layout_height="40dp"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/custom_btn_breaker_bay"
+                android:gravity="center"
+                android:padding="10dip"
+                android:shadowColor="#000000"
+                android:shadowDx="1"
+                android:shadowDy="1"
+                android:shadowRadius="0.6"
+                android:text="@string/HospiService"
+                android:textColor="@color/White"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/GererVosDossier"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="left"
+                android:layout_marginTop="0dp"
+                android:paddingBottom="2dp"
+                android:paddingTop="30dp"
+                android:text="Gérer vos dossiers"
+                android:textColor="@color/BleuMedecin"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/CreationDossier"
+                android:layout_width="140dp"
+                android:layout_height="40dp"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/custom_btn_breaker_bay"
+                android:gravity="center"
+                android:padding="10dip"
+                android:shadowColor="#000000"
+                android:shadowDx="1"
+                android:shadowDy="1"
+                android:shadowRadius="0.6"
+                android:text="@string/CreaDos"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/AjoutDocument"
+                android:layout_width="140dp"
+                android:layout_height="40dp"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/custom_btn_breaker_bay"
+                android:gravity="center"
+                android:padding="10dip"
+                android:shadowColor="#000000"
+                android:shadowDx="1"
+                android:shadowDy="1"
+                android:shadowRadius="0.6"
+                android:text="@string/AjoutDoc"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/Transfert"
+                android:layout_width="140dp"
+                android:layout_height="40dp"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/custom_btn_breaker_bay"
+                android:gravity="center"
+                android:padding="10dip"
+                android:shadowColor="#000000"
+                android:shadowDx="1"
+                android:shadowDy="1"
+                android:shadowRadius="0.6"
+                android:text="@string/transfert"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/ACodifier"
+                android:layout_width="140dp"
+                android:layout_height="40dp"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/custom_btn_breaker_bay"
+                android:gravity="center"
+                android:padding="10dip"
+                android:shadowColor="#000000"
+                android:shadowDx="1"
+                android:shadowDy="1"
+                android:shadowRadius="0.6"
+                android:text="@string/Acodifier"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/AutresActions"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="left"
+                android:layout_marginTop="0dp"
+                android:paddingBottom="2dp"
+                android:paddingTop="30dp"
+                android:text="Autres Actions"
+                android:textColor="@color/BleuMedecin"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/Archives"
+                android:layout_width="140dp"
+                android:layout_height="40dp"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/custom_btn_breaker_bay"
+                android:gravity="center"
+                android:padding="10dip"
+                android:shadowColor="#000000"
+                android:shadowDx="1"
+                android:shadowDy="1"
+                android:shadowRadius="0.6"
+                android:text="@string/Archives"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/MonCompte"
+                android:layout_width="140dp"
+                android:layout_height="40dp"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/custom_btn_breaker_bay"
+                android:gravity="center"
+                android:padding="10dip"
+                android:shadowColor="#000000"
+                android:shadowDx="1"
+                android:shadowDy="1"
+                android:shadowRadius="0.6"
+                android:text="@string/MonCompte"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/HostAnd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:paddingTop="80dp"
+                android:text="- Host and"
+                android:textColor="@color/BleuMedecin"
+                android:textSize="18sp"
+                android:textStyle="italic" />
+
+            <TextView
+                android:id="@+id/saveLife"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:text="save lifes."
+                android:textColor="@color/BleuMedecin"
+                android:textSize="18sp"
+                android:textStyle="italic" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout3"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="0.99"
+            android:orientation="vertical" >
+
+            <TableRow
+                android:id="@+id/tableRow1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
                 android:orientation="vertical" >
-  <TableRow
-                    android:id="@+id/tableRow1"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical" >
- 
-    <LinearLayout
-        android:id="@+id/linearLayout5"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal" >
+
+                <LinearLayout
+                    android:id="@+id/linearLayout5"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal" >
+                </LinearLayout>
+            </TableRow>
+        </LinearLayout>
     </LinearLayout>
- 
-                </TableRow>
 
-
- 
-</LinearLayout>
-  <ListView
-      android:id="@+id/list"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:layout_marginLeft="2dp" >
-  </ListView>
-</LinearLayout>
-
+    <ListView
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="2dp" >
+    </ListView>
 
 </FrameLayout>

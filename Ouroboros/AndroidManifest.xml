@@ -39,6 +39,22 @@
             android:name="epf.domethic.ouroboros.activity.ConnexionActivity"
             android:label="@string/title_activity_connexion" >
         </activity>
+        <activity
+            android:name="epf.domethic.ouroboros.activity.ArchivesActivity"
+            android:label="@string/title_activity_archives" >
+        </activity>
+        <activity
+            android:name="epf.domethic.ouroboros.activity.CodificationActivity"
+            android:label="@string/title_activity_codification" >
+        </activity>
+        <activity
+            android:name="epf.domethic.ouroboros.activity.HospiEnCoursActivity"
+            android:label="@string/title_activity_hospi_en_cours" >
+        </activity>
+        <activity
+            android:name="epf.domethic.ouroboros.activity.VueDonneesSocioActivity"
+            android:label="@string/title_activity_vue_donnees_socio" >
+        </activity>
     </application>
 
 </manifest>
