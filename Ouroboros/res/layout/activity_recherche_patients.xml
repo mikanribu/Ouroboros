@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:showDividers="middle" >
+
+    <fragment 	android:id="@+id/recherche_patient" 
+	    		android:layout_height="match_parent"
+	    		android:layout_width="0dp"
+	    		android:layout_weight="2"
+	    		android:name="epf.domethic.ouroboros.activity.RecherchePatientFragment"
+	/> 	
+	<fragment 	android:id="@+id/etudiant_detail" 
+	    		android:layout_height="match_parent"
+	    		android:layout_width="0dp"
+	    		android:layout_weight="2"
+	    		android:name="epf.domethic.ouroboros.activity.AfficherPatientFragment"
+	/> 
+    
+
+</LinearLayout>

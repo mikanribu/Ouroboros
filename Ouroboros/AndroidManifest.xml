@@ -55,6 +55,10 @@
             android:name="epf.domethic.ouroboros.activity.VueDonneesSocioActivity"
             android:label="@string/title_activity_vue_donnees_socio" >
         </activity>
+        <activity
+            android:name="epf.domethic.ouroboros.activity.RecherchePatientActivity"
+            android:label="@string/title_activity_recherche_patients" >
+        </activity>
     </application>
 
 </manifest>
