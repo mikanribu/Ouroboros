@@ -11,6 +11,7 @@ import android.widget.TextView;
 public class AfficherPatientFragment extends Fragment {
 
 	private TextView nNomPatient;
+	private TextView nPrenomPatient;
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState ){
