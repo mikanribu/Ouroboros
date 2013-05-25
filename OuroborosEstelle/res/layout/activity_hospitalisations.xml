@@ -60,7 +60,7 @@
                 android:textSize="20sp" />
 
             <Button
-                android:id="@+id/Hospitalisation"
+                android:id="@+id/bHospitalisation"
                 android:layout_width="140dp"
                 android:layout_height="40dp"
                 android:layout_centerHorizontal="true"
@@ -79,7 +79,7 @@
                 android:textStyle="bold" />
             
             <Button
-                android:id="@+id/Recherche"
+                android:id="@+id/bRecherche"
                 android:layout_width="140dp"
                 android:layout_height="40dp"
                 android:layout_centerHorizontal="true"
@@ -98,7 +98,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/GererVosDossier"
+                android:id="@+id/GererVosDossiers"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
@@ -111,7 +111,7 @@
                 android:textSize="20sp" />
 
             <Button
-                android:id="@+id/CreationDossier"
+                android:id="@+id/bCreationDossier"
                 android:layout_width="140dp"
                 android:layout_height="40dp"
                 android:layout_centerHorizontal="true"
@@ -130,7 +130,7 @@
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/AjoutDocument"
+                android:id="@+id/bAjoutDocument"
                 android:layout_width="140dp"
                 android:layout_height="40dp"
                 android:layout_centerHorizontal="true"
@@ -149,7 +149,7 @@
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/Transfert"
+                android:id="@+id/bTransfert"
                 android:layout_width="140dp"
                 android:layout_height="40dp"
                 android:layout_centerHorizontal="true"
@@ -168,7 +168,7 @@
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/ACodifier"
+                android:id="@+id/bACodifier"
                 android:layout_width="140dp"
                 android:layout_height="40dp"
                 android:layout_centerHorizontal="true"
@@ -200,7 +200,7 @@
                 android:textSize="20sp" />
 
             <Button
-                android:id="@+id/Archives"
+                android:id="@+id/bArchives"
                 android:layout_width="140dp"
                 android:layout_height="40dp"
                 android:layout_centerHorizontal="true"
@@ -219,7 +219,7 @@
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/MonCompte"
+                android:id="@+id/bMonCompte"
                 android:layout_width="140dp"
                 android:layout_height="40dp"
                 android:layout_centerHorizontal="true"
@@ -243,7 +243,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:paddingTop="80dp"
-                android:text="- Host and"
+                android:text="@string/hostAnd"
                 android:textColor="@color/BleuMedecin"
                 android:textSize="18sp"
                 android:textStyle="italic" />
@@ -253,7 +253,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
-                android:text="save lifes."
+                android:text="@string/saveLives"
                 android:textColor="@color/BleuMedecin"
                 android:textSize="18sp"
                 android:textStyle="italic" />
