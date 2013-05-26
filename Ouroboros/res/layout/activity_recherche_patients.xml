@@ -9,13 +9,13 @@
 	    		android:layout_height="match_parent"
 	    		android:layout_width="0dp"
 	    		android:layout_weight="2"
-	    		android:name="epf.domethic.ouroboros.activity.RecherchePatientFragment"
+	    		class="epf.domethic.ouroboros.activity.RecherchePatientFragment"
 	/> 	
 	<fragment 	android:id="@+id/etudiant_detail" 
 	    		android:layout_height="match_parent"
 	    		android:layout_width="0dp"
 	    		android:layout_weight="2"
-	    		android:name="epf.domethic.ouroboros.activity.AfficherPatientFragment"
+	    		class="epf.domethic.ouroboros.activity.AfficherPatientFragment"
 	/> 
     
 

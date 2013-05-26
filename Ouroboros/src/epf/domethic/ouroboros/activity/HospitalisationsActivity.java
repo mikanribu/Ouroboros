@@ -14,6 +14,7 @@ import android.app.FragmentManager;
 import android.app.ListActivity;
 import android.app.SearchManager;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -21,6 +22,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.SearchView;
@@ -36,6 +38,9 @@ public class HospitalisationsActivity extends Activity implements
 
 	protected LinearLayout mList;
 	protected AnimationLayout mLayout;
+	
+	private Button bRecherche;
+	private Button bArchives;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -62,7 +67,28 @@ public class HospitalisationsActivity extends Activity implements
 		ListView liste = (ListView) findViewById(R.id.list);
 		PatientAdapter aa = new PatientAdapter(this, patients); 
 	    liste.setAdapter(aa);
+	    
+	    bRecherche = (Button) findViewById(R.id.bRecherche);
+	    
+	    final Intent intent_recherche = new Intent(HospitalisationsActivity.this, RecherchePatientActivity.class);
+		
 
+	    bRecherche.setOnClickListener(new View.OnClickListener() {
+	    	@Override
+	    	public void onClick(View v) {
+	    		startActivity(intent_recherche);
+	    	}
+	    });
+	    
+	    bArchives = (Button) findViewById(R.id.bArchives);
+	    final Intent intent_archives = new Intent(HospitalisationsActivity.this, ArchivesActivity.class);
+		
+	    bArchives.setOnClickListener(new View.OnClickListener() {
+	    	@Override
+	    	public void onClick(View v) {
+	    		startActivity(intent_archives);
+	    	}
+	    });
 	}
 
 	@Override

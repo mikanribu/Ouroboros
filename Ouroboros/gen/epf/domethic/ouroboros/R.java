@@ -52,13 +52,13 @@ public final class R {
         public static final int TrouverPatient=0x7f06000d;
         public static final int action_recherche=0x7f060003;
         public static final int action_settings=0x7f060002;
-        public static final int ajout_consult=0x7f060030;
-        public static final int ajout_doc=0x7f060031;
-        public static final int ajout_hospi=0x7f060034;
+        public static final int ajout_consult=0x7f060038;
+        public static final int ajout_doc=0x7f060039;
+        public static final int ajout_hospi=0x7f06003c;
         public static final int animation_layout=0x7f060009;
         public static final int animation_layout_content=0x7f060001;
         public static final int animation_layout_sidebar=0x7f060000;
-        public static final int archives=0x7f06002e;
+        public static final int archives=0x7f060036;
         public static final int bACodifier=0x7f060014;
         public static final int bAjoutDocument=0x7f060012;
         public static final int bArchives=0x7f060016;
@@ -68,7 +68,7 @@ public final class R {
         public static final int bRecherche=0x7f06000f;
         public static final int bTransfert=0x7f060013;
         public static final int bouton_connexion=0x7f060008;
-        public static final int codification=0x7f06002f;
+        public static final int codification=0x7f060037;
         public static final int edittext_date_naissance=0x7f060026;
         public static final int edittext_lieu_naissance=0x7f060024;
         public static final int edittext_nom=0x7f060020;
@@ -76,12 +76,12 @@ public final class R {
         public static final int encadre=0x7f060005;
         public static final int etudiant_detail=0x7f06001d;
         public static final int grand_logo=0x7f060004;
-        public static final int hospi_en_cours=0x7f06002d;
-        public static final int imageView1=0x7f06002a;
-        public static final int infos_generales=0x7f06002c;
+        public static final int hospi_en_cours=0x7f060035;
+        public static final int imageView1=0x7f060032;
+        public static final int infos_generales=0x7f060034;
         public static final int list=0x7f06001a;
         public static final int listeEleves=0x7f06001b;
-        public static final int modif_data=0x7f060033;
+        public static final int modif_data=0x7f06003b;
         public static final int pseudo=0x7f060006;
         public static final int pswd=0x7f060007;
         public static final int rbtn_sexeF=0x7f060028;
@@ -89,14 +89,22 @@ public final class R {
         public static final int recherche_patient=0x7f06001c;
         public static final int saveLives=0x7f060019;
         public static final int slideMenu=0x7f06000a;
-        public static final int textView1=0x7f060029;
+        public static final int textview_dateNaissance_value=0x7f06002f;
         public static final int textview_date_naissance=0x7f060025;
         public static final int textview_lieu_naissance=0x7f060023;
+        public static final int textview_lieu_naissance_value=0x7f06002d;
         public static final int textview_nom=0x7f06001f;
         public static final int textview_prenom=0x7f060021;
-        public static final int titreLivre=0x7f06002b;
+        public static final int textview_sexe=0x7f06002a;
+        public static final int textview_sexe_value=0x7f06002b;
+        public static final int titreLivre=0x7f060033;
+        public static final int tv_date_naissance_visual=0x7f06002e;
+        public static final int tv_lieu_naissance_visual=0x7f06002c;
+        public static final int tv_nom_patient=0x7f060029;
         public static final int tv_titre=0x7f06001e;
-        public static final int vue_patient=0x7f060032;
+        public static final int tv_ville_value=0x7f060031;
+        public static final int tv_ville_visual=0x7f060030;
+        public static final int vue_patient=0x7f06003a;
     }
     public static final class layout {
         public static final int accueil=0x7f030000;
@@ -187,6 +195,7 @@ public final class R {
         public static final int title_activity_vue_donnees_socio=0x7f07000c;
         public static final int transfert=0x7f070014;
         public static final int trouverPatient=0x7f07000f;
+        public static final int visual_sexe=0x7f070040;
         public static final int vue_patient=0x7f070032;
     }
     public static final class style {

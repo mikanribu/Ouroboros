@@ -5,9 +5,18 @@ import java.util.Date;
 import java.util.List;
 
 public class Patient {
+	
+	public enum Sexe {
+		HOMME,
+		FEMME;
+	}
+	
+	
 	private String nom;
 	private String prenom;
 	private Date dateNaissance;
+	private String lieuNaissance;
+	private Sexe sexe;
 	
 	public static List<Patient> ALL;
 	
@@ -19,12 +28,9 @@ public class Patient {
 		}
 	}
 	
-	private enum Sexe {
-		HOMME,
-		FEMME;
-	}
-	private Sexe sexe;
 	
+
+
 	public Patient (){
 		
 	}
@@ -60,6 +66,13 @@ public class Patient {
 	}
 	public void setSexe(Sexe sexe) {
 		this.sexe = sexe;
+	}
+	public String getLieuNaissance() {
+		return lieuNaissance;
+	}
+
+	public void setLieuNaissance(String lieuNaissance) {
+		this.lieuNaissance = lieuNaissance;
 	}
 
 

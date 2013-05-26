@@ -1,6 +1,7 @@
 package epf.domethic.ouroboros.activity;
 
 import epf.domethic.ouroboros.R;
+import android.app.Activity;
 import android.app.SearchManager;
 import android.content.Context;
 import android.os.Bundle;
@@ -9,7 +10,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.widget.SearchView;
 
-public class RecherchePatientActivity extends FragmentActivity {
+public class RecherchePatientActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
