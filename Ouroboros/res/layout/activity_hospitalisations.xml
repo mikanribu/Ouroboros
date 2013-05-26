@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
+<<<<<<< HEAD
 <epf.domethic.ouroboros.animations.AnimationLayout xmlns:android="http://schemas.android.com/apk/res/android"
+=======
+<epf.domethic.ouroboros.widget.AnimationLayout xmlns:android="http://schemas.android.com/apk/res/android"
+>>>>>>> f255f7a0ba2c0dcdb478ad5c5f2bfc354aec841b
     android:id="@+id/animation_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
     <LinearLayout
+<<<<<<< HEAD
         android:id="@+id/animation_layout_sidebar"
+=======
+        android:id="@id/animation_layout_sidebar"
+>>>>>>> f255f7a0ba2c0dcdb478ad5c5f2bfc354aec841b
         android:layout_width="200dip"
         android:layout_height="match_parent"
         android:orientation="vertical" >
@@ -242,7 +250,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
+<<<<<<< HEAD
                 android:paddingTop="80dp"
+=======
+                android:paddingTop="40dp"
+>>>>>>> f255f7a0ba2c0dcdb478ad5c5f2bfc354aec841b
                 android:text="@string/hostAnd"
                 android:textColor="@color/BleuMedecin"
                 android:textSize="18sp"
@@ -259,6 +271,7 @@
                 android:textStyle="italic" />
             
         </LinearLayout>
+<<<<<<< HEAD
     </LinearLayout>
 
     <!-- To make LinearLayout clickable to trigger onContentTouchedWhenOpening() -->
@@ -298,3 +311,36 @@
     </LinearLayout>
 
 </epf.domethic.ouroboros.animations.AnimationLayout>
+=======
+    </LinearLayout>
+
+    <!-- To make LinearLayout clickable to trigger onContentTouchedWhenOpening() -->
+
+    <LinearLayout
+        android:id="@id/animation_layout_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#999999"
+        android:clickable="true"
+        android:orientation="vertical" >
+            
+        <!--
+        <fragment
+            android:id="@+id/patient_list"
+            android:name="epf.domethic.ouroboros.activity.ListerPatientsFragment"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+        -->
+        
+        <ListView
+            android:id="@+id/list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2dp" >
+        </ListView>
+       
+    </LinearLayout>
+
+</epf.domethic.ouroboros.widget.AnimationLayout>
+>>>>>>> f255f7a0ba2c0dcdb478ad5c5f2bfc354aec841b

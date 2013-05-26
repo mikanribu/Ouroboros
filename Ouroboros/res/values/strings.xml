@@ -20,7 +20,11 @@
     <string name="deconnexion">> Déconnexion</string>
     <string name="trouverPatient">Trouver Patient</string>
     <string name="hospiService">Hospitalisations du service</string>
+<<<<<<< HEAD
     <string name="gestionDossiers">Gérer vos dossierss</string>
+=======
+    <string name="gestionDossiers">Gérer vos dossiers</string>
+>>>>>>> f255f7a0ba2c0dcdb478ad5c5f2bfc354aec841b
     <string name="creerDos">Création dossier</string>
     <string name="ajoutDoc">Ajout document</string>
     <string name="transfert">Transfert</string>
