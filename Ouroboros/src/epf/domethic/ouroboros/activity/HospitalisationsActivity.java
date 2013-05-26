@@ -49,10 +49,7 @@ public class HospitalisationsActivity extends Activity implements
 		actionBar.setBackgroundDrawable(colorDrawable);
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 		actionBar.setHomeButtonEnabled(true); // The icone_launcher will not go
-												// back automatically to home
-												// (API min 14)
-
-		 
+												// back automatically to home (API min 14)
 
 		mLayout = (AnimationLayout) findViewById(R.id.animation_layout);
 		mLayout.setListener(this);
