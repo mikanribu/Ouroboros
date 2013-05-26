@@ -2,34 +2,40 @@ package epf.domethic.ouroboros.activity;
 
 import java.util.List;
 
+
+import epf.domethic.ouroboros.widget.AnimationLayout;
 import epf.domethic.ouroboros.R;
 import epf.domethic.ouroboros.adapter.PatientAdapter;
-import epf.domethic.ouroboros.animations.CollapseAnimation;
-import epf.domethic.ouroboros.animations.ExpandAnimation;
 import epf.domethic.ouroboros.model.Patient;
 import android.os.Bundle;
 import android.app.ActionBar;
 import android.app.Activity;
+import android.app.FragmentManager;
+import android.app.ListActivity;
 import android.app.SearchManager;
 import android.content.Context;
 import android.graphics.drawable.ColorDrawable;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.SearchView;
 
-public class HospitalisationsActivity extends Activity {
+public class HospitalisationsActivity extends Activity implements
+		AnimationLayout.Listener {
 	/** Called when the activity is first created. */
 
 	// The menu configuration
-	private LinearLayout MenuList; // The layout where the menu is written in
-									// activity_main.xml
 	private int screenWidth;// The size of the screen
-	private boolean isExpanded;// The configuration of the menu: collapsed or
-								// expanded
+
+	public final static String TAG = "Demo";
+
+	protected LinearLayout mList;
+	protected AnimationLayout mLayout;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -42,26 +48,23 @@ public class HospitalisationsActivity extends Activity {
 		colorDrawable.setColor(0xff7184fa);
 		actionBar.setBackgroundDrawable(colorDrawable);
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
-
 		actionBar.setHomeButtonEnabled(true); // The icone_launcher will not go
-												// back automatically to home.
+												// back automatically to home
 												// (API min 14)
 
-		MenuList = (LinearLayout) findViewById(R.id.slideMenu);// rely the menu
-																// to the
-																// corresponding
-																// layout
+		 
 
-		// get screen size
-		DisplayMetrics metrics = new DisplayMetrics();
-		getWindowManager().getDefaultDisplay().getMetrics(metrics);
-		screenWidth = metrics.widthPixels;// Get the horizontal size of the
-											// screen who uses the application
-
-		List<Patient> patients = Patient.ALL;
+		mLayout = (AnimationLayout) findViewById(R.id.animation_layout);
+		mLayout.setListener(this);
+		mList = (LinearLayout) findViewById(R.id.slideMenu);
+		
+		List<Patient> patients = Patient.ALL; 
+/*		PatientAdapter aa = new PatientAdapter(this, patients); 
+	    setListAdapter(aa);*/
+		
 		ListView liste = (ListView) findViewById(R.id.list);
-		PatientAdapter aa = new PatientAdapter(this, patients);
-		liste.setAdapter(aa);
+		PatientAdapter aa = new PatientAdapter(this, patients); 
+	    liste.setAdapter(aa);
 
 	}
 
@@ -86,24 +89,46 @@ public class HospitalisationsActivity extends Activity {
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem menuItem) {
-		switch (menuItem.getItemId()) {
-		case android.R.id.home:// When the user click on the icone_launcher
-			if (isExpanded) {// If the menu is visible
-				isExpanded = false;
-				// 0,12 corresponds to the size of the menu compare to the
-				// screen
-				// Move MenuList from 12% of the screenwidth to 0 in 20.
-				MenuList.startAnimation(new CollapseAnimation(MenuList, 0,
-						(int) (screenWidth * 0.12), 20));
-			} else {// If the menu is invisible
-				isExpanded = true;
-				// Move MenuList from 0 to 12% of the screenwidth in 20.
-				MenuList.startAnimation(new ExpandAnimation(MenuList, 0,
-						(int) (screenWidth * 0.12), 20));
-			}
-			return true;
+		if(menuItem.getItemId()== android.R.id.home){
+			mLayout.toggleSidebar();
 		}
 		return (super.onOptionsItemSelected(menuItem));
 	}
+
+	public void onClickContentButton(View v) {
+		mLayout.toggleSidebar();
+	}
+
+	@Override
+	public void onBackPressed() {
+		if (mLayout.isOpening()) {
+			mLayout.closeSidebar();
+		} else {
+			finish();
+		}
+	}
+
+	/* Callback of AnimationLayout.Listener to monitor status of Sidebar */
+	@Override
+	public void onSidebarOpened() {
+		Log.d(TAG, "opened");
+	}
+
+	/* Callback of AnimationLayout.Listener to monitor status of Sidebar */
+	@Override
+	public void onSidebarClosed() {
+		Log.d(TAG, "closed");
+	}
+
+	/* Callback of AnimationLayout.Listener to monitor status of Sidebar */
+	@Override
+	public boolean onContentTouchedWhenOpening() {
+		// the content area is touched when sidebar opening, close sidebar
+		Log.d(TAG, "going to close sidebar");
+		mLayout.closeSidebar();
+		return true;
+	}
+
+
 
 }
