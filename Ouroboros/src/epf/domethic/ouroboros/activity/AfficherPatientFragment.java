@@ -4,8 +4,8 @@ import java.text.SimpleDateFormat;
 
 import epf.domethic.ouroboros.R;
 import epf.domethic.ouroboros.model.Patient;
+import android.app.Fragment;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
