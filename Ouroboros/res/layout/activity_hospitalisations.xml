@@ -15,7 +15,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="0.01"
-            android:background="@color/GrisMenu"
+            android:background="#000080"
             android:orientation="vertical" >
 
             <!-- On crée le menu ici -->
@@ -30,7 +30,7 @@
                 android:padding="0dip"
                 android:paddingTop="3dp"
                 android:text="Paul Durand"
-                android:textColor="@color/BleuMedecin"
+                android:textColor="#FFFFFF"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
@@ -267,7 +267,7 @@
         android:id="@+id/animation_layout_content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#999999"
+        android:background="@android:color/background_light"
         android:clickable="true"
         android:orientation="vertical" >
             
