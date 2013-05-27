@@ -23,4 +23,6 @@ public class Medecin extends PersonnelMedical {
 		this.chef = chef;
 	}
 	
+	//On ajoute un commentaire
+	
 }
