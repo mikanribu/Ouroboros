@@ -10,16 +10,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical" >
 
-        <!-- <LinearLayout
-            android:id="@+id/slideMenu"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="0.01"
-            
-            android:orientation="vertical" > -->
-
             <!-- On crée le menu ici -->
-
             <TextView
                 android:id="@+id/NomMedecin"
                 android:layout_width="wrap_content"
@@ -259,8 +250,7 @@
                 android:textStyle="italic" />
         </LinearLayout>
 
-    <!-- To make LinearLayout clickable to trigger onContentTouchedWhenOpening() -->
-
+    
     <LinearLayout
         android:id="@+id/animation_layout_content"
         android:layout_width="match_parent"

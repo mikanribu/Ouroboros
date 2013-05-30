@@ -20,7 +20,6 @@ public class AfficherPatientFragment extends Fragment {
 	private TextView nDateNaissance;
 	private TextView nVille;
 	
-	
 	private Patient patient;
 	
 	@Override
