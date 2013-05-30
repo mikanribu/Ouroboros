@@ -20,7 +20,7 @@
 
             <!-- On crée le menu ici -->
 
-             <TextView
+            <TextView
                 android:id="@+id/NomMedecin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -77,7 +77,7 @@
                 android:textColor="@color/White"
                 android:textSize="16sp"
                 android:textStyle="bold" />
-            
+
             <Button
                 android:id="@+id/bRecherche"
                 android:layout_width="140dp"
@@ -257,7 +257,6 @@
                 android:textColor="@color/BleuMedecin"
                 android:textSize="18sp"
                 android:textStyle="italic" />
-            
         </LinearLayout>
     </LinearLayout>
 
@@ -270,20 +269,19 @@
         android:background="@android:color/background_light"
         android:clickable="true"
         android:orientation="vertical" >
-            
-    <fragment
-        android:id="@+id/patient_list"
-        android:name="epf.domethic.ouroboros.activity.ListerPatientsFragment"
-        android:layout_height="wrap_content"
-        android:layout_weight="1" />
 
-    <fragment
-        android:id="@+id/patient_detail"
-        android:name="epf.domethic.ouroboros.activity.AfficherPatientFragment"
-        android:layout_height="wrap_content"
-        android:layout_weight="3" />
-
+        <fragment
+            android:id="@+id/patient_detail"
+            android:name="epf.domethic.ouroboros.activity.AfficherPatientFragment"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+        
+        <fragment
+            android:id="@+id/patient_list"
+            android:name="epf.domethic.ouroboros.activity.ListerPatientsFragment"
+            android:layout_height="match_parent"
+            android:layout_weight="3" />
     </LinearLayout>
-
 
 </epf.domethic.ouroboros.widget.AnimationLayout>
