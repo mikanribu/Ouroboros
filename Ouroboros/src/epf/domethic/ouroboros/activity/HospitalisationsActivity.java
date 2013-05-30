@@ -25,8 +25,6 @@ public class HospitalisationsActivity extends FragmentActivity implements
 		AnimationLayout.Listener, OnPatientSelectedListener {
 	/** Called when the activity is first created. */
 
-	// The menu configuration
-	private int screenWidth;// The size of the screen
 	private int position;
 	
 	
@@ -54,7 +52,7 @@ public class HospitalisationsActivity extends FragmentActivity implements
 
 		mLayout = (AnimationLayout) findViewById(R.id.animation_layout);
 		mLayout.setListener(this);
-		mList = (LinearLayout) findViewById(R.id.slideMenu);
+		mList = (LinearLayout) findViewById(R.id.animation_layout_sidebar);
 	
 	    
 	    bRecherche = (Button) findViewById(R.id.bRecherche);

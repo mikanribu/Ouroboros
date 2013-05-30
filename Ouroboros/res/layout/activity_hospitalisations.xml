@@ -10,13 +10,13 @@
         android:layout_height="match_parent"
         android:orientation="vertical" >
 
-        <LinearLayout
+        <!-- <LinearLayout
             android:id="@+id/slideMenu"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="0.01"
-            android:background="#000080"
-            android:orientation="vertical" >
+            
+            android:orientation="vertical" > -->
 
             <!-- On crée le menu ici -->
 
@@ -258,7 +258,6 @@
                 android:textSize="18sp"
                 android:textStyle="italic" />
         </LinearLayout>
-    </LinearLayout>
 
     <!-- To make LinearLayout clickable to trigger onContentTouchedWhenOpening() -->
 
@@ -268,8 +267,15 @@
         android:layout_height="match_parent"
         android:background="@android:color/background_light"
         android:clickable="true"
-        android:orientation="vertical" >
+        android:orientation="horizontal" >
 
+        <fragment
+            android:id="@+id/patient_list"
+            android:name="epf.domethic.ouroboros.activity.ListerPatientsFragment"
+            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_weight="3" />
+        
         <fragment
             android:id="@+id/patient_detail"
             android:name="epf.domethic.ouroboros.activity.AfficherPatientFragment"
@@ -277,11 +283,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1" />
         
-        <fragment
-            android:id="@+id/patient_list"
-            android:name="epf.domethic.ouroboros.activity.ListerPatientsFragment"
-            android:layout_height="match_parent"
-            android:layout_weight="3" />
+        
     </LinearLayout>
 
 </epf.domethic.ouroboros.widget.AnimationLayout>
