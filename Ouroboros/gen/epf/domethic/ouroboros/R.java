@@ -79,9 +79,9 @@ public final class R {
         public static final int hospi_en_cours=0x7f060036;
         public static final int imageView1=0x7f060033;
         public static final int infos_generales=0x7f060035;
-        public static final int list=0x7f06001a;
-        public static final int listeEleves=0x7f06001b;
         public static final int modif_data=0x7f06003c;
+        public static final int patient_detail=0x7f06001b;
+        public static final int patient_list=0x7f06001a;
         public static final int pseudo=0x7f060006;
         public static final int pswd=0x7f060007;
         public static final int rbtn_sexeF=0x7f060028;

@@ -1,22 +1,17 @@
 package epf.domethic.ouroboros.activity;
 
-import java.util.List;
 
-
+import epf.domethic.ouroboros.activity.ListerPatientsFragment.OnPatientSelectedListener;
+import epf.domethic.ouroboros.model.Patient;
 import epf.domethic.ouroboros.widget.AnimationLayout;
 import epf.domethic.ouroboros.R;
-import epf.domethic.ouroboros.adapter.PatientAdapter;
-import epf.domethic.ouroboros.model.Patient;
 import android.os.Bundle;
 import android.app.ActionBar;
-import android.app.Activity;
-import android.app.FragmentManager;
-import android.app.ListActivity;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
-import android.util.DisplayMetrics;
+import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -24,16 +19,17 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.SearchView;
 
-public class HospitalisationsActivity extends Activity implements
-		AnimationLayout.Listener {
+public class HospitalisationsActivity extends FragmentActivity implements
+		AnimationLayout.Listener, OnPatientSelectedListener {
 	/** Called when the activity is first created. */
 
 	// The menu configuration
 	private int screenWidth;// The size of the screen
-
+	private int position;
+	
+	
 	public final static String TAG = "Demo";
 
 	protected LinearLayout mList;
@@ -59,14 +55,7 @@ public class HospitalisationsActivity extends Activity implements
 		mLayout = (AnimationLayout) findViewById(R.id.animation_layout);
 		mLayout.setListener(this);
 		mList = (LinearLayout) findViewById(R.id.slideMenu);
-		
-		List<Patient> patients = Patient.ALL; 
-/*		PatientAdapter aa = new PatientAdapter(this, patients); 
-	    setListAdapter(aa);*/
-		
-		ListView liste = (ListView) findViewById(R.id.list);
-		PatientAdapter aa = new PatientAdapter(this, patients); 
-	    liste.setAdapter(aa);
+	
 	    
 	    bRecherche = (Button) findViewById(R.id.bRecherche);
 	    
@@ -154,4 +143,12 @@ public class HospitalisationsActivity extends Activity implements
 
 
 
+	@Override
+	public void onPatientSelected(int position) {
+		this.position = position;
+		AfficherPatientFragment detailFragment = (AfficherPatientFragment)getSupportFragmentManager().findFragmentById(R.id.patient_detail);
+		Patient patient = Patient.ALL.get(position);
+		detailFragment.afficherPatient(patient);
+
+	}
 }
