@@ -6,6 +6,7 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_recherche">Recherche rapide</string>
     <string name="search_hint">Recherche</string>
+    
     <string name="title_activity_recherche">RechercheActivity</string>
     <string name="title_activity_lister_patients_fragment">ListerPatientsFragment</string>
     <string name="title_activity_connexion">Connexion</string>
@@ -15,10 +16,12 @@
     <string name="title_activity_codification">Codification</string>
     <string name="title_activity_vue_donnees_socio">Données socio-démographiques</string>
     <string name="title_activity_recherche_patients">Recherche Patients</string>
+    
     <string name="deconnexion">> Déconnexion</string>
     <string name="trouverPatient">Trouver Patient</string>
     <string name="hospiService">Hospitalisations du service</string>
     <string name="gestionDossiers">Gérer vos dossiers</string>
+
     <string name="creerDos">Création dossier</string>
     <string name="ajoutDoc">Ajout document</string>
     <string name="transfert">Transfert</string>
@@ -57,15 +60,20 @@
     <string name="modif_data">Modification des données socio-démographiques du patient</string>
     <string name="ajout_hospi">Ajouter une hospitalisation</string>
     <string name="diag_principal">Diagnostic principal</string>
+    
     <string name="hostAnd">Host and</string>
     <string name="saveLives">save lives.</string>
+    
     <string name="form_nom_patient">Nom :</string>
-    <string name="form_prenom_patient">Prenom :</string>
-    <string name="form_titre">Recherche du patient</string>
-    <string name="form_titre_visualiser">Profil du patient</string>
-    <string name="form_lieu_naissance">Né(e) à :</string>
-    <string name="form_date_naissance"> le </string>
-    <string name="form_ville">Ville :</string>
-    <string name="visual_sexe">Sexe :</string>
+	<string name="form_prenom_patient">Prenom :</string>
+	<string name="form_titre">Recherche du patient</string>
+	<string name="form_titre_visualiser">Profil du patient</string>
+	<string name="form_lieu_naissance">Né(e) à :</string>
+	<string name="form_date_naissance"> le </string>
+	<string name="form_ville">Ville :</string>
+	
+	<string name="visual_sexe">Sexe :</string>
+	
+
 
 </resources>

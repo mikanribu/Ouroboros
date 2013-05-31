@@ -3,8 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
-    android:paddingBottom="12dp"
-    android:paddingTop="12dp" >
+    android:paddingTop="12dp"
+    android:paddingBottom="12dp" >
 
     <ImageView
         android:id="@+id/imageView1"
@@ -17,7 +17,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:paddingLeft="12dp"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:paddingLeft="12dp" />
+
 
 </LinearLayout>
