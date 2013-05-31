@@ -2,31 +2,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/fond"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".PageConnexionActivity" 
-    android:background="@drawable/fond">
+    tools:context=".PageConnexionActivity" >
 
     <ImageView
         android:id="@+id/grand_logo"
-        android:contentDescription="@string/grand_logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="173dp"
+        android:contentDescription="@string/grand_logo"
         android:src="@drawable/grand_logo" />
 
     <ImageView
         android:id="@+id/encadre"
-        android:contentDescription="@string/encadre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="60dp"
+        android:contentDescription="@string/encadre"
         android:src="@drawable/encadre" />
 
     <EditText
@@ -60,11 +60,11 @@
 
     <ImageButton
         android:id="@+id/bouton_connexion"
-        android:contentDescription="@string/bouton_connexion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/pswd"
         android:layout_alignRight="@+id/grand_logo"
+        android:contentDescription="@string/bouton_connexion"
         android:src="@drawable/bouton_connexion" />
 
 </RelativeLayout>

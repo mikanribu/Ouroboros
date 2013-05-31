@@ -5,7 +5,7 @@
     android:layout_margin="30dp"
     android:columnCount="5"
     android:useDefaultMargins="false" >
-    
+
     <TextView
         android:id="@+id/tv_titre"
         android:layout_column="0"
@@ -98,5 +98,4 @@
         android:layout_row="1"
         android:drawableRight="@drawable/female" />
 
- 
 </GridLayout>
