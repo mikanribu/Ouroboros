@@ -2,37 +2,30 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginLeft="20dp"
-    android:orientation="vertical" >
+    android:layout_marginRight="16dp"
+    android:orientation="vertical"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp" >
 
-<RelativeLayout     
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content" >
-    
-   <TextView
-       android:id="@+id/tv_titre_visualiser"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:text="@string/form_titre_visualiser"
-       android:textSize="32sp" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
 
-    <TextView
-        android:id="@+id/tv_nom_patient"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:layout_alignParentLeft="true"
-        android:layout_centerVertical="true" />
-  
-    
-</RelativeLayout>
-    
+        <TextView
+            android:id="@+id/tv_nom_patient"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+    </RelativeLayout>
 
     <View
-        android:paddingTop="16dp"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@android:color/black" />
+        android:background="@android:color/black"
+        android:paddingTop="16dp" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -40,14 +33,52 @@
         android:layout_marginTop="@dimen/activity_vertical_margin" >
 
         <TextView
-            android:id="@+id/textview_sexe"
+            android:id="@+id/textview_nom"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
-        	android:layout_alignParentTop="true"
-            android:text="@string/visual_sexe"
+            android:layout_alignParentTop="true"
+            android:text="@string/form_nom_patient"
             android:textAppearance="?android:attr/textAppearanceLarge" />
-          
+
+        <TextView
+            android:id="@+id/textview_nom_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/textview_nom"
+            android:layout_marginLeft="150dp"
+            android:layout_toRightOf="@+id/textview_nom"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/textview_prenom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/textview_nom"
+            android:layout_below="@+id/textview_nom"
+            android:layout_marginTop="16dp"
+            android:text="@string/form_prenom_patient"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/textview_prenom_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/textview_prenom"
+            android:layout_marginLeft="150dp"
+            android:layout_toRightOf="@+id/textview_prenom"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/textview_sexe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/textview_prenom"
+            android:layout_below="@+id/textview_prenom"
+            android:layout_marginTop="16dp"
+            android:text="@string/form_sexe"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
         <TextView
             android:id="@+id/textview_sexe_value"
             android:layout_width="wrap_content"
@@ -56,14 +87,14 @@
             android:layout_marginLeft="150dp"
             android:layout_toRightOf="@+id/textview_sexe"
             android:textAppearance="?android:attr/textAppearanceLarge" />
-                
+
         <TextView
-            android:id="@+id/tv_lieu_naissance_visual"
+            android:id="@+id/textview_lieu_naissance"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignLeft="@+id/textview_sexe"
-        	android:layout_below="@+id/textview_sexe"
-        	android:layout_marginTop="16dp"
+            android:layout_below="@+id/textview_sexe"
+            android:layout_marginTop="16dp"
             android:text="@string/form_lieu_naissance"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -71,46 +102,46 @@
             android:id="@+id/textview_lieu_naissance_value"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/tv_lieu_naissance_visual"
-            android:layout_alignLeft="@+id/textview_sexe_value"
+            android:layout_alignBottom="@+id/textview_lieu_naissance"
+            android:layout_alignLeft="@+id/textview_lieu_naissance_value"
             android:textAppearance="?android:attr/textAppearanceLarge" />
-                
+
         <TextView
-            android:id="@+id/tv_date_naissance_visual"
+            android:id="@+id/textview_date_naissance"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/tv_lieu_naissance_visual"
-        	android:layout_below="@+id/tv_lieu_naissance_visual"
-        	android:layout_marginTop="16dp"
+            android:layout_alignLeft="@+id/textview_lieu_naissance"
+            android:layout_below="@+id/textview_lieu_naissance"
+            android:layout_marginTop="16dp"
             android:text="@string/form_date_naissance"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
-            android:id="@+id/textview_dateNaissance_value"
+            android:id="@+id/textview_date_naissance_value"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/tv_date_naissance_visual"
-            android:layout_alignLeft="@+id/textview_sexe_value"
+            android:layout_alignBottom="@+id/textview_date_naissance"
+            android:layout_marginLeft="150dp"
+            android:layout_toRightOf="@+id/textview_date_naissance"
             android:textAppearance="?android:attr/textAppearanceLarge" />
-        
-                <TextView
-            android:id="@+id/tv_ville_visual"
+
+        <TextView
+            android:id="@+id/textview_ville"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/tv_date_naissance_visual"
-        	android:layout_below="@+id/tv_date_naissance_visual"
-        	android:layout_marginTop="16dp"
+            android:layout_alignLeft="@+id/textview_date_naissance"
+            android:layout_below="@+id/textview_date_naissance"
+            android:layout_marginTop="16dp"
             android:text="@string/form_ville"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
-            android:id="@+id/tv_ville_value"
+            android:id="@+id/textview_ville_value"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/tv_date_naissance_visual"
-            android:layout_alignLeft="@+id/textview_sexe_value"
+            android:layout_alignBottom="@+id/textview_ville"
+            android:layout_alignLeft="@+id/textview_ville_value"
             android:textAppearance="?android:attr/textAppearanceLarge" />
-
     </RelativeLayout>
 
 </LinearLayout>
