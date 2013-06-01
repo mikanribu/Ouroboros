@@ -26,7 +26,7 @@ public class PatientAdapter extends ArrayAdapter<Patient>{
 	     view = inflater.inflate(R.layout.patients_list_entry, parent, false);
 	    }
 	    Patient patient = getItem(position);
-	    TextView titre = (TextView)view.findViewById(R.id.titreLivre);
+	    TextView titre = (TextView)view.findViewById(R.id.tvNom);
 	    titre.setText(patient.getNom() + " - " + patient.getPrenom());
 	   return view;
 	  }

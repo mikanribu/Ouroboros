@@ -17,9 +17,9 @@
     <string name="title_activity_vue_donnees_socio">Données socio-démographiques</string>
     <string name="title_activity_recherche_patients">Recherche Patients</string>
     
-    <string name="deconnexion">> Déconnexion</string>
-    <string name="trouverPatient">Trouver Patient</string>
-    <string name="hospiService">Hospitalisations du service</string>
+    <string name="deconnexion">Déconnexion</string>
+    <string name="trouverPatient">Trouver un patient</string>
+    <string name="hospiService">Hospitalisations</string>
     <string name="gestionDossiers">Gérer vos dossiers</string>
 
     <string name="creerDos">Création dossier</string>

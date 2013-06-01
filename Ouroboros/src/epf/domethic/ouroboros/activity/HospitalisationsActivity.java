@@ -54,7 +54,7 @@ public class HospitalisationsActivity extends FragmentActivity implements
 		mLayout.setListener(this);
 		mList = (LinearLayout) findViewById(R.id.animation_layout_sidebar);
 	
-	    
+/*	    
 	    bRecherche = (Button) findViewById(R.id.bRecherche);
 	    
 	    final Intent intent_recherche = new Intent(HospitalisationsActivity.this, RecherchePatientActivity.class);
@@ -75,7 +75,7 @@ public class HospitalisationsActivity extends FragmentActivity implements
 	    	public void onClick(View v) {
 	    		startActivity(intent_archives);
 	    	}
-	    });
+	    });*/
 	}
 
 	@Override
