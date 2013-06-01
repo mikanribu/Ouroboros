@@ -41,8 +41,15 @@ public final class R {
         public static final int infos_g=0x7f02000c;
         public static final int logo_blanc=0x7f02000d;
         public static final int male=0x7f02000e;
-        public static final int menu_action_search=0x7f02000f;
-        public static final int uroboroslogoseul=0x7f020010;
+        public static final int menu_a_codifier=0x7f02000f;
+        public static final int menu_action_search=0x7f020010;
+        public static final int menu_ajout_doc=0x7f020011;
+        public static final int menu_archives=0x7f020012;
+        public static final int menu_creer_dossier=0x7f020013;
+        public static final int menu_hospitalisations=0x7f020014;
+        public static final int menu_mon_compte=0x7f020015;
+        public static final int menu_transfert=0x7f020016;
+        public static final int uroboroslogoseul=0x7f020017;
     }
     public static final class id {
         public static final int AutresActions=0x7f060014;

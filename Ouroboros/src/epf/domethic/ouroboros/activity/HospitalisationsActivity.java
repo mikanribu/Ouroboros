@@ -20,6 +20,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.SearchView;
+import android.widget.TextView;
 
 public class HospitalisationsActivity extends FragmentActivity implements
 		AnimationLayout.Listener, OnPatientSelectedListener {
@@ -33,8 +34,8 @@ public class HospitalisationsActivity extends FragmentActivity implements
 	protected LinearLayout mList;
 	protected AnimationLayout mLayout;
 	
-	private Button bRecherche;
-	private Button bArchives;
+	private TextView tvRecherche;
+	private TextView tvArchives;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -54,28 +55,27 @@ public class HospitalisationsActivity extends FragmentActivity implements
 		mLayout.setListener(this);
 		mList = (LinearLayout) findViewById(R.id.animation_layout_sidebar);
 	
-/*	    
-	    bRecherche = (Button) findViewById(R.id.bRecherche);
 	    
-	    final Intent intent_recherche = new Intent(HospitalisationsActivity.this, RecherchePatientActivity.class);
+	    tvRecherche = (TextView) findViewById(R.id.bRecherche);
 		
 
-	    bRecherche.setOnClickListener(new View.OnClickListener() {
+	    tvRecherche.setOnClickListener(new View.OnClickListener() {
 	    	@Override
 	    	public void onClick(View v) {
+	    		Intent intent_recherche = new Intent(HospitalisationsActivity.this, RecherchePatientActivity.class);
 	    		startActivity(intent_recherche);
 	    	}
 	    });
 	    
-	    bArchives = (Button) findViewById(R.id.bArchives);
-	    final Intent intent_archives = new Intent(HospitalisationsActivity.this, ArchivesActivity.class);
+	    tvArchives = (TextView) findViewById(R.id.bArchives);
 		
-	    bArchives.setOnClickListener(new View.OnClickListener() {
+	    tvArchives.setOnClickListener(new View.OnClickListener() {
 	    	@Override
 	    	public void onClick(View v) {
+	    		Intent intent_archives = new Intent(HospitalisationsActivity.this, ArchivesActivity.class);
 	    		startActivity(intent_archives);
 	    	}
-	    });*/
+	    });
 	}
 
 	@Override

@@ -24,8 +24,7 @@
             android:paddingTop="3dp"
             android:text="Paul Durand - Médecin"
             android:textColor="#FFFFFF"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textSize="18sp" />
 
         <View
             android:layout_width="match_parent"
@@ -35,21 +34,19 @@
 
         <TextView
             android:id="@+id/tvDeconnexion"
-            android:layout_width="140dp"
-            android:layout_height="40dp"
-            android:layout_centerHorizontal="true"
-            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:gravity="center"
             android:padding="10dip"
+            android:paddingLeft="20dip"
             android:shadowColor="#000000"
             android:shadowDx="1"
             android:shadowDy="1"
             android:shadowRadius="0.6"
             android:text="@string/deconnexion"
             android:textColor="@color/White"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textSize="16sp" />
 
         <View
             android:layout_width="match_parent"
@@ -61,7 +58,6 @@
             android:id="@+id/TrouverPatient"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
             android:layout_gravity="left"
             android:layout_marginTop="0dp"
             android:paddingBottom="2dp"
@@ -81,6 +77,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
+            android:drawablePadding="30dip"
+            android:drawableRight="@drawable/menu_hospitalisations"
             android:gravity="center"
             android:padding="10dp"
             android:paddingLeft="20dip"
@@ -90,8 +88,7 @@
             android:shadowRadius="0.6"
             android:text="@string/hospiService"
             android:textColor="@color/White"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textSize="16sp" />
 
         <View
             android:layout_width="match_parent"
@@ -104,7 +101,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:drawablePadding="30dip"
+            android:drawablePadding="60dip"
             android:drawableRight="@drawable/menu_action_search"
             android:gravity="center"
             android:padding="10dp"
@@ -115,8 +112,7 @@
             android:shadowRadius="0.6"
             android:text="@string/recherche"
             android:textColor="@color/White"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textSize="16sp" />
 
         <View
             android:layout_width="match_parent"
@@ -147,6 +143,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
+            android:drawablePadding="30dip"
+            android:drawableRight="@drawable/menu_creer_dossier"
             android:gravity="center"
             android:padding="10dp"
             android:paddingLeft="20dip"
@@ -156,8 +154,7 @@
             android:shadowRadius="0.6"
             android:text="@string/creerDos"
             android:textColor="#FFFFFF"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textSize="16sp" />
 
         <View
             android:layout_width="match_parent"
@@ -170,6 +167,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
+            android:drawablePadding="30dip"
+            android:drawableRight="@drawable/menu_ajout_doc"
             android:gravity="center"
             android:padding="10dp"
             android:paddingLeft="20dip"
@@ -179,8 +178,7 @@
             android:shadowRadius="0.6"
             android:text="@string/ajoutDoc"
             android:textColor="#FFFFFF"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textSize="16sp" />
 
         <View
             android:layout_width="match_parent"
@@ -192,6 +190,8 @@
             android:id="@+id/bTransfert"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:drawablePadding="30dip"
+            android:drawableRight="@drawable/menu_transfert"
             android:gravity="center"
             android:padding="10dp"
             android:paddingLeft="20dip"
@@ -201,8 +201,7 @@
             android:shadowRadius="0.6"
             android:text="@string/transfert"
             android:textColor="#FFFFFF"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textSize="16sp" />
 
         <View
             android:layout_width="match_parent"
@@ -215,6 +214,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
+            android:drawablePadding="30dip"
+            android:drawableRight="@drawable/menu_a_codifier"
             android:gravity="center"
             android:padding="10dp"
             android:paddingLeft="20dip"
@@ -224,8 +225,7 @@
             android:shadowRadius="0.6"
             android:text="@string/aCodifier"
             android:textColor="#FFFFFF"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textSize="16sp" />
 
         <View
             android:layout_width="match_parent"
@@ -256,6 +256,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
+            android:drawablePadding="30dip"
+            android:drawableRight="@drawable/menu_archives"
             android:gravity="center"
             android:padding="10dp"
             android:paddingLeft="20dip"
@@ -265,8 +267,7 @@
             android:shadowRadius="0.6"
             android:text="@string/archives"
             android:textColor="#FFFFFF"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textSize="16sp" />
 
         <View
             android:layout_width="match_parent"
@@ -279,6 +280,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
+            android:drawablePadding="30dip"
+            android:drawableRight="@drawable/menu_mon_compte"
             android:gravity="center"
             android:padding="10dp"
             android:paddingLeft="20dip"
@@ -288,8 +291,7 @@
             android:shadowRadius="0.6"
             android:text="@string/monCompte"
             android:textColor="#FFFFFF"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textSize="16sp" />
 
         <View
             android:layout_width="match_parent"
