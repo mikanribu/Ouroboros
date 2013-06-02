@@ -1,7 +1,6 @@
 package epf.domethic.ouroboros.activity;
 
 import epf.domethic.ouroboros.R;
-import android.app.Activity;
 import android.app.SearchManager;
 import android.content.Context;
 import android.os.Bundle;

@@ -101,7 +101,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:drawablePadding="60dip"
+            android:drawablePadding="70dip"
             android:drawableRight="@drawable/menu_action_search"
             android:gravity="center"
             android:padding="10dp"
@@ -190,7 +190,7 @@
             android:id="@+id/bTransfert"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:drawablePadding="30dip"
+            android:drawablePadding="80dip"
             android:drawableRight="@drawable/menu_transfert"
             android:gravity="center"
             android:padding="10dp"
@@ -214,7 +214,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:drawablePadding="30dip"
+            android:drawablePadding="80dip"
             android:drawableRight="@drawable/menu_a_codifier"
             android:gravity="center"
             android:padding="10dp"
@@ -256,7 +256,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:drawablePadding="30dip"
+            android:drawablePadding="80dip"
             android:drawableRight="@drawable/menu_archives"
             android:gravity="center"
             android:padding="10dp"
@@ -280,7 +280,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:drawablePadding="30dip"
+            android:drawablePadding="80dip"
             android:drawableRight="@drawable/menu_mon_compte"
             android:gravity="center"
             android:padding="10dp"
@@ -321,6 +321,8 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1" />
+        
+        
     </LinearLayout>
 
 </epf.domethic.ouroboros.widget.AnimationLayout>

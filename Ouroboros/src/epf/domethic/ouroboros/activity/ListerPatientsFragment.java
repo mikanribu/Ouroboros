@@ -2,6 +2,7 @@ package epf.domethic.ouroboros.activity;
 
 import java.util.List;
 
+import epf.domethic.ouroboros.R;
 import epf.domethic.ouroboros.adapter.PatientAdapter;
 import epf.domethic.ouroboros.model.Patient;
 
@@ -9,19 +10,20 @@ import android.app.Activity;
 import android.support.v4.app.ListFragment;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ListView;
 
 public class ListerPatientsFragment extends ListFragment {
-	
+
 	public interface OnPatientSelectedListener {
 		public void onPatientSelected(int position);
 	}
 
 	private OnPatientSelectedListener listener;
 
-	private final static String TAG = ListerPatientsFragment.class
-			.getSimpleName();
+	private final static String TAG = ListerPatientsFragment.class.getSimpleName();
 	private PatientAdapter adapter;
 
 	@Override
@@ -32,6 +34,8 @@ public class ListerPatientsFragment extends ListFragment {
 		setListAdapter(adapter);
 
 	}
+	
+
 
 	@Override
 	public void onAttach(Activity activity) {

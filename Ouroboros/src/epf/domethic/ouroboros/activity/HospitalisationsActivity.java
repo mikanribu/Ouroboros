@@ -1,6 +1,5 @@
 package epf.domethic.ouroboros.activity;
 
-
 import epf.domethic.ouroboros.activity.ListerPatientsFragment.OnPatientSelectedListener;
 import epf.domethic.ouroboros.model.Patient;
 import epf.domethic.ouroboros.widget.AnimationLayout;
@@ -11,13 +10,15 @@ import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.SearchView;
 import android.widget.TextView;
@@ -33,7 +34,6 @@ public class HospitalisationsActivity extends FragmentActivity implements
 
 	protected LinearLayout mList;
 	protected AnimationLayout mLayout;
-	
 	private TextView tvRecherche;
 	private TextView tvArchives;
 
@@ -51,19 +51,34 @@ public class HospitalisationsActivity extends FragmentActivity implements
 		actionBar.setHomeButtonEnabled(true); // The icone_launcher will not go
 												// back automatically to home (API min 14)
 
+		mList = (LinearLayout) findViewById(R.id.animation_layout_sidebar);
 		mLayout = (AnimationLayout) findViewById(R.id.animation_layout);
 		mLayout.setListener(this);
-		mList = (LinearLayout) findViewById(R.id.animation_layout_sidebar);
-	
-	    
-	    tvRecherche = (TextView) findViewById(R.id.bRecherche);
 		
+		/*FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+		   ListerPatientsFragment listFragment = new ListerPatientsFragment();
+		   ft.add(R.id.patient_list, listFragment, "List_Fragment");
+		   ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+		   ft.commit();	*/
 
+	
+	    tvRecherche = (TextView) findViewById(R.id.bRecherche);	
 	    tvRecherche.setOnClickListener(new View.OnClickListener() {
 	    	@Override
 	    	public void onClick(View v) {
-	    		Intent intent_recherche = new Intent(HospitalisationsActivity.this, RecherchePatientActivity.class);
-	    		startActivity(intent_recherche);
+	    		//Intent intent_recherche = new Intent(HospitalisationsActivity.this, RecherchePatientActivity.class);
+	    		//startActivity(intent_recherche);
+	    	/*	FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+	    		ft.remove(fpatient);
+	    		ft.commit();
+	    		
+	    		FragmentManager fragmentManager = getFragmentManager()
+	    				// Or: FragmentManager fragmentManager = getSupportFragmentManager()
+	    		FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+	    				ExampleFragment fragment = new ExampleFragment();
+	    				fragmentTransaction.add(R.id.fragment_container, fragment);
+	    				fragmentTransaction.commit();*/
+	    	    		
 	    	}
 	    });
 	    
@@ -78,6 +93,17 @@ public class HospitalisationsActivity extends FragmentActivity implements
 	    });
 	}
 
+	@Override
+	public void onPatientSelected(int position) {
+		this.position = position;
+		AfficherPatientFragment detailFragment = (AfficherPatientFragment)getSupportFragmentManager().findFragmentById(R.id.patient_detail);
+		Patient patient = Patient.ALL.get(position);
+		detailFragment.afficherPatient(patient);
+
+	}
+	
+	
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the options menu from XML
@@ -137,16 +163,5 @@ public class HospitalisationsActivity extends FragmentActivity implements
 		Log.d(TAG, "going to close sidebar");
 		mLayout.closeSidebar();
 		return true;
-	}
-
-
-
-	@Override
-	public void onPatientSelected(int position) {
-		this.position = position;
-		AfficherPatientFragment detailFragment = (AfficherPatientFragment)getSupportFragmentManager().findFragmentById(R.id.patient_detail);
-		Patient patient = Patient.ALL.get(position);
-		detailFragment.afficherPatient(patient);
-
 	}
 }

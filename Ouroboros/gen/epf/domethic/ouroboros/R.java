@@ -118,12 +118,13 @@ public final class R {
         public static final int activity_connexion=0x7f030003;
         public static final int activity_hospi_en_cours=0x7f030004;
         public static final int activity_hospitalisations=0x7f030005;
-        public static final int activity_recherche=0x7f030006;
-        public static final int activity_recherche_patients=0x7f030007;
-        public static final int activity_vue_donnees_socio=0x7f030008;
-        public static final int fragment_recherche_patients=0x7f030009;
-        public static final int fragment_visualiser_patients=0x7f03000a;
-        public static final int patients_list_entry=0x7f03000b;
+        public static final int activity_liste_hospitalisations=0x7f030006;
+        public static final int activity_recherche=0x7f030007;
+        public static final int activity_recherche_patients=0x7f030008;
+        public static final int activity_vue_donnees_socio=0x7f030009;
+        public static final int fragment_recherche_patients=0x7f03000a;
+        public static final int fragment_visualiser_patients=0x7f03000b;
+        public static final int patients_list_entry=0x7f03000c;
     }
     public static final class menu {
         public static final int accueil=0x7f0a0000;
