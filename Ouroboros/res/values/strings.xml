@@ -63,17 +63,27 @@
     
     <string name="hostAnd">Host and</string>
     <string name="saveLives">save lives.</string>
-    
-    <string name="form_nom_patient">Nom :</string>
+   
+	<string name="title_infos_generales">Informations générales</string>
+	<string name="form_nom_patient">Nom :</string>
 	<string name="form_prenom_patient">Prenom :</string>
 	<string name="form_titre">Recherche du patient</string>
 	<string name="form_titre_visualiser">Profil du patient</string>
-	<string name="form_lieu_naissance">Né(e) à :</string>
-	<string name="form_date_naissance"> le </string>
-	<string name="form_ville">Ville :</string>
-	
+	<string name="form_lieu_naissance">Lieu de naissance :</string>
+	<string name="form_date_naissance">Date de naissance: </string>
 	<string name="form_sexe">Sexe :</string>
+	<string name="form_ss">Numéro SS :</string>
 	
-
+	<string name="title_residence">Résidence</string>
+	<string name="form_adresse">Adresse :</string>
+	<string name="form_code_postal">Code postal :</string>
+	<string name="form_pays">Pays :</string>
+	<string name="form_ville">Ville :</string>
+	<string name="form_nationalite">Nationalité :</string>
+	
+	<string name="title_divers">Divers</string>
+	<string name="form_telephone">Numéro de téléphone :</string>
+	<string name="form_medecin_traitant">Médecin traitant :</string>
+	<string name="form_remarques">Remarques :</string>
 
 </resources>

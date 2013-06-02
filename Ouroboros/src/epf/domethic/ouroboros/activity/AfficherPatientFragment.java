@@ -26,9 +26,9 @@ public class AfficherPatientFragment extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState ){
 		View view = inflater.inflate(R.layout.fragment_visualiser_patients,container, false);
 		nNomPatient = (TextView)view.findViewById(R.id.tv_nom_patient);
-		nSexePatient = (TextView)view.findViewById(R.id.textview_sexe);
+		nSexePatient = (TextView)view.findViewById(R.id.textview_sexe_value);
 		nLieuNaissance = (TextView)view.findViewById(R.id.textview_date_naissance_value);
-		nDateNaissance = (TextView)view.findViewById(R.id.textview_date_naissance);
+		nDateNaissance = (TextView)view.findViewById(R.id.textview_date_naissance_value);
 		
 		return view;
 	}
