@@ -71,7 +71,7 @@ public class HospitalisationsActivity extends FragmentActivity implements
 		fragmentTransaction.add(R.id.deuxTiers, fragment_detail);
 		fragmentTransaction.commit();
 			
-	    tvRecherche = (TextView) findViewById(R.id.bRecherche);	
+	    tvRecherche = (TextView) findViewById(R.id.tvRecherche);	
 	    tvRecherche.setOnClickListener(new View.OnClickListener() {
 	    @Override
 	    public void onClick(View v) {
@@ -85,13 +85,12 @@ public class HospitalisationsActivity extends FragmentActivity implements
 	    	}
 	    });
 	    
-	    tvArchives = (TextView) findViewById(R.id.bArchives);
+	    tvArchives = (TextView) findViewById(R.id.tvArchives);
 		
 	    tvArchives.setOnClickListener(new View.OnClickListener() {
 	    	@Override
 	    	public void onClick(View v) {
-	    		Intent intent_archives = new Intent(HospitalisationsActivity.this, ArchivesActivity.class);
-	    		startActivity(intent_archives);
+	    		
 	    	}
 	    });
 	}
