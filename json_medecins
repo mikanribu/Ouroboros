@@ -1,0 +1,22 @@
+{
+    "medecin": [
+  {
+		"id": "1",
+		"nom": "House",
+		"prenom": "Gregory",
+		"mail": "gregory.house@dmail.com",
+		"telephone": "06.12.12.90.90",
+		"service": "cardiologie",
+		"chef": "NON"
+	},
+	{
+		"id": "2",
+		"nom": "Sheperd",
+		"prenom": "Derek",
+		"mail": "derek.sheperd@dmail.com",
+		"telephone": "06.78.55.03.18",
+		"service": "neurologie",
+		"chef": "NON"
+	},
+ ]
+}
