@@ -1,17 +1,13 @@
 package epf.domethic.ouroboros.activity;
 
-import epf.domethic.ouroboros.activity.ArchivesActivity;
-import epf.domethic.ouroboros.activity.CodificationActivity;
-import epf.domethic.ouroboros.activity.HospiEnCoursActivity;
-
-import epf.domethic.ouroboros.R;
-import android.os.Bundle;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
+import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import epf.domethic.ouroboros.R;
 
 public class VueDonneesSocioActivity extends Activity {
 

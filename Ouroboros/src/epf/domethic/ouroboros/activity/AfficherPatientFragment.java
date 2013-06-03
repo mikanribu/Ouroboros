@@ -2,14 +2,14 @@ package epf.domethic.ouroboros.activity;
 
 import java.text.SimpleDateFormat;
 
-import epf.domethic.ouroboros.R;
-import epf.domethic.ouroboros.model.Patient;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import epf.domethic.ouroboros.R;
+import epf.domethic.ouroboros.model.Patient;
 
 public class AfficherPatientFragment extends Fragment {
 
@@ -42,8 +42,6 @@ public class AfficherPatientFragment extends Fragment {
 		nSexePatient.setText(patient.getSexe().toString());
 		nLieuNaissance.setText(patient.getLieuNaissance());
 		nDateNaissance.setText(sdf.format(patient.getDateNaissance()));
-		
-		 
 		
 	}
 }

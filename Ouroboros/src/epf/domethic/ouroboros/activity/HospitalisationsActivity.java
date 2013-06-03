@@ -1,18 +1,12 @@
 package epf.domethic.ouroboros.activity;
 
-import epf.domethic.ouroboros.activity.ListerPatientsFragment.OnPatientSelectedListener;
-import epf.domethic.ouroboros.model.Patient;
-import epf.domethic.ouroboros.widget.AnimationLayout;
-import epf.domethic.ouroboros.R;
-import android.os.Bundle;
 import android.app.ActionBar;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
-import android.support.v4.app.Fragment;
+import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.Menu;
@@ -22,6 +16,10 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.SearchView;
 import android.widget.TextView;
+import epf.domethic.ouroboros.R;
+import epf.domethic.ouroboros.activity.ListerPatientsFragment.OnPatientSelectedListener;
+import epf.domethic.ouroboros.model.Patient;
+import epf.domethic.ouroboros.widget.AnimationLayout;
 
 public class HospitalisationsActivity extends FragmentActivity implements
 		AnimationLayout.Listener, OnPatientSelectedListener {
@@ -36,6 +34,9 @@ public class HospitalisationsActivity extends FragmentActivity implements
 	protected AnimationLayout mLayout;
 	private TextView tvRecherche;
 	private TextView tvArchives;
+	ListerPatientsFragment fragment_liste = new ListerPatientsFragment();
+	AfficherPatientFragment fragment_detail = new AfficherPatientFragment();
+	RecherchePatientFragment fragment_recherche = new RecherchePatientFragment(); 
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -55,30 +56,23 @@ public class HospitalisationsActivity extends FragmentActivity implements
 		mLayout = (AnimationLayout) findViewById(R.id.animation_layout);
 		mLayout.setListener(this);
 		
-		/*FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-		   ListerPatientsFragment listFragment = new ListerPatientsFragment();
-		   ft.add(R.id.patient_list, listFragment, "List_Fragment");
-		   ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
-		   ft.commit();	*/
-
-	
+		FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+		
+		fragmentTransaction.add(R.id.tiers, fragment_liste);
+		fragmentTransaction.add(R.id.deuxTiers, fragment_detail);
+		fragmentTransaction.commit();
+			
 	    tvRecherche = (TextView) findViewById(R.id.bRecherche);	
 	    tvRecherche.setOnClickListener(new View.OnClickListener() {
-	    	@Override
-	    	public void onClick(View v) {
-	    		//Intent intent_recherche = new Intent(HospitalisationsActivity.this, RecherchePatientActivity.class);
-	    		//startActivity(intent_recherche);
-	    	/*	FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-	    		ft.remove(fpatient);
-	    		ft.commit();
-	    		
-	    		FragmentManager fragmentManager = getFragmentManager()
-	    				// Or: FragmentManager fragmentManager = getSupportFragmentManager()
-	    		FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-	    				ExampleFragment fragment = new ExampleFragment();
-	    				fragmentTransaction.add(R.id.fragment_container, fragment);
-	    				fragmentTransaction.commit();*/
-	    	    		
+	    @Override
+	    public void onClick(View v) {
+	    	
+	    	FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+	    	fragmentTransaction.detach(fragment_liste);
+	    	fragmentTransaction.detach(fragment_detail);
+	    	fragmentTransaction.add(R.id.tiers, fragment_recherche);
+	    	fragmentTransaction.commit();
+	        		
 	    	}
 	    });
 	    
@@ -93,12 +87,12 @@ public class HospitalisationsActivity extends FragmentActivity implements
 	    });
 	}
 
+
 	@Override
 	public void onPatientSelected(int position) {
 		this.position = position;
-		AfficherPatientFragment detailFragment = (AfficherPatientFragment)getSupportFragmentManager().findFragmentById(R.id.patient_detail);
 		Patient patient = Patient.ALL.get(position);
-		detailFragment.afficherPatient(patient);
+		fragment_detail.afficherPatient(patient);
 
 	}
 	

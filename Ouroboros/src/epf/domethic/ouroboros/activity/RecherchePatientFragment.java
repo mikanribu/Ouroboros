@@ -1,11 +1,11 @@
 package epf.domethic.ouroboros.activity;
 
-import epf.domethic.ouroboros.R;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import epf.domethic.ouroboros.R;
 
 public class RecherchePatientFragment extends Fragment {
 

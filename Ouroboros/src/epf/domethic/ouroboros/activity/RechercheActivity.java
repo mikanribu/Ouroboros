@@ -1,11 +1,11 @@
 package epf.domethic.ouroboros.activity;
 
-import epf.domethic.ouroboros.R;
-import android.os.Bundle;
 import android.app.ListActivity;
 import android.app.SearchManager;
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.Menu;
+import epf.domethic.ouroboros.R;
 
 public class RechercheActivity extends ListActivity {
 
