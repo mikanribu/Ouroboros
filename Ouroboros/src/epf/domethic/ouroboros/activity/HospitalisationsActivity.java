@@ -1,10 +1,9 @@
 package epf.domethic.ouroboros.activity;
 
-import android.R.layout;
+
 import android.app.ActionBar;
 import android.app.SearchManager;
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -27,7 +26,6 @@ public class HospitalisationsActivity extends FragmentActivity implements
 	/** Called when the activity is first created. */
 
 	private int position;
-	
 	
 	public final static String TAG = "Demo";
 
@@ -63,7 +61,7 @@ public class HospitalisationsActivity extends FragmentActivity implements
 		fragmentTransaction.add(R.id.deuxTiers, fragment_detail);
 		fragmentTransaction.commit();
 			
-	    tvRecherche = (TextView) findViewById(R.id.bRecherche);	
+	    tvRecherche = (TextView) findViewById(R.id.tvRecherche);	
 	    tvRecherche.setOnClickListener(new View.OnClickListener() {
 	    @Override
 	    public void onClick(View v) {
@@ -77,7 +75,7 @@ public class HospitalisationsActivity extends FragmentActivity implements
 	    	}
 	    });
 	    
-	    tvArchives = (TextView) findViewById(R.id.bArchives);
+	    tvArchives = (TextView) findViewById(R.id.tvArchives);
 		
 	    tvArchives.setOnClickListener(new View.OnClickListener() {
 	    	@Override

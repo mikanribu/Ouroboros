@@ -53,24 +53,11 @@ public final class R {
         public static final int uroboroslogoseul=0x7f020018;
     }
     public static final class id {
-        public static final int AutresActions=0x7f060015;
-        public static final int GererVosDossiers=0x7f060010;
-        public static final int Medecin=0x7f06000b;
-        public static final int NomMedecin=0x7f06000a;
-        public static final int TrouverPatient=0x7f06000d;
         public static final int action_recherche=0x7f060003;
         public static final int action_settings=0x7f060002;
         public static final int animation_layout=0x7f060009;
         public static final int animation_layout_content=0x7f060001;
         public static final int animation_layout_sidebar=0x7f060000;
-        public static final int bACodifier=0x7f060014;
-        public static final int bAjoutDocument=0x7f060012;
-        public static final int bArchives=0x7f060016;
-        public static final int bCreationDossier=0x7f060011;
-        public static final int bHospitalisation=0x7f06000e;
-        public static final int bMonCompte=0x7f060017;
-        public static final int bRecherche=0x7f06000f;
-        public static final int bTransfert=0x7f060013;
         public static final int bouton_connexion=0x7f060008;
         public static final int deuxTiers=0x7f060019;
         public static final int edittext_date_naissance=0x7f060024;
@@ -116,8 +103,21 @@ public final class R {
         public static final int title_divers=0x7f06003a;
         public static final int title_infos_generales=0x7f060028;
         public static final int title_residence=0x7f06002f;
+        public static final int tvACodifier=0x7f060014;
+        public static final int tvAjoutDocument=0x7f060012;
+        public static final int tvArchives=0x7f060016;
+        public static final int tvAutresActions=0x7f060015;
+        public static final int tvCreationDossier=0x7f060011;
         public static final int tvDeconnexion=0x7f06000c;
+        public static final int tvGererVosDossiers=0x7f060010;
+        public static final int tvHospitalisation=0x7f06000e;
+        public static final int tvMedecin=0x7f06000b;
+        public static final int tvMonCompte=0x7f060017;
         public static final int tvNom=0x7f060042;
+        public static final int tvNomMedecin=0x7f06000a;
+        public static final int tvRecherche=0x7f06000f;
+        public static final int tvTransfert=0x7f060013;
+        public static final int tvTrouverPatient=0x7f06000d;
         public static final int tv_nom_patient=0x7f060027;
         public static final int tv_titre=0x7f06001c;
     }

@@ -14,7 +14,7 @@
         <!-- On crée le menu ici -->
 
         <TextView
-            android:id="@+id/NomMedecin"
+            android:id="@+id/tvNomMedecin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="left"
@@ -26,7 +26,7 @@
             android:textSize="18sp" />
 
         <TextView
-            android:id="@+id/Medecin"
+            android:id="@+id/tvMedecin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="left"
@@ -48,9 +48,9 @@
             android:id="@+id/tvDeconnexion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
             android:drawablePadding="60dip"
             android:drawableRight="@drawable/bouton_connexion_transparent"
-            android:layout_marginTop="4dp"
             android:gravity="center"
             android:padding="10dip"
             android:paddingLeft="20dip"
@@ -69,7 +69,7 @@
             android:paddingTop="16dp" />
 
         <TextView
-            android:id="@+id/TrouverPatient"
+            android:id="@+id/tvTrouverPatient"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="left"
@@ -88,7 +88,7 @@
             android:paddingTop="16dp" />
 
         <TextView
-            android:id="@+id/bHospitalisation"
+            android:id="@+id/tvHospitalisation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
@@ -112,7 +112,7 @@
             android:paddingTop="16dp" />
 
         <TextView
-            android:id="@+id/bRecherche"
+            android:id="@+id/tvRecherche"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
@@ -136,7 +136,7 @@
             android:paddingTop="16dp" />
 
         <TextView
-            android:id="@+id/GererVosDossiers"
+            android:id="@+id/tvGererVosDossiers"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="left"
@@ -155,7 +155,7 @@
             android:paddingTop="16dp" />
 
         <TextView
-            android:id="@+id/bCreationDossier"
+            android:id="@+id/tvCreationDossier"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
@@ -179,7 +179,7 @@
             android:paddingTop="16dp" />
 
         <TextView
-            android:id="@+id/bAjoutDocument"
+            android:id="@+id/tvAjoutDocument"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
@@ -203,7 +203,7 @@
             android:paddingTop="16dp" />
 
         <TextView
-            android:id="@+id/bTransfert"
+            android:id="@+id/tvTransfert"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:drawablePadding="80dip"
@@ -226,7 +226,7 @@
             android:paddingTop="16dp" />
 
         <TextView
-            android:id="@+id/bACodifier"
+            android:id="@+id/tvACodifier"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
@@ -250,7 +250,7 @@
             android:paddingTop="16dp" />
 
         <TextView
-            android:id="@+id/AutresActions"
+            android:id="@+id/tvAutresActions"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="left"
@@ -269,7 +269,7 @@
             android:paddingTop="16dp" />
 
         <TextView
-            android:id="@+id/bArchives"
+            android:id="@+id/tvArchives"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
@@ -293,7 +293,7 @@
             android:paddingTop="16dp" />
 
         <TextView
-            android:id="@+id/bMonCompte"
+            android:id="@+id/tvMonCompte"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
@@ -321,26 +321,21 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@android:color/background_light"
+        android:baselineAligned="false"
         android:clickable="true"
-        android:orientation="horizontal"
-        android:baselineAligned="false" >
-       
+        android:orientation="horizontal" >
 
-        	<FrameLayout 
-        	    android:id="@+id/tiers"
-        	    android:layout_width="wrap_content"
-        		android:layout_height="match_parent"
-        		android:layout_weight="3">
+        <FrameLayout
+            android:id="@+id/tiers"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="3" />
 
-          	</FrameLayout>
-        	
-        	
-        	<FrameLayout
-        	    android:id="@+id/deuxTiers"
-    			android:layout_width="wrap_content"
-        		android:layout_height="match_parent"
-        		android:layout_weight="1"/>
-        	
-      </LinearLayout>
+        <FrameLayout
+            android:id="@+id/deuxTiers"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+    </LinearLayout>
 
 </epf.domethic.ouroboros.widget.AnimationLayout>
