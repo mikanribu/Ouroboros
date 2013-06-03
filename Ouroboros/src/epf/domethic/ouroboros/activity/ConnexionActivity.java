@@ -6,18 +6,18 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.ImageButton;
+import android.widget.Button;
 import epf.domethic.ouroboros.R;
 
 public class ConnexionActivity extends Activity {
 	
-	private ImageButton bConnexion;
+	private Button bConnexion;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_connexion);
-		bConnexion = (ImageButton)findViewById(R.id.bouton_connexion);
+		bConnexion = (Button)findViewById(R.id.bouton_connexion);
 
 		final Intent intent_connexion = new Intent(ConnexionActivity.this, HospitalisationsActivity.class);
 		bConnexion.setOnClickListener(new OnClickListener() {
