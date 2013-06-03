@@ -14,7 +14,6 @@ import epf.domethic.ouroboros.model.Patient;
 public class AfficherPatientFragment extends Fragment {
 
 	private TextView nNomPatient;
-	//private TextView nPrenomPatient;
 	private TextView nSexePatient;
 	private TextView nLieuNaissance;
 	private TextView nDateNaissance;

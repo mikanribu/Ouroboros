@@ -320,14 +320,17 @@
         android:layout_height="match_parent"
         android:background="@android:color/background_light"
         android:clickable="true"
-        android:orientation="horizontal" >
+        android:orientation="horizontal"
+        android:baselineAligned="false" >
        
 
         	<FrameLayout 
         	    android:id="@+id/tiers"
         	    android:layout_width="wrap_content"
         		android:layout_height="match_parent"
-        		android:layout_weight="3"/>
+        		android:layout_weight="3">
+
+          	</FrameLayout>
         	
         	
         	<FrameLayout
@@ -335,6 +338,7 @@
     			android:layout_width="wrap_content"
         		android:layout_height="match_parent"
         		android:layout_weight="1"/>
-    </LinearLayout>
+        	
+      </LinearLayout>
 
 </epf.domethic.ouroboros.widget.AnimationLayout>

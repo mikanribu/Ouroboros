@@ -1,5 +1,6 @@
 package epf.domethic.ouroboros.activity;
 
+import android.R.layout;
 import android.app.ActionBar;
 import android.app.SearchManager;
 import android.content.Context;
@@ -81,8 +82,7 @@ public class HospitalisationsActivity extends FragmentActivity implements
 	    tvArchives.setOnClickListener(new View.OnClickListener() {
 	    	@Override
 	    	public void onClick(View v) {
-	    		Intent intent_archives = new Intent(HospitalisationsActivity.this, ArchivesActivity.class);
-	    		startActivity(intent_archives);
+	    		
 	    	}
 	    });
 	}
@@ -91,7 +91,7 @@ public class HospitalisationsActivity extends FragmentActivity implements
 	@Override
 	public void onPatientSelected(int position) {
 		this.position = position;
-		Patient patient = Patient.ALL.get(position);
+		Patient patient = Patient.ALL.get(position);		
 		fragment_detail.afficherPatient(patient);
 
 	}
