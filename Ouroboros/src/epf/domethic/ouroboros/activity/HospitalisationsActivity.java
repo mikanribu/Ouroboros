@@ -9,6 +9,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.Menu;
@@ -36,6 +37,7 @@ public class HospitalisationsActivity extends FragmentActivity implements
 	protected AnimationLayout mLayout;
 	private TextView tvRecherche;
 	private TextView tvArchives;
+	private TextView tvHospitalisation;
 	ListerPatientsFragment fragment_liste = new ListerPatientsFragment();
 	AfficherPatientFragment fragment_detail = new AfficherPatientFragment();
 	RecherchePatientFragment fragment_recherche = new RecherchePatientFragment(); 
@@ -69,17 +71,31 @@ public class HospitalisationsActivity extends FragmentActivity implements
 		
 		fragmentTransaction.add(R.id.tiers, fragment_liste);
 		fragmentTransaction.add(R.id.deuxTiers, fragment_detail);
+		fragmentTransaction.addToBackStack(null);
 		fragmentTransaction.commit();
 			
 	    tvRecherche = (TextView) findViewById(R.id.tvRecherche);	
 	    tvRecherche.setOnClickListener(new View.OnClickListener() {
 	    @Override
 	    public void onClick(View v) {
-	    	
-	    	FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-	    	fragmentTransaction.detach(fragment_liste);
-	    	fragmentTransaction.detach(fragment_detail);
-	    	fragmentTransaction.add(R.id.tiers, fragment_recherche);
+	    	FragmentManager manager = HospitalisationsActivity.this.getSupportFragmentManager();
+	        FragmentTransaction fragmentTransaction = manager.beginTransaction();
+	        manager.popBackStack();	    	
+	    	fragmentTransaction.replace(R.id.tiers, fragment_recherche);
+	    	fragmentTransaction.commit();
+	        		
+	    	}
+	    });
+	    
+	    tvHospitalisation = (TextView) findViewById(R.id.tvHospitalisation);	
+	    tvHospitalisation.setOnClickListener(new View.OnClickListener() {
+	    @Override
+	    public void onClick(View v) {
+	    	FragmentManager manager = HospitalisationsActivity.this.getSupportFragmentManager();
+	        FragmentTransaction fragmentTransaction = manager.beginTransaction();
+	        manager.popBackStack();	    	
+	    	fragmentTransaction.replace(R.id.tiers, fragment_liste);
+	    	fragmentTransaction.replace(R.id.deuxTiers, fragment_detail);
 	    	fragmentTransaction.commit();
 	        		
 	    	}
