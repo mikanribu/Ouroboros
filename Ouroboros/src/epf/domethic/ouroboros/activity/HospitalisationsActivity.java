@@ -71,7 +71,7 @@ public class HospitalisationsActivity extends FragmentActivity implements
 		
 		fragmentTransaction.add(R.id.tiers, fragment_liste);
 		fragmentTransaction.add(R.id.deuxTiers, fragment_detail);
-		fragmentTransaction.addToBackStack(null);
+		fragmentTransaction.addToBackStack("vers_hospi");
 		fragmentTransaction.commit();
 			
 	    tvRecherche = (TextView) findViewById(R.id.tvRecherche);	
@@ -82,6 +82,7 @@ public class HospitalisationsActivity extends FragmentActivity implements
 	        FragmentTransaction fragmentTransaction = manager.beginTransaction();
 	        manager.popBackStack();	    	
 	    	fragmentTransaction.replace(R.id.tiers, fragment_recherche);
+	    	fragmentTransaction.addToBackStack("vers_recherche");
 	    	fragmentTransaction.commit();
 	        		
 	    	}
@@ -96,6 +97,7 @@ public class HospitalisationsActivity extends FragmentActivity implements
 	        manager.popBackStack();	    	
 	    	fragmentTransaction.replace(R.id.tiers, fragment_liste);
 	    	fragmentTransaction.replace(R.id.deuxTiers, fragment_detail);
+	    	fragmentTransaction.addToBackStack("vers_hospi");
 	    	fragmentTransaction.commit();
 	        		
 	    	}

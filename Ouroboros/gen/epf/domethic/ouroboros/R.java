@@ -68,9 +68,9 @@ public final class R {
         public static final int encadre=0x7f060005;
         public static final int etudiant_detail=0x7f06001c;
         public static final int grand_logo=0x7f060007;
-        public static final int imageView1=0x7f060009;
+        public static final int imageView1=0x7f060008;
         public static final int pseudo=0x7f060004;
-        public static final int pswd=0x7f060008;
+        public static final int pswd=0x7f060009;
         public static final int rbtn_sexeF=0x7f060027;
         public static final int rbtn_sexeM=0x7f060026;
         public static final int recherche_patient=0x7f06001b;
