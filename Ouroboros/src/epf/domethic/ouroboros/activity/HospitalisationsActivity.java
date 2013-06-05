@@ -5,7 +5,6 @@ import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
-import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -16,6 +15,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.LinearLayout;
 import android.widget.SearchView;
 import android.widget.TextView;
@@ -32,9 +32,9 @@ public class HospitalisationsActivity extends FragmentActivity implements
 	
 	
 	public final static String TAG = "Demo";
-
 	protected LinearLayout mList;
 	protected AnimationLayout mLayout;
+	private TextView tvDeconnexion;
 	private TextView tvRecherche;
 	private TextView tvArchives;
 	private TextView tvHospitalisation;
@@ -53,9 +53,7 @@ public class HospitalisationsActivity extends FragmentActivity implements
 		
 		Resources r = getResources();
 		Drawable myDrawable = r.getDrawable(R.drawable.barre_haut);
-		actionBar.setBackgroundDrawable (myDrawable);
-		
-		
+		actionBar.setBackgroundDrawable (myDrawable);		
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 		actionBar.setHomeButtonEnabled(true); // The icone_launcher will not go
 												// back automatically to home (API min 14)
@@ -67,44 +65,58 @@ public class HospitalisationsActivity extends FragmentActivity implements
 		mLayout = (AnimationLayout) findViewById(R.id.animation_layout);
 		mLayout.setListener(this);
 		
-		FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-		
+		FragmentManager manager = HospitalisationsActivity.this.getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = manager.beginTransaction();       
 		fragmentTransaction.add(R.id.tiers, fragment_liste);
 		fragmentTransaction.add(R.id.deuxTiers, fragment_detail);
 		fragmentTransaction.addToBackStack("vers_hospi");
 		fragmentTransaction.commit();
+		
+		tvDeconnexion = (TextView)findViewById(R.id.tvDeconnexion);
+		final Intent intent_connexion = new Intent(HospitalisationsActivity.this, ConnexionActivity.class);
+		tvDeconnexion.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				startActivity(intent_connexion);
+			}
+		});		
 			
 	    tvRecherche = (TextView) findViewById(R.id.tvRecherche);	
 	    tvRecherche.setOnClickListener(new View.OnClickListener() {
-	    @Override
-	    public void onClick(View v) {
-	    	FragmentManager manager = HospitalisationsActivity.this.getSupportFragmentManager();
-	        FragmentTransaction fragmentTransaction = manager.beginTransaction();
-	        manager.popBackStack();	    	
-	    	fragmentTransaction.replace(R.id.tiers, fragment_recherche);
-	    	fragmentTransaction.addToBackStack("vers_recherche");
-	    	fragmentTransaction.commit();
-	        		
+		    @Override
+		    public void onClick(View v) {
+		    	FragmentManager manager = HospitalisationsActivity.this.getSupportFragmentManager();
+		    	String str = manager.getBackStackEntryAt(0).getName();
+	    	
+		    	if(str!="vers_recherche"){
+		        FragmentTransaction fragmentTransaction = manager.beginTransaction();
+		        manager.popBackStack();	    	
+		    	fragmentTransaction.replace(R.id.tiers, fragment_recherche);
+		    	fragmentTransaction.addToBackStack("vers_recherche");
+		    	fragmentTransaction.commit();
+		    	}
 	    	}
 	    });
 	    
 	    tvHospitalisation = (TextView) findViewById(R.id.tvHospitalisation);	
-	    tvHospitalisation.setOnClickListener(new View.OnClickListener() {
-	    @Override
-	    public void onClick(View v) {
-	    	FragmentManager manager = HospitalisationsActivity.this.getSupportFragmentManager();
-	        FragmentTransaction fragmentTransaction = manager.beginTransaction();
-	        manager.popBackStack();	    	
-	    	fragmentTransaction.replace(R.id.tiers, fragment_liste);
-	    	fragmentTransaction.replace(R.id.deuxTiers, fragment_detail);
-	    	fragmentTransaction.addToBackStack("vers_hospi");
-	    	fragmentTransaction.commit();
-	        		
-	    	}
+	    tvHospitalisation.setOnClickListener(new View.OnClickListener() {	    	
+		    @Override
+		    public void onClick(View v) {
+		    	FragmentManager manager = HospitalisationsActivity.this.getSupportFragmentManager();
+		    	String str = manager.getBackStackEntryAt(0).getName();
+		    	
+		    	if(str != "vers_hospi"){
+			        FragmentTransaction fragmentTransaction = manager.beginTransaction();
+			        manager.popBackStack();	    	
+			    	fragmentTransaction.replace(R.id.tiers, fragment_liste);
+			    	fragmentTransaction.replace(R.id.deuxTiers, fragment_detail);
+			    	fragmentTransaction.addToBackStack("vers_hospi");
+			    	fragmentTransaction.commit();
+		    	}
+		    }
 	    });
 	    
 	    tvArchives = (TextView) findViewById(R.id.tvArchives);
-		
 	    tvArchives.setOnClickListener(new View.OnClickListener() {
 	    	@Override
 	    	public void onClick(View v) {
