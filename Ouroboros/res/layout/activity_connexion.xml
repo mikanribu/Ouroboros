@@ -1,0 +1,86 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".PageConnexionActivity" 
+    android:background="@drawable/fond">
+
+    <EditText
+        android:id="@+id/pseudo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/encadre"
+        android:layout_marginRight="53dp"
+        android:layout_marginTop="51dp"
+        android:layout_toLeftOf="@+id/bouton_connexion"
+        android:ems="10"
+        android:height="100dp"
+        android:inputType="textPersonName"
+        android:text="@string/pseudo"
+        android:width="250dp" />
+
+    <ImageView
+        android:id="@+id/grand_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/pseudo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="41dp"
+        android:contentDescription="@string/grand_logo"
+        android:src="@drawable/grand_logo" />
+
+    <Button
+        android:id="@+id/bouton_connexion"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:layout_alignRight="@+id/encadre"
+        android:layout_alignTop="@+id/pseudo"
+        android:layout_marginRight="39dp"
+        android:background="@drawable/custom_btn_breaker_bay"
+        android:gravity="center"
+        android:padding="10dip"
+        android:shadowColor="#000000"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowRadius="0.6"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/bouton_connexion"
+        android:layout_alignLeft="@+id/bouton_connexion"
+        android:layout_alignRight="@+id/bouton_connexion"
+        android:layout_alignTop="@+id/bouton_connexion"
+        android:src="@drawable/valide_connexion" />
+
+    <EditText
+        android:id="@+id/pswd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/bouton_connexion"
+        android:layout_alignLeft="@+id/pseudo"
+        android:ems="10"
+        android:height="100dp"
+        android:inputType="textPersonName"
+        android:text="@string/pswd"
+        android:width="250dp" />
+
+    <ImageView
+        android:id="@+id/encadre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="82dp"
+        android:contentDescription="@string/encadre"
+        android:src="@drawable/encadre" />
+
+</RelativeLayout>

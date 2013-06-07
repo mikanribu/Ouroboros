@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    <style name="MyAppTheme" parent="@android:style/Theme.Holo.Light">
+        <!-- Any customizations for your app running on 3.0+ devices here -->
+        
+       
+    </style>
+    <style name="MyAppTheme2" parent="@android:style/Theme.Holo">
+        <!-- Any customizations for your app running on 4.0+ devices here -->
+    </style>
+    
+</resources>

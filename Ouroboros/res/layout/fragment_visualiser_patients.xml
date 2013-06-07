@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginRight="16dp"
+    android:orientation="vertical"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/tv_nom_patient"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <Button
+            android:id="@+id/bVueDMP"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="118dp"
+            android:text="@string/vueDMP" />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/black"
+        android:paddingTop="16dp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_vertical_margin" >
+        
+        <TextView
+            android:id="@+id/title_infos_generales"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/title_infos_generales"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#969696" 
+            android:textSize="22sp"/>
+        
+        <View
+            android:layout_width="300dp"
+            android:layout_height="1dp"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/title_infos_generales"
+            android:layout_marginRight="24dp"
+            android:background="#969696"
+            android:paddingTop="16dp" />
+
+        <TextView
+            android:id="@+id/textview_sexe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/title_infos_generales"
+            android:layout_below="@+id/title_infos_generales"
+            android:text="@string/form_sexe"
+            android:layout_marginTop="30dp"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/textview_sexe_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/textview_sexe"
+          	android:layout_alignLeft="@+id/textview_date_naissance_value"
+            android:layout_toRightOf="@+id/textview_sexe"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/textview_date_naissance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/textview_sexe"
+           	android:layout_below="@+id/textview_sexe"
+            android:layout_marginTop="16dp"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:text="@string/form_date_naissance"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/textview_date_naissance_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/textview_date_naissance"
+            android:layout_marginLeft="225dp"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+        
+        <TextView
+            android:id="@+id/textview_ss"
+            android:layout_alignLeft="@+id/textview_sexe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textview_date_naissance"
+            android:layout_marginTop="16dp"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:text="@string/form_ss"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/textview_ss_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/textview_ss"
+            android:layout_alignLeft="@+id/textview_date_naissance_value"
+            android:layout_toRightOf="@+id/textview_ss"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/textview_lieu_naissance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/textview_date_naissance"
+            android:layout_marginLeft="450dp"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:text="@string/form_lieu_naissance"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+        
+        <TextView
+            android:id="@+id/textview_lieu_naissance_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/textview_lieu_naissance"
+            android:layout_marginLeft="675dp"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        </RelativeLayout>
+        
+     <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_vertical_margin" >
+        
+        <TextView
+            android:id="@+id/title_residence"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/title_residence"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#969696" 
+            android:textSize="22sp"/>
+        
+        <View
+            android:layout_width="300dp"
+            android:layout_height="1dp"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/title_residence"
+            android:layout_marginRight="24dp"
+            android:background="#969696"
+            android:paddingTop="16dp" />
+
+        <TextView
+            android:id="@+id/textview_adresse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/title_residence"
+            android:layout_below="@+id/title_residence"
+            android:text="@string/form_adresse"
+            android:layout_marginTop="30dp"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/textview_adresse_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/textview_adresse"
+          	android:layout_alignLeft="@+id/textview_code_postal_value"
+            android:layout_toRightOf="@+id/textview_adresse"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/textview_code_postal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/textview_adresse"
+           	android:layout_below="@+id/textview_adresse"
+            android:layout_marginTop="16dp"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:text="@string/form_code_postal"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/textview_code_postal_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/textview_code_postal"
+            android:layout_marginLeft="225dp"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+        
+        <TextView
+            android:id="@+id/textview_pays"
+            android:layout_alignLeft="@+id/textview_adresse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textview_code_postal"
+            android:layout_marginTop="16dp"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:text="@string/form_pays"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/textview_pays_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/textview_pays"
+            android:layout_alignLeft="@+id/textview_code_postal_value"
+            android:layout_toRightOf="@+id/textview_pays"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/textview_ville"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/textview_code_postal"
+            android:layout_marginLeft="450dp"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:text="@string/form_ville"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+        
+        <TextView
+            android:id="@+id/textview_ville_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/textview_ville"
+            android:layout_marginLeft="675dp"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+        
+        <TextView
+            android:id="@+id/textview_nationalite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/textview_pays"
+            android:layout_alignLeft="@+id/textview_ville"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:text="@string/form_nationalite"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+        
+        <TextView
+            android:id="@+id/textview_nationalite_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/textview_nationalite"
+           	android:layout_alignLeft="@+id/textview_ville_value"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        </RelativeLayout>
+
+             
+     <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_vertical_margin" >
+        
+        <TextView
+            android:id="@+id/title_divers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/title_divers"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#969696" 
+            android:textSize="22sp"/>
+        
+        <View
+            android:layout_width="300dp"
+            android:layout_height="1dp"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/title_divers"
+            android:layout_marginRight="24dp"
+            android:background="#969696"
+            android:paddingTop="16dp" />
+
+        <TextView
+            android:id="@+id/textview_telephone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/title_divers"
+            android:layout_below="@+id/title_divers"
+            android:text="@string/form_telephone"
+            android:layout_marginTop="30dp"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/textview_telephone_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/textview_telephone"
+          	android:layout_alignLeft="@+id/textview_medecin_traitant_value"
+            android:layout_toRightOf="@+id/textview_telephone"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/textview_medecin_traitant"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/textview_telephone"
+           	android:layout_below="@+id/textview_telephone"
+            android:layout_marginTop="16dp"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:text="@string/form_medecin_traitant"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/textview_medecin_traitant_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/textview_medecin_traitant"
+            android:layout_marginLeft="225dp"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+        
+        <TextView
+            android:id="@+id/textview_remarques"
+            android:layout_alignLeft="@+id/textview_telephone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textview_medecin_traitant"
+            android:layout_marginTop="16dp"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:text="@string/form_remarques"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/textview_remarques_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/textview_remarques"
+            android:layout_alignLeft="@+id/textview_medecin_traitant_value"
+            android:layout_toRightOf="@+id/textview_remarques"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        </RelativeLayout>
+</LinearLayout>

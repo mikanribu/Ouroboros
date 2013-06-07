@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="utf-8"?>
+<epf.domethic.ouroboros.widget.AnimationLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/animation_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:id="@+id/animation_layout_sidebar"
+        android:layout_width="200dip"
+        android:layout_height="match_parent"
+        android:background="#282828"
+        android:orientation="vertical" >
+
+        <!-- On crée le menu ici -->
+
+        <TextView
+            android:id="@+id/tvNomMedecin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_marginTop="4dp"
+            android:paddingLeft="10dp"
+            android:paddingTop="3dp"
+            android:text="PAUL DURAND"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tvMedecin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_marginTop="2dp"
+            android:paddingBottom="8dp"
+            android:paddingLeft="30dp"
+            android:paddingTop="2dp"
+            android:text="Médecin"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#484848"
+            android:paddingTop="16dp" />
+
+        <TextView
+            android:id="@+id/tvDeconnexion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:drawablePadding="60dip"
+            android:drawableRight="@drawable/bouton_connexion_transparent"
+            android:gravity="center"
+            android:padding="10dip"
+            android:paddingLeft="20dip"
+            android:shadowColor="#000000"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="0.6"
+            android:text="@string/deconnexion"
+            android:textColor="@color/White"
+            android:textSize="16sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#484848"
+            android:paddingTop="16dp" />
+
+        <TextView
+            android:id="@+id/tvTrouverPatient"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_marginTop="0dp"
+            android:paddingBottom="2dp"
+            android:paddingLeft="2dp"
+            android:paddingTop="20dp"
+            android:text="@string/trouverPatient"
+            android:textColor="#A9A9A9"
+            android:textSize="18sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#484848"
+            android:paddingTop="16dp" />
+
+        <TextView
+            android:id="@+id/tvHospitalisation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:drawablePadding="30dip"
+            android:drawableRight="@drawable/menu_hospitalisations"
+            android:gravity="center"
+            android:padding="10dp"
+            android:paddingLeft="20dip"
+            android:shadowColor="#000000"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="0.6"
+            android:text="@string/hospiService"
+            android:textColor="@color/White"
+            android:textSize="16sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#484848"
+            android:paddingTop="16dp" />
+
+        <TextView
+            android:id="@+id/tvRecherche"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:drawablePadding="70dip"
+            android:drawableRight="@drawable/menu_action_search"
+            android:gravity="center"
+            android:padding="10dp"
+            android:paddingLeft="20dip"
+            android:shadowColor="#000000"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="0.6"
+            android:text="@string/recherche"
+            android:textColor="@color/White"
+            android:textSize="16sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#484848"
+            android:paddingTop="16dp" />
+
+        <TextView
+            android:id="@+id/tvGererVosDossiers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_marginTop="0dp"
+            android:paddingBottom="2dp"
+            android:paddingLeft="2dp"
+            android:paddingTop="20dp"
+            android:text="@string/gestionDossiers"
+            android:textColor="#A9A9A9"
+            android:textSize="18sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#484848"
+            android:paddingTop="16dp" />
+
+        <TextView
+            android:id="@+id/tvCreationDossier"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:drawablePadding="30dip"
+            android:drawableRight="@drawable/menu_creer_dossier"
+            android:gravity="center"
+            android:padding="10dp"
+            android:paddingLeft="20dip"
+            android:shadowColor="#000000"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="0.6"
+            android:text="@string/creerDos"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#484848"
+            android:paddingTop="16dp" />
+
+        <TextView
+            android:id="@+id/tvAjoutDocument"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:drawablePadding="30dip"
+            android:drawableRight="@drawable/menu_ajout_doc"
+            android:gravity="center"
+            android:padding="10dp"
+            android:paddingLeft="20dip"
+            android:shadowColor="#000000"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="0.6"
+            android:text="@string/ajoutDoc"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#484848"
+            android:paddingTop="16dp" />
+
+        <TextView
+            android:id="@+id/tvTransfert"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawablePadding="80dip"
+            android:drawableRight="@drawable/menu_transfert"
+            android:gravity="center"
+            android:padding="10dp"
+            android:paddingLeft="20dip"
+            android:shadowColor="#000000"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="0.6"
+            android:text="@string/transfert"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#484848"
+            android:paddingTop="16dp" />
+
+        <TextView
+            android:id="@+id/tvACodifier"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:drawablePadding="80dip"
+            android:drawableRight="@drawable/menu_a_codifier"
+            android:gravity="center"
+            android:padding="10dp"
+            android:paddingLeft="20dip"
+            android:shadowColor="#000000"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="0.6"
+            android:text="@string/aCodifier"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#484848"
+            android:paddingTop="16dp" />
+
+        <TextView
+            android:id="@+id/tvAutresActions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_marginTop="0dp"
+            android:paddingBottom="2dp"
+            android:paddingLeft="2dp"
+            android:paddingTop="20dp"
+            android:text="@string/autresActions"
+            android:textColor="#A9A9A9"
+            android:textSize="18sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#484848"
+            android:paddingTop="16dp" />
+
+        <TextView
+            android:id="@+id/tvArchives"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:drawablePadding="80dip"
+            android:drawableRight="@drawable/menu_archives"
+            android:gravity="center"
+            android:padding="10dp"
+            android:paddingLeft="20dip"
+            android:shadowColor="#000000"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="0.6"
+            android:text="@string/archives"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#484848"
+            android:paddingTop="16dp" />
+
+        <TextView
+            android:id="@+id/tvMonCompte"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:drawablePadding="50dip"
+            android:drawableRight="@drawable/menu_mon_compte"
+            android:gravity="center"
+            android:padding="10dp"
+            android:shadowColor="#000000"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="0.6"
+            android:text="@string/monCompte"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#484848"
+            android:paddingTop="16dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/animation_layout_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/background_light"
+        android:baselineAligned="false"
+        android:clickable="true"
+        android:orientation="horizontal" >
+
+        <FrameLayout
+            android:id="@+id/tiers"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="3" />
+
+        <FrameLayout
+            android:id="@+id/deuxTiers"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+        
+    </LinearLayout>
+
+</epf.domethic.ouroboros.widget.AnimationLayout>
