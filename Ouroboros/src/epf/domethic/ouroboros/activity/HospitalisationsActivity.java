@@ -48,7 +48,6 @@ public class HospitalisationsActivity extends FragmentActivity implements
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_hospitalisations);
 
-
 		ActionBar actionBar = getActionBar();
 		
 		Resources r = getResources();
