@@ -2,11 +2,16 @@ package epf.domethic.ouroboros.activity;
 
 import java.text.SimpleDateFormat;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.TextView;
 import epf.domethic.ouroboros.R;
 import epf.domethic.ouroboros.model.Patient;
@@ -18,6 +23,8 @@ public class AfficherPatientFragment extends Fragment {
 	private TextView nLieuNaissance;
 	private TextView nDateNaissance;
 	private TextView nVille;
+	private Button bVisualiserDMP;
+	private DMPFragment fragment_vue_dmp = new DMPFragment();
 	
 	private Patient patient;
 	
@@ -28,6 +35,20 @@ public class AfficherPatientFragment extends Fragment {
 		nSexePatient = (TextView)view.findViewById(R.id.textview_sexe_value);
 		nLieuNaissance = (TextView)view.findViewById(R.id.textview_date_naissance_value);
 		nDateNaissance = (TextView)view.findViewById(R.id.textview_date_naissance_value);
+		
+		bVisualiserDMP =(Button)view.findViewById(R.id.bVueDMP);
+		bVisualiserDMP.setOnClickListener(new View.OnClickListener() {
+		    @Override
+		    public void onClick(View v) {
+		    	FragmentManager manager = getActivity().getSupportFragmentManager();  
+		        FragmentTransaction fragmentTransaction = manager.beginTransaction();
+		        manager.popBackStack();	    	
+		    	fragmentTransaction.replace(R.id.tiers, fragment_vue_dmp);
+		    	fragmentTransaction.addToBackStack("vers_recherche");
+		    	fragmentTransaction.commit();
+		    	}
+	    	
+		});		
 		
 		return view;
 	}

@@ -65,6 +65,7 @@
     <string name="saveLives">save lives.</string>
    
 	<string name="title_infos_generales">Informations générales</string>
+	<string name="vueDMP">Visualiser DMP</string>
 	<string name="form_nom_patient">Nom :</string>
 	<string name="form_prenom_patient">Prenom :</string>
 	<string name="form_titre">Recherche du patient</string>

@@ -25,11 +25,11 @@ import epf.domethic.ouroboros.model.Patient;
 import epf.domethic.ouroboros.widget.AnimationLayout;
 
 public class HospitalisationsActivity extends FragmentActivity implements
-		AnimationLayout.Listener, OnPatientSelectedListener {
+		AnimationLayout.Listener, OnPatientSelectedListener{
 	/** Called when the activity is first created. */
 
 	private int position;
-	
+	public static Context appContext;
 	
 	public final static String TAG = "Demo";
 	protected LinearLayout mList;
@@ -56,8 +56,8 @@ public class HospitalisationsActivity extends FragmentActivity implements
 		actionBar.setBackgroundDrawable (myDrawable);		
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 		actionBar.setHomeButtonEnabled(true); // The icone_launcher will not go
-												// back automatically to home (API min 14)
-
+												// back automatically to home (API min 14)	 
+		 
 		//Pas d'affichage du nom de l'application dans la barre d'action
 		actionBar.setDisplayShowTitleEnabled(false);
 		
@@ -196,4 +196,7 @@ public class HospitalisationsActivity extends FragmentActivity implements
 		mLayout.closeSidebar();
 		return true;
 	}
+	
+	
+	
 }
