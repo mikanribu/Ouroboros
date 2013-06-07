@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-
-    <item name="animation_layout_sidebar" type="id"/>
-    <item name="animation_layout_content" type="id"/>
-
-</resources>
