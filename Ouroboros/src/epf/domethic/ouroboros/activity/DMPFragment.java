@@ -23,7 +23,6 @@ public class DMPFragment extends Fragment {
 //	private LinkedHashMap<String, TitreListeActivity> mySections = new LinkedHashMap<String, TitreListeActivity>();
 //	private ArrayList<TitreListeActivity> deptList = new ArrayList<TitreListeActivity>();
 //
-	//blabla
 //	private ExpandableListeGaucheAdapter listAdapter;
 //	private ExpandableListView myList;
 
