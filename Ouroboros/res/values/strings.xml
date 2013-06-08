@@ -42,7 +42,7 @@
     <string name="Affiliation">Affilier à un service</string>
     <string name="Ajouter">Ajouter</string>
     <string name="Annuler">Annuler</string>
-    <string name="ModifMdp">Modifier mdp</string>
+    <string name="ModifMdp">Modifier mot de passe</string>
     <string name="Valider">Valider</string>
     <string name="Retour">Retour</string>
     <string name="Archiver">Archiver</string>
@@ -58,6 +58,7 @@
     <string name="ajout_consult">Ajouter une consultation</string>
     <string name="ajout_doc">Ajouter un document</string>
     <string name="modif_data">Modification des données socio-démographiques du patient</string>
+    <string name="modif_infos">Modification des données</string>
     <string name="ajout_hospi">Ajouter une hospitalisation</string>
     <string name="diag_principal">Diagnostic principal</string>
     
@@ -86,5 +87,15 @@
 	<string name="form_telephone">Numéro de téléphone :</string>
 	<string name="form_medecin_traitant">Médecin traitant :</string>
 	<string name="form_remarques">Remarques :</string>
+	
+	<string-array name="gauche_infos_generales">
+        <item>Analyses</item>
+        <item>Examens</item>
+        <item>Compte-rendus</item>
+        <item>Radiographies</item>
+        <item>Fiches de suivi</item>
+        <item>Consultations</item>
+        <item>Nouveau document</item>
+    </string-array>
 
 </resources>

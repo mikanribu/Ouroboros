@@ -8,12 +8,15 @@
 package epf.domethic.ouroboros;
 
 public final class R {
+    public static final class array {
+        public static final int gauche_infos_generales=0x7f080000;
+    }
     public static final class attr {
     }
     public static final class color {
-        public static final int BleuMedecin=0x7f090002;
-        public static final int GrisMenu=0x7f090001;
-        public static final int White=0x7f090000;
+        public static final int BleuMedecin=0x7f0a0002;
+        public static final int GrisMenu=0x7f0a0001;
+        public static final int White=0x7f0a0000;
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
@@ -54,55 +57,59 @@ public final class R {
         public static final int valide_connexion=0x7f020019;
     }
     public static final class id {
-        public static final int action_recherche=0x7f060041;
-        public static final int action_settings=0x7f060040;
+        public static final int action_recherche=0x7f060045;
+        public static final int action_settings=0x7f060044;
         public static final int animation_layout=0x7f060008;
         public static final int animation_layout_content=0x7f060001;
         public static final int animation_layout_sidebar=0x7f060000;
-        public static final int bVueDMP=0x7f060025;
+        public static final int bVueDMP=0x7f060028;
         public static final int bouton_connexion=0x7f060004;
+        public static final int childItem=0x7f06001a;
         public static final int deuxTiers=0x7f060018;
-        public static final int edittext_date_naissance=0x7f060021;
-        public static final int edittext_lieu_naissance=0x7f06001f;
-        public static final int edittext_nom=0x7f06001b;
-        public static final int edittext_prenom=0x7f06001d;
+        public static final int edittext_date_naissance=0x7f060024;
+        public static final int edittext_lieu_naissance=0x7f060022;
+        public static final int edittext_nom=0x7f06001e;
+        public static final int edittext_prenom=0x7f060020;
         public static final int encadre=0x7f060003;
         public static final int grand_logo=0x7f060005;
+        public static final int heading=0x7f060043;
         public static final int imageView1=0x7f060006;
+        public static final int menu_gauche_infos_generales=0x7f06001b;
         public static final int pseudo=0x7f060002;
         public static final int pswd=0x7f060007;
-        public static final int rbtn_sexeF=0x7f060023;
-        public static final int rbtn_sexeM=0x7f060022;
-        public static final int textview_adresse=0x7f06002e;
-        public static final int textview_adresse_value=0x7f06002f;
-        public static final int textview_code_postal=0x7f060031;
-        public static final int textview_code_postal_value=0x7f060030;
-        public static final int textview_date_naissance=0x7f060020;
-        public static final int textview_date_naissance_value=0x7f060029;
-        public static final int textview_lieu_naissance=0x7f06001e;
-        public static final int textview_lieu_naissance_value=0x7f06002c;
-        public static final int textview_medecin_traitant=0x7f06003c;
-        public static final int textview_medecin_traitant_value=0x7f06003b;
-        public static final int textview_nationalite=0x7f060036;
-        public static final int textview_nationalite_value=0x7f060037;
-        public static final int textview_nom=0x7f06001a;
-        public static final int textview_pays=0x7f060032;
-        public static final int textview_pays_value=0x7f060033;
-        public static final int textview_prenom=0x7f06001c;
-        public static final int textview_remarques=0x7f06003d;
-        public static final int textview_remarques_value=0x7f06003e;
-        public static final int textview_sexe=0x7f060027;
-        public static final int textview_sexe_value=0x7f060028;
-        public static final int textview_ss=0x7f06002a;
-        public static final int textview_ss_value=0x7f06002b;
-        public static final int textview_telephone=0x7f060039;
-        public static final int textview_telephone_value=0x7f06003a;
-        public static final int textview_ville=0x7f060034;
-        public static final int textview_ville_value=0x7f060035;
+        public static final int rbtn_sexeF=0x7f060026;
+        public static final int rbtn_sexeM=0x7f060025;
+        public static final int sequence=0x7f060019;
+        public static final int textview_adresse=0x7f060031;
+        public static final int textview_adresse_value=0x7f060032;
+        public static final int textview_code_postal=0x7f060034;
+        public static final int textview_code_postal_value=0x7f060033;
+        public static final int textview_date_naissance=0x7f060023;
+        public static final int textview_date_naissance_value=0x7f06002c;
+        public static final int textview_lieu_naissance=0x7f060021;
+        public static final int textview_lieu_naissance_value=0x7f06002f;
+        public static final int textview_medecin_traitant=0x7f06003f;
+        public static final int textview_medecin_traitant_value=0x7f06003e;
+        public static final int textview_nationalite=0x7f060039;
+        public static final int textview_nationalite_value=0x7f06003a;
+        public static final int textview_nom=0x7f06001d;
+        public static final int textview_pays=0x7f060035;
+        public static final int textview_pays_value=0x7f060036;
+        public static final int textview_prenom=0x7f06001f;
+        public static final int textview_remarques=0x7f060040;
+        public static final int textview_remarques_value=0x7f060041;
+        public static final int textview_sexe=0x7f06002a;
+        public static final int textview_sexe_value=0x7f06002b;
+        public static final int textview_ss=0x7f06002d;
+        public static final int textview_ss_value=0x7f06002e;
+        public static final int textview_telephone=0x7f06003c;
+        public static final int textview_telephone_value=0x7f06003d;
+        public static final int textview_ville=0x7f060037;
+        public static final int textview_ville_value=0x7f060038;
         public static final int tiers=0x7f060017;
-        public static final int title_divers=0x7f060038;
-        public static final int title_infos_generales=0x7f060026;
-        public static final int title_residence=0x7f06002d;
+        public static final int title_divers=0x7f06003b;
+        public static final int title_infos_generales=0x7f060029;
+        public static final int title_residence=0x7f060030;
         public static final int tvACodifier=0x7f060013;
         public static final int tvAjoutDocument=0x7f060011;
         public static final int tvArchives=0x7f060015;
@@ -113,25 +120,28 @@ public final class R {
         public static final int tvHospitalisation=0x7f06000d;
         public static final int tvMedecin=0x7f06000a;
         public static final int tvMonCompte=0x7f060016;
-        public static final int tvNom=0x7f06003f;
+        public static final int tvNom=0x7f060042;
         public static final int tvNomMedecin=0x7f060009;
         public static final int tvRecherche=0x7f06000e;
         public static final int tvTransfert=0x7f060012;
         public static final int tvTrouverPatient=0x7f06000c;
-        public static final int tv_nom_patient=0x7f060024;
-        public static final int tv_titre=0x7f060019;
+        public static final int tv_nom_patient=0x7f060027;
+        public static final int tv_titre=0x7f06001c;
     }
     public static final class layout {
         public static final int activity_connexion=0x7f030000;
         public static final int activity_hospitalisations=0x7f030001;
-        public static final int fragment_recherche_patients=0x7f030002;
-        public static final int fragment_visualiser_patients=0x7f030003;
-        public static final int fragment_vue_ensemble_dmp=0x7f030004;
-        public static final int patients_list_entry=0x7f030005;
+        public static final int elements_section=0x7f030002;
+        public static final int fragment_dmp_info_generales_menu_gauche=0x7f030003;
+        public static final int fragment_recherche_patients=0x7f030004;
+        public static final int fragment_visualiser_patients=0x7f030005;
+        public static final int fragment_vue_ensemble_dmp=0x7f030006;
+        public static final int patients_list_entry=0x7f030007;
+        public static final int titre_section=0x7f030008;
     }
     public static final class menu {
-        public static final int accueil=0x7f0a0000;
-        public static final int connexion=0x7f0a0001;
+        public static final int accueil=0x7f0b0000;
+        public static final int connexion=0x7f0b0001;
     }
     public static final class string {
         public static final int Affiliation=0x7f070023;
@@ -156,7 +166,7 @@ public final class R {
         public static final int ajoutDoc=0x7f070013;
         public static final int ajout_consult=0x7f070033;
         public static final int ajout_doc=0x7f070034;
-        public static final int ajout_hospi=0x7f070036;
+        public static final int ajout_hospi=0x7f070037;
         public static final int app_name=0x7f070000;
         public static final int archives=0x7f070017;
         public static final int autresActions=0x7f070016;
@@ -164,37 +174,38 @@ public final class R {
         public static final int codification=0x7f070031;
         public static final int creerDos=0x7f070012;
         public static final int deconnexion=0x7f07000e;
-        public static final int diag_principal=0x7f070037;
+        public static final int diag_principal=0x7f070038;
         public static final int encadre=0x7f07002d;
-        public static final int form_adresse=0x7f070045;
-        public static final int form_code_postal=0x7f070046;
-        public static final int form_date_naissance=0x7f070041;
-        public static final int form_lieu_naissance=0x7f070040;
-        public static final int form_medecin_traitant=0x7f07004c;
-        public static final int form_nationalite=0x7f070049;
-        public static final int form_nom_patient=0x7f07003c;
-        public static final int form_pays=0x7f070047;
-        public static final int form_prenom_patient=0x7f07003d;
-        public static final int form_remarques=0x7f07004d;
-        public static final int form_sexe=0x7f070042;
-        public static final int form_ss=0x7f070043;
-        public static final int form_telephone=0x7f07004b;
-        public static final int form_titre=0x7f07003e;
-        public static final int form_titre_visualiser=0x7f07003f;
-        public static final int form_ville=0x7f070048;
+        public static final int form_adresse=0x7f070046;
+        public static final int form_code_postal=0x7f070047;
+        public static final int form_date_naissance=0x7f070042;
+        public static final int form_lieu_naissance=0x7f070041;
+        public static final int form_medecin_traitant=0x7f07004d;
+        public static final int form_nationalite=0x7f07004a;
+        public static final int form_nom_patient=0x7f07003d;
+        public static final int form_pays=0x7f070048;
+        public static final int form_prenom_patient=0x7f07003e;
+        public static final int form_remarques=0x7f07004e;
+        public static final int form_sexe=0x7f070043;
+        public static final int form_ss=0x7f070044;
+        public static final int form_telephone=0x7f07004c;
+        public static final int form_titre=0x7f07003f;
+        public static final int form_titre_visualiser=0x7f070040;
+        public static final int form_ville=0x7f070049;
         public static final int gestionDossiers=0x7f070011;
         public static final int grand_logo=0x7f07002c;
         public static final int hello_world=0x7f070002;
         public static final int hospiService=0x7f070010;
         public static final int hospi_en_cours=0x7f070030;
-        public static final int hostAnd=0x7f070038;
+        public static final int hostAnd=0x7f070039;
         public static final int infos_generales=0x7f07002f;
         public static final int modif_data=0x7f070035;
+        public static final int modif_infos=0x7f070036;
         public static final int monCompte=0x7f070018;
         public static final int pseudo=0x7f07002a;
         public static final int pswd=0x7f07002b;
         public static final int recherche=0x7f070019;
-        public static final int saveLives=0x7f070039;
+        public static final int saveLives=0x7f07003a;
         public static final int search_hint=0x7f070004;
         public static final int title_activity_archives=0x7f07000a;
         public static final int title_activity_codification=0x7f07000b;
@@ -205,12 +216,12 @@ public final class R {
         public static final int title_activity_recherche=0x7f070005;
         public static final int title_activity_recherche_patients=0x7f07000d;
         public static final int title_activity_vue_donnees_socio=0x7f07000c;
-        public static final int title_divers=0x7f07004a;
-        public static final int title_infos_generales=0x7f07003a;
-        public static final int title_residence=0x7f070044;
+        public static final int title_divers=0x7f07004b;
+        public static final int title_infos_generales=0x7f07003b;
+        public static final int title_residence=0x7f070045;
         public static final int transfert=0x7f070014;
         public static final int trouverPatient=0x7f07000f;
-        public static final int vueDMP=0x7f07003b;
+        public static final int vueDMP=0x7f07003c;
         public static final int vue_patient=0x7f070032;
     }
     public static final class style {
@@ -236,18 +247,18 @@ public final class R {
     
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f080000;
+        public static final int AppBaseTheme=0x7f090000;
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f080001;
-        public static final int MyActionBar=0x7f080002;
+        public static final int AppTheme=0x7f090001;
+        public static final int MyActionBar=0x7f090002;
         /**  Any customizations for your app running on 3.0+ devices here 
          */
-        public static final int MyAppTheme=0x7f080003;
+        public static final int MyAppTheme=0x7f090003;
         /**  Any customizations for your app running on 4.0+ devices here 
          */
-        public static final int MyAppTheme2=0x7f080004;
+        public static final int MyAppTheme2=0x7f090004;
     }
     public static final class xml {
         public static final int searchable=0x7f040000;

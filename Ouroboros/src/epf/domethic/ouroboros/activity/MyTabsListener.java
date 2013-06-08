@@ -19,7 +19,7 @@ public class MyTabsListener implements ActionBar.TabListener {
 
 	@Override
 	public void onTabSelected(Tab tab, android.app.FragmentTransaction ft) {
-		// TODO Auto-generated method stub
+
 		
 	}
 
