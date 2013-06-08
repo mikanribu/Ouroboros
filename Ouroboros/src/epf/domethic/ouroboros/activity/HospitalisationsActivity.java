@@ -40,7 +40,7 @@ public class HospitalisationsActivity extends FragmentActivity implements
 	private TextView tvHospitalisation;
 	ListerPatientsFragment fragment_liste = new ListerPatientsFragment();
 	AfficherPatientFragment fragment_detail = new AfficherPatientFragment();
-	RecherchePatientFragment fragment_recherche = new RecherchePatientFragment(); 
+	RechercheGeneralePatientFragment fragment_recherche = new RechercheGeneralePatientFragment(); 
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
