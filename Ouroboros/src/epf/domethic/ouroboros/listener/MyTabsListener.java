@@ -1,4 +1,4 @@
-package epf.domethic.ouroboros.activity;
+package epf.domethic.ouroboros.listener;
 
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;

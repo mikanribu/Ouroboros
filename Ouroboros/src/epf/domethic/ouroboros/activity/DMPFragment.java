@@ -5,6 +5,7 @@ import java.util.LinkedHashMap;
 
 import epf.domethic.ouroboros.R;
 import epf.domethic.ouroboros.adapter.ExpandableListeGaucheAdapter;
+import epf.domethic.ouroboros.listener.MyTabsListener;
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
 import android.content.Context;
