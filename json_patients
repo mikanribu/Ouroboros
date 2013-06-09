@@ -15,7 +15,7 @@
 			"telephone": "01.23.45.67.89",
 			"num_ss": "181037502487610",
 			"medecin_traitant": "docteur Maboule",
-			"hospitalise": "true"
+			"hospitalise": "1"
 	        },
 	        {
 			"id": "2",
@@ -32,7 +32,7 @@
 			"telephone": "01.23.45.67.81",
 			"num_ss": "186117502487610",
 			"medecin_traitant": "docteur Who",
-			"hospitalise": "true"
+			"hospitalise": "1"
       		},
 		{
 			"id": "3",
@@ -49,7 +49,7 @@
 			"telephone": "01.23.45.67.82",
 			"num_ss": "181037502487610",			
 			"medecin_traitant": "docteur Jones",
-			"hospitalise": "false"
+			"hospitalise": "0"
 		},
 		{
 			"id": "4",
@@ -66,7 +66,7 @@
 			"telephone": "01.23.45.67.11",
 			"num_ss": "275055602487610",
 			"medecin_traitant": "docteur House",
-			"hospitalise": "true"
+			"hospitalise": "1"
 		},
 		{
 			"id": "5",
@@ -83,7 +83,7 @@
 			"telephone": "01.23.45.67.00",
 			"num_ss": "228111002487610",
 			"medecin_traitant": "Docteur No",
-			"hospitalise": "false"
+			"hospitalise": "0"
 		},
 		{
 			"id": "6",
@@ -100,7 +100,7 @@
 			"telephone": "01.23.45.67.66",
 			"num_ss": "199072202487610",
 			"medecin_traitant": "Docteur Quinn",
-			"hospitalise": "true"
+			"hospitalise": "1"
 		},
 		{
 			"id": "7",
@@ -117,7 +117,7 @@
 			"telephone": "01.23.45.33.66",
 			"num_ss": "180070002487610",
 			"medecin_traitant": "Docteur Pomfresh",
-			"hospitalise": "true"
+			"hospitalise": "1"
 		},
 		{
 			"id": "8",
@@ -134,7 +134,7 @@
 			"telephone": "01.23.45.33.66",
 			"num_ss": "279090002487780",
 			"medecin_traitant": "Docteur Pomfresh",
-			"hospitalise": "false"
+			"hospitalise": "0"
 		},
 		{
 			"id": "9",
@@ -151,7 +151,7 @@
 			"telephone": "01.23.45.33.66",
 			"num_ss": "180100002487610",
 			"medecin_traitant": "Docteur Pomfresh",
-			"hospitalise": "false"
+			"hospitalise": "0"
 		},
 		{
 			"id": "10",
@@ -168,7 +168,7 @@
 			"telephone": "01.23.22.33.66",
 			"num_ss": "181087502667610",
 			"medecin_traitant": "Docteur Ross",
-			"hospitalise": "true"
+			"hospitalise": "1"
 		},
 		{
 			"id": "11",
@@ -185,7 +185,7 @@
 			"telephone": "01.23.22.33.00",
 			"num_ss": "291124511667610",
 			"medecin_traitant": "Docteur Sheperd",
-			"hospitalise": "true"
+			"hospitalise": "1"
 		},
 		{
 			"id": "12",
@@ -202,7 +202,7 @@
 			"telephone": "01.47.22.33.66",
 			"num_ss": "292057502667610",
 			"medecin_traitant": "Docteur Avery",
-			"hospitalise": "false"
+			"hospitalise": "0"
 		},
 		{
 			"id": "13",
@@ -219,7 +219,7 @@
 			"telephone": "01.23.22.40.66",
 			"num_ss": "291047502663910",
 			"medecin_traitant": "Docteur Grey",
-			"hospitalise": "true"
+			"hospitalise": "1"
 		},
 		{
 			"id": "14",
@@ -236,7 +236,7 @@
 			"telephone": "01.23.22.78.66",
 			"num_ss": "291077502667610",
 			"medecin_traitant": "Docteur Who",
-			"hospitalise": "true"
+			"hospitalise": "1"
 		},
 		{
 			"id": "15",
@@ -253,7 +253,7 @@
 			"telephone": "01.23.22.33.66",
 			"num_ss": "291117502667610",
 			"medecin_traitant": "Docteur Mario",
-			"hospitalise": "true"
+			"hospitalise": "1"
 		},
 		{
 			"id": "16",
@@ -270,7 +270,7 @@
 			"telephone": "01.23.22.33.77",
 			"num_ss": "161087502667120",
 			"medecin_traitant": "Docteur Jivago",
-			"hospitalise": "false"
+			"hospitalise": "0"
 		},
 		{
 			"id": "17",
@@ -287,7 +287,7 @@
 			"telephone": "01.23.10.33.66",
 			"num_ss": "174117502447610",
 			"medecin_traitant": "Docteur Jekyll",
-			"hospitalise": "false"
+			"hospitalise": "0"
 		}
   ]
 }
