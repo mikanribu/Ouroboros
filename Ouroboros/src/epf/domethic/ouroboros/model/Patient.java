@@ -35,37 +35,10 @@ public class Patient {
 	
 	static{
 		ALL = new ArrayList<Patient>();
-		Patient p1 = new Patient("Amélie", "Aaaaa", new Date(), Sexe.Feminin);
-		ALL.add(p1);
-		Patient p2 = new Patient("Arielle", "Aabaa", new Date(), Sexe.Feminin);
-		ALL.add(p2);
-		Patient p3 = new Patient("Béa", "Muadaa", new Date(), Sexe.Feminin);
-		ALL.add(p3);
-		Patient p4 = new Patient("Zoya", "Rabaa", new Date(), Sexe.Feminin);
-		ALL.add(p4);
-		Patient p5 = new Patient("Yann", "Fkfda", new Date(), Sexe.Masculin);
-		ALL.add(p5);
-		Patient p6 = new Patient("Véro", "Lbdh", new Date(), Sexe.Feminin);
-		ALL.add(p6);
-		Patient p7 = new Patient("Jean", "Jfd", new Date(), Sexe.Masculin);
-		ALL.add(p7);
-		Patient p8 = new Patient("Henry", "Nui", new Date(), Sexe.Masculin);
-		ALL.add(p8);
-		Patient p9 = new Patient("Bastien", "Abbaa", new Date(), Sexe.Masculin);
-		ALL.add(p9);
-		Patient p10 = new Patient("Thomas", "Podjs", new Date(), Sexe.Masculin);
-		ALL.add(p10);
-		Patient p11 = new Patient("Géraldine", "Dertu", new Date(), Sexe.Feminin);
-		ALL.add(p11);
-		Patient p12 = new Patient("Chris", "Utyr", new Date(), Sexe.Masculin);
-		ALL.add(p12);
-		Patient p13 = new Patient("Aline", "Acbaa", new Date(), Sexe.Feminin);
-		ALL.add(p13);
-		
-//		for(int i14 = 0; i < 20; i++){
-//			Patient p = new Patient("Nom" + i, "Prénom" + i, new Date(), Sexe.Feminin);
-//			ALL.add(p);		
-//		}
+		for(int i = 0; i < 20; i++){
+			Patient p = new Patient("Nom" + i, "Prénom" + i, new Date(), Sexe.Feminin);
+			ALL.add(p);		
+		}
 	}
 
 	public Patient (){
