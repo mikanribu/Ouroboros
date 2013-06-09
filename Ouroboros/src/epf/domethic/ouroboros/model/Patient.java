@@ -35,10 +35,6 @@ public class Patient {
 	
 	static{
 		ALL = new ArrayList<Patient>();
-		for(int i = 0; i < 20; i++){
-			Patient p = new Patient("Nom" + i, "Prénom" + i, new Date(), Sexe.Feminin);
-			ALL.add(p);		
-		}
 	}
 
 	public Patient (){

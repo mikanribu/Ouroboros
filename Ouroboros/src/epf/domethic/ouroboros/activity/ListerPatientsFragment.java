@@ -2,6 +2,7 @@ package epf.domethic.ouroboros.activity;
 
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -17,6 +18,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
 import epf.domethic.ouroboros.adapter.PatientAdapter;
+import epf.domethic.ouroboros.comparator.NameComparator;
 import epf.domethic.ouroboros.data.ParserJSON;
 import epf.domethic.ouroboros.data.PatientDBOpenHelper;
 import epf.domethic.ouroboros.model.Patient;
@@ -105,6 +107,10 @@ public class ListerPatientsFragment extends ListFragment {
         }
         
 		//List<Patient> patient = Patient.ALL;
+        
+        //Tri des noms des patients par ordre alphabétique
+        Collections.sort(patientList, new NameComparator());
+        
 		adapter = new PatientAdapter(getActivity(), patientList);
 		setListAdapter(adapter);
 
