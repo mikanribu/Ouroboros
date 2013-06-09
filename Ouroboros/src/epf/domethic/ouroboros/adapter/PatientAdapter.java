@@ -1,5 +1,6 @@
 package epf.domethic.ouroboros.adapter;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import android.content.Context;
@@ -11,26 +12,29 @@ import android.widget.TextView;
 import epf.domethic.ouroboros.R;
 import epf.domethic.ouroboros.model.Patient;
 
-public class PatientAdapter extends ArrayAdapter<Patient>{
+public class PatientAdapter extends ArrayAdapter<Patient> {
 
 	public PatientAdapter(Context context, List<Patient> objects) {
-		super(context,0, objects);
+		super(context, 0, objects);
 	}
-	
+
 	@Override
 	public View getView(int position, View view, ViewGroup parent) {
-
-	   if (view == null) {
-	     LayoutInflater inflater = 
-	(LayoutInflater)getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-	     view = inflater.inflate(R.layout.patients_list_entry, parent, false);
-	    }
-	    Patient patient = getItem(position);
-	    TextView titre = (TextView)view.findViewById(R.id.tvNom);
-	    titre.setText(patient.getNom() + " - " + patient.getPrenom());
-	   return view;
-	  }
-
-	
+		
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+		if (view == null) {
+			LayoutInflater inflater = (LayoutInflater) getContext()
+					.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+			view = inflater
+					.inflate(R.layout.patients_list_entry, parent, false);
+		}
+		Patient patient = getItem(position);
+		TextView titre = (TextView) view.findViewById(R.id.tvNom);
+		titre.setText(patient.getNom() + " - " + patient.getPrenom());
+		TextView date = (TextView) view.findViewById(R.id.tvDateNaiss);
+		//nDateNaissance.setText(sdf.format(patient.getDateNaissance()));
+		date.setText(sdf.format(patient.getDateNaissance()));
+		return view;
+	}
 
 }
