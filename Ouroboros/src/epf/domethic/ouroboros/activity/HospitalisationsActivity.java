@@ -41,7 +41,7 @@ public class HospitalisationsActivity extends FragmentActivity implements
 	private TextView tvHospitalisation;
 	ListerPatientsFragment fragment_liste = new ListerPatientsFragment();
 	AfficherPatientFragment fragment_detail = new AfficherPatientFragment();
-	RecherchePatientFragment fragment_recherche = new RecherchePatientFragment(); 
+	RechercheGeneraleFragment fragment_recherche_g = new RechercheGeneraleFragment(); 
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -93,7 +93,7 @@ public class HospitalisationsActivity extends FragmentActivity implements
 		    	if(str!="vers_recherche"){
 		        FragmentTransaction fragmentTransaction = manager.beginTransaction();
 		        manager.popBackStack();	    	
-		    	fragmentTransaction.replace(R.id.tiers, fragment_recherche);
+		    	fragmentTransaction.replace(R.id.tiers, fragment_recherche_g);
 		    	fragmentTransaction.addToBackStack("vers_recherche");
 		    	fragmentTransaction.commit();
 		    	}
