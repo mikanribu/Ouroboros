@@ -67,7 +67,7 @@ public class PatientDAO {
 		patient.setLieuNaissance(cursor.getString(5));
 		patient.setAdresse(cursor.getString(6));
 		patient.setVille(cursor.getString(7));
-		patient.setCode_postal(cursor.getString(8));
+		patient.setCodePostal(cursor.getString(8));
 		patient.setPays(cursor.getString(9));
 		patient.setNationalite(cursor.getString(10));
 		patient.setTelephone(cursor.getString(11));
@@ -106,7 +106,7 @@ public class PatientDAO {
 			patient.setLieuNaissance(cursor.getString(5));
 			patient.setAdresse(cursor.getString(6));
 			patient.setVille(cursor.getString(7));
-			patient.setCode_postal(cursor.getString(8));
+			patient.setCodePostal(cursor.getString(8));
 			patient.setPays(cursor.getString(9));
 			patient.setNationalite(cursor.getString(10));
 			patient.setTelephone(cursor.getString(11));

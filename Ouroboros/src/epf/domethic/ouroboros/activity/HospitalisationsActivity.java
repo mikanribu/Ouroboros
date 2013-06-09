@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -40,13 +41,15 @@ public class HospitalisationsActivity extends FragmentActivity implements
 	private TextView tvHospitalisation;
 	ListerPatientsFragment fragment_liste = new ListerPatientsFragment();
 	AfficherPatientFragment fragment_detail = new AfficherPatientFragment();
-	RechercheGeneraleFragment fragment_recherche = new RechercheGeneraleFragment(); 
+	RecherchePatientFragment fragment_recherche = new RecherchePatientFragment(); 
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_hospitalisations);
+		
+
 
 		ActionBar actionBar = getActionBar();
 		
@@ -68,7 +71,7 @@ public class HospitalisationsActivity extends FragmentActivity implements
         FragmentTransaction fragmentTransaction = manager.beginTransaction();       
 		fragmentTransaction.add(R.id.tiers, fragment_liste);
 		fragmentTransaction.add(R.id.deuxTiers, fragment_detail);
-		fragmentTransaction.addToBackStack("vers_liste_hospi");
+		fragmentTransaction.addToBackStack("vers_hospi");
 		fragmentTransaction.commit();
 		
 		tvDeconnexion = (TextView)findViewById(R.id.tvDeconnexion);
@@ -87,11 +90,11 @@ public class HospitalisationsActivity extends FragmentActivity implements
 		    	FragmentManager manager = HospitalisationsActivity.this.getSupportFragmentManager();
 		    	String str = manager.getBackStackEntryAt(0).getName();
 	    	
-		    	if(str!="vers_recherche_g"){
+		    	if(str!="vers_recherche"){
 		        FragmentTransaction fragmentTransaction = manager.beginTransaction();
 		        manager.popBackStack();	    	
 		    	fragmentTransaction.replace(R.id.tiers, fragment_recherche);
-		    	fragmentTransaction.addToBackStack("vers_recherche_g");
+		    	fragmentTransaction.addToBackStack("vers_recherche");
 		    	fragmentTransaction.commit();
 		    	}
 	    	}
@@ -104,12 +107,12 @@ public class HospitalisationsActivity extends FragmentActivity implements
 		    	FragmentManager manager = HospitalisationsActivity.this.getSupportFragmentManager();
 		    	String str = manager.getBackStackEntryAt(0).getName();
 		    	
-		    	if(str != "vers_liste_hospi"){
+		    	if(str != "vers_hospi"){
 			        FragmentTransaction fragmentTransaction = manager.beginTransaction();
 			        manager.popBackStack();	    	
 			    	fragmentTransaction.replace(R.id.tiers, fragment_liste);
 			    	fragmentTransaction.replace(R.id.deuxTiers, fragment_detail);
-			    	fragmentTransaction.addToBackStack("vers_liste_hospi");
+			    	fragmentTransaction.addToBackStack("vers_hospi");
 			    	fragmentTransaction.commit();
 		    	}
 		    }
@@ -128,7 +131,7 @@ public class HospitalisationsActivity extends FragmentActivity implements
 	@Override
 	public void onPatientSelected(int position) {
 		this.position = position;
-		Patient patient = Patient.ALL.get(position);
+		Patient patient = fragment_liste.patientList.get(position);
 		fragment_detail.afficherPatient(patient);
 
 	}

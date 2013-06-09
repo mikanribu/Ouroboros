@@ -20,7 +20,7 @@ public class Patient {
 	private String lieuNaissance;
 	private String adresse;
 	private String ville;
-	private String code_postal;
+	private String codePostal;
 	private String pays;
 	private String nationalite;
 	private String telephone;
@@ -59,7 +59,7 @@ public class Patient {
 		this.lieuNaissance = lieuNaissance;
 		this.adresse = adresse;
 		this.ville = ville;
-		this.code_postal = code_postal;
+		this.codePostal = code_postal;
 		this.pays = pays;
 		this.nationalite = nationalite;
 		this.telephone = telephone;
@@ -132,12 +132,12 @@ public class Patient {
 		this.ville = ville;
 	}
 
-	public String getCode_postal() {
-		return code_postal;
+	public String getCodePostal() {
+		return codePostal;
 	}
 
-	public void setCode_postal(String code_postal) {
-		this.code_postal = code_postal;
+	public void setCodePostal(String code_postal) {
+		this.codePostal = code_postal;
 	}
 
 	public String getPays() {

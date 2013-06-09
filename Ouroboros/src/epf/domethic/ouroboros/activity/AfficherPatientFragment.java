@@ -23,8 +23,16 @@ public class AfficherPatientFragment extends Fragment {
 	private TextView nLieuNaissance;
 	private TextView nDateNaissance;
 	private TextView nVille;
+	private TextView nAdresse;
+	private TextView nCodePostal;
+	private TextView nPays;
+	private TextView nNationalite;
+	private TextView nNumeroSS;
+	private TextView nTelephone;
+	private TextView nMedecinTraitant;
+	
 	private Button bVisualiserDMP;
-	private InformationsGeneralesFragment fragment_dmp_infos = new InformationsGeneralesFragment();
+	private DMPFragment fragment_vue_dmp = new DMPFragment();
 	
 	private Patient patient;
 	
@@ -33,8 +41,16 @@ public class AfficherPatientFragment extends Fragment {
 		View view = inflater.inflate(R.layout.fragment_visualiser_patients,container, false);
 		nNomPatient = (TextView)view.findViewById(R.id.tv_nom_patient);
 		nSexePatient = (TextView)view.findViewById(R.id.textview_sexe_value);
-		nLieuNaissance = (TextView)view.findViewById(R.id.textview_date_naissance_value);
+		nLieuNaissance = (TextView)view.findViewById(R.id.textview_lieu_naissance_value);
 		nDateNaissance = (TextView)view.findViewById(R.id.textview_date_naissance_value);
+		nVille = (TextView)view.findViewById(R.id.textview_ville_value);
+		nAdresse =(TextView)view.findViewById(R.id.textview_adresse_value);
+		nCodePostal = (TextView)view.findViewById(R.id.textview_code_postal_value);
+		nPays = (TextView)view.findViewById(R.id.textview_pays_value);
+		nNationalite = (TextView)view.findViewById(R.id.textview_nationalite_value);
+		nNumeroSS = (TextView)view.findViewById(R.id.textview_ss_value);
+		nTelephone = (TextView)view.findViewById(R.id.textview_telephone_value);
+		nMedecinTraitant = (TextView)view.findViewById(R.id.textview_medecin_traitant_value);
 		
 		bVisualiserDMP =(Button)view.findViewById(R.id.bVueDMP);
 		bVisualiserDMP.setOnClickListener(new View.OnClickListener() {
@@ -43,8 +59,8 @@ public class AfficherPatientFragment extends Fragment {
 		    	FragmentManager manager = getActivity().getSupportFragmentManager();  
 		        FragmentTransaction fragmentTransaction = manager.beginTransaction();
 		        manager.popBackStack();	    	
-		    	fragmentTransaction.replace(R.id.tiers, fragment_dmp_infos);
-		    	fragmentTransaction.addToBackStack("vers_infos_dmp");
+		    	fragmentTransaction.replace(R.id.tiers, fragment_vue_dmp);
+		    	fragmentTransaction.addToBackStack("vers_recherche");
 		    	fragmentTransaction.commit();
 		    	}
 	    	
@@ -62,6 +78,16 @@ public class AfficherPatientFragment extends Fragment {
 		nSexePatient.setText(patient.getSexe().toString());
 		nLieuNaissance.setText(patient.getLieuNaissance());
 		nDateNaissance.setText(sdf.format(patient.getDateNaissance()));
+		nVille.setText(patient.getVille());
+		nAdresse.setText(patient.getAdresse());;
+		nCodePostal.setText(patient.getCodePostal());;
+		nPays.setText(patient.getPays());;
+		nNationalite.setText(patient.getNationalite());;
+		nNumeroSS.setText(patient.getNumSS());;
+		nTelephone.setText(patient.getTelephone());;
+		nMedecinTraitant.setText(patient.getMedecinTraitant());;
+		
+		
 		
 	}
 }
