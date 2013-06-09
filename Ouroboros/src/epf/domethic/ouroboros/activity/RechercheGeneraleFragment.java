@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import epf.domethic.ouroboros.R;
 import epf.domethic.ouroboros.listener.MyTabsListener;
 
-public class RechercheGeneralePatientFragment extends Fragment {
+public class RechercheGeneraleFragment extends Fragment {
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -23,7 +23,7 @@ public class RechercheGeneralePatientFragment extends Fragment {
 		// Création des onglets et des écouteurs associés
 
 		// Recherche générale
-		RechercheGeneralePatientFragment rechercheGFragment = new RechercheGeneralePatientFragment();
+		RechercheGeneraleFragment rechercheGFragment = new RechercheGeneraleFragment();
 		ActionBar.Tab rechercheGTab = actionBar.newTab().setText("Recherche Générale");
 		rechercheGTab.setTabListener(new MyTabsListener(rechercheGFragment));
 

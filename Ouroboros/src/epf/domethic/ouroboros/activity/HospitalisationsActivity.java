@@ -40,7 +40,7 @@ public class HospitalisationsActivity extends FragmentActivity implements
 	private TextView tvHospitalisation;
 	ListerPatientsFragment fragment_liste = new ListerPatientsFragment();
 	AfficherPatientFragment fragment_detail = new AfficherPatientFragment();
-	RechercheGeneralePatientFragment fragment_recherche = new RechercheGeneralePatientFragment(); 
+	RechercheGeneraleFragment fragment_recherche = new RechercheGeneraleFragment(); 
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -68,7 +68,7 @@ public class HospitalisationsActivity extends FragmentActivity implements
         FragmentTransaction fragmentTransaction = manager.beginTransaction();       
 		fragmentTransaction.add(R.id.tiers, fragment_liste);
 		fragmentTransaction.add(R.id.deuxTiers, fragment_detail);
-		fragmentTransaction.addToBackStack("vers_hospi");
+		fragmentTransaction.addToBackStack("vers_liste_hospi");
 		fragmentTransaction.commit();
 		
 		tvDeconnexion = (TextView)findViewById(R.id.tvDeconnexion);
@@ -87,11 +87,11 @@ public class HospitalisationsActivity extends FragmentActivity implements
 		    	FragmentManager manager = HospitalisationsActivity.this.getSupportFragmentManager();
 		    	String str = manager.getBackStackEntryAt(0).getName();
 	    	
-		    	if(str!="vers_recherche"){
+		    	if(str!="vers_recherche_g"){
 		        FragmentTransaction fragmentTransaction = manager.beginTransaction();
 		        manager.popBackStack();	    	
 		    	fragmentTransaction.replace(R.id.tiers, fragment_recherche);
-		    	fragmentTransaction.addToBackStack("vers_recherche");
+		    	fragmentTransaction.addToBackStack("vers_recherche_g");
 		    	fragmentTransaction.commit();
 		    	}
 	    	}
@@ -104,12 +104,12 @@ public class HospitalisationsActivity extends FragmentActivity implements
 		    	FragmentManager manager = HospitalisationsActivity.this.getSupportFragmentManager();
 		    	String str = manager.getBackStackEntryAt(0).getName();
 		    	
-		    	if(str != "vers_hospi"){
+		    	if(str != "vers_liste_hospi"){
 			        FragmentTransaction fragmentTransaction = manager.beginTransaction();
 			        manager.popBackStack();	    	
 			    	fragmentTransaction.replace(R.id.tiers, fragment_liste);
 			    	fragmentTransaction.replace(R.id.deuxTiers, fragment_detail);
-			    	fragmentTransaction.addToBackStack("vers_hospi");
+			    	fragmentTransaction.addToBackStack("vers_liste_hospi");
 			    	fragmentTransaction.commit();
 		    	}
 		    }

@@ -24,7 +24,7 @@ public class AfficherPatientFragment extends Fragment {
 	private TextView nDateNaissance;
 	private TextView nVille;
 	private Button bVisualiserDMP;
-	private DMPFragment fragment_vue_dmp = new DMPFragment();
+	private InformationsGeneralesFragment fragment_dmp_infos = new InformationsGeneralesFragment();
 	
 	private Patient patient;
 	
@@ -43,8 +43,8 @@ public class AfficherPatientFragment extends Fragment {
 		    	FragmentManager manager = getActivity().getSupportFragmentManager();  
 		        FragmentTransaction fragmentTransaction = manager.beginTransaction();
 		        manager.popBackStack();	    	
-		    	fragmentTransaction.replace(R.id.tiers, fragment_vue_dmp);
-		    	fragmentTransaction.addToBackStack("vers_recherche");
+		    	fragmentTransaction.replace(R.id.tiers, fragment_dmp_infos);
+		    	fragmentTransaction.addToBackStack("vers_infos_dmp");
 		    	fragmentTransaction.commit();
 		    	}
 	    	
