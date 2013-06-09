@@ -1,7 +1,7 @@
 {
     "patients": [
-        {
-  		"id": "1",
+        	{
+  			"id": "1",
 			"nom": "Bros",
 			"prenom": "Mario",
 			"date_naissance": "25/03/1981",
@@ -16,8 +16,8 @@
 			"num_ss": "181037502487610",
 			"medecin_traitant": "docteur Maboule",
 			"hospitalise": "true"
-        },
-        {
+	        },
+	        {
 			"id": "2",
 			"nom": "Legend",
 			"prenom": "Link",
@@ -33,7 +33,7 @@
 			"num_ss": "186117502487610",
 			"medecin_traitant": "docteur Who",
 			"hospitalise": "true"
-        },
+      		},
 		{
 			"id": "3",
 			"nom": "Bros",
@@ -288,8 +288,6 @@
 			"num_ss": "174117502447610",
 			"medecin_traitant": "Docteur Jekyll",
 			"hospitalise": "false"
-		},
-
-
+		}
   ]
 }
