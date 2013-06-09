@@ -60,7 +60,7 @@ public class AfficherPatientFragment extends Fragment {
 		        FragmentTransaction fragmentTransaction = manager.beginTransaction();
 		        manager.popBackStack();	    	
 		    	fragmentTransaction.replace(R.id.tiers, fragment_infos_dmp);
-		    	fragmentTransaction.addToBackStack("vers_recherche");
+		    	fragmentTransaction.addToBackStack("vers_infos_dmp");
 		    	fragmentTransaction.commit();
 		    	}
 	    	

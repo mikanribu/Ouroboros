@@ -90,7 +90,7 @@ public class HospitalisationsActivity extends FragmentActivity implements
 		    	FragmentManager manager = HospitalisationsActivity.this.getSupportFragmentManager();
 		    	String str = manager.getBackStackEntryAt(0).getName();
 	    	
-		    	if(str!="vers_recherche"){
+		    	if(str!="fragment_recherche_g"){
 		        FragmentTransaction fragmentTransaction = manager.beginTransaction();
 		        manager.popBackStack();	    	
 		    	fragmentTransaction.replace(R.id.tiers, fragment_recherche_g);
