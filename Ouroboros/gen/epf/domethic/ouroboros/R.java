@@ -57,8 +57,9 @@ public final class R {
         public static final int valide_connexion=0x7f020019;
     }
     public static final class id {
-        public static final int action_recherche=0x7f060045;
-        public static final int action_settings=0x7f060044;
+        public static final int SubItem=0x7f060044;
+        public static final int action_recherche=0x7f060048;
+        public static final int action_settings=0x7f060047;
         public static final int animation_layout=0x7f060008;
         public static final int animation_layout_content=0x7f060001;
         public static final int animation_layout_sidebar=0x7f060000;
@@ -72,8 +73,9 @@ public final class R {
         public static final int edittext_prenom=0x7f06003d;
         public static final int encadre=0x7f060003;
         public static final int grand_logo=0x7f060005;
-        public static final int heading=0x7f060043;
+        public static final int heading=0x7f060046;
         public static final int imageView1=0x7f060006;
+        public static final int ivSexe=0x7f060043;
         public static final int menu_gauche_infos_generales=0x7f06001b;
         public static final int pseudo=0x7f060002;
         public static final int pswd=0x7f060007;
@@ -115,6 +117,7 @@ public final class R {
         public static final int tvArchives=0x7f060015;
         public static final int tvAutresActions=0x7f060014;
         public static final int tvCreationDossier=0x7f060010;
+        public static final int tvDateNaiss=0x7f060045;
         public static final int tvDeconnexion=0x7f06000b;
         public static final int tvGererVosDossiers=0x7f06000f;
         public static final int tvHospitalisation=0x7f06000d;

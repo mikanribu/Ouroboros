@@ -17,6 +17,7 @@ import android.support.v4.app.ListFragment;
 import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
+import epf.domethic.ouroboros.R;
 import epf.domethic.ouroboros.adapter.PatientAdapter;
 import epf.domethic.ouroboros.comparator.NameComparator;
 import epf.domethic.ouroboros.data.ParserJSON;
@@ -35,10 +36,11 @@ public class ListerPatientsFragment extends ListFragment {
 
 	private OnPatientSelectedListener listener;
 	private PatientDBOpenHelper helper;
+	private ListerPatientsFragment liste;
 
 	private final static String TAG = ListerPatientsFragment.class.getSimpleName();
 	private PatientAdapter adapter;
-	// contacts JSONArray
+
     JSONArray patients = null;
     List<Patient> patientList = new ArrayList<Patient>();
 
@@ -55,7 +57,6 @@ public class ListerPatientsFragment extends ListFragment {
 		// Creating JSON Parser instance
         ParserJSON jParser = new ParserJSON();
         
-        Log.v("TAG","COUCOU !!!!!");
         // getting JSON string from URL
         JSONObject json = jParser.getJSONFromUrl(url);        
         
@@ -64,7 +65,6 @@ public class ListerPatientsFragment extends ListFragment {
             // Getting Array of Contacts
             patients = json.getJSONArray("patients");
             
-            Log.v("TAG","Dans le TRYYYY !!" );
              
             // looping through All Contacts
             for(int i = 0; i < patients.length(); i++){
@@ -72,7 +72,6 @@ public class ListerPatientsFragment extends ListFragment {
                  
                 // Storing each json item in variable
                 int id = c.getInt("id");
-                Log.v("TAG","coucou : "+id);
                 String nom = c.getString("nom");
                 String prenom = c.getString("prenom");
                 Sexe sexe = Sexe.valueOf(c.getString("sexe"));
@@ -112,6 +111,7 @@ public class ListerPatientsFragment extends ListFragment {
         Collections.sort(patientList, new NameComparator());
         
 		adapter = new PatientAdapter(getActivity(), patientList);
+		
 		setListAdapter(adapter);
 
 	}
