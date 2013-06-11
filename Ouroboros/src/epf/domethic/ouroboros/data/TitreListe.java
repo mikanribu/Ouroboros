@@ -1,12 +1,14 @@
-package epf.domethic.ouroboros.activity;
+package epf.domethic.ouroboros.data;
 
 import java.util.ArrayList;
+
+import android.graphics.drawable.Drawable;
 
 public class TitreListe {
 
 	private String name;
-	private ArrayList<DetailListe> productList = new ArrayList<DetailListe>();;
-
+	private ArrayList<DetailListe> productList = new ArrayList<DetailListe>();;	
+	
 	public String getName() {
 		return name;
 	}

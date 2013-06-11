@@ -3,14 +3,15 @@ package epf.domethic.ouroboros.listener;
 import java.util.ArrayList;
 
 import epf.domethic.ouroboros.R;
-import epf.domethic.ouroboros.activity.DetailListe;
-import epf.domethic.ouroboros.activity.TitreListe;
+import epf.domethic.ouroboros.data.DetailListe;
+import epf.domethic.ouroboros.data.TitreListe;
 
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
  
 public class MyListAdapter extends BaseExpandableListAdapter {
@@ -75,18 +76,16 @@ public class MyListAdapter extends BaseExpandableListAdapter {
 	 }
 	 
 	 @Override
-	 public View getGroupView(int groupPosition, boolean isLastChild, View view,
-	   ViewGroup parent) {
+	 public View getGroupView(int groupPosition, boolean isLastChild, View view, ViewGroup parent) {
 	   
-	  TitreListe headerInfo = (TitreListe) getGroup(groupPosition);
-	  if (view == null) {
-		  LayoutInflater inf = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-		  view = inf.inflate(R.layout.titre_section, null);
+		 TitreListe headerInfo = (TitreListe) getGroup(groupPosition);
+		 if (view == null) {
+			 LayoutInflater inf = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+			 view = inf.inflate(R.layout.titre_section, null);
 	  }
 	   
 	  TextView heading = (TextView) view.findViewById(R.id.heading);
 	  heading.setText(headerInfo.getName().trim());
-	   
 	  return view;
 	 }
 	 

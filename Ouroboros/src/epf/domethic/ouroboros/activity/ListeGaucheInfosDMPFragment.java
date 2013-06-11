@@ -1,163 +1,96 @@
 package epf.domethic.ouroboros.activity;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import epf.domethic.ouroboros.R;
+ import android.app.AlertDialog;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
-import android.view.ViewGroup;
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import epf.domethic.ouroboros.R;
-import epf.domethic.ouroboros.listener.MyListAdapter;
 import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.ExpandableListView;
-import android.widget.ExpandableListView.OnChildClickListener;
-import android.widget.ExpandableListView.OnGroupClickListener;
-	 
-public class ListeGaucheInfosDMPFragment extends Fragment implements OnClickListener{
-	 
-	 private LinkedHashMap<String, TitreListe> myDepartments = new LinkedHashMap<String, TitreListe>();
-	 private ArrayList<TitreListe> deptList = new ArrayList<TitreListe>();
-	 
-	 private MyListAdapter listAdapter;
-	 private ExpandableListView myList;
-	 
-	 public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState ){
-			View view = inflater.inflate(R.layout.fragment_dmp_info_generales_menu_gauche,container, false);
-			
-	  //Just add some data to start with
-	  loadData();
-	 
-	  //get reference to the ExpandableListView
-	  myList = (ExpandableListView)view.findViewById(R.id.menu_gauche_infos_generales);
-	  //create the adapter by passing your ArrayList data
-	  listAdapter = new MyListAdapter(getActivity(), deptList);
-	  //attach the adapter to the list
-	  myList.setAdapter(listAdapter);
-	 
-	  //expand all Groups
-	 // expandAll();
-	 
-	  //listener for child row click
-	  myList.setOnChildClickListener(myListItemClicked);
-	  //listener for group heading click
-	        myList.setOnGroupClickListener(myListGroupClicked);
-	         
-	        return view;
-	 }
-	 
-	 //method to expand all groups
-	 private void expandAll() {
-	  int count = listAdapter.getGroupCount();
-	  for (int i = 0; i < count; i++){
-	   myList.expandGroup(i);
-	  }
-	 }
-	  
-	 //method to collapse all groups
-	 private void collapseAll() {
-	  int count = listAdapter.getGroupCount();
-	  for (int i = 0; i < count; i++){
-	   myList.collapseGroup(i);
-	  }
-	 }
-	 
-	 //load some initial data into out list
-	 private void loadData(){
-	 
-	  addSingle("Données patient");
-	  addSingle("Nouvelle hospitalisation");
-	  addSingle("Fin d'hospitalisation");
-	  addSingle("Impression dossier");
-	  addSingle("Nouveau document");
-	 
-	 }
-	  
-	 //our child listener
-	 private OnChildClickListener myListItemClicked =  new OnChildClickListener() {
-	 
-	  public boolean onChildClick(ExpandableListView parent, View v,
-	    int groupPosition, int childPosition, long id) {
-	    
-	   //get the group header
-		  TitreListe headerInfo = deptList.get(groupPosition);
-	   //get the child info
-	   DetailListe detailInfo =  headerInfo.getProductList().get(childPosition);
-	  
-	   return false;
-	  }
-	   
-	 };
-	  
-	 //our group listener
-	 private OnGroupClickListener myListGroupClicked =  new OnGroupClickListener() {
-	 
-	  public boolean onGroupClick(ExpandableListView parent, View v,
-	    int groupPosition, long id) {
-	     
-	   return false;
-	  }
-	   
-	 };
-	 
-	 //here we maintain our products in various departments
-	 private int addDouble(String department, String product){
-	 
-	  int groupPosition = 0;
-	   
-	  //check the hash map if the group already exists
-	  TitreListe headerInfo = myDepartments.get(department);
-	  //add the group if doesn't exists
-	  if(headerInfo == null){
-	   headerInfo = new TitreListe();
-	   headerInfo.setName(department);
-	   myDepartments.put(department, headerInfo);
-	   deptList.add(headerInfo);
-	  }
-	 
-	  //get the children for the group
-	  ArrayList<DetailListe> productList = headerInfo.getProductList();
-	  //size of the children list
-	  int listSize = productList.size();
-	  //add to the counter
-	  listSize++;
-	 
-	  //create a new child and add that to the group
-	  DetailListe detailInfo = new DetailListe();
-	  detailInfo.setSequence(String.valueOf(listSize));
-	  detailInfo.setName(product);
-	  productList.add(detailInfo);
-	  headerInfo.setProductList(productList);
-	 
-	  //find the group position inside the list
-	  groupPosition = deptList.indexOf(headerInfo);
-	  return groupPosition;
-	 }
-	 
-	 private int addSingle(String department){
-		 
-		  int groupPosition = 0;
-		   
-		  //check the hash map if the group already exists
-		  TitreListe headerInfo = myDepartments.get(department);
-		  //add the group if doesn't exists
-		  if(headerInfo == null){
-		   headerInfo = new TitreListe();
-		   headerInfo.setName(department);
-		   myDepartments.put(department, headerInfo);
-		   deptList.add(headerInfo);
-		  }
-		 
-		  //find the group position inside the list
-		  groupPosition = deptList.indexOf(headerInfo);
-		  return groupPosition;
-		 }
-	 
-
-	@Override
-	public void onClick(View arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-	
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ListView;
+import android.widget.SimpleAdapter;
+import android.widget.AdapterView.OnItemClickListener;
+ 
+public class ListeGaucheInfosDMPFragment extends Fragment {
+ 
+	private ListView listViewInfos;
+ 
+    /** Called when the activity is first created. */
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState ){
+		View view = inflater.inflate(R.layout.fragment_liste_infos_dmp,container, false);
+ 
+        //Récupération de la listview créée dans le fichier main.xml
+		listViewInfos = (ListView)view.findViewById(R.id.liste_infos_dmp);
+ 
+        //Création de la ArrayList qui nous permettra de remplire la listView
+        ArrayList<HashMap<String, String>> listItem = new ArrayList<HashMap<String, String>>();
+ 
+        //On déclare la HashMap qui contiendra les informations pour un item
+        HashMap<String, String> map;
+ 
+        //Création d'une HashMap pour insérer les informations du premier item de notre listView
+        map = new HashMap<String, String>();
+        //on insère un élément titre que l'on récupérera dans le textView titre créé dans le fichier item_list_infos_dmp.xml
+        map.put("titre", "Données Patient");
+        //on insère la référence à l'image (converti en String car normalement c'est un int) que l'on récupérera dans l'imageView créé dans le fichier affichageitem.xml
+        map.put("img", String.valueOf(R.drawable.logo_donnees_patient));
+        //enfin on ajoute cette hashMap dans la arrayList
+        listItem.add(map);
+ 
+        //On refait la manip plusieurs fois avec des données différentes pour former les items de notre ListView
+ 
+        map = new HashMap<String, String>();
+        map.put("titre", "Nouvelle hospitalisation");
+        map.put("img", String.valueOf(R.drawable.logo_new_hospi));
+        listItem.add(map);
+ 
+        map = new HashMap<String, String>();
+        map.put("titre", "Fin d'hospitalisation");
+        map.put("img", String.valueOf(R.drawable.logo_fin_hospi));
+        listItem.add(map);
+ 
+        map = new HashMap<String, String>();
+        map.put("titre", "Impression Dossier");
+        map.put("img", String.valueOf(R.drawable.logo_impression_dossier));
+        listItem.add(map);
+        
+        map = new HashMap<String, String>();
+        map.put("titre", "Nouveau Document");
+        map.put("img", String.valueOf(R.drawable.logo_new_doc));
+        listItem.add(map);
+ 
+        //Création d'un SimpleAdapter qui se chargera de mettre les items présent dans notre list (listItem) dans la vue affichageitem
+        SimpleAdapter mSchedule = new SimpleAdapter (getActivity().getBaseContext(), listItem, R.layout.item_list_infos_dmp,
+               new String[] {"img", "titre", "description"}, new int[] {R.id.image, R.id.titre});
+ 
+        //On attribue à notre listView l'adapter que l'on vient de créer
+        listViewInfos.setAdapter(mSchedule);
+ 
+        //Enfin on met un écouteur d'évènement sur notre listView
+        listViewInfos.setOnItemClickListener(new OnItemClickListener() {
+			@Override
+        	@SuppressWarnings("unchecked")
+         	public void onItemClick(AdapterView<?> a, View v, int position, long id) {
+				//on récupère la HashMap contenant les infos de notre item (titre, description, img)
+        		HashMap<String, String> map = (HashMap<String, String>) listViewInfos.getItemAtPosition(position);
+        		//on créer une boite de dialogue
+        		AlertDialog.Builder adb = new AlertDialog.Builder(getActivity());
+        		//on attribut un titre à notre boite de dialogue
+        		adb.setTitle("Sélection Item");
+        		//on insère un message à notre boite de dialogue, et ici on affiche le titre de l'item cliqué
+        		adb.setMessage("Votre choix : "+map.get("titre"));
+        		//on indique que l'on veut le bouton ok à notre boite de dialogue
+        		adb.setPositiveButton("Ok", null);
+        		//on affiche la boite de dialogue
+        		adb.show();
+        	}
+         });
+ 
+        return view;
+    }
 }

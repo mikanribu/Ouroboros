@@ -1,4 +1,4 @@
-package epf.domethic.ouroboros.activity;
+package epf.domethic.ouroboros.data;
 
 public class DetailListe {
 

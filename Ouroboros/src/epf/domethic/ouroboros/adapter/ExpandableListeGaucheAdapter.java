@@ -3,8 +3,8 @@ package epf.domethic.ouroboros.adapter;
 import java.util.ArrayList;
 
 import epf.domethic.ouroboros.R;
-import epf.domethic.ouroboros.activity.DetailListe;
-import epf.domethic.ouroboros.activity.TitreListe;
+import epf.domethic.ouroboros.data.DetailListe;
+import epf.domethic.ouroboros.data.TitreListe;
 
 import android.content.Context;
 import android.view.LayoutInflater;
