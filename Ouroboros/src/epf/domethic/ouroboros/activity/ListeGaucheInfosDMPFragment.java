@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import epf.domethic.ouroboros.R;
- import android.app.AlertDialog;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -78,16 +77,7 @@ public class ListeGaucheInfosDMPFragment extends Fragment {
          	public void onItemClick(AdapterView<?> a, View v, int position, long id) {
 				//on récupère la HashMap contenant les infos de notre item (titre, description, img)
         		HashMap<String, String> map = (HashMap<String, String>) listViewInfos.getItemAtPosition(position);
-        		//on créer une boite de dialogue
-        		AlertDialog.Builder adb = new AlertDialog.Builder(getActivity());
-        		//on attribut un titre à notre boite de dialogue
-        		adb.setTitle("Sélection Item");
-        		//on insère un message à notre boite de dialogue, et ici on affiche le titre de l'item cliqué
-        		adb.setMessage("Votre choix : "+map.get("titre"));
-        		//on indique que l'on veut le bouton ok à notre boite de dialogue
-        		adb.setPositiveButton("Ok", null);
-        		//on affiche la boite de dialogue
-        		adb.show();
+        		
         	}
          });
  

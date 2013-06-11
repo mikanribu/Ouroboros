@@ -97,5 +97,16 @@
         <item>Consultations</item>
         <item>Nouveau document</item>
     </string-array>
+    
+	
+	
+	<string name="titre_cause">Cause</string>
+	<string name="titre_description">Description et interprétation </string>
+	<string name="form_radio">Radio :</string>
+	<string name="form_cause">Cause :</string>
+	<string name="form_date">Date: </string>
+	<string name="form_medecin">Médecin: </string>
+	<string name="form_description">Description: </string>
+	<string name="form_interpretation">Interprétation: </string>
 
 </resources>
