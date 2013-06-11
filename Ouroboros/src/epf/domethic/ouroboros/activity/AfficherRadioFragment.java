@@ -1,7 +1,6 @@
 package epf.domethic.ouroboros.activity;
 
 import epf.domethic.ouroboros.R;
-import epf.domethic.ouroboros.model.Patient;
 import epf.domethic.ouroboros.model.Radio;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -46,7 +45,7 @@ public class AfficherRadioFragment extends Fragment {
 	public void afficherRadio(Radio radio) {
 
 		titre.setText(radio.getTitre());
-		nomRadio.setText(radio.getRadio());
+		nomRadio.setText(radio.getNomRadio());
 		cause.setText(radio.getCause());
 		date.setText(radio.getDate());
 		medecin.setText(radio.getMedecin());
