@@ -3,8 +3,8 @@ package epf.domethic.ouroboros.adapter;
 import java.util.ArrayList;
 
 import epf.domethic.ouroboros.R;
-import epf.domethic.ouroboros.activity.DetailListeActivity;
-import epf.domethic.ouroboros.activity.TitreListeActivity;
+import epf.domethic.ouroboros.activity.DetailListe;
+import epf.domethic.ouroboros.activity.TitreListe;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -14,15 +14,15 @@ import android.widget.TextView;
 
 public class ExpandableListeGaucheAdapter {
 	private Context context;
-	private ArrayList<TitreListeActivity> elmtList;
+	private ArrayList<TitreListe> elmtList;
 
-	public ExpandableListeGaucheAdapter(Context context, ArrayList<TitreListeActivity> elmtList) {
+	public ExpandableListeGaucheAdapter(Context context, ArrayList<TitreListe> elmtList) {
 		this.context = context;
 		this.elmtList = elmtList;
 	}
 
 	public Object getChild(int groupPosition, int childPosition) {
-		ArrayList<DetailListeActivity> productList = elmtList.get(groupPosition)
+		ArrayList<DetailListe> productList = elmtList.get(groupPosition)
 				.getProductList();
 		return productList.get(childPosition);
 	}
@@ -34,8 +34,7 @@ public class ExpandableListeGaucheAdapter {
 	public View getChildView(int groupPosition, int childPosition,
 			boolean isLastChild, View view, ViewGroup parent) {
 
-		DetailListeActivity detailListe = (DetailListeActivity) getChild(groupPosition,
-				childPosition);
+		DetailListe detailListe = (DetailListe) getChild(groupPosition, childPosition);
 		if (view == null) {
 			LayoutInflater infalInflater = (LayoutInflater) context
 					.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -52,7 +51,7 @@ public class ExpandableListeGaucheAdapter {
 
 	public int getChildrenCount(int groupPosition) {
 
-		ArrayList<DetailListeActivity> productList = elmtList.get(groupPosition)
+		ArrayList<DetailListe> productList = elmtList.get(groupPosition)
 				.getProductList();
 		return productList.size();
 
@@ -77,7 +76,7 @@ public class ExpandableListeGaucheAdapter {
 	public View getGroupView(int groupPosition, boolean isLastChild, View view,
 			ViewGroup parent) {
 
-		TitreListeActivity titreListe = (TitreListeActivity) getGroup(groupPosition);
+		TitreListe titreListe = (TitreListe) getGroup(groupPosition);
 		if (view == null) {
 			LayoutInflater inf = (LayoutInflater) context
 					.getSystemService(Context.LAYOUT_INFLATER_SERVICE);

@@ -8,8 +8,6 @@
         android:id="@+id/menu_gauche_infos_generales"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
-
-
     </ExpandableListView>
 
 </LinearLayout>

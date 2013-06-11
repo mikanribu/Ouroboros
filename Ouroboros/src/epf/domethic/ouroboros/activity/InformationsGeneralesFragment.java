@@ -5,11 +5,15 @@ import epf.domethic.ouroboros.listener.MyTabsListener;
 import android.app.ActionBar;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 public class InformationsGeneralesFragment extends Fragment{
+	
+	HospitalisationEnCoursFragment fragment_hospi_en_cours = new HospitalisationEnCoursFragment();
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -46,6 +50,7 @@ public class InformationsGeneralesFragment extends Fragment{
 		actionBar.addTab(hospiTab);
 		actionBar.addTab(historiqueTab);
 		actionBar.addTab(codiTab);
+		
 	}
 
 	@Override

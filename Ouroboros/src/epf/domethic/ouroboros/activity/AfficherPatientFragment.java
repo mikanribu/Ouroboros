@@ -32,7 +32,8 @@ public class AfficherPatientFragment extends Fragment {
 	private TextView nMedecinTraitant;
 	
 	private Button bVisualiserDMP;
-	private InformationsGeneralesFragment fragment_infos_dmp = new InformationsGeneralesFragment();
+	InformationsGeneralesFragment fragment_infos_dmp = new InformationsGeneralesFragment();
+	ListeGaucheInfosDMPFragment fragment_menu_gauche_infos_dmp = new ListeGaucheInfosDMPFragment();
 	
 	private Patient patient;
 	
@@ -59,10 +60,11 @@ public class AfficherPatientFragment extends Fragment {
 		    	FragmentManager manager = getActivity().getSupportFragmentManager();  
 		        FragmentTransaction fragmentTransaction = manager.beginTransaction();
 		        manager.popBackStack();	    	
-		    	fragmentTransaction.replace(R.id.tiers, fragment_infos_dmp);
+		    	fragmentTransaction.replace(R.id.deuxTiers, fragment_infos_dmp);
+		    	fragmentTransaction.replace(R.id.tiers, fragment_menu_gauche_infos_dmp);
 		    	fragmentTransaction.addToBackStack("vers_infos_dmp");
 		    	fragmentTransaction.commit();
-		    	}
+		    }
 	    	
 		});		
 		

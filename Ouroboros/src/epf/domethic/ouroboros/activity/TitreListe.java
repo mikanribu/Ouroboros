@@ -2,10 +2,10 @@ package epf.domethic.ouroboros.activity;
 
 import java.util.ArrayList;
 
-public class TitreListeActivity {
+public class TitreListe {
 
 	private String name;
-	private ArrayList<DetailListeActivity> productList = new ArrayList<DetailListeActivity>();;
+	private ArrayList<DetailListe> productList = new ArrayList<DetailListe>();;
 
 	public String getName() {
 		return name;
@@ -15,11 +15,11 @@ public class TitreListeActivity {
 		this.name = name;
 	}
 
-	public ArrayList<DetailListeActivity> getProductList() {
+	public ArrayList<DetailListe> getProductList() {
 		return productList;
 	}
 
-	public void setProductList(ArrayList<DetailListeActivity> productList) {
+	public void setProductList(ArrayList<DetailListe> productList) {
 		this.productList = productList;
 	}
 

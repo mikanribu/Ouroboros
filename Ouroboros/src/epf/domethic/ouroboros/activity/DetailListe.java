@@ -1,6 +1,6 @@
 package epf.domethic.ouroboros.activity;
 
-public class DetailListeActivity {
+public class DetailListe {
 
 	private String sequence = "";
 	private String name = "";
