@@ -2,21 +2,21 @@ package epf.domethic.ouroboros.activity;
 
 import java.text.SimpleDateFormat;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.actionbarsherlock.app.SherlockFragment;
+
 import epf.domethic.ouroboros.R;
 import epf.domethic.ouroboros.model.Patient;
 
-public class AfficherPatientFragment extends Fragment {
+public class AfficherPatientFragment extends SherlockFragment {
 
 	private TextView nNomPatient;
 	private TextView nSexePatient;
@@ -57,7 +57,7 @@ public class AfficherPatientFragment extends Fragment {
 		bVisualiserDMP.setOnClickListener(new View.OnClickListener() {
 		    @Override
 		    public void onClick(View v) {
-		    	FragmentManager manager = getActivity().getSupportFragmentManager();  
+		    	FragmentManager manager = getSherlockActivity().getSupportFragmentManager();  
 		        FragmentTransaction fragmentTransaction = manager.beginTransaction();
 		        manager.popBackStack();	    	
 		    	fragmentTransaction.replace(R.id.deuxTiers, fragment_infos_dmp);

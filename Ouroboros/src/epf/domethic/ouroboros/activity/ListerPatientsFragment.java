@@ -10,22 +10,22 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.actionbarsherlock.app.SherlockListFragment;
+import epf.domethic.ouroboros.data.PatientDBOpenHelper;
+import epf.domethic.ouroboros.adapter.PatientAdapter;
+import epf.domethic.ouroboros.model.Patient;
+import epf.domethic.ouroboros.comparator.NameComparator;
+import epf.domethic.ouroboros.data.ParserJSON;
+import epf.domethic.ouroboros.model.Patient.Sexe;
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.os.StrictMode;
-import android.support.v4.app.ListFragment;
 import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
-import epf.domethic.ouroboros.R;
-import epf.domethic.ouroboros.adapter.PatientAdapter;
-import epf.domethic.ouroboros.comparator.NameComparator;
-import epf.domethic.ouroboros.data.ParserJSON;
-import epf.domethic.ouroboros.data.PatientDBOpenHelper;
-import epf.domethic.ouroboros.model.Patient;
-import epf.domethic.ouroboros.model.Patient.Sexe;
 
-public class ListerPatientsFragment extends ListFragment {
+public class ListerPatientsFragment extends SherlockListFragment {
 
 	public interface OnPatientSelectedListener {
 		public void onPatientSelected(int position);
@@ -109,7 +109,6 @@ public class ListerPatientsFragment extends ListFragment {
         
         //Tri des noms des patients par ordre alphabétique
         Collections.sort(patientList, new NameComparator());
-        
 		adapter = new PatientAdapter(getActivity(), patientList);
 		
 		setListAdapter(adapter);

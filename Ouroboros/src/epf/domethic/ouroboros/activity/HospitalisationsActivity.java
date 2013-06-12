@@ -1,5 +1,10 @@
 package epf.domethic.ouroboros.activity;
 
+import com.actionbarsherlock.app.SherlockFragmentActivity;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuItem;
+import com.actionbarsherlock.view.MenuInflater;
+
 import android.app.ActionBar;
 import android.app.SearchManager;
 import android.content.Context;
@@ -7,14 +12,9 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.os.StrictMode;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.LinearLayout;
@@ -25,7 +25,7 @@ import epf.domethic.ouroboros.activity.ListerPatientsFragment.OnPatientSelectedL
 import epf.domethic.ouroboros.model.Patient;
 import epf.domethic.ouroboros.widget.AnimationLayout;
 
-public class HospitalisationsActivity extends FragmentActivity implements
+public class HospitalisationsActivity extends SherlockFragmentActivity implements
 		AnimationLayout.Listener, OnPatientSelectedListener {
 	/** Called when the activity is first created. */
 
@@ -160,7 +160,7 @@ public class HospitalisationsActivity extends FragmentActivity implements
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the options menu from XML
-		MenuInflater inflater = getMenuInflater();
+		MenuInflater inflater = getSupportMenuInflater();
 		inflater.inflate(R.menu.accueil, menu);
 
 		// Get the SearchView and set the searchable configuration
