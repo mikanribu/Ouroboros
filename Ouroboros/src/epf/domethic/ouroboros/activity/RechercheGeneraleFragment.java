@@ -11,42 +11,42 @@ import epf.domethic.ouroboros.listener.MyTabsListener;
 
 public class RechercheGeneraleFragment extends Fragment {
 
-	@Override
-	public void onCreate(Bundle savedInstanceState) {
+//	@Override
+//	public void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
-		super.onCreate(savedInstanceState);
-		ActionBar actionBar = getActivity().getActionBar();
+	//	super.onCreate(savedInstanceState);
+	//	ActionBar actionBar = getActivity().getActionBar();
 
-		// --------------------Initialisation des onglets----------------------------
-
-		// Création des fragments associés aux onglets
-		// Création des onglets et des écouteurs associés
-
-		// Recherche générale
-		RechercheGeneraleFragment rechercheGFragment = new RechercheGeneraleFragment();
-		ActionBar.Tab rechercheGTab = actionBar.newTab().setText("Recherche Générale");
-		rechercheGTab.setTabListener(new MyTabsListener(rechercheGFragment));
-
-		// Recherche médicale
-		RechercheMedicaleFragment rechercheMedicaleFragment = new RechercheMedicaleFragment();
-		ActionBar.Tab rechercheMedTab = actionBar.newTab().setText("Recherche Médicale");
-		rechercheMedTab.setTabListener(new MyTabsListener(rechercheMedicaleFragment));
-
-		// Dossiers Transférés
-		DossiersTransferesFragment dossiersTransfereFragment = new DossiersTransferesFragment();
-		ActionBar.Tab dossTransTab = actionBar.newTab().setText("Dossiers Transférés");
-		dossTransTab.setTabListener(new MyTabsListener(dossiersTransfereFragment));
-
-		// Codification
-		CodificationFragment codiFragment = new CodificationFragment();
-		ActionBar.Tab codiTab = actionBar.newTab().setText("Codification");
-		codiTab.setTabListener(new MyTabsListener(codiFragment));
-
-		// Ajout des onglets à la barre d'action
-		actionBar.addTab(rechercheGTab);
-		actionBar.addTab(rechercheMedTab);
-		actionBar.addTab(dossTransTab);
-	}
+//		// --------------------Initialisation des onglets----------------------------
+//
+//		// Création des fragments associés aux onglets
+//		// Création des onglets et des écouteurs associés
+//
+//		// Recherche générale
+//		RechercheGeneraleFragment rechercheGFragment = new RechercheGeneraleFragment();
+//		ActionBar.Tab rechercheGTab = actionBar.newTab().setText("Recherche Générale");
+//		rechercheGTab.setTabListener(new MyTabsListener());
+//
+//		// Recherche médicale
+//		RechercheMedicaleFragment rechercheMedicaleFragment = new RechercheMedicaleFragment();
+//		ActionBar.Tab rechercheMedTab = actionBar.newTab().setText("Recherche Médicale");
+//		rechercheMedTab.setTabListener(new MyTabsListener());
+//
+//		// Dossiers Transférés
+//		DossiersTransferesFragment dossiersTransfereFragment = new DossiersTransferesFragment();
+//		ActionBar.Tab dossTransTab = actionBar.newTab().setText("Dossiers Transférés");
+//		dossTransTab.setTabListener(new MyTabsListener());
+//
+//		// Codification
+//		CodificationFragment codiFragment = new CodificationFragment();
+//		ActionBar.Tab codiTab = actionBar.newTab().setText("Codification");
+//		codiTab.setTabListener(new MyTabsListener(codiFragment));
+//
+//		// Ajout des onglets à la barre d'action
+//		actionBar.addTab(rechercheGTab);
+//		actionBar.addTab(rechercheMedTab);
+//		actionBar.addTab(dossTransTab);
+//	}
 
 	@Override
 	public void onDetach() {

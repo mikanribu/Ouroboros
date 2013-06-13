@@ -1,4 +1,4 @@
-package epf.domethic.ouroboros.listener;
+package epf.domethic.ouroboros.adapter;
 
 import java.util.ArrayList;
 
@@ -11,7 +11,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
  
 public class MyListAdapter extends BaseExpandableListAdapter {

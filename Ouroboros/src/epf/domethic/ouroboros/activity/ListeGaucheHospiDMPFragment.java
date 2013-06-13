@@ -1,5 +1,4 @@
 package epf.domethic.ouroboros.activity;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -9,7 +8,7 @@ import java.util.LinkedHashMap;
 import epf.domethic.ouroboros.R;
 import epf.domethic.ouroboros.data.DetailListe;
 import epf.domethic.ouroboros.data.TitreListe;
-import epf.domethic.ouroboros.listener.MyListAdapter;
+import epf.domethic.ouroboros.adapter.MyListAdapter;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ExpandableListView;
