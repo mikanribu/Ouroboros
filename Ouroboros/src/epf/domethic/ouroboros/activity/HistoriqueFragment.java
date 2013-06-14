@@ -1,7 +1,7 @@
 package epf.domethic.ouroboros.activity;
 
-import android.support.v4.app.Fragment;
+import com.actionbarsherlock.app.SherlockFragment;
 
-public class HistoriqueFragment extends Fragment{
+public class HistoriqueFragment extends SherlockFragment{
 
 }

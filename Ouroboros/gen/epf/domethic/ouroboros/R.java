@@ -916,37 +916,34 @@ containing a value of this type.
         public static final int abs__textfield_searchview_right_holo_dark=0x7f02006d;
         public static final int abs__textfield_searchview_right_holo_light=0x7f02006e;
         public static final int abs__toast_frame=0x7f02006f;
-        public static final int archives=0x7f020070;
-        public static final int barre_haut=0x7f020071;
-        public static final int bouton_connexion_transparent=0x7f020072;
-        public static final int codification=0x7f020073;
-        public static final int custom_btn_breaker_bay=0x7f020074;
-        public static final int encadre=0x7f020075;
-        public static final int female=0x7f020076;
-        public static final int fond=0x7f020077;
-        public static final int grand_logo=0x7f020078;
-        public static final int hospi_en_cours=0x7f020079;
-        public static final int ic_contact_picture=0x7f02007a;
-        public static final int ic_launcher=0x7f02007b;
-        public static final int ic_menu_search=0x7f02007c;
-        public static final int infos_g=0x7f02007d;
-        public static final int logo_blanc=0x7f02007e;
-        public static final int logo_donnees_patient=0x7f02007f;
-        public static final int logo_fin_hospi=0x7f020080;
-        public static final int logo_impression_dossier=0x7f020081;
-        public static final int logo_new_doc=0x7f020082;
-        public static final int logo_new_hospi=0x7f020083;
-        public static final int male=0x7f020084;
-        public static final int menu_a_codifier=0x7f020085;
-        public static final int menu_action_search=0x7f020086;
-        public static final int menu_ajout_doc=0x7f020087;
-        public static final int menu_archives=0x7f020088;
-        public static final int menu_creer_dossier=0x7f020089;
-        public static final int menu_hospitalisations=0x7f02008a;
-        public static final int menu_mon_compte=0x7f02008b;
-        public static final int menu_transfert=0x7f02008c;
-        public static final int uroboroslogoseul=0x7f02008d;
-        public static final int valide_connexion=0x7f02008e;
+        public static final int barre_haut=0x7f020070;
+        public static final int bouton_connexion_transparent=0x7f020071;
+        public static final int custom_btn_breaker_bay=0x7f020072;
+        public static final int encadre=0x7f020073;
+        public static final int female=0x7f020074;
+        public static final int fond=0x7f020075;
+        public static final int grand_logo=0x7f020076;
+        public static final int ic_contact_picture=0x7f020077;
+        public static final int ic_launcher=0x7f020078;
+        public static final int ic_menu_search=0x7f020079;
+        public static final int logo_blanc=0x7f02007a;
+        public static final int logo_donnees_patient=0x7f02007b;
+        public static final int logo_fin_hospi=0x7f02007c;
+        public static final int logo_impression_dossier=0x7f02007d;
+        public static final int logo_new_doc=0x7f02007e;
+        public static final int logo_new_hospi=0x7f02007f;
+        public static final int male=0x7f020080;
+        public static final int menu_a_codifier=0x7f020081;
+        public static final int menu_action_search=0x7f020082;
+        public static final int menu_ajout_doc=0x7f020083;
+        public static final int menu_archives=0x7f020084;
+        public static final int menu_creer_dossier=0x7f020085;
+        public static final int menu_hospitalisations=0x7f020086;
+        public static final int menu_mon_compte=0x7f020087;
+        public static final int menu_transfert=0x7f020088;
+        public static final int param_langue=0x7f020089;
+        public static final int uroboroslogoseul=0x7f02008a;
+        public static final int valide_connexion=0x7f02008b;
     }
     public static final class id {
         public static final int SubItem=0x7f050087;
@@ -990,7 +987,6 @@ containing a value of this type.
         public static final int abs__title=0x7f05001d;
         public static final int abs__up=0x7f05000b;
         public static final int action_recherche=0x7f05008b;
-        public static final int action_settings=0x7f05008a;
         public static final int animation_layout=0x7f05003a;
         public static final int animation_layout_content=0x7f050011;
         public static final int animation_layout_sidebar=0x7f050010;
@@ -1011,6 +1007,7 @@ containing a value of this type.
         public static final int image=0x7f050083;
         public static final int imageView1=0x7f050038;
         public static final int ivSexe=0x7f050086;
+        public static final int langue=0x7f05008a;
         public static final int listMode=0x7f050002;
         public static final int liste_infos_dmp=0x7f05007a;
         public static final int menu_gauche_hospi=0x7f05005c;
@@ -1132,7 +1129,6 @@ containing a value of this type.
     }
     public static final class menu {
         public static final int accueil=0x7f0d0000;
-        public static final int connexion=0x7f0d0001;
     }
     public static final class string {
         public static final int Affiliation=0x7f0a0030;
@@ -1192,7 +1188,6 @@ containing a value of this type.
          */
         public static final int abs__shareactionprovider_share_with_application=0x7f0a0007;
         public static final int action_recherche=0x7f0a0010;
-        public static final int action_settings=0x7f0a000e;
         public static final int ajoutDoc=0x7f0a0020;
         public static final int ajout_consult=0x7f0a0040;
         public static final int ajout_doc=0x7f0a0041;
@@ -1235,6 +1230,7 @@ containing a value of this type.
         public static final int hospi_en_cours=0x7f0a003d;
         public static final int hostAnd=0x7f0a0046;
         public static final int infos_generales=0x7f0a003c;
+        public static final int langue=0x7f0a000e;
         public static final int modif_data=0x7f0a0042;
         public static final int modif_infos=0x7f0a0043;
         public static final int monCompte=0x7f0a0025;
