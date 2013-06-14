@@ -61,7 +61,7 @@ public class AfficherPatientFragment extends SherlockFragment {
 		    	FragmentManager manager = getSherlockActivity().getSupportFragmentManager();  
 		        FragmentTransaction fragmentTransaction = manager.beginTransaction();
 		        manager.popBackStack();	    	
-		    	fragmentTransaction.add(fragment_onglets_dmp, "onglets_dmp");
+		    	fragmentTransaction.replace(R.id.deuxTiers, fragment_onglets_dmp);
 		    	fragmentTransaction.addToBackStack("vers_infos_dmp");
 		    	fragmentTransaction.commit();
 		    }

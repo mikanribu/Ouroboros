@@ -1,5 +1,7 @@
 package epf.domethic.ouroboros.activity;
 
+import java.util.ArrayList;
+
 import epf.domethic.ouroboros.R;
 import epf.domethic.ouroboros.activity.CodificationFragment;
 import epf.domethic.ouroboros.activity.HistoriqueFragment;
@@ -7,7 +9,9 @@ import epf.domethic.ouroboros.activity.HospitalisationEnCoursFragment;
 import epf.domethic.ouroboros.activity.InformationsGeneralesFragment;
 import epf.domethic.ouroboros.activity.ListeGaucheHospiDMPFragment;
 import epf.domethic.ouroboros.activity.ListeGaucheInfosDMPFragment;
+import epf.domethic.ouroboros.data.TitreListe;
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 
 import com.actionbarsherlock.ActionBarSherlock;
@@ -18,12 +22,15 @@ import com.actionbarsherlock.app.SherlockFragment;
 
 public class MenuDMPFragment extends SherlockFragment implements ActionBar.TabListener {
 	
+	String tagTiers;
+	String tagDeuxTiers;
 	InformationsGeneralesFragment fragment_infos = new InformationsGeneralesFragment();
 	HospitalisationEnCoursFragment fragment_hospi = new HospitalisationEnCoursFragment();
 	HistoriqueFragment fragment_histo = new HistoriqueFragment();
 	CodificationFragment fragment_code = new CodificationFragment();
 	ListeGaucheHospiDMPFragment fragment_menu_hospi = new ListeGaucheHospiDMPFragment();	
 	ListeGaucheInfosDMPFragment fragment_menu_infos = new ListeGaucheInfosDMPFragment();
+	private ArrayList<SherlockFragment> listeFragments = new ArrayList<SherlockFragment>();
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -56,17 +63,23 @@ public class MenuDMPFragment extends SherlockFragment implements ActionBar.TabLi
 	public void onTabSelected(Tab tab, FragmentTransaction fragmentTransaction) {
 		// TODO Auto-generated method stub
 		
+		listeFragments.clear();
 		int position =tab.getPosition();
 		switch(position)
     	{  
 			case 1:
 				fragmentTransaction.replace(R.id.deuxTiers, fragment_hospi);
+				listeFragments.add(fragment_hospi);
 				fragmentTransaction.replace(R.id.tiers, fragment_menu_hospi);
+				listeFragments.add(fragment_menu_hospi);
 				break;       
 
 			default:
+				
 				fragmentTransaction.replace(R.id.deuxTiers, fragment_infos);
+				listeFragments.add(fragment_infos);
 				fragmentTransaction.replace(R.id.tiers, fragment_menu_infos);
+				listeFragments.add(fragment_menu_infos);				
 				break;            
     	}
 		
@@ -86,6 +99,15 @@ public class MenuDMPFragment extends SherlockFragment implements ActionBar.TabLi
 	public void onDetach() {
 		// TODO Auto-generated method stub
 		getSherlockActivity().getSupportActionBar().removeAllTabs();
+		
+		FragmentManager manager = getSherlockActivity().getSupportFragmentManager();  
+        FragmentTransaction fragmentTransaction = manager.beginTransaction();
+        
+        for(int i=0; i<listeFragments.size(); i++){
+        	fragmentTransaction.remove(listeFragments.get(i));
+        }
+        
+        fragmentTransaction.commit();
 		super.onDetach();
 		
 	}

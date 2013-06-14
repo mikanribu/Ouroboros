@@ -3,6 +3,8 @@ package epf.domethic.ouroboros.activity;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import com.actionbarsherlock.app.SherlockFragment;
+
 import epf.domethic.ouroboros.R;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -14,7 +16,7 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.AdapterView.OnItemClickListener;
  
-public class ListeGaucheInfosDMPFragment extends Fragment {
+public class ListeGaucheInfosDMPFragment extends SherlockFragment {
  
 	private ListView listViewInfos;
  

@@ -5,6 +5,9 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
+
+import com.actionbarsherlock.app.SherlockFragment;
+
 import epf.domethic.ouroboros.R;
 import epf.domethic.ouroboros.data.DetailListe;
 import epf.domethic.ouroboros.data.TitreListe;
@@ -15,7 +18,7 @@ import android.widget.ExpandableListView;
 import android.widget.ExpandableListView.OnChildClickListener;
 import android.widget.ExpandableListView.OnGroupClickListener;
 	 
-public class ListeGaucheHospiDMPFragment extends Fragment implements OnClickListener{
+public class ListeGaucheHospiDMPFragment extends SherlockFragment implements OnClickListener{
 	 
 	 private LinkedHashMap<String, TitreListe> myDepartments = new LinkedHashMap<String, TitreListe>();
 	 private ArrayList<TitreListe> deptList = new ArrayList<TitreListe>();
