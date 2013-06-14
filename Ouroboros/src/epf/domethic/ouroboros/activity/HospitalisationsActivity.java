@@ -1,11 +1,9 @@
 package epf.domethic.ouroboros.activity;
 
-import com.actionbarsherlock.app.SherlockFragment;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
 import com.actionbarsherlock.view.MenuInflater;
-
 import android.app.ActionBar;
 import android.app.SearchManager;
 import android.content.Context;
@@ -13,13 +11,10 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.View.OnClickListener;
 import android.widget.LinearLayout;
 import android.widget.SearchView;
@@ -43,10 +38,10 @@ public class HospitalisationsActivity extends SherlockFragmentActivity implement
 	private TextView tvRecherche;
 	private TextView tvArchives;
 	private TextView tvHospitalisation;
-	ListerPatientsFragment fragment_liste = new ListerPatientsFragment();
-	AfficherPatientFragment fragment_detail = new AfficherPatientFragment();
-	RechercheGeneraleFragment fragment_recherche_g = new RechercheGeneraleFragment();
-	AfficherRadioFragment fragment_radio = new AfficherRadioFragment();
+	ListerPatientsFragment liste_patients = new ListerPatientsFragment();
+	AfficherPatientFragment detail_patient = new AfficherPatientFragment();
+	OngletsRechercheFragment recherche = new OngletsRechercheFragment();
+	AfficherRadioFragment radio = new AfficherRadioFragment();
 	
 
 	@Override
@@ -55,18 +50,18 @@ public class HospitalisationsActivity extends SherlockFragmentActivity implement
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_hospitalisations);
 
-		ActionBar actionBar = getActionBar();
+		getSupportActionBar().setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 
 		Resources r = getResources();
-		Drawable myDrawable = r.getDrawable(R.drawable.barre_haut);
-		actionBar.setBackgroundDrawable(myDrawable);
-		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
-		actionBar.setHomeButtonEnabled(true); // The icone_launcher will not go
+		Drawable myDrawable = r.getDrawable(R.drawable.barre_haut_bleue);
+		getSupportActionBar().setBackgroundDrawable(myDrawable);
+		getSupportActionBar().setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+		getSupportActionBar().setHomeButtonEnabled(true); // The icone_launcher will not go
 												// back automatically to home
 												// (API min 14)
 
 		// Pas d'affichage du nom de l'application dans la barre d'action
-		actionBar.setDisplayShowTitleEnabled(false);
+		getSupportActionBar().setDisplayShowTitleEnabled(false);
 
 		mList = (LinearLayout) findViewById(R.id.animation_layout_sidebar);
 		mLayout = (AnimationLayout) findViewById(R.id.animation_layout);
@@ -75,9 +70,9 @@ public class HospitalisationsActivity extends SherlockFragmentActivity implement
 		FragmentManager manager = HospitalisationsActivity.this.getSupportFragmentManager();
 		FragmentTransaction fragmentTransaction = manager.beginTransaction();
 		
-		fragmentTransaction.add(R.id.tiers, fragment_liste);
-		fragmentTransaction.add(R.id.deuxTiers, fragment_detail);
-		fragmentTransaction.addToBackStack("vers_hospi");
+		fragmentTransaction.add(R.id.tiers, liste_patients);
+		fragmentTransaction.add(R.id.deuxTiers, detail_patient);
+		fragmentTransaction.addToBackStack("liste_hospitalisations");
 		fragmentTransaction.commit();
 		
 		tvDeconnexion = (TextView) findViewById(R.id.tvDeconnexion);
@@ -96,11 +91,11 @@ public class HospitalisationsActivity extends SherlockFragmentActivity implement
 				FragmentManager manager = HospitalisationsActivity.this.getSupportFragmentManager();
 				String str = manager.getBackStackEntryAt(0).getName();
 
-				if (str != "fragment_recherche_g") {
+				if (str != "recherche") {
 					FragmentTransaction fragmentTransaction = manager.beginTransaction();
 					manager.popBackStackImmediate();
-					fragmentTransaction.replace(R.id.tiers,fragment_recherche_g);
-					fragmentTransaction.addToBackStack("vers_recherche");
+					fragmentTransaction.replace(R.id.tiers, recherche);
+					fragmentTransaction.addToBackStack("recherche");
 					fragmentTransaction.commit();
 				}
 				
@@ -112,18 +107,15 @@ public class HospitalisationsActivity extends SherlockFragmentActivity implement
 			@Override
 			public void onClick(View v) {
 				
-				//removeMenuDMP();
-				
 				FragmentManager manager = HospitalisationsActivity.this.getSupportFragmentManager();
 				String str = manager.getBackStackEntryAt(0).getName();
-				SherlockFragment fragment = (SherlockFragment) manager.findFragmentByTag("onglets_dmp");
 				
-				if (str != "vers_hospi") {
+				if (str != "liste_hospitalisations") {
 					FragmentTransaction fragmentTransaction = manager.beginTransaction();
 					manager.popBackStackImmediate();
-					fragmentTransaction.replace(R.id.tiers, fragment_liste);
-					fragmentTransaction.replace(R.id.deuxTiers, fragment_detail);					
-					fragmentTransaction.addToBackStack("vers_hospi");
+					fragmentTransaction.replace(R.id.tiers, liste_patients);
+					fragmentTransaction.replace(R.id.deuxTiers, detail_patient);					
+					fragmentTransaction.addToBackStack("liste_hospitalisations");
 					fragmentTransaction.commit();
 				}
 			}
@@ -139,7 +131,7 @@ public class HospitalisationsActivity extends SherlockFragmentActivity implement
 				if (str != "fragment_radio") {
 					FragmentTransaction fragmentTransaction = manager.beginTransaction();
 					manager.popBackStackImmediate();
-					fragmentTransaction.replace(R.id.deuxTiers,fragment_radio);
+					fragmentTransaction.replace(R.id.deuxTiers,radio);
 					fragmentTransaction.addToBackStack("fragment_radio");
 					fragmentTransaction.commit();
 				}
@@ -151,8 +143,8 @@ public class HospitalisationsActivity extends SherlockFragmentActivity implement
 	@Override
 	public void onPatientSelected(int position) {
 		this.position = position;
-		Patient patient = fragment_liste.patientList.get(position);
-		fragment_detail.afficherPatient(patient);
+		Patient patient = liste_patients.patientList.get(position);
+		detail_patient.afficherPatient(patient);
 
 	}
 
@@ -160,21 +152,18 @@ public class HospitalisationsActivity extends SherlockFragmentActivity implement
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the options menu from XML
 		MenuInflater inflater = getSupportMenuInflater();
-		inflater.inflate(R.menu.accueil, menu);
-
+		inflater.inflate(R.menu.accueil, menu);		
+		
 		// Get the SearchView and set the searchable configuration
 		SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
-		SearchView searchView = (SearchView) menu.findItem(
-				R.id.action_recherche).getActionView();
+		SearchView searchView = (SearchView) menu.findItem(R.id.action_recherche).getActionView();
 		// Assumes current activity is the searchable activity
-		searchView.setSearchableInfo(searchManager
-				.getSearchableInfo(getComponentName()));
+		searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
 		searchView.setIconifiedByDefault(false); // Do not iconify the widget;
 													// expand it by default
 
 		return true;
 	}
-	
 					
 
 	@Override

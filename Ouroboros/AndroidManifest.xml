@@ -18,6 +18,7 @@
         <activity            
             android:name="epf.domethic.ouroboros.activity.ConnexionActivity"
             android:label="@string/title_activity_connexion"
+            android:icon="@drawable/logo_blanc"
             android:screenOrientation="landscape" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
