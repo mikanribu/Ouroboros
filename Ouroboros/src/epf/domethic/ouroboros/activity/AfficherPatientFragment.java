@@ -34,6 +34,7 @@ public class AfficherPatientFragment extends SherlockFragment {
 	private Button bVisualiserDMP;
 	InformationsGeneralesFragment fragment_infos_dmp = new InformationsGeneralesFragment();
 	ListeGaucheInfosDMPFragment fragment_menu_gauche_infos_dmp = new ListeGaucheInfosDMPFragment();
+	MenuDMPFragment fragment_onglets_dmp = new MenuDMPFragment();
 	
 	private Patient patient;
 	
@@ -60,8 +61,7 @@ public class AfficherPatientFragment extends SherlockFragment {
 		    	FragmentManager manager = getSherlockActivity().getSupportFragmentManager();  
 		        FragmentTransaction fragmentTransaction = manager.beginTransaction();
 		        manager.popBackStack();	    	
-		    	fragmentTransaction.replace(R.id.deuxTiers, fragment_infos_dmp);
-		    	fragmentTransaction.replace(R.id.tiers, fragment_menu_gauche_infos_dmp);
+		    	fragmentTransaction.add(fragment_onglets_dmp, "onglets_dmp");
 		    	fragmentTransaction.addToBackStack("vers_infos_dmp");
 		    	fragmentTransaction.commit();
 		    }

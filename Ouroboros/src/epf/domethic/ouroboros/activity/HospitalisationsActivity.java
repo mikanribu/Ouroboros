@@ -1,5 +1,6 @@
 package epf.domethic.ouroboros.activity;
 
+import com.actionbarsherlock.app.SherlockFragment;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
@@ -12,10 +13,13 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.View.OnClickListener;
 import android.widget.LinearLayout;
 import android.widget.SearchView;
@@ -68,17 +72,16 @@ public class HospitalisationsActivity extends SherlockFragmentActivity implement
 		mLayout = (AnimationLayout) findViewById(R.id.animation_layout);
 		mLayout.setListener(this);
 
-		FragmentManager manager = HospitalisationsActivity.this
-				.getSupportFragmentManager();
+		FragmentManager manager = HospitalisationsActivity.this.getSupportFragmentManager();
 		FragmentTransaction fragmentTransaction = manager.beginTransaction();
+		
 		fragmentTransaction.add(R.id.tiers, fragment_liste);
 		fragmentTransaction.add(R.id.deuxTiers, fragment_detail);
 		fragmentTransaction.addToBackStack("vers_hospi");
 		fragmentTransaction.commit();
-
+		
 		tvDeconnexion = (TextView) findViewById(R.id.tvDeconnexion);
-		final Intent intent_connexion = new Intent(
-				HospitalisationsActivity.this, ConnexionActivity.class);
+		final Intent intent_connexion = new Intent(HospitalisationsActivity.this, ConnexionActivity.class);
 		tvDeconnexion.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -90,19 +93,17 @@ public class HospitalisationsActivity extends SherlockFragmentActivity implement
 		tvRecherche.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				FragmentManager manager = HospitalisationsActivity.this
-						.getSupportFragmentManager();
+				FragmentManager manager = HospitalisationsActivity.this.getSupportFragmentManager();
 				String str = manager.getBackStackEntryAt(0).getName();
 
 				if (str != "fragment_recherche_g") {
-					FragmentTransaction fragmentTransaction = manager
-							.beginTransaction();
-					manager.popBackStack();
-					fragmentTransaction.replace(R.id.tiers,
-							fragment_recherche_g);
+					FragmentTransaction fragmentTransaction = manager.beginTransaction();
+					manager.popBackStackImmediate();
+					fragmentTransaction.replace(R.id.tiers,fragment_recherche_g);
 					fragmentTransaction.addToBackStack("vers_recherche");
 					fragmentTransaction.commit();
 				}
+				
 			}
 		});
 
@@ -110,17 +111,18 @@ public class HospitalisationsActivity extends SherlockFragmentActivity implement
 		tvHospitalisation.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				FragmentManager manager = HospitalisationsActivity.this
-						.getSupportFragmentManager();
+				
+				//removeMenuDMP();
+				
+				FragmentManager manager = HospitalisationsActivity.this.getSupportFragmentManager();
 				String str = manager.getBackStackEntryAt(0).getName();
-
+				SherlockFragment fragment = (SherlockFragment) manager.findFragmentByTag("onglets_dmp");
+				
 				if (str != "vers_hospi") {
-					FragmentTransaction fragmentTransaction = manager
-							.beginTransaction();
-					manager.popBackStack();
+					FragmentTransaction fragmentTransaction = manager.beginTransaction();
+					manager.popBackStackImmediate();
 					fragmentTransaction.replace(R.id.tiers, fragment_liste);
-					fragmentTransaction
-							.replace(R.id.deuxTiers, fragment_detail);
+					fragmentTransaction.replace(R.id.deuxTiers, fragment_detail);					
 					fragmentTransaction.addToBackStack("vers_hospi");
 					fragmentTransaction.commit();
 				}
@@ -131,16 +133,13 @@ public class HospitalisationsActivity extends SherlockFragmentActivity implement
 		tvArchives.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				FragmentManager manager = HospitalisationsActivity.this
-						.getSupportFragmentManager();
+				FragmentManager manager = HospitalisationsActivity.this.getSupportFragmentManager();
 				String str = manager.getBackStackEntryAt(0).getName();
 
 				if (str != "fragment_radio") {
-					FragmentTransaction fragmentTransaction = manager
-							.beginTransaction();
-					manager.popBackStack();
-					fragmentTransaction.replace(R.id.deuxTiers,
-							fragment_radio);
+					FragmentTransaction fragmentTransaction = manager.beginTransaction();
+					manager.popBackStackImmediate();
+					fragmentTransaction.replace(R.id.deuxTiers,fragment_radio);
 					fragmentTransaction.addToBackStack("fragment_radio");
 					fragmentTransaction.commit();
 				}
@@ -175,6 +174,8 @@ public class HospitalisationsActivity extends SherlockFragmentActivity implement
 
 		return true;
 	}
+	
+					
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem menuItem) {
@@ -217,5 +218,4 @@ public class HospitalisationsActivity extends SherlockFragmentActivity implement
 		mLayout.closeSidebar();
 		return true;
 	}
-
 }

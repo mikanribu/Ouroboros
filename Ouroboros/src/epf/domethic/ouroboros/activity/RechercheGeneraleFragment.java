@@ -7,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import epf.domethic.ouroboros.R;
-import epf.domethic.ouroboros.listener.MyTabsListener;
 
 public class RechercheGeneraleFragment extends Fragment {
 

@@ -60,10 +60,7 @@ public class AnimationLayout extends ViewGroup{
 	        if (!mPlaceLeft) {
 	            sidebarLeft = r - mSidebarWidth;
 	        }
-	        mSidebar.layout(sidebarLeft,
-	                0,
-	                sidebarLeft + mSidebarWidth,
-	                0 + mSidebar.getMeasuredHeight());
+	        mSidebar.layout(sidebarLeft,0,sidebarLeft + mSidebarWidth,0 + mSidebar.getMeasuredHeight());
 
 	        if (mOpened) {
 	            if (mPlaceLeft) {

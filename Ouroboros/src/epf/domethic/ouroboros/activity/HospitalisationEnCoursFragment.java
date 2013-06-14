@@ -9,6 +9,8 @@ import com.actionbarsherlock.app.SherlockFragment;
 
 import epf.domethic.ouroboros.R;
 
+
+
 public class HospitalisationEnCoursFragment extends SherlockFragment{
 	
 	 @Override
