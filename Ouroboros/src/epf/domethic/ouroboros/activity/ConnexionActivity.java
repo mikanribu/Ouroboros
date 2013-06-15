@@ -20,7 +20,6 @@ public class ConnexionActivity extends SherlockActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_connexion);
-		Toast.makeText(this, "coucou", Toast.LENGTH_SHORT).show();
 		
 		bConnexion = (Button)findViewById(R.id.bouton_connexion);
 		final Intent intent_connexion = new Intent(ConnexionActivity.this, HospitalisationsActivity.class);
