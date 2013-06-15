@@ -1,7 +1,7 @@
 package epf.domethic.ouroboros.model;
 
 public class Radio {
-	
+
 	private String titre;
 	private String nomRadio;
 	private String cause;
@@ -9,7 +9,6 @@ public class Radio {
 	private String medecin;
 	private String description;
 	private String interpretation;
-
 
 	public Radio(String titre, String nomRadio, String cause, String date,
 			String medecin, String description, String interpretation) {
@@ -25,6 +24,7 @@ public class Radio {
 
 	public Radio() {
 		super();
+
 	}
 
 	public String getTitre() {
@@ -34,7 +34,7 @@ public class Radio {
 	public void setTitre(String titre) {
 		this.titre = titre;
 	}
-	
+
 	public String getNomRadio() {
 		return nomRadio;
 	}
@@ -42,7 +42,6 @@ public class Radio {
 	public void setNomRadio(String nomRadio) {
 		this.nomRadio = nomRadio;
 	}
-
 
 	public String getCause() {
 		return cause;
