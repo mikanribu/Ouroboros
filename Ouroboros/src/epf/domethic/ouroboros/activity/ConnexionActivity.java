@@ -13,6 +13,7 @@ import android.widget.Button;
 public class ConnexionActivity extends SherlockActivity {
 
 	Button bConnexion;
+	//coucou
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
