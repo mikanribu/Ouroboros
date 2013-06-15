@@ -2,11 +2,7 @@ package epf.domethic.ouroboros.activity;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
-
-import com.actionbarsherlock.app.SherlockFragment;
-import android.support.v4.app.FragmentTransaction;
 
 public abstract class Utils {
 	

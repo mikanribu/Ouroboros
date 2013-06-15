@@ -1,6 +1,7 @@
 package epf.domethic.ouroboros.activity;
 
 import java.text.SimpleDateFormat;
+
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -29,11 +30,11 @@ public class AfficherPatientFragment extends SherlockFragment {
 	private TextView nNumeroSS;
 	private TextView nTelephone;
 	private TextView nMedecinTraitant;
-	private Button bVisualiserDMP;
 	
-	InformationsGeneralesFragment infos_dmp = new InformationsGeneralesFragment();
-	ListeGaucheInfosDMPFragment menu_infos_dmp = new ListeGaucheInfosDMPFragment();
-	OngletsDMPFragment onglets_dmp = new OngletsDMPFragment();
+	private Button bVisualiserDMP;
+	InformationsGeneralesFragment fragment_infos_dmp = new InformationsGeneralesFragment();
+	ListeGaucheInfosDMPFragment fragment_menu_gauche_infos_dmp = new ListeGaucheInfosDMPFragment();
+	MenuDMPFragment fragment_onglets_dmp = new MenuDMPFragment();
 	
 	private Patient patient;
 	
@@ -60,8 +61,8 @@ public class AfficherPatientFragment extends SherlockFragment {
 		    	FragmentManager manager = getSherlockActivity().getSupportFragmentManager();  
 		        FragmentTransaction fragmentTransaction = manager.beginTransaction();
 		        manager.popBackStack();	    	
-		    	fragmentTransaction.replace(R.id.deuxTiers, onglets_dmp);
-		    	fragmentTransaction.addToBackStack("infos_dmp");
+		    	fragmentTransaction.replace(R.id.deuxTiers, fragment_onglets_dmp);
+		    	fragmentTransaction.addToBackStack("vers_infos_dmp");
 		    	fragmentTransaction.commit();
 		    }
 	    	
@@ -73,6 +74,7 @@ public class AfficherPatientFragment extends SherlockFragment {
 	
 	public void afficherPatient (Patient patient) {
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+		
 		this.patient = patient;
 		nNomPatient.setText(patient.getPrenom() + " " + patient.getNom());
 		nSexePatient.setText(patient.getSexe().toString());

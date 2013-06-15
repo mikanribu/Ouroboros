@@ -2,7 +2,7 @@
 <resources>
 
     <string name="app_name">Ouroboros</string>
-    <string name="langue">Langue</string>
+    <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_recherche">Recherche rapide</string>
     <string name="search_hint">Recherche</string>
