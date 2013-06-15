@@ -9,16 +9,18 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class ConnexionActivity extends SherlockActivity {
 
 	Button bConnexion;
-	//coucou
+	
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_connexion);
+		Toast.makeText(this, "coucou", Toast.LENGTH_SHORT).show();
 		
 		bConnexion = (Button)findViewById(R.id.bouton_connexion);
 		final Intent intent_connexion = new Intent(ConnexionActivity.this, HospitalisationsActivity.class);
@@ -26,6 +28,7 @@ public class ConnexionActivity extends SherlockActivity {
 			@Override
 			public void onClick(View v) {
 				startActivity(intent_connexion);
+				
 			}
 		});		
 	}
