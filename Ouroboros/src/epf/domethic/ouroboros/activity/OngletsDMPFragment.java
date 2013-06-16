@@ -9,12 +9,10 @@ import epf.domethic.ouroboros.activity.HospitalisationEnCoursFragment;
 import epf.domethic.ouroboros.activity.InformationsGeneralesFragment;
 import epf.domethic.ouroboros.activity.ListeGaucheHospiDMPFragment;
 import epf.domethic.ouroboros.activity.ListeGaucheInfosDMPFragment;
-import epf.domethic.ouroboros.data.TitreListe;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 
-import com.actionbarsherlock.ActionBarSherlock;
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.ActionBar.Tab;
 import com.actionbarsherlock.app.SherlockFragment;

@@ -10,7 +10,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.actionbarsherlock.app.SherlockFragment;
 import com.actionbarsherlock.app.SherlockListFragment;
 import epf.domethic.ouroboros.data.PatientDBOpenHelper;
 import epf.domethic.ouroboros.adapter.PatientAdapter;
@@ -22,8 +21,6 @@ import epf.domethic.ouroboros.model.Patient.Sexe;
 import android.app.Activity;
 import android.os.Bundle;
 import android.os.StrictMode;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
