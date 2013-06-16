@@ -1,20 +1,17 @@
 package epf.domethic.ouroboros.adapter;
 
-import java.text.SimpleDateFormat;
-
 import epf.domethic.ouroboros.R;
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.database.Cursor;
-import android.preference.PreferenceManager;
 import android.support.v4.widget.CursorAdapter;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class PatientCursorAdapter extends CursorAdapter {
+public class PatientCursorAdapter extends CursorAdapter  {
 
 	public PatientCursorAdapter(Context context, Cursor c, boolean autoRequery) {
 		super(context, c, autoRequery);
@@ -22,7 +19,6 @@ public class PatientCursorAdapter extends CursorAdapter {
 
 	@Override
 	public void bindView(View view, Context context, Cursor cursor) {
-		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 		TextView titre = (TextView)view.findViewById(R.id.tvNom);
 		TextView date = (TextView) view.findViewById(R.id.tvDateNaiss);
 		ImageView image = (ImageView) view.findViewById(R.id.ivSexe);
@@ -33,10 +29,10 @@ public class PatientCursorAdapter extends CursorAdapter {
 		String sexe = cursor.getString(3);
 		
 		titre.setText(nom + " - " +prenom);
-		date.setText(sdf.format(date_naissance));
-		
-		if(sexe == "Masculin")
+		date.setText(date_naissance);
+		if(sexe.compareTo("Masculin")==0){
 			image.setImageResource(R.drawable.male);
+		}
 		else
 			image.setImageResource(R.drawable.female);
 	}

@@ -11,13 +11,13 @@ public class PatientDBOpenHelper extends SQLiteOpenHelper {
 	
 	private static final String DATABASE_NAME = "patients.db";
 	
-	private static final int DATABASE_VERSION = 2;
+	private static final int DATABASE_VERSION = 1;
 	
 	public static final String TABLE_PATIENT = "Patient";   
     
     
 	private static final String DATABASE_CREATE = 
-			"CREATE TABLE " + TABLE_PATIENT + "(" + PatientColumns.KEY_ID + " integer primary key autoincrement," +
+			"CREATE TABLE " + TABLE_PATIENT + "( " + PatientColumns._ID + " integer primary key autoincrement," +
 					PatientColumns.KEY_NOM + " text not null," + PatientColumns.KEY_PRENOM + " text not null," + PatientColumns.KEY_SEXE + " text not null," +
 					PatientColumns.KEY_DATE_NAISSANCE + " text not null," + PatientColumns.KEY_LIEU_NAISSANCE + " text not null," +
 					PatientColumns.KEY_ADRESSE + " text not null,"+ PatientColumns.KEY_VILLE + " text not null," + PatientColumns.KEY_CODE_POSTAL + " text not null," +
@@ -30,14 +30,14 @@ public class PatientDBOpenHelper extends SQLiteOpenHelper {
 	
 	@Override
 	public void onCreate(SQLiteDatabase db) {
-		Log.d(TAG, 
+		Log.i(TAG, 
 				"Création de la base : [version " + db.getVersion() + "]");
 		db.execSQL(DATABASE_CREATE);
 	}
 
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-		Log.d(TAG, 
+		Log.w(TAG, 
 				"Mise à jour de la base [" + DATABASE_NAME + "] : [" + oldVersion + " --> " + newVersion + "]");
 
 	}

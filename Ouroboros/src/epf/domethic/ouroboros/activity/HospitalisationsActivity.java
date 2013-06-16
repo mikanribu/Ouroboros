@@ -10,6 +10,7 @@ import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.database.Cursor;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
@@ -144,9 +145,8 @@ public class HospitalisationsActivity extends SherlockFragmentActivity implement
 	}
 
 	@Override
-	public void onPatientSelected(int position) {
+	public void onPatientSelected(int position, Patient patient) {
 		this.position = position;
-		Patient patient = fragment_liste.patientList.get(position);
 		fragment_detail.afficherPatient(patient);
 
 	}
