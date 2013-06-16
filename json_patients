@@ -1,7 +1,7 @@
 ﻿{
     "patients": [
         	{
-  			"_id": "1",
+  			"id": "1",
 			"nom": "Bros",
 			"prenom": "Mario",
 			"date_naissance": "25/03/1981",
@@ -18,7 +18,7 @@
 			"hospitalise": "1"
 	        },
 	        {
-			"_id": "2",
+			"id": "2",
 			"nom": "Legend",
 			"prenom": "Link",
 			"date_naissance": "25/11/1986",
@@ -35,7 +35,7 @@
 			"hospitalise": "1"
       		},
 		{
-			"_id": "3",
+			"id": "3",
 			"nom": "Bros",
 			"prenom": "Luigi",
 			"date_naissance": "25/03/1981",
@@ -52,7 +52,7 @@
 			"hospitalise": "0"
 		},
 		{
-			"_id": "4",
+			"id": "4",
 			"nom": "Lane",
 			"prenom": "Loïs",
 			"date_naissance": "15/05/1975",
@@ -69,7 +69,7 @@
 			"hospitalise": "1"
 		},
 		{
-			"_id": "5",
+			"id": "5",
 			"nom": "Mouse",
 			"prenom": "Minnie",
 			"date_naissance": "18/11/1928",
@@ -86,7 +86,7 @@
 			"hospitalise": "0"
 		},
 		{
-			"_id": "6",
+			"id": "6",
 			"nom": "Ketchum",
 			"prenom": "Sacha",
 			"date_naissance": "17/07/1999",
@@ -103,7 +103,7 @@
 			"hospitalise": "1"
 		},
 		{
-			"_id": "7",
+			"id": "7",
 			"nom": "Potter",
 			"prenom": "Harry",
 			"date_naissance": "31/07/1980",
@@ -120,7 +120,7 @@
 			"hospitalise": "1"
 		},
 		{
-			"_id": "8",
+			"id": "8",
 			"nom": "Granger",
 			"prenom": "Hermione",
 			"date_naissance": "19/09/1979",
@@ -137,7 +137,7 @@
 			"hospitalise": "0"
 		},
 		{
-			"_id": "9",
+			"id": "9",
 			"nom": "Weasley",
 			"prenom": "Ron",
 			"date_naissance": "01/03/1980",
@@ -154,7 +154,7 @@
 			"hospitalise": "0"
 		},
 		{
-			"_id": "10",
+			"id": "10",
 			"nom": "Federer",
 			"prenom": "Roger",
 			"date_naissance": "08/08/1981",
@@ -171,7 +171,7 @@
 			"hospitalise": "1"
 		},
 		{
-			"_id": "11",
+			"id": "11",
 			"nom": "Nguyen",
 			"prenom": "Estelle",
 			"date_naissance": "21/12/1991",
@@ -188,7 +188,7 @@
 			"hospitalise": "1"
 		},
 		{
-			"_id": "12",
+			"id": "12",
 			"nom": "Dreyfus",
 			"prenom": "Charlie",
 			"date_naissance": "22/05/1992",
@@ -205,7 +205,7 @@
 			"hospitalise": "0"
 		},
 		{
-			"_id": "13",
+			"id": "13",
 			"nom": "Ricci",
 			"prenom": "Roxanne",
 			"date_naissance": "29/04/1992",
@@ -222,7 +222,7 @@
 			"hospitalise": "1"
 		},
 		{
-			"_id": "14",
+			"id": "14",
 			"nom": "De l'Hermuziere",
 			"prenom": "Matou",
 			"date_naissance": "18/07/1991",
@@ -239,7 +239,7 @@
 			"hospitalise": "1"
 		},
 		{
-			"_id": "15",
+			"id": "15",
 			"nom": "Pages",
 			"prenom": "Clémentine",
 			"date_naissance": "28/11/1991",
@@ -256,7 +256,7 @@
 			"hospitalise": "1"
 		},
 		{
-			"_id": "16",
+			"id": "16",
 			"nom": "Obama",
 			"prenom": "Barack",
 			"date_naissance": "04/08/1961",
@@ -273,7 +273,7 @@
 			"hospitalise": "0"
 		},
 		{
-			"_id": "17",
+			"id": "17",
 			"nom": "Dicaprio",
 			"prenom": "Leonardo",
 			"date_naissance": "11/11/1974",
