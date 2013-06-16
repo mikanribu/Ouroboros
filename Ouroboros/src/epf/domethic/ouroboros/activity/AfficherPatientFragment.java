@@ -34,7 +34,7 @@ public class AfficherPatientFragment extends SherlockFragment {
 	private Button bVisualiserDMP;
 	InformationsGeneralesFragment fragment_infos_dmp = new InformationsGeneralesFragment();
 	ListeGaucheInfosDMPFragment fragment_menu_gauche_infos_dmp = new ListeGaucheInfosDMPFragment();
-	MenuDMPFragment fragment_onglets_dmp = new MenuDMPFragment();
+	OngletsDMPFragment fragment_onglets_dmp = new OngletsDMPFragment();
 	
 	private Patient patient;
 	

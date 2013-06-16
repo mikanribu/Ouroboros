@@ -20,17 +20,15 @@ import com.actionbarsherlock.app.ActionBar.Tab;
 import com.actionbarsherlock.app.SherlockFragment;
 
 
-public class MenuDMPFragment extends SherlockFragment implements ActionBar.TabListener {
+public class OngletsDMPFragment extends SherlockFragment implements ActionBar.TabListener {
 	
-	String tagTiers;
-	String tagDeuxTiers;
-	InformationsGeneralesFragment fragment_infos = new InformationsGeneralesFragment();
-	HospitalisationEnCoursFragment fragment_hospi = new HospitalisationEnCoursFragment();
-	HistoriqueFragment fragment_histo = new HistoriqueFragment();
-	CodificationFragment fragment_code = new CodificationFragment();
-	ListeGaucheHospiDMPFragment fragment_menu_hospi = new ListeGaucheHospiDMPFragment();	
-	ListeGaucheInfosDMPFragment fragment_menu_infos = new ListeGaucheInfosDMPFragment();
-	private ArrayList<SherlockFragment> listeFragments = new ArrayList<SherlockFragment>();
+	InformationsGeneralesFragment infos = new InformationsGeneralesFragment();
+	HospitalisationEnCoursFragment hospitalisation = new HospitalisationEnCoursFragment();
+	HistoriqueFragment historique = new HistoriqueFragment();
+	CodificationFragment codification = new CodificationFragment();
+	ListeGaucheHospiDMPFragment menu_hospi = new ListeGaucheHospiDMPFragment();	
+	ListeGaucheInfosDMPFragment menu_infos = new ListeGaucheInfosDMPFragment();
+	private ArrayList<SherlockFragment> listeOnglets = new ArrayList<SherlockFragment>();
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -63,23 +61,23 @@ public class MenuDMPFragment extends SherlockFragment implements ActionBar.TabLi
 	public void onTabSelected(Tab tab, FragmentTransaction fragmentTransaction) {
 		// TODO Auto-generated method stub
 		
-		listeFragments.clear();
+		listeOnglets.clear();
 		int position =tab.getPosition();
 		switch(position)
     	{  
 			case 1:
-				fragmentTransaction.replace(R.id.deuxTiers, fragment_hospi);
-				listeFragments.add(fragment_hospi);
-				fragmentTransaction.replace(R.id.tiers, fragment_menu_hospi);
-				listeFragments.add(fragment_menu_hospi);
+				fragmentTransaction.replace(R.id.deuxTiers, hospitalisation);
+				listeOnglets.add(hospitalisation);
+				fragmentTransaction.replace(R.id.tiers, menu_hospi);
+				listeOnglets.add(menu_hospi);
 				break;       
 
 			default:
 				
-				fragmentTransaction.replace(R.id.deuxTiers, fragment_infos);
-				listeFragments.add(fragment_infos);
-				fragmentTransaction.replace(R.id.tiers, fragment_menu_infos);
-				listeFragments.add(fragment_menu_infos);				
+				fragmentTransaction.replace(R.id.deuxTiers, infos);
+				listeOnglets.add(infos);
+				fragmentTransaction.replace(R.id.tiers, menu_infos);
+				listeOnglets.add(menu_infos);				
 				break;            
     	}
 		
@@ -103,8 +101,8 @@ public class MenuDMPFragment extends SherlockFragment implements ActionBar.TabLi
 		FragmentManager manager = getSherlockActivity().getSupportFragmentManager();  
         FragmentTransaction fragmentTransaction = manager.beginTransaction();
         
-        for(int i=0; i<listeFragments.size(); i++){
-        	fragmentTransaction.remove(listeFragments.get(i));
+        for(int i=0; i<listeOnglets.size(); i++){
+        	fragmentTransaction.remove(listeOnglets.get(i));
         }
         
         fragmentTransaction.commit();

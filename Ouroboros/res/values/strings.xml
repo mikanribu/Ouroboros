@@ -88,7 +88,7 @@
 	<string name="form_medecin_traitant">Médecin traitant :</string>
 	<string name="form_remarques">Remarques :</string>
 	
-	<string-array name="gauche_infos_generales">
+	<string-array name="gauche_hospi">
         <item>Analyses</item>
         <item>Examens</item>
         <item>Compte-rendus</item>
@@ -108,5 +108,7 @@
 	<string name="form_medecin">Médecin: </string>
 	<string name="form_description">Description: </string>
 	<string name="form_interpretation">Interprétation: </string>
+	
+	<string name="new_doc">Nouveau Document</string>
 
 </resources>

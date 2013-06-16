@@ -40,7 +40,7 @@ public class MyListAdapter extends BaseExpandableListAdapter {
 		DetailListe detailInfo = (DetailListe) getChild(groupPosition, childPosition);
 		if (view == null) {
 			LayoutInflater infalInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-			view = infalInflater.inflate(R.layout.elements_section, null);
+			view = infalInflater.inflate(R.layout.adapter_menu_infos_dmp, null);
 		}
    
 		TextView sequence = (TextView) view.findViewById(R.id.sequence);
@@ -80,7 +80,7 @@ public class MyListAdapter extends BaseExpandableListAdapter {
 		 TitreListe headerInfo = (TitreListe) getGroup(groupPosition);
 		 if (view == null) {
 			 LayoutInflater inf = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-			 view = inf.inflate(R.layout.titre_section, null);
+			 view = inf.inflate(R.layout.menu_infos_dmp_titre, null);
 	  }
 	   
 	  TextView heading = (TextView) view.findViewById(R.id.heading);
