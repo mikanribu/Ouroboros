@@ -7,7 +7,7 @@
     android:useDefaultMargins="false" >
     
     <TextView
-        android:id="@+id/tv_titre"
+        android:id="@+id/tvTitreRadio"
         android:layout_column="0"
         android:layout_columnSpan="3"
         android:layout_gravity="center_horizontal"
@@ -17,7 +17,7 @@
         android:textSize="32sp" />
 
     <TextView
-        android:id="@+id/textview_nom"
+        android:id="@+id/tvNom"
         android:layout_column="0"
         android:layout_gravity="right"
         android:layout_row="1"
@@ -25,7 +25,7 @@
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <EditText
-        android:id="@+id/edittext_nom"
+        android:id="@+id/etNom"
         android:layout_column="1"
         android:layout_columnSpan="2"
         android:layout_row="1"
@@ -34,7 +34,7 @@
     </EditText>
 
     <TextView
-        android:id="@+id/textview_prenom"
+        android:id="@+id/tvPrenom"
         android:layout_column="0"
         android:layout_gravity="right"
         android:layout_row="2"
@@ -42,7 +42,7 @@
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <EditText
-        android:id="@+id/edittext_prenom"
+        android:id="@+id/etPrenom"
         android:layout_column="1"
         android:layout_columnSpan="2"
         android:layout_row="2"
@@ -50,7 +50,7 @@
         android:inputType="textPersonName" />
 
     <TextView
-        android:id="@+id/textview_lieu_naissance"
+        android:id="@+id/tvLieuNaissance"
         android:layout_column="0"
         android:layout_gravity="right"
         android:layout_row="3"
@@ -58,7 +58,7 @@
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <EditText
-        android:id="@+id/edittext_lieu_naissance"
+        android:id="@+id/etLieuNaissance"
         android:layout_column="1"
         android:layout_columnSpan="2"
         android:layout_row="3"
@@ -66,7 +66,7 @@
         android:inputType="textPersonName" />
 
     <TextView
-        android:id="@+id/textview_date_naissance"
+        android:id="@+id/tvDateNaissance"
         android:layout_width="wrap_content"
         android:layout_column="3"
         android:layout_gravity="center_horizontal"
@@ -77,7 +77,7 @@
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <EditText
-        android:id="@+id/edittext_date_naissance"
+        android:id="@+id/etDateNaissance"
         android:layout_column="4"
         android:layout_gravity="center_horizontal|top"
         android:layout_row="3"
@@ -85,14 +85,14 @@
         android:inputType="date" />
 
     <RadioButton
-        android:id="@+id/rbtn_sexeM"
+        android:id="@+id/rbSexeM"
         android:layout_column="4"
         android:layout_gravity="center_horizontal|top"
         android:layout_row="2"
         android:drawableRight="@drawable/male" />
 
     <RadioButton
-        android:id="@+id/rbtn_sexeF"
+        android:id="@+id/rbSexeF"
         android:layout_column="4"
         android:layout_gravity="center"
         android:layout_row="1"

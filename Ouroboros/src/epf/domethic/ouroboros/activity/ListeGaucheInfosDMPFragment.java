@@ -66,7 +66,7 @@ public class ListeGaucheInfosDMPFragment extends SherlockFragment {
  
         //Création d'un SimpleAdapter qui se chargera de mettre les items présent dans notre list (listItem) dans la vue affichageitem
         SimpleAdapter mSchedule = new SimpleAdapter (getActivity().getBaseContext(), listItem, R.layout.menu_infos_dmp_elements,
-               new String[] {"img", "titre", "description"}, new int[] {R.id.image, R.id.titre});
+               new String[] {"img", "titre", "description"}, new int[] {R.id.image, R.id.tvTitre});
  
         //On attribue à notre listView l'adapter que l'on vient de créer
         listViewInfos.setAdapter(mSchedule);

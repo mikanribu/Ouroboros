@@ -32,7 +32,7 @@ public class AfficherRadioFragment extends Fragment {
 			Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.fragment_afficher_radio,
 				container, false);
-		titre = (TextView) view.findViewById(R.id.tv_titre);
+		titre = (TextView) view.findViewById(R.id.tvTitreRadio);
 		nomRadio = (TextView) view.findViewById(R.id.tvRadioValue);
 		cause = (TextView) view.findViewById(R.id.tvCauseValue);
 		date = (TextView) view.findViewById(R.id.tvDateValue);

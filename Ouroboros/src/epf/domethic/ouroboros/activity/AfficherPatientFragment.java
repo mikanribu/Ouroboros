@@ -42,18 +42,18 @@ public class AfficherPatientFragment extends SherlockFragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState ){
 		View view = inflater.inflate(R.layout.fragment_visualiser_patients,container, false);
-		nNomPatient = (TextView)view.findViewById(R.id.tv_nom_patient);
-		nSexePatient = (TextView)view.findViewById(R.id.textview_sexe_value);
-		nLieuNaissance = (TextView)view.findViewById(R.id.textview_lieu_naissance_value);
+		nNomPatient = (TextView)view.findViewById(R.id.tvNomPatient);
+		nSexePatient = (TextView)view.findViewById(R.id.tvSexeValuePatient);
+		nLieuNaissance = (TextView)view.findViewById(R.id.tvLieuNaissanceValuePatient);
 		nDateNaissance = (TextView)view.findViewById(R.id.textview_date_naissance_value);
-		nVille = (TextView)view.findViewById(R.id.textview_ville_value);
-		nAdresse =(TextView)view.findViewById(R.id.textview_adresse_value);
-		nCodePostal = (TextView)view.findViewById(R.id.textview_code_postal_value);
-		nPays = (TextView)view.findViewById(R.id.textview_pays_value);
-		nNationalite = (TextView)view.findViewById(R.id.textview_nationalite_value);
-		nNumeroSS = (TextView)view.findViewById(R.id.textview_ss_value);
-		nTelephone = (TextView)view.findViewById(R.id.textview_telephone_value);
-		nMedecinTraitant = (TextView)view.findViewById(R.id.textview_medecin_traitant_value);
+		nVille = (TextView)view.findViewById(R.id.tvVilleValuePatient);
+		nAdresse =(TextView)view.findViewById(R.id.tvAdresseValuePatient);
+		nCodePostal = (TextView)view.findViewById(R.id.tvCodePostalValuePatient);
+		nPays = (TextView)view.findViewById(R.id.tvPaysValuePatient);
+		nNationalite = (TextView)view.findViewById(R.id.tvNationaliteValuePatient);
+		nNumeroSS = (TextView)view.findViewById(R.id.tvSSValuePatient);
+		nTelephone = (TextView)view.findViewById(R.id.tvTelephoneValuePatient);
+		nMedecinTraitant = (TextView)view.findViewById(R.id.tvMedecinTraitantValuePatient);
 		
 		bVisualiserDMP =(Button)view.findViewById(R.id.bVueDMP);
 		bVisualiserDMP.setOnClickListener(new View.OnClickListener() {
