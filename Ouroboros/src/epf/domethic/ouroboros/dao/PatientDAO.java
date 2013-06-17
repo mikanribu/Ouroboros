@@ -6,10 +6,10 @@ import java.util.Date;
 import java.util.List;
 
 import epf.domethic.ouroboros.activity.Utils;
-import epf.domethic.ouroboros.data.PatientColumns;
 import epf.domethic.ouroboros.data.PatientDBOpenHelper;
 import epf.domethic.ouroboros.model.Patient;
 import epf.domethic.ouroboros.model.Patient.Sexe;
+import epf.domethic.ouroboros.outils.PatientColumns;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;

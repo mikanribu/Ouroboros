@@ -13,13 +13,13 @@ import org.json.JSONObject;
 import com.actionbarsherlock.app.SherlockListFragment;
 
 import epf.domethic.ouroboros.dao.PatientDAO;
-import epf.domethic.ouroboros.data.PatientColumns;
 //import epf.domethic.ouroboros.adapter.PatientAdapter;
 import epf.domethic.ouroboros.adapter.PatientCursorAdapter;
 import epf.domethic.ouroboros.model.Patient;
 import epf.domethic.ouroboros.comparator.NameComparator;
-import epf.domethic.ouroboros.data.ParserJSON;
 import epf.domethic.ouroboros.model.Patient.Sexe;
+import epf.domethic.ouroboros.outils.ParserJSON;
+import epf.domethic.ouroboros.outils.PatientColumns;
 
 import android.app.Activity;
 import android.database.Cursor;
