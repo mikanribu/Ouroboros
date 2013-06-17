@@ -3,7 +3,7 @@
     android:orientation="vertical" xmlns:android="http://schemas.android.com/apk/res/android">
  
         <TextView
-            android:id="@+id/sequence"
+            android:id="@+id/tvSequence"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
@@ -12,11 +12,11 @@
             android:textAppearance="?android:attr/textAppearanceMedium" />
  
         <TextView
-            android:id="@+id/childItem"
+            android:id="@+id/tvChildItem"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:layout_toRightOf="@id/sequence"
+            android:layout_toRightOf="@id/tvSequence"
             android:textAppearance="?android:attr/textAppearanceMedium" />
          
 </RelativeLayout>

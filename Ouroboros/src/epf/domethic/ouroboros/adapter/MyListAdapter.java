@@ -43,9 +43,9 @@ public class MyListAdapter extends BaseExpandableListAdapter {
 			view = infalInflater.inflate(R.layout.adapter_menu_infos_dmp, null);
 		}
    
-		TextView sequence = (TextView) view.findViewById(R.id.sequence);
+		TextView sequence = (TextView) view.findViewById(R.id.tvSequence);
 		sequence.setText(detailInfo.getSequence().trim() + ") ");
-		TextView childItem = (TextView) view.findViewById(R.id.childItem);
+		TextView childItem = (TextView) view.findViewById(R.id.tvChildItem);
 		childItem.setText(detailInfo.getName().trim());
    
 		return view;

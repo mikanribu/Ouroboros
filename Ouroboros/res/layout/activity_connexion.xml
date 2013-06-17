@@ -10,13 +10,13 @@
     android:background="@drawable/fond">
 
     <EditText
-        android:id="@+id/pseudo"
+        android:id="@+id/etPseudo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/encadre"
+        android:layout_alignTop="@+id/ivEncadre"
         android:layout_marginRight="53dp"
         android:layout_marginTop="51dp"
-        android:layout_toLeftOf="@+id/bouton_connexion"
+        android:layout_toLeftOf="@+id/bConnexion"
         android:ems="10"
         android:height="100dp"
         android:inputType="textPersonName"
@@ -24,21 +24,21 @@
         android:width="250dp" />
 
     <ImageView
-        android:id="@+id/grand_logo"
+        android:id="@+id/ivGrandLogo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/pseudo"
+        android:layout_above="@+id/etPseudo"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="41dp"
         android:contentDescription="@string/grand_logo"
         android:src="@drawable/grand_logo" />
 
     <Button
-        android:id="@+id/bouton_connexion"
+        android:id="@+id/bConnexion"
         android:layout_width="140dp"
         android:layout_height="140dp"
-        android:layout_alignRight="@+id/encadre"
-        android:layout_alignTop="@+id/pseudo"
+        android:layout_alignRight="@+id/ivEncadre"
+        android:layout_alignTop="@+id/etPseudo"
         android:layout_marginRight="39dp"
         android:background="@drawable/custom_btn_breaker_bay"
         android:gravity="center"
@@ -52,21 +52,21 @@
         android:textStyle="bold" />
 
     <ImageView
-        android:id="@+id/imageView1"
+        android:id="@+id/ivValiderConnexion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/bouton_connexion"
-        android:layout_alignLeft="@+id/bouton_connexion"
-        android:layout_alignRight="@+id/bouton_connexion"
-        android:layout_alignTop="@+id/bouton_connexion"
+        android:layout_alignBottom="@+id/bConnexion"
+        android:layout_alignLeft="@+id/bConnexion"
+        android:layout_alignRight="@+id/bConnexion"
+        android:layout_alignTop="@+id/bConnexion"
         android:src="@drawable/valide_connexion" />
 
     <EditText
-        android:id="@+id/pswd"
+        android:id="@+id/etPswd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/bouton_connexion"
-        android:layout_alignLeft="@+id/pseudo"
+        android:layout_alignBottom="@+id/bConnexion"
+        android:layout_alignLeft="@+id/etPseudo"
         android:ems="10"
         android:height="100dp"
         android:inputType="textPersonName"
@@ -74,7 +74,7 @@
         android:width="250dp" />
 
     <ImageView
-        android:id="@+id/encadre"
+        android:id="@+id/ivEncadre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

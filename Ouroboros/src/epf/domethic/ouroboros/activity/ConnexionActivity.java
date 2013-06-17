@@ -20,7 +20,7 @@ public class ConnexionActivity extends SherlockActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_connexion);
 		
-		bConnexion = (Button)findViewById(R.id.bouton_connexion);
+		bConnexion = (Button)findViewById(R.id.bConnexion);
 		final Intent intent_connexion = new Intent(ConnexionActivity.this, HospitalisationsActivity.class);
 		bConnexion.setOnClickListener(new OnClickListener() {
 			@Override
