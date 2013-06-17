@@ -1,7 +1,9 @@
 package epf.domethic.ouroboros.activity;
 
+import android.database.Cursor;
 import android.os.Bundle;
 import android.os.StrictMode;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,22 +22,36 @@ import com.actionbarsherlock.app.SherlockFragment;
 import epf.domethic.ouroboros.R;
 import epf.domethic.ouroboros.adapter.MenuGaucheHospiDMPAdapter;
 import epf.domethic.ouroboros.dao.PatientDAO;
-import epf.domethic.ouroboros.data.ParserJSON;
-import epf.domethic.ouroboros.data.PatientColumns;
+import epf.domethic.ouroboros.dao.RadioDAO;
 import epf.domethic.ouroboros.model.Patient;
 import epf.domethic.ouroboros.model.Patient.Sexe;
+import epf.domethic.ouroboros.outils.DocumentColumns;
+import epf.domethic.ouroboros.outils.ParserJSON;
+import epf.domethic.ouroboros.outils.PatientColumns;
  
 public class ListeGaucheHospiDMPFragment extends SherlockFragment {
     private ExpandableListView mExpandableList;
     
-    static String url ="https://raw.github.com/Mikanribu/Ouroboros/master/json_radios";
+    static String url2 ="http://raw.github.com/Mikanribu/Ouroboros/master/json_radios";
+    static String url = "http://raw.github.com/Mikanribu/Ouroboros/master/json_patients";
     JSONArray radios = null;
+    
+	private final static String TAG = ListerPatientsFragment.class.getSimpleName();
+    
+    RadioDAO dao =null;
  
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState ){
     	View view = inflater.inflate(R.layout.fragment_liste_hospi_dmp,container, false);
+       
+    	this.dao = new RadioDAO(getActivity());
  
         mExpandableList = (ExpandableListView)view.findViewById(R.id.menu_gauche_hospi);
+        
+        if(dao.dbIsEmpty() == true) {
+			Log.v("TAG","DANS LE IF!!!!!");
+			RecuperationJSON();
+		}
         
         //Méthode temporaire pour avoir un menu propre en attendant d'aller chercher dans la bdd
         ArrayList<String> arrayNomParents = new ArrayList<String>();
@@ -57,8 +73,20 @@ public class ListeGaucheHospiDMPFragment extends SherlockFragment {
              
             //Récupérer ici les enfants
             arrayChildren = new ArrayList<String>();
-            for (int j = 0; j < 3; j++) {
-                arrayChildren.add("Child " + j);
+            
+            if(arrayNomParents.get(i) == "Radiographies"){
+            	Cursor cursor = dao.getRadiosCursor();
+            	cursor.moveToFirst();
+
+        		while (!cursor.isAfterLast()) {
+        			arrayChildren.add(cursor.getString(2));
+        			cursor.moveToNext();
+        		}
+            }
+            else {
+	            for (int j = 0; j < 3; j++) {
+	                arrayChildren.add("Child " + j);
+	            }
             }
             parent.setArrayChildren(arrayChildren);
  
@@ -104,44 +132,45 @@ public class ListeGaucheHospiDMPFragment extends SherlockFragment {
 		// Creation d'une instance ParserJSON
         ParserJSON jParser = new ParserJSON();    
         //On récupère JSON string à partir de l'URL
-        JSONObject json = jParser.getJSONFromUrl(url);        
+        JSONObject json = jParser.getJSONFromUrl(url2);
         
         try {
             radios = json.getJSONArray("radios");
              
-            // Boucle sur tous les patients du fichier JSON
+            // Boucle sur toutes les radios du fichier JSON
             for(int i = 0; i < radios.length(); i++){
                 JSONObject c = radios.getJSONObject(i);
                  
                 // On récupère toutes les données qu'on stocke dans une variable
-                String nom = c.getString(PatientColumns.KEY_NOM);
-                String prenom = c.getString(PatientColumns.KEY_PRENOM);
-                Sexe sexe = Sexe.valueOf(c.getString(PatientColumns.KEY_SEXE));
-                Date dateNaissance = null;
+                String idPatient = c.getString(DocumentColumns.KEY_ID_PATIENT);
+                String nom = c.getString(DocumentColumns.KEY_NOM);
+                String radio = c.getString(DocumentColumns.KEY_RADIO);
+                String cause = c.getString(DocumentColumns.KEY_CAUSE);
+                String d = c.getString(DocumentColumns.KEY_DATE);
+               /* Date date = null;
 				try {
-					dateNaissance = Utils.parserDate(c.getString(PatientColumns.KEY_DATE_NAISSANCE));
+					date = Utils.parserDate(c.getString(DocumentColumns.KEY_DATE));
 				} catch (ParseException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
-				}
-                String lieuNaissance = c.getString(PatientColumns.KEY_LIEU_NAISSANCE);
-                String adresse = c.getString(PatientColumns.KEY_ADRESSE);
-                String ville = c.getString(PatientColumns.KEY_VILLE);
-                String codePostal = c.getString(PatientColumns.KEY_CODE_POSTAL);
-                String pays = c.getString(PatientColumns.KEY_PAYS);
-                String nationalite = c.getString(PatientColumns.KEY_NATIONALITE);
-                String telephone = c.getString(PatientColumns.KEY_TELEPHONE);
-                String numSS = c.getString(PatientColumns.KEY_NUMSS);
-                String medecinTraitant = c.getString(PatientColumns.KEY_MEDECIN_TRAITANT);
-                boolean hospitalise = c.getInt(PatientColumns.KEY_HOSPITALISE) ==1;
-                 
-                Patient p = new Patient (nom, prenom, sexe, dateNaissance, lieuNaissance,
-                					adresse, ville, codePostal, pays, nationalite, telephone, numSS,
-                					medecinTraitant, hospitalise);
+				}*/
+				String medecin = c.getString(DocumentColumns.KEY_MEDECIN);
+				String description = c.getString(DocumentColumns.KEY_DESCRIPTION);
+				String interpretation = c.getString(DocumentColumns.KEY_INTERPRETATION);
+
+                ArrayList <String> r = new ArrayList<String>();
+                r.add(idPatient);
+                r.add(nom);
+                r.add(radio);
+                r.add(cause);
+                r.add(d);
+                r.add(medecin);
+                r.add(description);
+                r.add(interpretation);
                 
-                PatientDAO dao = new PatientDAO(this.getActivity());
-                dao.ajouterPatient(p);
-                dao.close();
+                dao = new RadioDAO(this.getActivity());	
+                dao.ajouterRadio(r);
+
                // patientList.add(p);
             }
         } catch (JSONException e) {
@@ -149,5 +178,6 @@ public class ListeGaucheHospiDMPFragment extends SherlockFragment {
         }
         //Tri des noms des patients par ordre alphabétique
        // Collections.sort(patientList, new NameComparator());
+        //dao.close();
 	}
 }
