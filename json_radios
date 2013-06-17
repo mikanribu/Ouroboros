@@ -3,25 +3,25 @@
   {
 			"id": "1",
 			"id_patient": "1",
-      "nom": "Thorax",
+      			"nom": "Thorax",
 			"radio": "Radio du thorax",
 			"cause": "Faiblesse pulmonaire",
 			"date": "22/07/2013",
 			"medecin": "Docteur House",
-      "description": "Bla bla bla a compléter",
-      "interpretation": "Bla bla bla a compléter"
+      			"description": "Bla bla bla a compléter",
+     			"interpretation": "Bla bla bla a compléter"
 
   },
 	{
-      "id":"2",
+      			"id":"2",
 			"id_patient": "3",
-      "nom": "Poignet droit",
+      			"nom": "Poignet droit",
 			"radio": "Radio du poignet droit",
 			"cause": "Fracture",
 			"date": 19/04/2013",
 			"medecin": "Docteur Mario",
-      "description": "Bla bla bla a compléter",
-      "interpretation": "Bla bla bla a compléter"
+      			"description": "Bla bla bla a compléter",
+      			"interpretation": "Bla bla bla a compléter"
     }
   ]
 }
