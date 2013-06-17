@@ -164,6 +164,6 @@ public class ListerPatientsFragment extends SherlockListFragment {
             e.printStackTrace();
         }
         //Tri des noms des patients par ordre alphabétique
-        Collections.sort(patientList, new NameComparator());
+       // Collections.sort(patientList, new NameComparator());
 	}
 }
