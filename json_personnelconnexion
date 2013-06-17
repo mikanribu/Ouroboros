@@ -1,10 +1,10 @@
 {
     "personnel": [
-  {
-  	"fonction": "1",
+  	{
+  		"fonction": "1",
 		"nom": "House",
 		"prenom": "Gregory",
-    "password": "gregoryh",
+    		"password": "gregoryh",
 		"mail": "gregory.house@dmail.com",
 		"telephone": "06.12.12.90.90",
 		"service": "cardiologie",
@@ -14,31 +14,31 @@
 		"fonction": "1",
 		"nom": "Sheperd",
 		"prenom": "Derek",
-    "password": "dereks",
+    		"password": "dereks",
 		"mail": "derek.sheperd@dmail.com",
 		"telephone": "06.78.55.03.18",
 		"service": "neurologie",
 		"chef": "NON"
 	},
-  {
-  	"fonction": "2",
+  	{
+  		"fonction": "2",
 		"nom": "Moneypenny",
 		"prenom": "Miss",
-    "password": "missm",
+    		"password": "missm",
 		"mail": "miss.moneypenny@dmail.com",
 		"telephone": "06.45.87.78.12",
 		"service": "cardiologie"
-    "chef": "NON"
+    		"chef": "NON"
 	},
 	{
 		"fonction": "2",
 		"nom": "Paulsen",
 		"prenom": "Donna",
-    "password": "donnap",
+    		"password": "donnap",
 		"mail": "donna.paulsen@dmail.com",
 		"telephone": "06.65.87.40.61",
 		"service": "neurologie"
-    "chef": "NON"
+    		"chef": "NON"
 	},
  ]
 }
