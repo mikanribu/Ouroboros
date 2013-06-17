@@ -1,4 +1,4 @@
-package epf.domethic.ouroboros.data;
+package epf.domethic.ouroboros.outils;
 
 import java.io.BufferedReader;
 import java.io.IOException;
