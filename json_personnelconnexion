@@ -1,0 +1,24 @@
+{
+    "personnelConnexion": [
+  	{
+  		"fonction": "1",
+  		"pseudo": "gregoryh,
+    		"password": "gregoryh"
+	},
+	{
+		"fonction": "1",
+		"pseudo": "dereks",
+    		"password": "dereks"
+	},
+  	{
+  		"fonction": "2",
+		"pseudo": "missm",
+    		"password": "missm"
+	},
+	{
+		"fonction": "2",
+		"pseudo": "donnap",
+    		"password": "donnap"
+	}
+ ]
+}
