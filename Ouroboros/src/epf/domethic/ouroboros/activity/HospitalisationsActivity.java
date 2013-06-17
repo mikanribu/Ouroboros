@@ -14,12 +14,14 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.text.InputFilter.LengthFilter;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.LinearLayout;
 import android.widget.SearchView;
 import android.widget.TextView;
+import android.widget.Toast;
 import epf.domethic.ouroboros.R;
 import epf.domethic.ouroboros.activity.ListerPatientsFragment.OnPatientSelectedListener;
 import epf.domethic.ouroboros.model.Patient;
@@ -49,12 +51,25 @@ public class HospitalisationsActivity extends SherlockFragmentActivity implement
 	protected void onCreate(Bundle savedInstanceState) {
 
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_hospitalisations);
+		Intent i = getIntent();
+		
+		//get the pseudonyme and password from the connection
+		String pseudo = i.getStringExtra("pseudo"); 
+	    int fonction = Integer.parseInt(i.getStringExtra("fonction")); 
+	    Log.v(TAG, pseudo + fonction);
+	    
+	    if(fonction==1){
+		setContentView(R.layout.activity_hospitalisations);	
+		
 
 		ActionBar actionBar = getActionBar();
 
 		Resources r = getResources();
-		Drawable myDrawable = r.getDrawable(R.drawable.barre_haut);
+		
+		Drawable myDrawable;
+		
+		myDrawable = r.getDrawable(R.drawable.barre_haut);		
+		
 		actionBar.setBackgroundDrawable(myDrawable);
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 		actionBar.setHomeButtonEnabled(true); // The icone_launcher will not go
@@ -141,12 +156,42 @@ public class HospitalisationsActivity extends SherlockFragmentActivity implement
 
 			}
 		});
+	    }
+		else if (fonction==2){
+			Log.v(TAG, "la est le probleme?");
+			setContentView(R.layout.menu_secretaire_medicale);
+			
+			ActionBar actionBar = getActionBar();
+
+			Resources r = getResources();
+			Drawable myDrawable;
+			myDrawable = r.getDrawable(R.drawable.barre_hautsecadm);
+			Log.v(TAG, "nn");
+			
+			actionBar.setBackgroundDrawable(myDrawable);
+			actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+			actionBar.setHomeButtonEnabled(true); // The icone_launcher will not go
+													// back automatically to home
+													// (API min 14)
+
+			// Pas d'affichage du nom de l'application dans la barre d'action
+			actionBar.setDisplayShowTitleEnabled(false);
+			
+			mList = (LinearLayout) findViewById(R.id.animation_layout_sidebar);
+			mLayout = (AnimationLayout) findViewById(R.id.animation_layout);
+			mLayout.setListener(this);
+		}
+		else{
+			Toast.makeText(getApplicationContext(), "Ce type d'utilisateur n'a pas encore été implémenté.", Toast.LENGTH_SHORT).show();
+			
+		}
 	}
 
 	@Override
 	public void onPatientSelected(int position, Patient patient) {
 		this.position = position;
 		fragment_detail.afficherPatient(patient);
+		
 
 	}
 

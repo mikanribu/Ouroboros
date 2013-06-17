@@ -49,7 +49,6 @@ public class ConnexionActivity extends SherlockActivity {
 		etPseudo = (EditText)findViewById(R.id.etPseudo);		
 		etPswd = (EditText) findViewById(R.id.etPswd);	
 		bConnexion = (Button)findViewById(R.id.bConnexion);
-		final Intent intent_connexion = new Intent(ConnexionActivity.this, HospitalisationsActivity.class);
 		bConnexion.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -69,7 +68,7 @@ public class ConnexionActivity extends SherlockActivity {
 						Log.v(TAG, "la fonction:"+fonction);
 						
 						final Intent intent_connexion = new Intent(ConnexionActivity.this, HospitalisationsActivity.class);
-						intent_connexion.putExtra("fonction", fonction);
+						intent_connexion.putExtra("fonction", String.valueOf(fonction));
 						intent_connexion.putExtra("pseudo", lepseudo);
 						
 						startActivity(intent_connexion);
