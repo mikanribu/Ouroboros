@@ -2,6 +2,7 @@
     "medecin": [
   {
 		"id": "1",
+		"pseudo": "gregoryh",
 		"nom": "House",
 		"prenom": "Gregory",
 		"mail": "gregory.house@dmail.com",
@@ -11,6 +12,7 @@
 	},
 	{
 		"id": "2",
+		"pseudo": "dereks",
 		"nom": "Sheperd",
 		"prenom": "Derek",
 		"mail": "derek.sheperd@dmail.com",
