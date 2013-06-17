@@ -21,7 +21,6 @@
             android:layout_marginTop="4dp"
             android:paddingLeft="10dp"
             android:paddingTop="3dp"
-            android:text="PAUL DURAND"
             android:textColor="#FFFFFF"
             android:textSize="18sp" />
 
@@ -34,7 +33,7 @@
             android:paddingBottom="8dp"
             android:paddingLeft="30dp"
             android:paddingTop="2dp"
-            android:text="Médecin"
+            android:text="@string/medecin"
             android:textColor="#FFFFFF"
             android:textSize="16sp" />
 

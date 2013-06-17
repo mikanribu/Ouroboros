@@ -1090,7 +1090,7 @@ containing a value of this type.
         public static final int tvSSPatient=0x7f050086;
         public static final int tvSSValue=0x7f050063;
         public static final int tvSSValuePatient=0x7f050087;
-        public static final int tvSecretaireAdministrative=0x7f05009f;
+        public static final int tvSecretaireMedicale=0x7f05009f;
         public static final int tvSequence=0x7f05004b;
         public static final int tvSexe=0x7f05005e;
         public static final int tvSexePatient=0x7f050082;
@@ -1264,6 +1264,7 @@ containing a value of this type.
         public static final int hospi_en_cours=0x7f0a003d;
         public static final int hostAnd=0x7f0a0046;
         public static final int infos_generales=0x7f0a003c;
+        public static final int medecin=0x7f0a0065;
         public static final int modif_data=0x7f0a0042;
         public static final int modif_infos=0x7f0a0043;
         public static final int monCompte=0x7f0a0025;
@@ -1273,6 +1274,7 @@ containing a value of this type.
         public static final int recherche=0x7f0a0026;
         public static final int saveLives=0x7f0a0047;
         public static final int search_hint=0x7f0a0011;
+        public static final int secretaireMed=0x7f0a0066;
         public static final int title_activity_archives=0x7f0a0017;
         public static final int title_activity_codification=0x7f0a0018;
         public static final int title_activity_connexion=0x7f0a0014;

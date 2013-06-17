@@ -110,5 +110,7 @@
 	<string name="form_interpretation">Interprétation: </string>
 	
 	<string name="new_doc">Nouveau Document</string>
+	<string name="medecin">Médecin</string>
+	<string name="secretaireMed">Secrétaire médicale</string>
 
 </resources>

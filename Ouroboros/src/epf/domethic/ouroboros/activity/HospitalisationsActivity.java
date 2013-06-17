@@ -1,5 +1,9 @@
 package epf.domethic.ouroboros.activity;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
@@ -12,6 +16,7 @@ import android.content.res.Resources;
 import android.database.Cursor;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.text.InputFilter.LengthFilter;
@@ -25,6 +30,9 @@ import android.widget.Toast;
 import epf.domethic.ouroboros.R;
 import epf.domethic.ouroboros.activity.ListerPatientsFragment.OnPatientSelectedListener;
 import epf.domethic.ouroboros.model.Patient;
+import epf.domethic.ouroboros.outils.ParserJSON;
+import epf.domethic.ouroboros.outils.PersonnelConnexionColumns;
+import epf.domethic.ouroboros.outils.medecinColumns;
 import epf.domethic.ouroboros.widget.AnimationLayout;
 
 public class HospitalisationsActivity extends SherlockFragmentActivity implements
@@ -37,6 +45,7 @@ public class HospitalisationsActivity extends SherlockFragmentActivity implement
 	public final static String TAG = "Demo";
 	protected LinearLayout mList;
 	protected AnimationLayout mLayout;
+	private TextView tvFonction;
 	private TextView tvDeconnexion;
 	private TextView tvRecherche;
 	private TextView tvArchives;
@@ -46,6 +55,13 @@ public class HospitalisationsActivity extends SherlockFragmentActivity implement
 	RechercheGeneraleFragment fragment_recherche_g = new RechercheGeneraleFragment();
 	AfficherRadioFragment fragment_radio = new AfficherRadioFragment();
 	
+	JSONArray personnes = null;
+	
+	//url ou l'on peut accéder au JSON des sécrétaires médicales.
+	static String urlsecMed = "http://raw.github.com/Mikanribu/Ouroboros/master/json_secretaires_med";
+	
+	//url ou l'on peut accéder au JSON des médecins.
+	static String urlMed = "http://raw.github.com/Mikanribu/Ouroboros/master/json_medecins";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -156,6 +172,8 @@ public class HospitalisationsActivity extends SherlockFragmentActivity implement
 
 			}
 		});
+			tvFonction = (TextView) findViewById(R.id.tvNomMedecin);
+			RecuperationJSON(pseudo, fonction);
 	    }
 		else if (fonction==2){
 			Log.v(TAG, "la est le probleme?");
@@ -180,11 +198,108 @@ public class HospitalisationsActivity extends SherlockFragmentActivity implement
 			mList = (LinearLayout) findViewById(R.id.animation_layout_sidebar);
 			mLayout = (AnimationLayout) findViewById(R.id.animation_layout);
 			mLayout.setListener(this);
+			tvDeconnexion = (TextView) findViewById(R.id.tvDeconnexion);
+			final Intent intent_connexion = new Intent(HospitalisationsActivity.this, ConnexionActivity.class);
+			
+			tvDeconnexion.setOnClickListener(new OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					startActivity(intent_connexion);
+				}
+			});
+			tvFonction = (TextView) findViewById(R.id.tvNomSecretaireMedicale);
+			RecuperationJSON(pseudo, fonction);
 		}
 		else{
 			Toast.makeText(getApplicationContext(), "Ce type d'utilisateur n'a pas encore été implémenté.", Toast.LENGTH_SHORT).show();
 			
 		}
+	}
+	
+	public void RecuperationJSON(String pseudo, int fonction) {
+		
+		Log.d(TAG, "entered in recuperationJSON");
+		if (android.os.Build.VERSION.SDK_INT > 9) {
+		    StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+		    StrictMode.setThreadPolicy(policy);
+		}
+		
+		// Creation d'une instance ParserJSON
+        ParserJSON jParser = new ParserJSON(); 
+        
+        if(fonction==1){
+	        //On récupère JSON string à partir de l'URL
+	        JSONObject json = jParser.getJSONFromUrl(urlMed);
+	        
+	        try {
+	            personnes = json.getJSONArray("medecin");
+	             
+	            Log.d(TAG, "JSON get array working"); 
+	            String pseudonyme="";
+	            String nom ="";
+	            String prenom ="";
+	            
+	            // Boucle sur tous les membres de Ouroboros inscrit dans le JSON
+	            for(int i = 0; i < personnes.length(); i++){
+	                JSONObject c = personnes.getJSONObject(i);
+	                 
+	                // On récupère toutes les données qu'on stocke dans une variable
+	                
+	                pseudonyme = c.getString(medecinColumns.KEY_PSEUDO);
+	                nom = c.getString(medecinColumns.KEY_NOM);
+	                prenom = c.getString(medecinColumns.KEY_PRENOM);
+	               
+	                Log.v(TAG, "pseudo"+pseudonyme+"bli"); 
+	                Log.v(TAG, "bli"+pseudo+"bli"); 
+	                
+	                //Comparaison du pseudo et mdp avec ceux rentré par l'utilisateur
+	                if(pseudonyme.compareTo(pseudo)==0){
+	                	Log.d(TAG, "JSON person found"); 
+	                	tvFonction.setText(prenom+" "+nom);
+	                }
+	                     
+	            }
+	        } catch (JSONException e) {
+	            e.printStackTrace();
+	        }
+        }
+	    else if(fonction==2){
+	    	//On récupère JSON string à partir de l'URL
+	        JSONObject json = jParser.getJSONFromUrl(urlsecMed);
+	        
+	        try {
+	            personnes = json.getJSONArray("secretaire_medicale");
+	             
+	            Log.d(TAG, "JSON get array working"); 
+	            String pseudonyme="";
+	            String nom ="";
+	            String prenom ="";
+	            
+	            // Boucle sur tous les membres de Ouroboros inscrit dans le JSON
+	            for(int i = 0; i < personnes.length(); i++){
+	                JSONObject c = personnes.getJSONObject(i);
+	                 
+	                // On récupère toutes les données qu'on stocke dans une variable
+	                
+	                pseudonyme = c.getString(medecinColumns.KEY_PSEUDO);
+	                nom = c.getString(medecinColumns.KEY_NOM);
+	                prenom = c.getString(medecinColumns.KEY_PRENOM);
+	               
+	                Log.v(TAG, "pseudo"+pseudonyme+"bli"); 
+	                Log.v(TAG, "bli"+pseudo+"bli"); 
+	                
+	                //Comparaison du pseudo et mdp avec ceux rentré par l'utilisateur
+	                if(pseudonyme.compareTo(pseudo)==0){
+	                	Log.d(TAG, "JSON person found"); 
+	                	tvFonction.setText(prenom+ " "+ nom);
+	                }
+	                     
+	            }
+	        } catch (JSONException e) {
+	            e.printStackTrace();
+	        }
+	        	
+	    }
 	}
 
 	@Override
