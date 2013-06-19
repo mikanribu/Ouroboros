@@ -1148,16 +1148,17 @@ containing a value of this type.
         public static final int fragment_infos_g=0x7f030019;
         public static final int fragment_liste_hospi_dmp=0x7f03001a;
         public static final int fragment_liste_infos_dmp=0x7f03001b;
-        public static final int fragment_recherche_patients=0x7f03001c;
-        public static final int fragment_visualiser_patients=0x7f03001d;
-        public static final int menu_hospi_dmp_child=0x7f03001e;
-        public static final int menu_hospi_dmp_parent=0x7f03001f;
-        public static final int menu_infos_dmp_elements=0x7f030020;
-        public static final int menu_infos_dmp_titre=0x7f030021;
-        public static final int menu_secretaire_medicale=0x7f030022;
-        public static final int patients_list_entry=0x7f030023;
-        public static final int sherlock_spinner_dropdown_item=0x7f030024;
-        public static final int sherlock_spinner_item=0x7f030025;
+        public static final int fragment_patients_list=0x7f03001c;
+        public static final int fragment_recherche_patients=0x7f03001d;
+        public static final int fragment_visualiser_patients=0x7f03001e;
+        public static final int menu_hospi_dmp_child=0x7f03001f;
+        public static final int menu_hospi_dmp_parent=0x7f030020;
+        public static final int menu_infos_dmp_elements=0x7f030021;
+        public static final int menu_infos_dmp_titre=0x7f030022;
+        public static final int menu_secretaire_medicale=0x7f030023;
+        public static final int patients_list_entry=0x7f030024;
+        public static final int sherlock_spinner_dropdown_item=0x7f030025;
+        public static final int sherlock_spinner_item=0x7f030026;
     }
     public static final class menu {
         public static final int accueil=0x7f0d0000;

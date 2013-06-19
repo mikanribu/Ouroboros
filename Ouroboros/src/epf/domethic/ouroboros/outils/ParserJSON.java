@@ -91,6 +91,7 @@ public class ParserJSON extends Activity {
         }
  
         // return JSON String
+        Log.v("TAG","Fin fonction JSONParser"+jObj);
         return jObj;
  
     }
