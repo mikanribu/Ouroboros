@@ -22,8 +22,8 @@
             android:id="@+id/tvTitre"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:gravity="center"
-            android:textSize="18sp" />
+            android:gravity="center_vertical"
+            android:textSize="20sp" />
     </LinearLayout>
 
 </LinearLayout>

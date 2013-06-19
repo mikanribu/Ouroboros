@@ -14,7 +14,7 @@
               android:id="@+id/list_item_text_child"
               android:textSize="20sp"
               android:padding="10dp"
-              android:layout_marginLeft="5dp"/>
+              android:layout_marginLeft="70dp"/>
  
  
 </LinearLayout>

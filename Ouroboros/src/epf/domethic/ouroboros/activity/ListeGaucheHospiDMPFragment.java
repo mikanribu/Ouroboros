@@ -9,12 +9,15 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ExpandableListView;
+import android.widget.ListView;
+import android.widget.SimpleAdapter;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ExpandableListView.OnChildClickListener;
 
-import java.text.ParseException;
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.HashMap;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -24,16 +27,13 @@ import com.actionbarsherlock.app.SherlockFragment;
 
 import epf.domethic.ouroboros.R;
 import epf.domethic.ouroboros.adapter.MenuGaucheHospiDMPAdapter;
-import epf.domethic.ouroboros.dao.PatientDAO;
 import epf.domethic.ouroboros.dao.RadioDAO;
-import epf.domethic.ouroboros.model.Patient;
-import epf.domethic.ouroboros.model.Patient.Sexe;
 import epf.domethic.ouroboros.outils.DocumentColumns;
 import epf.domethic.ouroboros.outils.ParserJSON;
-import epf.domethic.ouroboros.outils.PatientColumns;
 
 public class ListeGaucheHospiDMPFragment extends SherlockFragment {
 	private ExpandableListView mExpandableList;
+	private ListView lvlistNewDoc;
 
 	static String url2 = "http://raw.github.com/Mikanribu/Ouroboros/master/json_radios";
 	static String url = "http://raw.github.com/Mikanribu/Ouroboros/master/json_patients";
@@ -41,21 +41,18 @@ public class ListeGaucheHospiDMPFragment extends SherlockFragment {
 
 	AfficherRadioFragment fragment_afficher_radio = new AfficherRadioFragment();
 
-	private final static String TAG = ListerPatientsFragment.class
-			.getSimpleName();
+	private final static String TAG = ListerPatientsFragment.class.getSimpleName();
 
 	RadioDAO dao = null;
 
 	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
-		View view = inflater.inflate(R.layout.fragment_liste_hospi_dmp,
-				container, false);
+	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+		View view = inflater.inflate(R.layout.fragment_liste_hospi_dmp,container, false);
 
 		this.dao = new RadioDAO(getActivity());
 
-		mExpandableList = (ExpandableListView) view
-				.findViewById(R.id.menu_gauche_hospi);
+		mExpandableList = (ExpandableListView) view.findViewById(R.id.menu_gauche_hospi);
+		
 
 		if (dao.dbIsEmpty() == true) {
 			Log.v("TAG", "DANS LE IF!!!!!");
@@ -140,6 +137,33 @@ public class ListeGaucheHospiDMPFragment extends SherlockFragment {
 			}
 		});
 
+		lvlistNewDoc = (ListView)view.findViewById(R.id.liste_new_doc);
+        ArrayList<HashMap<String, String>> listItem = new ArrayList<HashMap<String, String>>();
+        HashMap<String, String> map;
+        map = new HashMap<String, String>();
+        map.put("titre", "Nouveau Document");
+        map.put("img", String.valueOf(R.drawable.logo_new_doc));
+        listItem.add(map);
+        
+      //Création d'un SimpleAdapter qui se chargera de mettre les items présent dans notre list (listItem) dans la vue affichageitem
+        SimpleAdapter mSchedule = new SimpleAdapter (getActivity().getBaseContext(), listItem, R.layout.menu_infos_dmp_elements,
+               new String[] {"img", "titre", "description"}, new int[] {R.id.ivImage, R.id.tvTitre});
+ 
+        //On attribue à notre listView l'adapter que l'on vient de créer
+        lvlistNewDoc.setAdapter(mSchedule);
+ 
+        //Enfin on met un écouteur d'évènement sur notre listView
+        lvlistNewDoc.setOnItemClickListener(new OnItemClickListener() {
+			@Override
+        	@SuppressWarnings("unchecked")
+         	public void onItemClick(AdapterView<?> a, View v, int position, long id) {
+				//on récupère la HashMap contenant les infos de notre item (titre, description, img)
+        		HashMap<String, String> map = (HashMap<String, String>) lvlistNewDoc.getItemAtPosition(position);
+        		
+        	}
+         });
+        
+        
 		return view;
 
 	}

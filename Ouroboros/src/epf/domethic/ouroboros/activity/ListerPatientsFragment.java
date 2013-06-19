@@ -94,8 +94,7 @@ public class ListerPatientsFragment extends SherlockListFragment {
 		// adapter = new PatientAdapter(getActivity(),patient);
 		Cursor cursor = dao.getPatientsCursor();
 
-		adapter = new PatientCursorAdapter(getSherlockActivity(),
-				dao.getPatientsCursor(), true);
+		adapter = new PatientCursorAdapter(getSherlockActivity(), dao.getPatientsCursor(), true);
 		Log.v("TAG", "Avant setListAdapter");
 		setListAdapter(adapter);
 		Log.v("TAG", "Après setListAdapter");
@@ -105,10 +104,7 @@ public class ListerPatientsFragment extends SherlockListFragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 				
-		View view = inflater.inflate(R.layout.fragment_patients_list,
-				container, false);
-		
-
+		View view = inflater.inflate(R.layout.fragment_patients_list, container, false);
 		return view;
 	}
 
@@ -160,8 +156,7 @@ public class ListerPatientsFragment extends SherlockListFragment {
 	public void RecuperationJSON() {
 
 		if (android.os.Build.VERSION.SDK_INT > 9) {
-			StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
-					.permitAll().build();
+			StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
 			StrictMode.setThreadPolicy(policy);
 		}
 
@@ -195,12 +190,10 @@ public class ListerPatientsFragment extends SherlockListFragment {
 				String ville = c.getString(PatientColumns.KEY_VILLE);
 				String codePostal = c.getString(PatientColumns.KEY_CODE_POSTAL);
 				String pays = c.getString(PatientColumns.KEY_PAYS);
-				String nationalite = c
-						.getString(PatientColumns.KEY_NATIONALITE);
+				String nationalite = c.getString(PatientColumns.KEY_NATIONALITE);
 				String telephone = c.getString(PatientColumns.KEY_TELEPHONE);
 				String numSS = c.getString(PatientColumns.KEY_NUMSS);
-				String medecinTraitant = c
-						.getString(PatientColumns.KEY_MEDECIN_TRAITANT);
+				String medecinTraitant = c.getString(PatientColumns.KEY_MEDECIN_TRAITANT);
 				boolean hospitalise = c.getInt(PatientColumns.KEY_HOSPITALISE) == 1;
 
 				Patient p = new Patient(nom, prenom, sexe, dateNaissance,
