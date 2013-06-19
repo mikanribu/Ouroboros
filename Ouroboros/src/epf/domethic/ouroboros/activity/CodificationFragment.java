@@ -1,8 +1,8 @@
 package epf.domethic.ouroboros.activity;
 
-import android.support.v4.app.Fragment;
+import com.actionbarsherlock.app.SherlockFragment;
 
-public class CodificationFragment extends Fragment{
+public class CodificationFragment extends SherlockFragment{
 	
 
 }
