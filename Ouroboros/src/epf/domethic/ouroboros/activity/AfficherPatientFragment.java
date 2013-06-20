@@ -37,6 +37,7 @@ public class AfficherPatientFragment extends SherlockFragment {
 	ListeGaucheInfosDMPFragment fragment_menu_gauche_infos_dmp = new ListeGaucheInfosDMPFragment();
 	OngletsDMPFragment fragment_onglets_dmp = new OngletsDMPFragment();
 	
+	//jhqsvdhs
 	private Patient patient;
 	
 	@Override
