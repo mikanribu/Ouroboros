@@ -46,8 +46,8 @@
     <string name="Valider">Valider</string>
     <string name="Retour">Retour</string>
     <string name="Archiver">Archiver</string>
-    <string name="pseudo">Pseudo</string>
-    <string name="pswd">Mot de passe</string>
+    <string name="pseudo">gregoryh</string>
+    <string name="pswd">gregoryh</string>
     <string name="grand_logo">Logo complet de l\'application</string>
     <string name="encadre">Encadré pour les identifiants de connexion</string>
     <string name="bouton_connexion">Validation de connexion</string>

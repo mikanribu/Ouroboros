@@ -61,6 +61,16 @@ public class RadioDAO {
 		return	database.query(RadioDBOpenHelper.TABLE_PATIENT,columns, where, null, null, null, null);
 	}
 	
+	public Cursor getRadiosCursor(int like){
+		String[] columns = 
+				new String[]{DocumentColumns._ID, DocumentColumns.KEY_ID_PATIENT, DocumentColumns.KEY_NOM, 
+				DocumentColumns.KEY_RADIO, DocumentColumns.KEY_DATE, DocumentColumns.KEY_MEDECIN, 
+				DocumentColumns.KEY_DESCRIPTION, DocumentColumns.KEY_INTERPRETATION};
+		String where = PatientColumns._ID + " like '%" + like + "%'";
+		int whereArgs = like;
+		return	database.query(RadioDBOpenHelper.TABLE_PATIENT,columns, where, null, null, null, null);
+	}
+	
 	
 	public void ajouterRadio(ArrayList<String> arrayRadios){
 		ContentValues values = new ContentValues();

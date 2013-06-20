@@ -59,19 +59,38 @@ public class OngletsDMPFragment extends SherlockFragment implements ActionBar.Ta
 	public void onTabSelected(Tab tab, FragmentTransaction fragmentTransaction) {
 		// TODO Auto-generated method stub
 		
-		listeOnglets.clear();
+		
 		int position =tab.getPosition();
 		switch(position)
     	{  
 			case 1:
+				listeOnglets.clear();
 				fragmentTransaction.replace(R.id.deuxTiers, hospitalisation);
 				listeOnglets.add(hospitalisation);
 				fragmentTransaction.replace(R.id.tiers, menu_hospi);
 				listeOnglets.add(menu_hospi);
-				break;       
+				break;
+				
+			case 2:
+				for(int i=0; i<listeOnglets.size(); i++){
+		        	fragmentTransaction.remove(listeOnglets.get(i));
+		        }
+				listeOnglets.clear();
+				fragmentTransaction.add(R.id.tiers, historique);
+				listeOnglets.add(historique);
+				break;
+				
+			case 3:
+				for(int i=0; i<listeOnglets.size(); i++){
+		        	fragmentTransaction.remove(listeOnglets.get(i));
+		        }
+				listeOnglets.clear();
+				fragmentTransaction.add(R.id.tiers, codification);
+				listeOnglets.add(codification);
+				break;
 
 			default:
-				
+				listeOnglets.clear();
 				fragmentTransaction.replace(R.id.deuxTiers, infos);
 				listeOnglets.add(infos);
 				fragmentTransaction.replace(R.id.tiers, menu_infos);

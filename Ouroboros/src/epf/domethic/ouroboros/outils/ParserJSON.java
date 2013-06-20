@@ -86,7 +86,12 @@ public class ParserJSON extends Activity {
             Log.e("JSON Parser", "Error parsing data " + e.toString());
         }
  
+<<<<<<< HEAD
         // retourne JSON Object
+=======
+        // return JSON String
+        Log.v("TAG","Fin fonction JSONParser"+jObj);
+>>>>>>> master
         return jObj;
  
     }

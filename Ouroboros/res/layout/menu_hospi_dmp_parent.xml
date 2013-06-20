@@ -11,10 +11,9 @@
 		android:layout_height="65dp"
 		android:id="@+id/list_item_text_view"
 		android:textSize="20sp"
-		android:padding="10dp"
 		android:gravity="center_vertical"
-		android:layout_weight="1"
-		android:layout_marginLeft="35dp" />
+		android:layout_weight="1" 
+		android:layout_marginLeft="62dp"/>
 
  
 </LinearLayout>

@@ -1,7 +1,9 @@
 package epf.domethic.ouroboros.activity;
 
 import epf.domethic.ouroboros.R;
+import epf.domethic.ouroboros.dao.RadioDAO;
 import epf.domethic.ouroboros.model.Radio;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -18,6 +20,8 @@ public class AfficherRadioFragment extends Fragment {
 	private TextView medecin;
 	private TextView description;
 	private TextView interpretation;
+	
+	RadioDAO dao = null;
 	private Radio radio = new Radio(
 			"Thorax - 22/05/13",
 			"Radio du thorax",
@@ -41,12 +45,21 @@ public class AfficherRadioFragment extends Fragment {
 		interpretation = (TextView) view
 				.findViewById(R.id.tvInterpretationValue);
 
-		afficherRadio(radio);
+		afficherRadio();
+	
 		return view;
 	}
 
-	public void afficherRadio(Radio radio) {
+	public void afficherRadio() {
 
+		/*Cursor cursor = dao.getRadiosCursor(id);
+		cursor.getString(2);
+		cursor.getString(3);
+		cursor.getString(4);
+		cursor.getString(5);*/
+
+		
+		
 		titre.setText(radio.getTitre());
 		nomRadio.setText(radio.getNomRadio());
 		cause.setText(radio.getCause());
