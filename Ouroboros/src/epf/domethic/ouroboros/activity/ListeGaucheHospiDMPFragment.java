@@ -42,22 +42,8 @@ public class ListeGaucheHospiDMPFragment extends SherlockFragment {
 	AfficherRadioFragment fragment_afficher_radio = new AfficherRadioFragment();
 
 	private final static String TAG = ListerPatientsFragment.class.getSimpleName();
-<<<<<<< HEAD
     
     RadioDAO dao =null;
- 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState ){
-    	View view = inflater.inflate(R.layout.fragment_liste_hospi_dmp,container, false);
-       
-    	this.dao = new RadioDAO(getActivity());
- 
-        mExpandableList = (ExpandableListView)view.findViewById(R.id.menu_gauche_hospi);
-        
-        if(dao.dbIsEmpty() == true) {
-=======
-
-	RadioDAO dao = null;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -70,7 +56,6 @@ public class ListeGaucheHospiDMPFragment extends SherlockFragment {
 
 		if (dao.dbIsEmpty() == true) {
 			Log.v("TAG", "DANS LE IF!!!!!");
->>>>>>> master
 			RecuperationJSON();
 		}
 
