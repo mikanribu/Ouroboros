@@ -9,8 +9,10 @@ import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
 import com.actionbarsherlock.view.MenuInflater;
 import android.app.ActionBar;
+import android.app.AlertDialog;
 import android.app.SearchManager;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.database.Cursor;
@@ -48,8 +50,14 @@ public class HospitalisationsActivity extends SherlockFragmentActivity implement
 	private TextView tvFonction;
 	private TextView tvDeconnexion;
 	private TextView tvRecherche;
+	private TextView tvCreationDossier;
+	private TextView tvAjoutDoc;
+	private TextView tvTransfert;
+	private TextView tvCodification;
 	private TextView tvArchives;
+	private TextView tvMonCompte;
 	private TextView tvHospitalisation;
+	AlertDialog.Builder boite;
 	ListerPatientsFragment fragment_liste = new ListerPatientsFragment();
 	AfficherPatientFragment fragment_detail = new AfficherPatientFragment();
 	RechercheGeneraleFragment fragment_recherche_g = new RechercheGeneraleFragment();
@@ -107,6 +115,13 @@ public class HospitalisationsActivity extends SherlockFragmentActivity implement
 		fragmentTransaction.addToBackStack("vers_hospi");
 		fragmentTransaction.commit();
 		
+		
+        boite = new AlertDialog.Builder(this);
+        boite.setTitle("La fonction n'est pas encore implémentée!");
+        boite.setIcon(R.drawable.en_travaux);
+        boite.setMessage("Cette fonction n'a pas été développée dans cette version.");
+        boite.setNegativeButton("Retour", null);
+		
 		tvDeconnexion = (TextView) findViewById(R.id.tvDeconnexion);
 		final Intent intent_connexion = new Intent(HospitalisationsActivity.this, ConnexionActivity.class);
 		tvDeconnexion.setOnClickListener(new OnClickListener() {
@@ -154,6 +169,47 @@ public class HospitalisationsActivity extends SherlockFragmentActivity implement
 				}
 			}
 		});
+		
+		tvCreationDossier= (TextView) findViewById(R.id.tvCreationDossier);
+		tvCreationDossier.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+                boite.show();
+				
+			}
+		});
+		
+		tvAjoutDoc= (TextView) findViewById(R.id.tvAjoutDocument);
+		tvAjoutDoc.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				boite.show();
+			}
+		});
+		
+		tvTransfert= (TextView) findViewById(R.id.tvTransfert);
+		tvTransfert.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				boite.show();
+			}
+		});
+		
+		tvCodification= (TextView) findViewById(R.id.tvACodifier);
+		tvCodification.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				boite.show();
+			}
+		});
 
 		tvArchives = (TextView) findViewById(R.id.tvArchives);
 		tvArchives.setOnClickListener(new View.OnClickListener() {
@@ -172,8 +228,19 @@ public class HospitalisationsActivity extends SherlockFragmentActivity implement
 
 			}
 		});
-			tvFonction = (TextView) findViewById(R.id.tvNomMedecin);
-			RecuperationJSON(pseudo, fonction);
+		
+		tvMonCompte= (TextView) findViewById(R.id.tvMonCompte);
+		tvMonCompte.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				boite.show();
+			}
+		});
+			
+		tvFonction = (TextView) findViewById(R.id.tvNomMedecin);
+		RecuperationJSON(pseudo, fonction);
 	    }
 		else if (fonction==2){
 			Log.v(TAG, "la est le probleme?");
