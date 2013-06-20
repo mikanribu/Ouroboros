@@ -2,7 +2,6 @@ package epf.domethic.ouroboros.activity;
 
 import java.text.ParseException;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -13,10 +12,8 @@ import org.json.JSONObject;
 import com.actionbarsherlock.app.SherlockListFragment;
 
 import epf.domethic.ouroboros.dao.PatientDAO;
-//import epf.domethic.ouroboros.adapter.PatientAdapter;
 import epf.domethic.ouroboros.adapter.PatientCursorAdapter;
 import epf.domethic.ouroboros.model.Patient;
-import epf.domethic.ouroboros.comparator.NameComparator;
 import epf.domethic.ouroboros.model.Patient.Sexe;
 import epf.domethic.ouroboros.outils.ParserJSON;
 import epf.domethic.ouroboros.outils.PatientColumns;
@@ -34,18 +31,17 @@ public class ListerPatientsFragment extends SherlockListFragment {
 	public interface OnPatientSelectedListener {
 		public void onPatientSelected(int position, Patient patient);
 	}
-	
+	//url contenant le fichier json des patients de l'application
 	static String url = "http://raw.github.com/Mikanribu/Ouroboros/master/json_patients";
 
 	private OnPatientSelectedListener listener;
-	//private ListerPatientsFragment liste;
 	private PatientDAO dao;
-	private Patient patient;
+	private Patient patient; //Création d'un patient de la classe Patient
 
 	private final static String TAG = ListerPatientsFragment.class.getSimpleName();
-	private PatientCursorAdapter adapter;
+	private PatientCursorAdapter adapter;  //Création du Cursor pour les patients via la Base de Données
 
-    JSONArray patients = null;
+    JSONArray patients = null;	//Objet JSON récupéré de la classe ParserJSON
     List<Patient> patientList = new ArrayList<Patient>();
 
 	@Override
@@ -53,15 +49,15 @@ public class ListerPatientsFragment extends SherlockListFragment {
 		super.onCreate(savedInstanceState);		
 		this.dao = new PatientDAO(getActivity());
 	
+		//On vérifie si la base de données est vide ou non
 		if(dao.dbIsEmpty() == true) {
-			Log.v("TAG","DANS LE IF!!!!!");
-			RecuperationJSON();
+			RecuperationJSON(); //Dans le cas où elle est vide on récupère les données du fichier JSON
 		}
 		//List<Patient> patient = dao.getPatients(); 
 		//adapter = new PatientAdapter(getActivity(),patient);
-		Cursor cursor = dao.getPatientsCursor();
+		Cursor cursor = dao.getPatientsCursor(); //Création du Cursor qui va nous permettre de se déplacer dans la BDD
 	
-		adapter = new PatientCursorAdapter(getActivity(), dao.getPatientsCursor(), true);
+		adapter = new PatientCursorAdapter(getActivity(), dao.getPatientsCursor(), true); //Définition de l'adapter 
 		setListAdapter(adapter);
 	}
 	
@@ -110,8 +106,10 @@ public class ListerPatientsFragment extends SherlockListFragment {
 		adapter.notifyDataSetChanged();
 	}
 	
+	//Fonction qui permet de récupérer l'objet JSON via l'url
+	//Qui le parse et ajoute les informations dans la BDD
 	public void RecuperationJSON() {
-		
+		//Permet d'accéder à internet sans erreurs "Network access" dû à l'accès à internet dans le thread principal
 		if (android.os.Build.VERSION.SDK_INT > 9) {
 		    StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
 		    StrictMode.setThreadPolicy(policy);
@@ -134,10 +132,10 @@ public class ListerPatientsFragment extends SherlockListFragment {
                 String prenom = c.getString(PatientColumns.KEY_PRENOM);
                 Sexe sexe = Sexe.valueOf(c.getString(PatientColumns.KEY_SEXE));
                 Date dateNaissance = null;
+                //Récupère la date de naissance du format Date
 				try {
 					dateNaissance = Utils.parserDate(c.getString(PatientColumns.KEY_DATE_NAISSANCE));
 				} catch (ParseException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
                 String lieuNaissance = c.getString(PatientColumns.KEY_LIEU_NAISSANCE);
@@ -150,20 +148,18 @@ public class ListerPatientsFragment extends SherlockListFragment {
                 String numSS = c.getString(PatientColumns.KEY_NUMSS);
                 String medecinTraitant = c.getString(PatientColumns.KEY_MEDECIN_TRAITANT);
                 boolean hospitalise = c.getInt(PatientColumns.KEY_HOSPITALISE) ==1;
-                 
+                //Création d'un patient avec les données 
                 Patient p = new Patient (nom, prenom, sexe, dateNaissance, lieuNaissance,
                 					adresse, ville, codePostal, pays, nationalite, telephone, numSS,
                 					medecinTraitant, hospitalise);
                 
                 PatientDAO dao = new PatientDAO(this.getActivity());
-                dao.ajouterPatient(p);
+                dao.ajouterPatient(p); //Ajoute un patient dans la BDD
                 dao.close();
-                patientList.add(p);
+               // patientList.add(p);
             }
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        //Tri des noms des patients par ordre alphabétique
-       // Collections.sort(patientList, new NameComparator());
 	}
 }

@@ -21,16 +21,14 @@ import android.app.Activity;
 import android.os.StrictMode;
 import android.util.Log;
 
+//Permet de parser JSON venant d'une url et de retourner un JSONObject
 public class ParserJSON extends Activity {
 	
-	
-	static String json ="";
-	static JSONObject jObj = null;
-	static InputStream is = null;
-	static String url = "http://raw.github.com/Mikanribu/Ouroboros/master/json_patients";
-	
+	//Déclaration des variables
+	static String json =""; 
+	static JSONObject jObj = null; // JSONObject qui va être renvoyé
+	static InputStream is = null;	
 
-	JSONArray patients = null;
 	// constructor
     public ParserJSON() {
  
@@ -38,28 +36,27 @@ public class ParserJSON extends Activity {
  
     public JSONObject getJSONFromUrl(String url) {
  
-        // Making HTTP request
+        // Faire une requête HTTP
         try {
             // defaultHttpClient
             DefaultHttpClient httpClient = new DefaultHttpClient();
             HttpPost httpPost = new HttpPost(url);
-            Log.v("TAG","HttpPost !!!!!" + httpPost);
             
             HttpParams httpParameters = httpPost.getParams();
-            // Set the timeout in milliseconds until a connection is established.
+            // Création d'un timeout en millisecondes jusqu'a l'établissement d'une connexion.
             int timeoutConnection = 7500;
             HttpConnectionParams.setConnectionTimeout(httpParameters, timeoutConnection);
-            // Set the default socket timeout (SO_TIMEOUT) 
-            // in milliseconds which is the timeout for waiting for data.
+            // Création du socket timeout par défaut (SO_TIMEOUT) 
+            // en millisecondes qui est le timeout d'attente des données.
             int timeoutSocket = 7500;
             HttpConnectionParams.setSoTimeout(httpParameters, timeoutSocket);
- 
+            //Récupération de la réponse HTTP
             HttpResponse httpResponse = httpClient.execute(httpPost);
-            Log.v("TAG","HttpReponse !!!!!" + httpResponse);
+            
             HttpEntity httpEntity = httpResponse.getEntity();
             is = httpEntity.getContent();  
             
- 
+        //Récupération des erreurs
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         } catch (ClientProtocolException e) {
@@ -69,28 +66,27 @@ public class ParserJSON extends Activity {
         }
          
         try {
-            BufferedReader reader = new BufferedReader(new InputStreamReader(
-                    is, "UTF-8"), 8);
+            BufferedReader reader = new BufferedReader(new InputStreamReader(is, "UTF-8"), 8);
             StringBuilder sb = new StringBuilder();
             String line = null;
             while ((line = reader.readLine()) != null) {
-                sb.append(line + "\n");
+                sb.append(line + "\n"); //Ajout d'un saut de ligne
             }
             is.close();
             json = sb.toString();
-
+        //Récupération des erreurs
         } catch (Exception e) {
             Log.e("Buffer Error", "Error converting result " + e.toString());
         }
  
-        // try parse the string to a JSON object
+        // On essaye de parser l'objet String en JSON object
         try {
             jObj = new JSONObject(json);
         } catch (JSONException e) {
             Log.e("JSON Parser", "Error parsing data " + e.toString());
         }
  
-        // return JSON String
+        // retourne JSON Object
         return jObj;
  
     }

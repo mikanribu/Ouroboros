@@ -49,7 +49,6 @@ public class ListeGaucheHospiDMPFragment extends SherlockFragment {
         mExpandableList = (ExpandableListView)view.findViewById(R.id.menu_gauche_hospi);
         
         if(dao.dbIsEmpty() == true) {
-			Log.v("TAG","DANS LE IF!!!!!");
 			RecuperationJSON();
 		}
         

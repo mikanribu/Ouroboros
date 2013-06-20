@@ -10,13 +10,13 @@ public class PatientDBOpenHelper extends SQLiteOpenHelper {
 
 	private final static String TAG = PatientDBOpenHelper.class.getSimpleName(); 
 	
-	private static final String DATABASE_NAME = "patients.db";
+	private static final String DATABASE_NAME = "patients.db"; //Nom de la base de données
 	
-	private static final int DATABASE_VERSION = 1;
+	private static final int DATABASE_VERSION = 1; //version de la base de données
 	
-	public static final String TABLE_PATIENT = "Patient";   
+	public static final String TABLE_PATIENT = "Patient";   //Nom de la table patient
     
-    
+    //String de création de la BDD avec le nom de la table et des colonnes
 	private static final String DATABASE_CREATE = 
 			"CREATE TABLE " + TABLE_PATIENT + "( " + PatientColumns._ID + " integer primary key autoincrement," +
 					PatientColumns.KEY_NOM + " text not null," + PatientColumns.KEY_PRENOM + " text not null," + PatientColumns.KEY_SEXE + " text not null," +
