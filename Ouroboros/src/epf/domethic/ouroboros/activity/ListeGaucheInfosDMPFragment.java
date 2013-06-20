@@ -37,7 +37,7 @@ public class ListeGaucheInfosDMPFragment extends SherlockFragment {
         map = new HashMap<String, String>();
         //on insère un élément titre que l'on récupérera dans le textView titre créé dans le fichier item_list_infos_dmp.xml
         map.put("titre", "Données Patient");
-        //on insère la référence à l'image (converti en String car normalement c'est un int) que l'on récupérera dans l'imageView créé dans le fichier affichageitem.xml
+        //on insère la référence à l'image (converti en String car normalement c'est un int que l'on récupérera dans l'imageView créé dans le fichier affichageitem.xml
         map.put("img", String.valueOf(R.drawable.logo_donnees_patient));
         //enfin on ajoute cette hashMap dans la arrayList
         listItem.add(map);

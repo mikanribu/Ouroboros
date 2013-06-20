@@ -20,6 +20,7 @@
         android:ems="10"
         android:height="100dp"
         android:inputType="textPersonName"
+        android:text="@string/pseudo"
         android:width="250dp" />
 
     <ImageView
@@ -69,6 +70,7 @@
         android:ems="10"
         android:height="100dp"
         android:inputType="textPersonName"
+        android:text="@string/pswd"
         android:width="250dp" />
 
     <ImageView
