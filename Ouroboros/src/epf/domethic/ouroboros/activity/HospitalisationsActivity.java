@@ -47,6 +47,8 @@ public class HospitalisationsActivity extends SherlockFragmentActivity implement
 	public final static String TAG = "Demo";
 	protected LinearLayout mList;
 	protected AnimationLayout mLayout;
+	
+	// Les boutons du menu
 	private TextView tvFonction;
 	private TextView tvDeconnexion;
 	private TextView tvRecherche;
@@ -57,7 +59,11 @@ public class HospitalisationsActivity extends SherlockFragmentActivity implement
 	private TextView tvArchives;
 	private TextView tvMonCompte;
 	private TextView tvHospitalisation;
+	
+	// Boîte de dialogue pour les fonctions non encore implémentée
 	AlertDialog.Builder boite;
+	
+	// Fragments
 	ListerPatientsFragment fragment_liste = new ListerPatientsFragment();
 	AfficherPatientFragment fragment_detail = new AfficherPatientFragment();
 	RechercheGeneraleFragment fragment_recherche_g = new RechercheGeneraleFragment();
@@ -77,17 +83,19 @@ public class HospitalisationsActivity extends SherlockFragmentActivity implement
 		super.onCreate(savedInstanceState);
 		Intent i = getIntent();
 		
-		//get the pseudonyme and password from the connection
+		//Récuperer le pseudo entré en connection
 		String pseudo = i.getStringExtra("pseudo"); 
 	    int fonction = Integer.parseInt(i.getStringExtra("fonction")); 
 	    Log.v(TAG, pseudo + fonction);
 	    
+	    
+	   // Si l'utilisateur est un médecin.
 	    if(fonction==1){
 		setContentView(R.layout.activity_hospitalisations);	
 		
 
 		ActionBar actionBar = getActionBar();
-
+		
 		Resources r = getResources();
 		
 		Drawable myDrawable;
@@ -115,13 +123,14 @@ public class HospitalisationsActivity extends SherlockFragmentActivity implement
 		fragmentTransaction.addToBackStack("vers_hospi");
 		fragmentTransaction.commit();
 		
-		
+		// Création de la boîte de dialogue qui sera affichée lorsque l'utilisateur cliquera sur des boutons pas développé
         boite = new AlertDialog.Builder(this);
         boite.setTitle("La fonction n'est pas encore implémentée!");
         boite.setIcon(R.drawable.en_travaux);
         boite.setMessage("Cette fonction n'a pas été développée dans cette version.");
         boite.setNegativeButton("Retour", null);
 		
+        // Déconnecter l'utilisateur
 		tvDeconnexion = (TextView) findViewById(R.id.tvDeconnexion);
 		final Intent intent_connexion = new Intent(HospitalisationsActivity.this, ConnexionActivity.class);
 		tvDeconnexion.setOnClickListener(new OnClickListener() {
@@ -131,6 +140,7 @@ public class HospitalisationsActivity extends SherlockFragmentActivity implement
 			}
 		});
 
+		// Amener l'utilisateur sur la page recherche d'une personne
 		tvRecherche = (TextView) findViewById(R.id.tvRecherche);
 		tvRecherche.setOnClickListener(new View.OnClickListener() {
 			@Override
