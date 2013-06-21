@@ -6,15 +6,20 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+//Classe permettant la création de la Base de Données Patient
 public class PatientDBOpenHelper extends SQLiteOpenHelper {
+	
+	/* ----------	Déclaration des variables	----------*/
 
 	private final static String TAG = PatientDBOpenHelper.class.getSimpleName(); 
 	
-	private static final String DATABASE_NAME = "patients.db"; //Nom de la base de données
+	private static final String DATABASE_NAME = "patients.db";   //Nom de la Base de Données
 	
-	private static final int DATABASE_VERSION = 1; //version de la base de données
+	private static final int DATABASE_VERSION = 1;				 //version de la base de données
 	
-	public static final String TABLE_PATIENT = "Patient";   //Nom de la table patient
+	public static final String TABLE_PATIENT = "Patient";  		 //Nom de la table patient
+	
+	/* ----------	Déclaration des focntions	----------*/
     
     //String de création de la BDD avec le nom de la table et des colonnes
 	private static final String DATABASE_CREATE = 
@@ -25,21 +30,21 @@ public class PatientDBOpenHelper extends SQLiteOpenHelper {
 					PatientColumns.KEY_PAYS + " text not null," + PatientColumns.KEY_NATIONALITE + " text not null," + PatientColumns.KEY_TELEPHONE + " text not null," +
 					PatientColumns.KEY_NUMSS + " text not null," + PatientColumns.KEY_MEDECIN_TRAITANT + " text not null,"+ PatientColumns.KEY_HOSPITALISE + " text not null)";
 
+	//Constructeur de la clase
 	public PatientDBOpenHelper(Context context) {
 		super(context, DATABASE_NAME, null, DATABASE_VERSION);
 	}
 	
 	@Override
 	public void onCreate(SQLiteDatabase db) {
-		Log.i(TAG, 
-				"Création de la base : [version " + db.getVersion() + "]");
-		db.execSQL(DATABASE_CREATE);
+		Log.i(TAG, "Création de la base : [version " + db.getVersion() + "]");
+		db.execSQL(DATABASE_CREATE);		//Création de la Base de Données
 	}
 
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-		Log.w(TAG, 
-				"Mise à jour de la base [" + DATABASE_NAME + "] : [" + oldVersion + " --> " + newVersion + "]");
+		//Message lors de la mise à jour de la Base de Données
+		Log.w(TAG, "Mise à jour de la base [" + DATABASE_NAME + "] : [" + oldVersion + " --> " + newVersion + "]");
 
 	}
 

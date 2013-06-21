@@ -12,6 +12,7 @@ public class Personnel {
 		super();
 	}
 	
+	//Constructeur
 	public Personnel(String nom, String prenom, String mail, int telephone) {
 		super();
 		this.nom = nom;
@@ -20,10 +21,11 @@ public class Personnel {
 		this.telephone = telephone;
 	}
 	
+	/* ----------	Déclaration des Mutateurs & Accesseurs	----------*/
+	
 	public String getNom() {
 		return nom;
 	}
-
 
 	public void setNom(String nom) {
 		this.nom = nom;

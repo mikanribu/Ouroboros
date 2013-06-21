@@ -2,6 +2,7 @@ package epf.domethic.ouroboros.outils;
 
 import android.provider.BaseColumns;
 
+//Classe permettant de récupérer le nom des colonnes de la table Radio
 public class DocumentColumns implements BaseColumns{
 	
 	public static final String KEY_ID_PATIENT ="id_patient";

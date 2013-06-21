@@ -13,7 +13,6 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.params.HttpConnectionParams;
 import org.apache.http.params.HttpParams;
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -88,9 +87,7 @@ public class ParserJSON extends Activity {
  
         // retourne JSON Object
         Log.v("TAG","Fin fonction JSONParser"+jObj);
-
-        return jObj;
- 
+        return jObj; 
     }
 }
  

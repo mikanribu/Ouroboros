@@ -1,11 +1,5 @@
 package epf.domethic.ouroboros.activity;
 
-import java.text.ParseException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Date;
-import java.util.List;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -59,28 +53,33 @@ public class ConnexionActivity extends SherlockActivity {
 					String lepseudo = etPseudo.getText().toString().trim();
 					String lepswd = etPswd.getText().toString().trim();
 					
-					int fonction = RecuperationJSON(lepseudo,lepswd);
-					
-					//Si un utilisateur a le même pseudo et mot de passe que rentré
-					if(fonction != 0){
+					//try {
+						int fonction = RecuperationJSON(lepseudo,lepswd);
 						
-						// On crèe l'utilisateur s'il a entré un pseudo et mdp correct
-						Log.v(TAG, "la fonction:"+fonction);
+						//Si un utilisateur a le même pseudo et mot de passe que rentré
+						if(fonction != 0){
+							
+							// On crèe l'utilisateur s'il a entré un pseudo et mdp correct
+							Log.v(TAG, "la fonction:"+fonction);
+							
+							final Intent intent_connexion = new Intent(ConnexionActivity.this, HospitalisationsActivity.class);
+							intent_connexion.putExtra("fonction", String.valueOf(fonction));
+							intent_connexion.putExtra("pseudo", lepseudo);
+							
+							startActivity(intent_connexion);
+						}
+						else{
+							Toast.makeText(getApplicationContext(), "Mot de passe ou pseudonyme incorrect!", Toast.LENGTH_SHORT).show();
+						}
 						
-						final Intent intent_connexion = new Intent(ConnexionActivity.this, HospitalisationsActivity.class);
-						intent_connexion.putExtra("fonction", String.valueOf(fonction));
-						intent_connexion.putExtra("pseudo", lepseudo);
-						
-						startActivity(intent_connexion);
-					}
-					else{
-						Toast.makeText(getApplicationContext(), "Mot de passe ou pseudonyme incorrect!", Toast.LENGTH_SHORT).show();
-					}
-					
-					}
+					/*}
+					catch (Exception e) {
+						  Toast.makeText(ConnexionActivity.this, e.getMessage(), Toast.LENGTH_SHORT);
+						}*/
+				}
 					else{
 						Toast.makeText(getApplicationContext(), "Les deux champs sont vides!", Toast.LENGTH_SHORT).show();
-					}
+					}		
 				
 			}
 		});		
