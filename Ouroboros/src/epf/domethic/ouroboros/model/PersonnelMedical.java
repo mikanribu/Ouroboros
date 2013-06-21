@@ -5,10 +5,13 @@ public class PersonnelMedical extends Personnel {
 	
 	public String service;
 	
+	//Constructeur
 	public PersonnelMedical(String service) {
 		super();
 		this.service = service;
 	}
+	
+	/* ----------	Déclaration des Mutateurs & Accesseurs	----------*/
 	
 	public PersonnelMedical() {
 		super();

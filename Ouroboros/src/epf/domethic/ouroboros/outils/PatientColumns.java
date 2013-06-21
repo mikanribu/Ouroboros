@@ -2,6 +2,7 @@ package epf.domethic.ouroboros.outils;
 
 import android.provider.BaseColumns;
 
+//Classe permettant de récupérer le nom des colonnes de la table Patient
 public class PatientColumns implements BaseColumns {
 
 	public static final String KEY_ID ="id";

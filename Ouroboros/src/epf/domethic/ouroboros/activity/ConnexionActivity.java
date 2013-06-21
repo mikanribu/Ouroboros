@@ -1,11 +1,5 @@
 package epf.domethic.ouroboros.activity;
 
-import java.text.ParseException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Date;
-import java.util.List;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -62,27 +56,32 @@ public class ConnexionActivity extends SherlockActivity {
 					String lepseudo = etPseudo.getText().toString().trim();
 					String lepswd = etPswd.getText().toString().trim();
 					
-					int fonction = RecuperationJSON(lepseudo,lepswd);
-					
+					//try {
+						int fonction = RecuperationJSON(lepseudo,lepswd);
+						
 					//Si un utilisateur a le même pseudo et mot de passe que ce qu'il a rentré
-					if(fonction != 0){
-						
-						// On crèe l'utilisateur s'il a entré un pseudo et mdp correct
-						Log.v(TAG, "la fonction:"+fonction);
-						
+						if(fonction != 0){
+							
+							// On crèe l'utilisateur s'il a entré un pseudo et mdp correct
+							Log.v(TAG, "la fonction:"+fonction);
+							
 						// Il est renvoyé à la page d'accueil
-						final Intent intent_connexion = new Intent(ConnexionActivity.this, HospitalisationsActivity.class);
+							final Intent intent_connexion = new Intent(ConnexionActivity.this, HospitalisationsActivity.class);
 						
 						// On passe aussi la fonction de l'utilisateur et son pseudo à la page d'accueil
-						intent_connexion.putExtra("fonction", String.valueOf(fonction));
-						intent_connexion.putExtra("pseudo", lepseudo);
-						
-						startActivity(intent_connexion);
-					}
+							intent_connexion.putExtra("fonction", String.valueOf(fonction));
+							intent_connexion.putExtra("pseudo", lepseudo);
+							
+							startActivity(intent_connexion);
+						}
 					else{// Le pseudo et mdp entrés ne correspondent à rien!
-						Toast.makeText(getApplicationContext(), "Mot de passe ou pseudonyme incorrect!", Toast.LENGTH_SHORT).show();
-					}
-					
+							Toast.makeText(getApplicationContext(), "Mot de passe ou pseudonyme incorrect!", Toast.LENGTH_SHORT).show();
+						}
+						
+					/*}
+					catch (Exception e) {
+						  Toast.makeText(ConnexionActivity.this, e.getMessage(), Toast.LENGTH_SHORT);
+						}*/
 				}
 				else{
 					Toast.makeText(getApplicationContext(), "Les deux champs sont vides!", Toast.LENGTH_SHORT).show();

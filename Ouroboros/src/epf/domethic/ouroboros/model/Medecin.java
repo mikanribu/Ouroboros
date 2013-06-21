@@ -8,8 +8,16 @@ public class Medecin extends PersonnelMedical {
 		NON;
 	}
 	
-	private Chef chef;
+	private Chef chef;			//Permet de savoir si le médecin est Chef de Servicce ou non
 
+	//Constructeur de la classe Medecin
+	public Medecin(String service, Chef chef) {
+		super(service);
+		this.chef = chef;
+	}
+	
+	/* ----------	Déclaration des Mutateurs & Accesseurs	----------*/
+	
 	public Chef getChef() {
 		return chef;
 	}
@@ -18,10 +26,7 @@ public class Medecin extends PersonnelMedical {
 		this.chef = chef;
 	}
 
-	public Medecin(String service, Chef chef) {
-		super(service);
-		this.chef = chef;
-	}
+
 	
 	//On ajoute un commentaire
 	
