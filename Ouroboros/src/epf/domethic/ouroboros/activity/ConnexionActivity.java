@@ -49,10 +49,13 @@ public class ConnexionActivity extends SherlockActivity {
 		etPseudo = (EditText)findViewById(R.id.etPseudo);		
 		etPswd = (EditText) findViewById(R.id.etPswd);	
 		bConnexion = (Button)findViewById(R.id.bConnexion);
+		
+		// Lorsque l'utilisateur clique sur le bouton de connexion
 		bConnexion.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				
+				// Si les champs pseudo et password sont remplis
 				if ((etPseudo.getText().toString().trim().equals("")==false) && (etPswd.getText().toString().trim().equals("")==false))
 				{
 					Log.d(TAG, "pseudo and password non null");
@@ -61,32 +64,38 @@ public class ConnexionActivity extends SherlockActivity {
 					
 					int fonction = RecuperationJSON(lepseudo,lepswd);
 					
-					//Si un utilisateur a le même pseudo et mot de passe que rentré
+					//Si un utilisateur a le même pseudo et mot de passe que ce qu'il a rentré
 					if(fonction != 0){
 						
 						// On crèe l'utilisateur s'il a entré un pseudo et mdp correct
 						Log.v(TAG, "la fonction:"+fonction);
 						
+						// Il est renvoyé à la page d'accueil
 						final Intent intent_connexion = new Intent(ConnexionActivity.this, HospitalisationsActivity.class);
+						
+						// On passe aussi la fonction de l'utilisateur et son pseudo à la page d'accueil
 						intent_connexion.putExtra("fonction", String.valueOf(fonction));
 						intent_connexion.putExtra("pseudo", lepseudo);
 						
 						startActivity(intent_connexion);
 					}
-					else{
+					else{// Le pseudo et mdp entrés ne correspondent à rien!
 						Toast.makeText(getApplicationContext(), "Mot de passe ou pseudonyme incorrect!", Toast.LENGTH_SHORT).show();
 					}
 					
-					}
-					else{
-						Toast.makeText(getApplicationContext(), "Les deux champs sont vides!", Toast.LENGTH_SHORT).show();
-					}
+				}
+				else{
+					Toast.makeText(getApplicationContext(), "Les deux champs sont vides!", Toast.LENGTH_SHORT).show();
+				}
 				
 			}
 		});		
 	}
 	
 	public int RecuperationJSON(String pseudonyme, String motdepasse) {
+		// Cette fonction a pour but de vérifier si les arguments entrés correspondent  bien a une session utilisateur.
+		// Il prend en argument le pseudo et mot de passe entrés et renvoit la fonction (médecin, secrétaire) 
+		// de l'utilisateur si celui ci existe bien.
 		
 		Log.d(TAG, "entered in recuperationJSON");
 		if (android.os.Build.VERSION.SDK_INT > 9) {
@@ -131,6 +140,6 @@ public class ConnexionActivity extends SherlockActivity {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        return 0;
+        return 0; // Lorsque la fonction vaut 0, le couple (pseudo, mdp) n'existe pas.
 	}
 }

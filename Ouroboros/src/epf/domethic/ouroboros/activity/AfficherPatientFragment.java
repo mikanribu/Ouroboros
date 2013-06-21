@@ -2,19 +2,21 @@ package epf.domethic.ouroboros.activity;
 
 import java.text.SimpleDateFormat;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.actionbarsherlock.app.SherlockActivity;
 import com.actionbarsherlock.app.SherlockFragment;
 
 import epf.domethic.ouroboros.R;
+import epf.domethic.ouroboros.activity.ListerPatientsFragment.OnPatientSelectedListener;
 import epf.domethic.ouroboros.model.Patient;
 
 public class AfficherPatientFragment extends SherlockFragment {
@@ -33,11 +35,13 @@ public class AfficherPatientFragment extends SherlockFragment {
 	private TextView nMedecinTraitant;
 	
 	private Button bVisualiserDMP;
+	private int position;
+	private OnPatientSelectedListener listener;
+	
 	InformationsGeneralesFragment fragment_infos_dmp = new InformationsGeneralesFragment();
 	ListeGaucheInfosDMPFragment fragment_menu_gauche_infos_dmp = new ListeGaucheInfosDMPFragment();
 	OngletsDMPFragment fragment_onglets_dmp = new OngletsDMPFragment();
 	
-	//jhqsvdhs
 	private Patient patient;
 	
 	@Override
@@ -67,13 +71,11 @@ public class AfficherPatientFragment extends SherlockFragment {
 		    	fragmentTransaction.addToBackStack("vers_infos_dmp");
 		    	fragmentTransaction.commit();
 		    }
-	    	
 		});		
 		
 		return view;
 	}
-	
-	
+		
 	public void afficherPatient (Patient patient) {
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 		
@@ -90,8 +92,6 @@ public class AfficherPatientFragment extends SherlockFragment {
 		nNumeroSS.setText(patient.getNumSS());;
 		nTelephone.setText(patient.getTelephone());;
 		nMedecinTraitant.setText(patient.getMedecinTraitant());;
-		
-		
-		
 	}
+	
 }
