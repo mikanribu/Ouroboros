@@ -109,7 +109,6 @@ public class ListerPatientsFragment extends SherlockListFragment {
 	@Override
 	public void onAttach(Activity activity) {
 		super.onAttach(activity);
-		patientListView.setActivated(true);
 		listener = (OnPatientSelectedListener) activity;
 	}
 
