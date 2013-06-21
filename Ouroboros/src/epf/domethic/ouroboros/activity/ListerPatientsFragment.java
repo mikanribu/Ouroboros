@@ -45,7 +45,7 @@ public class ListerPatientsFragment extends SherlockListFragment {
 	private ListView patientListView;
 
 	private PatientDAO dao;
-	private Patient patient; //Création d'un patient de la classe Patient
+	private static Patient patient; //Création d'un patient de la classe Patient
 
 
 	private final static String TAG = ListerPatientsFragment.class.getSimpleName();
@@ -61,17 +61,8 @@ public class ListerPatientsFragment extends SherlockListFragment {
 		
 		//Récupération de la listview créée dans le fichier main.xml
 		patientListView = getListView();
-		
-		//patientListView = (ListView) view.findViewById(R.id.liste_patients);
-		//patientListView = getListView();
-		
-		// patientListView.setSelector(R.drawable.list_selector_holo_light);
-		//patientListView.setFastScrollEnabled(true);
-		//patientListView.setFastScrollAlwaysVisible(true);
-		//patientListView.setDividerHeight(0);
-		
+			
 		patientList = (ArrayList<Patient>) Patient.ALL;
-		//PatientCursorAdapter patientAdapter = new PatientCursorAdapter(getSherlockActivity(), patientList);
 		patientListView.setAdapter(adapter);
 	}
 
@@ -85,8 +76,6 @@ public class ListerPatientsFragment extends SherlockListFragment {
 		if(dao.dbIsEmpty() == true) {
 			RecuperationJSON(); //Dans le cas où elle est vide on récupère les données du fichier JSON
 		}
-		//List<Patient> patient = dao.getPatients(); 
-		//adapter = new PatientAdapter(getActivity(),patient);
 		Cursor cursor = dao.getPatientsCursor(); //Création du Cursor qui va nous permettre de se déplacer dans la BDD
 	
 		adapter = new PatientCursorAdapter(getActivity(), dao.getPatientsCursor(), true); //Définition de l'adapter 
@@ -95,9 +84,7 @@ public class ListerPatientsFragment extends SherlockListFragment {
 	}
 
 	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
-				
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.fragment_patients_list, container, false);
 		return view;
 	}
@@ -111,7 +98,7 @@ public class ListerPatientsFragment extends SherlockListFragment {
 	@Override
 	public void onDetach() {
 		super.onDetach();
-		listener = null;
+		//listener = null;
 	}
 
 	public void update() {
@@ -129,14 +116,13 @@ public class ListerPatientsFragment extends SherlockListFragment {
 	public void onListItemClick(ListView l, View v, int position, long id) {
 		super.onListItemClick(l, v, position, id);
 		if (listener != null) {
-			// listener.onPatientSelected(position);
 			Cursor cursor = (Cursor) getListAdapter().getItem(position);
 			patient = dao.getPatient(cursor);
 			listener.onPatientSelected(position, patient);
 		}
 	}
 
-	public Patient getPatientSelected() {
+	public static Patient getPatientSelected() {
 		return patient;
 	}
 

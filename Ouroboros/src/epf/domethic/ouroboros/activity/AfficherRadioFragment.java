@@ -1,17 +1,20 @@
 package epf.domethic.ouroboros.activity;
 
+import com.actionbarsherlock.app.SherlockFragment;
+import com.actionbarsherlock.app.ActionBar;
+
 import epf.domethic.ouroboros.R;
 import epf.domethic.ouroboros.dao.RadioDAO;
 import epf.domethic.ouroboros.model.Radio;
-import android.database.Cursor;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-public class AfficherRadioFragment extends Fragment {
+public class AfficherRadioFragment extends SherlockFragment {
 
 	private TextView titre;
 	private TextView nomRadio;
@@ -32,34 +35,22 @@ public class AfficherRadioFragment extends Fragment {
 			"Auxerunt haec vulgi sordidioris audaciam, quod cum ingravesceret penuria commeatuum, famis et furoris inpulsu Eubuli cuiusdam inter suos clari domum ambitiosam ignibus subditis inflammavit rectoremque ut sibi iudicio imperiali addictum calcibus incessens et pugnis conculcans seminecem laniatu miserando discerpsit. post cuius lacrimosum interitum in unius exitio quisque imaginem periculi sui considerans documento recenti similia formidabat.");
 
 	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
-		View view = inflater.inflate(R.layout.fragment_afficher_radio,
-				container, false);
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
+		View view = inflater.inflate(R.layout.fragment_afficher_radio,container, false);
 		titre = (TextView) view.findViewById(R.id.tvTitreRadio);
 		nomRadio = (TextView) view.findViewById(R.id.tvRadioValue);
 		cause = (TextView) view.findViewById(R.id.tvCauseValue);
 		date = (TextView) view.findViewById(R.id.tvDateValue);
 		medecin = (TextView) view.findViewById(R.id.tvMedecinValue);
 		description = (TextView) view.findViewById(R.id.tvDescriptionValue);
-		interpretation = (TextView) view
-				.findViewById(R.id.tvInterpretationValue);
-
-		afficherRadio();
+		interpretation = (TextView) view.findViewById(R.id.tvInterpretationValue);
+	
+		afficherRadio(radio);
 	
 		return view;
 	}
 
-	public void afficherRadio() {
-
-		/*Cursor cursor = dao.getRadiosCursor(id);
-		cursor.getString(2);
-		cursor.getString(3);
-		cursor.getString(4);
-		cursor.getString(5);*/
-
-		
-		
+	public void afficherRadio(Radio radio) {
 		titre.setText(radio.getTitre());
 		nomRadio.setText(radio.getNomRadio());
 		cause.setText(radio.getCause());
@@ -68,4 +59,9 @@ public class AfficherRadioFragment extends Fragment {
 		description.setText(radio.getDescription());
 		interpretation.setText(radio.getInterpretation());
 	}
+	
+	public void onDetach(){
+		super.onDetach();
+	}
+	
 }

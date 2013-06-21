@@ -113,24 +113,16 @@ public class ListeGaucheHospiDMPFragment extends SherlockFragment {
 
 		mExpandableList.setOnChildClickListener(new OnChildClickListener() {
 			@Override
-			public boolean onChildClick(ExpandableListView parent, View v,
-					int group_position, int child_position, long id) {
-				FragmentManager manager = ListeGaucheHospiDMPFragment.this
-						.getFragmentManager();
+			public boolean onChildClick(ExpandableListView parent, View v,int group_position, int child_position, long id) {
+				FragmentManager manager = ListeGaucheHospiDMPFragment.this.getFragmentManager();
 
 				if (group_position == 3 && child_position == 1) {
 
-					FragmentTransaction fragmentTransaction = manager
-							.beginTransaction();
-
-					fragmentTransaction.replace(R.id.deuxTiers,
-							fragment_afficher_radio);
-					fragmentTransaction.addToBackStack("vers_radio");
+					FragmentTransaction fragmentTransaction = manager.beginTransaction();
+					//manager.popBackStack();
+					fragmentTransaction.replace(R.id.deuxTiers,fragment_afficher_radio);
+					//fragmentTransaction.addToBackStack("vers_radio");
 					fragmentTransaction.commit();
-				
-					
-					//fragment_afficher_radio.afficherRadio(child_position);
-
 				}
 
 				return false;
@@ -166,6 +158,10 @@ public class ListeGaucheHospiDMPFragment extends SherlockFragment {
         
 		return view;
 
+	}
+	
+	public void onDetach(){
+		super.onDetach();
 	}
 
 	public boolean onChildClick(ExpandableListView parent, View v,

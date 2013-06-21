@@ -150,7 +150,7 @@ public class HospitalisationsActivity extends SherlockFragmentActivity implement
 
 				if (str != "fragment_recherche_g") {
 					FragmentTransaction fragmentTransaction = manager.beginTransaction();
-					manager.popBackStackImmediate();
+					manager.popBackStack();
 					fragmentTransaction.replace(R.id.tiers,fragment_recherche_g);
 					fragmentTransaction.addToBackStack("vers_recherche");
 					fragmentTransaction.commit();
@@ -171,7 +171,7 @@ public class HospitalisationsActivity extends SherlockFragmentActivity implement
 				
 				if (str != "vers_hospi") {
 					FragmentTransaction fragmentTransaction = manager.beginTransaction();
-					manager.popBackStackImmediate();
+					manager.popBackStack();
 					fragmentTransaction.replace(R.id.tiers, fragment_liste);
 					fragmentTransaction.replace(R.id.deuxTiers, fragment_detail);					
 					fragmentTransaction.addToBackStack("vers_hospi");
@@ -230,7 +230,7 @@ public class HospitalisationsActivity extends SherlockFragmentActivity implement
 
 				if (str != "fragment_radio") {
 					FragmentTransaction fragmentTransaction = manager.beginTransaction();
-					manager.popBackStackImmediate();
+					manager.popBackStack();
 					fragmentTransaction.replace(R.id.deuxTiers,fragment_radio);
 					fragmentTransaction.addToBackStack("fragment_radio");
 					fragmentTransaction.commit();
