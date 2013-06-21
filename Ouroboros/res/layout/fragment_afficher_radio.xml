@@ -70,8 +70,8 @@
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/tvRadio"
             android:layout_alignLeft="@+id/tvRadioValue"
-            android:layout_toRightOf="@+id/tvRadio"
             android:layout_marginLeft="30dp"
+            android:layout_toRightOf="@+id/tvRadio"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
@@ -128,9 +128,17 @@
             android:id="@+id/tvMedecinValue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/tvDateValue"
             android:layout_alignBottom="@+id/tvMedecin"
+            android:layout_alignLeft="@+id/tvDateValue"
             android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <ImageView
+            android:id="@+id/ivRadio"
+            android:layout_width="200dp"
+            android:layout_height="300dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:contentDescription="Affichage radio" />
     </RelativeLayout>
 
     <RelativeLayout

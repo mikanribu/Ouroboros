@@ -29,7 +29,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 import epf.domethic.ouroboros.R;
 import epf.domethic.ouroboros.activity.ListerPatientsFragment.OnPatientSelectedListener;
+import epf.domethic.ouroboros.dao.RadioDAO;
 import epf.domethic.ouroboros.model.Patient;
+import epf.domethic.ouroboros.model.Radio;
 import epf.domethic.ouroboros.outils.ParserJSON;
 import epf.domethic.ouroboros.outils.PersonnelConnexionColumns;
 import epf.domethic.ouroboros.outils.medecinColumns;
@@ -52,8 +54,8 @@ public class HospitalisationsActivity extends SherlockFragmentActivity implement
 	private TextView tvHospitalisation;
 	ListerPatientsFragment fragment_liste = new ListerPatientsFragment();
 	AfficherPatientFragment fragment_detail = new AfficherPatientFragment();
-	RechercheGeneraleFragment fragment_recherche_g = new RechercheGeneraleFragment();
 	AfficherRadioFragment fragment_radio = new AfficherRadioFragment();
+	RechercheGeneraleFragment fragment_recherche_g = new RechercheGeneraleFragment();
 	
 	JSONArray personnes = null;
 	
@@ -159,16 +161,7 @@ public class HospitalisationsActivity extends SherlockFragmentActivity implement
 		tvArchives.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				FragmentManager manager = HospitalisationsActivity.this.getSupportFragmentManager();
-				String str = manager.getBackStackEntryAt(0).getName();
-
-				if (str != "fragment_radio") {
-					FragmentTransaction fragmentTransaction = manager.beginTransaction();
-					manager.popBackStackImmediate();
-					fragmentTransaction.replace(R.id.deuxTiers,fragment_radio);
-					fragmentTransaction.addToBackStack("fragment_radio");
-					fragmentTransaction.commit();
-				}
+				
 
 			}
 		});
@@ -306,10 +299,14 @@ public class HospitalisationsActivity extends SherlockFragmentActivity implement
 	public void onPatientSelected(int position, Patient patient) {
 		this.position = position;
 		fragment_detail.afficherPatient(patient);
-		
-
 	}
-
+	
+	public void onRadioSelected(int position, RadioDAO dao, String nom) {
+		this.position = position;
+		fragment_radio.afficherRadio(nom, dao);
+	}
+	
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the options menu from XML

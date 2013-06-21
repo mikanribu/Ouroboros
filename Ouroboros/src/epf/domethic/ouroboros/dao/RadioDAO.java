@@ -14,6 +14,7 @@ import android.util.Log;
 import epf.domethic.ouroboros.activity.Utils;
 import epf.domethic.ouroboros.data.PatientDBOpenHelper;
 import epf.domethic.ouroboros.data.RadioDBOpenHelper;
+import epf.domethic.ouroboros.model.Radio;
 import epf.domethic.ouroboros.outils.DocumentColumns;
 import epf.domethic.ouroboros.outils.PatientColumns;
 
@@ -57,8 +58,9 @@ public class RadioDAO {
 				DocumentColumns.KEY_RADIO, DocumentColumns.KEY_DATE, DocumentColumns.KEY_MEDECIN, 
 				DocumentColumns.KEY_DESCRIPTION, DocumentColumns.KEY_INTERPRETATION};
 		String where = PatientColumns.KEY_NOM + " like '%" + like + "%'";
+		Log.v("YO", "GetRadio :"+ where);
 		String[] whereArgs = new String[]{like};
-		return	database.query(RadioDBOpenHelper.TABLE_PATIENT,columns, where, null, null, null, null);
+		return	database.query(RadioDBOpenHelper.TABLE_PATIENT,columns, "nom = 'Thorax'", null, null, null, null);
 	}
 	
 	public Cursor getRadiosCursor(int like){
