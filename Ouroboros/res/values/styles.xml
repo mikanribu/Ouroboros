@@ -20,5 +20,9 @@
     <color name="White">#FFFFFF</color>
     <color name="GrisMenu">#e9e8e8</color>
     <color name="BleuMedecin">#696fe8</color>
+    
+    <!--  Couleur qui correspond à un élément d'une liste sélectionné. -->
+    <drawable name="list_activated">#81cfeb</drawable>
+    
 
 </resources>
