@@ -5,8 +5,10 @@
     android:orientation="vertical"
     android:paddingBottom="12dp"
     android:paddingTop="12dp"
-    android:state_activated="true" >
-
+    android:background="@drawable/list_view_selector">
+    
+<!--  L'attribut 'android:background'permet de définir le fond des éléments. -->
+    
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
