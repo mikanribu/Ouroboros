@@ -91,167 +91,177 @@ public class HospitalisationsActivity extends SherlockFragmentActivity implement
 	    
 	   // Si l'utilisateur est un médecin.
 	    if(fonction==1){
-		setContentView(R.layout.activity_hospitalisations);	
-		
-
-		ActionBar actionBar = getActionBar();
-		
-		Resources r = getResources();
-		
-		Drawable myDrawable;
-		
-		myDrawable = r.getDrawable(R.drawable.barre_haut);		
-		
-		actionBar.setBackgroundDrawable(myDrawable);
-		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
-		actionBar.setHomeButtonEnabled(true); // The icone_launcher will not go
-												// back automatically to home
-												// (API min 14)
-
-		// Pas d'affichage du nom de l'application dans la barre d'action
-		actionBar.setDisplayShowTitleEnabled(false);
-
-		mList = (LinearLayout) findViewById(R.id.animation_layout_sidebar);
-		mLayout = (AnimationLayout) findViewById(R.id.animation_layout);
-		mLayout.setListener(this);
-
-		FragmentManager manager = HospitalisationsActivity.this.getSupportFragmentManager();
-		FragmentTransaction fragmentTransaction = manager.beginTransaction();
-		
-		fragmentTransaction.add(R.id.tiers, fragment_liste);
-		fragmentTransaction.add(R.id.deuxTiers, fragment_detail);
-		fragmentTransaction.addToBackStack("vers_hospi");
-		fragmentTransaction.commit();
-		
-		// Création de la boîte de dialogue qui sera affichée lorsque l'utilisateur cliquera sur des boutons pas développé
-        boite = new AlertDialog.Builder(this);
-        boite.setTitle("La fonction n'est pas encore implémentée!");
-        boite.setIcon(R.drawable.en_travaux);
-        boite.setMessage("Cette fonction n'a pas été développée dans cette version.");
-        boite.setNegativeButton("Retour", null);
-		
-        // Déconnecter l'utilisateur
-		tvDeconnexion = (TextView) findViewById(R.id.tvDeconnexion);
-		final Intent intent_connexion = new Intent(HospitalisationsActivity.this, ConnexionActivity.class);
-		tvDeconnexion.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				startActivity(intent_connexion);
-			}
-		});
-
-		// Amener l'utilisateur sur la page recherche d'une personne
-		tvRecherche = (TextView) findViewById(R.id.tvRecherche);
-		tvRecherche.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				FragmentManager manager = HospitalisationsActivity.this.getSupportFragmentManager();
-				String str = manager.getBackStackEntryAt(0).getName();
-
-				if (str != "fragment_recherche_g") {
-					FragmentTransaction fragmentTransaction = manager.beginTransaction();
-					manager.popBackStack();
-					fragmentTransaction.replace(R.id.tiers,fragment_recherche_g);
-					fragmentTransaction.addToBackStack("vers_recherche");
-					fragmentTransaction.commit();
+			setContentView(R.layout.activity_hospitalisations);	
+			
+	
+			ActionBar actionBar = getActionBar();
+			
+			Resources r = getResources();
+			
+			Drawable myDrawable;
+			
+			myDrawable = r.getDrawable(R.drawable.barre_haut);		
+			
+			actionBar.setBackgroundDrawable(myDrawable);
+			actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+			actionBar.setHomeButtonEnabled(true); // The icone_launcher will not go
+													// back automatically to home
+													// (API min 14)
+	
+			// Pas d'affichage du nom de l'application dans la barre d'action
+			actionBar.setDisplayShowTitleEnabled(false);
+	
+			mList = (LinearLayout) findViewById(R.id.animation_layout_sidebar);
+			mLayout = (AnimationLayout) findViewById(R.id.animation_layout);
+			mLayout.setListener(this);
+	
+			FragmentManager manager = HospitalisationsActivity.this.getSupportFragmentManager();
+			FragmentTransaction fragmentTransaction = manager.beginTransaction();
+			
+			fragmentTransaction.add(R.id.tiers, fragment_liste);
+			fragmentTransaction.add(R.id.deuxTiers, fragment_detail);
+			fragmentTransaction.addToBackStack("vers_hospi");
+			fragmentTransaction.commit();
+			
+			// Création de la boîte de dialogue qui sera affichée lorsque l'utilisateur cliquera sur des boutons pas développé
+	        boite = new AlertDialog.Builder(this);
+	        boite.setTitle("La fonction n'est pas encore implémentée!");
+	        boite.setIcon(R.drawable.en_travaux);
+	        boite.setMessage("Cette fonction n'a pas été développée dans cette version.");
+	        boite.setNegativeButton("Retour", null);
+			
+	        // Déconnecter l'utilisateur
+			tvDeconnexion = (TextView) findViewById(R.id.tvDeconnexion);
+			final Intent intent_connexion = new Intent(HospitalisationsActivity.this, ConnexionActivity.class);
+			tvDeconnexion.setOnClickListener(new OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					startActivity(intent_connexion);
 				}
-				
-			}
-		});
-
-		tvHospitalisation = (TextView) findViewById(R.id.tvHospitalisation);
-		tvHospitalisation.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				
-				//removeMenuDMP();
-				
-				FragmentManager manager = HospitalisationsActivity.this.getSupportFragmentManager();
-				String str = manager.getBackStackEntryAt(0).getName();
-				
-				if (str != "vers_hospi") {
-					FragmentTransaction fragmentTransaction = manager.beginTransaction();
-					manager.popBackStack();
-					fragmentTransaction.replace(R.id.tiers, fragment_liste);
-					fragmentTransaction.replace(R.id.deuxTiers, fragment_detail);					
-					fragmentTransaction.addToBackStack("vers_hospi");
-					fragmentTransaction.commit();
+			});
+	
+			// Amener l'utilisateur sur la page recherche d'une personne
+			tvRecherche = (TextView) findViewById(R.id.tvRecherche);
+			tvRecherche.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					FragmentManager manager = HospitalisationsActivity.this.getSupportFragmentManager();
+					String str = manager.getBackStackEntryAt(0).getName();
+	
+					if (str != "fragment_recherche_g") {
+						FragmentTransaction fragmentTransaction = manager.beginTransaction();
+						manager.popBackStack();
+						fragmentTransaction.replace(R.id.tiers,fragment_recherche_g);
+						fragmentTransaction.addToBackStack("vers_recherche");
+						fragmentTransaction.commit();
+					}
+					
 				}
-			}
-		});
-		
-		tvCreationDossier= (TextView) findViewById(R.id.tvCreationDossier);
-		tvCreationDossier.setOnClickListener(new View.OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-                boite.show();
-				
-			}
-		});
-		
-		tvAjoutDoc= (TextView) findViewById(R.id.tvAjoutDocument);
-		tvAjoutDoc.setOnClickListener(new View.OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				boite.show();
-			}
-		});
-		
-		tvTransfert= (TextView) findViewById(R.id.tvTransfert);
-		tvTransfert.setOnClickListener(new View.OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				boite.show();
-			}
-		});
-		
-		tvCodification= (TextView) findViewById(R.id.tvACodifier);
-		tvCodification.setOnClickListener(new View.OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				boite.show();
-			}
-		});
-
-		tvArchives = (TextView) findViewById(R.id.tvArchives);
-		tvArchives.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				FragmentManager manager = HospitalisationsActivity.this.getSupportFragmentManager();
-				String str = manager.getBackStackEntryAt(0).getName();
-
-				if (str != "fragment_radio") {
-					FragmentTransaction fragmentTransaction = manager.beginTransaction();
-					manager.popBackStack();
-					fragmentTransaction.replace(R.id.deuxTiers,fragment_radio);
-					fragmentTransaction.addToBackStack("fragment_radio");
-					fragmentTransaction.commit();
+			});
+	
+			// Amener l'utilisateru sur la liste de totues les hospitalisations auquel il a accès
+			tvHospitalisation = (TextView) findViewById(R.id.tvHospitalisation);
+			tvHospitalisation.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					
+					//removeMenuDMP();
+					
+					FragmentManager manager = HospitalisationsActivity.this.getSupportFragmentManager();
+					String str = manager.getBackStackEntryAt(0).getName();
+					
+					if (str != "vers_hospi") {
+						FragmentTransaction fragmentTransaction = manager.beginTransaction();
+						manager.popBackStack();
+						fragmentTransaction.replace(R.id.tiers, fragment_liste);
+						fragmentTransaction.replace(R.id.deuxTiers, fragment_detail);					
+						fragmentTransaction.addToBackStack("vers_hospi");
+						fragmentTransaction.commit();
+					}
 				}
-
-			}
-		});
-		
-		tvMonCompte= (TextView) findViewById(R.id.tvMonCompte);
-		tvMonCompte.setOnClickListener(new View.OnClickListener() {
+			});
 			
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				boite.show();
-			}
-		});
+			// Fonction non implémentée: renvoit vers la boite de dialogue
+			tvCreationDossier= (TextView) findViewById(R.id.tvCreationDossier);
+			tvCreationDossier.setOnClickListener(new View.OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+					// TODO Auto-generated method stub
+	                boite.show();
+					
+				}
+			});
 			
-		tvFonction = (TextView) findViewById(R.id.tvNomMedecin);
-		RecuperationJSON(pseudo, fonction);
+			// Fonction non implémentée: renvoit vers la boite de dialogue
+			tvAjoutDoc= (TextView) findViewById(R.id.tvAjoutDocument);
+			tvAjoutDoc.setOnClickListener(new View.OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+					// TODO Auto-generated method stub
+					boite.show();
+				}
+			});
+			
+			// Fonction non implémentée: renvoit vers la boite de dialogue
+			tvTransfert= (TextView) findViewById(R.id.tvTransfert);
+			tvTransfert.setOnClickListener(new View.OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+					// TODO Auto-generated method stub
+					boite.show();
+				}
+			});
+			
+			tvCodification= (TextView) findViewById(R.id.tvACodifier);
+			tvCodification.setOnClickListener(new View.OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+					// TODO Auto-generated method stub
+					boite.show();
+				}
+			});
+	
+			// Fonction non implémentée: renvoit vers la boite de dialogue
+			tvArchives = (TextView) findViewById(R.id.tvArchives);
+			tvArchives.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+//					FragmentManager manager = HospitalisationsActivity.this.getSupportFragmentManager();
+//					String str = manager.getBackStackEntryAt(0).getName();
+//	
+//					if (str != "fragment_radio") {
+//						FragmentTransaction fragmentTransaction = manager.beginTransaction();
+//						manager.popBackStack();
+//						fragmentTransaction.replace(R.id.deuxTiers,fragment_radio);
+//						fragmentTransaction.addToBackStack("fragment_radio");
+//						fragmentTransaction.commit();
+//					}
+//	
+//				}
+					boite.show();
+				}
+			});
+			
+			// Fonction non implémentée: renvoit vers la boite de dialogue
+			tvMonCompte= (TextView) findViewById(R.id.tvMonCompte);
+			tvMonCompte.setOnClickListener(new View.OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+					// TODO Auto-generated method stub
+					boite.show();
+				}
+			});
+				
+			// Affiche dans le menu le nom du médecin connecté et sa fonction
+			tvFonction = (TextView) findViewById(R.id.tvNomMedecin);
+			RecuperationJSON(pseudo, fonction);
 	    }
+	    // Si l'utilisateru est une secrétaire médicale
 		else if (fonction==2){
 			Log.v(TAG, "la est le probleme?");
 			setContentView(R.layout.menu_secretaire_medicale);
@@ -275,6 +285,8 @@ public class HospitalisationsActivity extends SherlockFragmentActivity implement
 			mList = (LinearLayout) findViewById(R.id.animation_layout_sidebar);
 			mLayout = (AnimationLayout) findViewById(R.id.animation_layout);
 			mLayout.setListener(this);
+			
+			//Gère la déconnexion de l'utilisateur
 			tvDeconnexion = (TextView) findViewById(R.id.tvDeconnexion);
 			final Intent intent_connexion = new Intent(HospitalisationsActivity.this, ConnexionActivity.class);
 			
@@ -287,6 +299,7 @@ public class HospitalisationsActivity extends SherlockFragmentActivity implement
 			tvFonction = (TextView) findViewById(R.id.tvNomSecretaireMedicale);
 			RecuperationJSON(pseudo, fonction);
 		}
+	    //Si l'utilisateur n'est ni médecin, ni secrétaire médicale.
 		else{
 			Toast.makeText(getApplicationContext(), "Ce type d'utilisateur n'a pas encore été implémenté.", Toast.LENGTH_SHORT).show();
 			
@@ -294,6 +307,9 @@ public class HospitalisationsActivity extends SherlockFragmentActivity implement
 	}
 	
 	public void RecuperationJSON(String pseudo, int fonction) {
+		// Cette fonction a pour but de renvoyer le nom et le prénom de l'utilisateru a partir de son pseudo.
+		// Il prend en argument le pseudo et la fonction (médecin, secrétaire) de l'utilisateur si celui ci existe bien.
+		// Il affiche dans le menu le nom et prénom.
 		
 		Log.d(TAG, "entered in recuperationJSON");
 		if (android.os.Build.VERSION.SDK_INT > 9) {
@@ -304,6 +320,7 @@ public class HospitalisationsActivity extends SherlockFragmentActivity implement
 		// Creation d'une instance ParserJSON
         ParserJSON jParser = new ParserJSON(); 
         
+        // Cas d'un médecin
         if(fonction==1){
 	        //On récupère JSON string à partir de l'URL
 	        JSONObject json = jParser.getJSONFromUrl(urlMed);
@@ -332,7 +349,7 @@ public class HospitalisationsActivity extends SherlockFragmentActivity implement
 	                //Comparaison du pseudo et mdp avec ceux rentré par l'utilisateur
 	                if(pseudonyme.compareTo(pseudo)==0){
 	                	Log.d(TAG, "JSON person found"); 
-	                	tvFonction.setText(prenom+" "+nom);
+	                	tvFonction.setText(prenom+" "+nom); //On écrit le nom et prénom dans le menu
 	                }
 	                     
 	            }
@@ -340,6 +357,7 @@ public class HospitalisationsActivity extends SherlockFragmentActivity implement
 	            e.printStackTrace();
 	        }
         }
+        // Cas d'une secrétaire médicale
 	    else if(fonction==2){
 	    	//On récupère JSON string à partir de l'URL
 	        JSONObject json = jParser.getJSONFromUrl(urlsecMed);
