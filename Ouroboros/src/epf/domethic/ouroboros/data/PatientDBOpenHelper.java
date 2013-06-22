@@ -34,11 +34,9 @@ public class PatientDBOpenHelper extends SQLiteOpenHelper {
 	
 	private static final String DATABASE_CREATE_USER = 
 			"CREATE TABLE " + TABLE_USER + "( " + PatientColumns._ID + " integer primary key autoincrement," +
-					PatientColumns.KEY_NOM + " text not null," + PatientColumns.KEY_PRENOM + " text not null," + PatientColumns.KEY_SEXE + " text not null," +
-					PatientColumns.KEY_DATE_NAISSANCE + " text not null," + PatientColumns.KEY_LIEU_NAISSANCE + " text not null," +
-					PatientColumns.KEY_ADRESSE + " text not null,"+ PatientColumns.KEY_VILLE + " text not null," + PatientColumns.KEY_CODE_POSTAL + " text not null," +
-					PatientColumns.KEY_PAYS + " text not null," + PatientColumns.KEY_NATIONALITE + " text not null," + PatientColumns.KEY_TELEPHONE + " text not null," +
-					PatientColumns.KEY_NUMSS + " text not null," + PatientColumns.KEY_MEDECIN_TRAITANT + " text not null,"+ PatientColumns.KEY_HOSPITALISE + " text not null)";
+					PatientColumns.KEY_PSEUDO + " text not null," + PatientColumns.KEY_MDP + " text not null," +
+					PatientColumns.KEY_NOM + " text not null," + PatientColumns.KEY_PRENOM + " text not null," + PatientColumns.KEY_MAIL + " text not null," +
+					PatientColumns.KEY_TELEPHONE + " text not null," + PatientColumns.KEY_SERVICE + " text not null," + PatientColumns.KEY_FONCTION +" text not null)";
 
 	//Constructeur de la clase
 	public PatientDBOpenHelper(Context context) {
@@ -49,6 +47,7 @@ public class PatientDBOpenHelper extends SQLiteOpenHelper {
 	public void onCreate(SQLiteDatabase db) {
 		Log.i(TAG, "Création de la base : [version " + db.getVersion() + "]");
 		db.execSQL(DATABASE_CREATE_PATIENT);		//Création de la Base de Données
+		db.execSQL(DATABASE_CREATE_USER);			//Création de la Base de Données
 	}
 
 	@Override

@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<selector xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <!-- Définition du style à appliquer à l'élément de la liste qui a été activé -->
-    <item android:drawable="@drawable/list_activated" android:state_pressed="false" android:state_activated="true"/>
-
-</selector>

@@ -1,27 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/list_unread_holo">
 
     <ExpandableListView
         android:id="@+id/menu_gauche_hospi"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="10dp">
+        android:layout_height="wrap_content" >
     </ExpandableListView>
-    
-     <View
-            android:layout_width="fill_parent"
-            android:layout_height="0.5dp"
-            android:background="#e8e8e8"
-            android:paddingTop="16dp"
-            android:padding="10dp" />   
-     
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="0.5dp"
+        android:background="#e8e8e8" />
+
     <ListView
         android:id="@+id/liste_new_doc"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"/>
-	
-  
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
 </LinearLayout>
