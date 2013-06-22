@@ -34,14 +34,9 @@ public class AfficherPatientFragment extends Fragment {
 	
 	InformationsGeneralesFragment fragment_infos_dmp = new InformationsGeneralesFragment();
 	ListeGaucheInfosDMPFragment fragment_menu_gauche_infos_dmp = new ListeGaucheInfosDMPFragment();
-<<<<<<< HEAD
-	
-	Patient patient = null;
-=======
-	OngletsDMPFragment fragment_onglets_dmp = new OngletsDMPFragment();
 
 	private Patient patient;
->>>>>>> 6812b7f0e85c773f6b51feaa0c62b9d6fc0bde24
+
 	
 	/*----------	Déclaration des fonctions	----------*/
 	

@@ -172,10 +172,6 @@ public class ListerPatientsFragment extends ListFragment {
 				JSONObject c = patients.getJSONObject(i);
 
 				// On récupère toutes les données qu'on stocke dans une variable
-<<<<<<< HEAD
-				
-=======
->>>>>>> 6812b7f0e85c773f6b51feaa0c62b9d6fc0bde24
 				String nom = c.getString(PatientColumns.KEY_NOM);
 				String prenom = c.getString(PatientColumns.KEY_PRENOM);
 				Sexe sexe = Sexe.valueOf(c.getString(PatientColumns.KEY_SEXE));
@@ -201,11 +197,7 @@ public class ListerPatientsFragment extends ListFragment {
 						.getString(PatientColumns.KEY_MEDECIN_TRAITANT);
 				boolean hospitalise = c.getInt(PatientColumns.KEY_HOSPITALISE) == 1;
 				// Création d'un patient avec les données
-<<<<<<< HEAD
-				Patient p = new Patient( nom, prenom, sexe, dateNaissance,
-=======
 				Patient p = new Patient(nom, prenom, sexe, dateNaissance,
->>>>>>> 6812b7f0e85c773f6b51feaa0c62b9d6fc0bde24
 						lieuNaissance, adresse, ville, codePostal, pays,
 						nationalite, telephone, numSS, medecinTraitant,
 						hospitalise);

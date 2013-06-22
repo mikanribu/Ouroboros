@@ -6,11 +6,10 @@ import org.json.JSONObject;
 import epf.domethic.ouroboros.R;
 import epf.domethic.ouroboros.outils.ParserJSON;
 import epf.domethic.ouroboros.outils.PersonnelConnexionColumns;
-<<<<<<< HEAD
 import android.app.Activity;
-=======
+
 import android.content.Context;
->>>>>>> 6812b7f0e85c773f6b51feaa0c62b9d6fc0bde24
+
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;

@@ -48,10 +48,7 @@ public class Patient {
 			String telephone, String numSS, String medecinTraitant,
 			boolean hospitalise) {
 		super();
-<<<<<<< HEAD
-=======
-		//this.id = id;
->>>>>>> 6812b7f0e85c773f6b51feaa0c62b9d6fc0bde24
+
 		this.nom = nom;
 		this.prenom = prenom;
 		this.sexe = sexe;

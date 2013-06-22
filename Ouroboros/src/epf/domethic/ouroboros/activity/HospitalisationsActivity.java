@@ -62,19 +62,12 @@ public class HospitalisationsActivity extends SherlockFragmentActivity
 	AlertDialog.Builder boite;
 
 	// Fragments
-<<<<<<< HEAD
+
 	ListerPatientsFragment liste_patients = new ListerPatientsFragment();
 	AfficherPatientFragment detail_patient = new AfficherPatientFragment();
 	RechercheGeneraleFragment recherche = new RechercheGeneraleFragment();
 	AfficherRadioFragment radio = new AfficherRadioFragment();
-	
-=======
-	ListerPatientsFragment fragment_liste = new ListerPatientsFragment();
-	AfficherPatientFragment fragment_detail = new AfficherPatientFragment();
-	AfficherRadioFragment fragment_radio = new AfficherRadioFragment();
-	RechercheGeneraleFragment fragment_recherche_g = new RechercheGeneraleFragment();
 
->>>>>>> 6812b7f0e85c773f6b51feaa0c62b9d6fc0bde24
 	JSONArray personnes = null;
 
 	// url ou l'on peut accéder au JSON des sécrétaires médicales.
@@ -120,23 +113,13 @@ public class HospitalisationsActivity extends SherlockFragmentActivity
 			mList = (LinearLayout) findViewById(R.id.animation_layout_sidebar);
 			mLayout = (AnimationLayout) findViewById(R.id.animation_layout);
 			mLayout.setListener(this);
-<<<<<<< HEAD
 	
 			FragmentManager manager = HospitalisationsActivity.this.getSupportFragmentManager();
 			FragmentTransaction fragmentTransaction = manager.beginTransaction();
 			
 			fragmentTransaction.add(R.id.tiers, liste_patients);
 			fragmentTransaction.add(R.id.deuxTiers, detail_patient);
-=======
 
-			FragmentManager manager = HospitalisationsActivity.this
-					.getSupportFragmentManager();
-			FragmentTransaction fragmentTransaction = manager
-					.beginTransaction();
-
-			fragmentTransaction.add(R.id.tiers, fragment_liste);
-			fragmentTransaction.add(R.id.deuxTiers, fragment_detail);
->>>>>>> 6812b7f0e85c773f6b51feaa0c62b9d6fc0bde24
 			fragmentTransaction.addToBackStack("vers_hospi");
 			fragmentTransaction.commit();
 
@@ -172,12 +155,8 @@ public class HospitalisationsActivity extends SherlockFragmentActivity
 						FragmentTransaction fragmentTransaction = manager
 								.beginTransaction();
 						manager.popBackStack();
-<<<<<<< HEAD
 						fragmentTransaction.replace(R.id.tiers,recherche);
-=======
-						fragmentTransaction.replace(R.id.tiers,
-								fragment_recherche_g);
->>>>>>> 6812b7f0e85c773f6b51feaa0c62b9d6fc0bde24
+
 						fragmentTransaction.addToBackStack("vers_recherche");
 						fragmentTransaction.commit();
 					}
@@ -202,14 +181,8 @@ public class HospitalisationsActivity extends SherlockFragmentActivity
 						FragmentTransaction fragmentTransaction = manager
 								.beginTransaction();
 						manager.popBackStack();
-<<<<<<< HEAD
 						fragmentTransaction.replace(R.id.tiers, liste_patients);
 						fragmentTransaction.replace(R.id.deuxTiers, detail_patient);					
-=======
-						fragmentTransaction.replace(R.id.tiers, fragment_liste);
-						fragmentTransaction.replace(R.id.deuxTiers,
-								fragment_detail);
->>>>>>> 6812b7f0e85c773f6b51feaa0c62b9d6fc0bde24
 						fragmentTransaction.addToBackStack("vers_hospi");
 						fragmentTransaction.commit();
 					}
@@ -271,24 +244,7 @@ public class HospitalisationsActivity extends SherlockFragmentActivity
 			tvArchives.setOnClickListener(new View.OnClickListener() {
 				@Override
 				public void onClick(View v) {
-<<<<<<< HEAD
 
-=======
-					// FragmentManager manager =
-					// HospitalisationsActivity.this.getSupportFragmentManager();
-					// String str = manager.getBackStackEntryAt(0).getName();
-					//
-					// if (str != "fragment_radio") {
-					// FragmentTransaction fragmentTransaction =
-					// manager.beginTransaction();
-					// manager.popBackStack();
-					// fragmentTransaction.replace(R.id.deuxTiers,fragment_radio);
-					// fragmentTransaction.addToBackStack("fragment_radio");
-					// fragmentTransaction.commit();
-					// }
-					//
-					// }
->>>>>>> 6812b7f0e85c773f6b51feaa0c62b9d6fc0bde24
 					boite.show();
 				}
 			});
@@ -461,17 +417,13 @@ public class HospitalisationsActivity extends SherlockFragmentActivity
 	@Override
 	public void onPatientSelected(int position, Patient patient) {
 		this.position = position;
-<<<<<<< HEAD
 		detail_patient.afficherPatient(patient);
-		
-=======
-		fragment_detail.afficherPatient(patient);
 	}
->>>>>>> 6812b7f0e85c773f6b51feaa0c62b9d6fc0bde24
+
 
 	public void onRadioSelected(int position, RadioDAO dao, String nom) {
 		this.position = position;
-		fragment_radio.afficherRadio(nom, dao);
+		radio.afficherRadio(nom, dao);
 	}
 
 	@Override
