@@ -86,9 +86,10 @@ public class HospitalisationsActivity extends SherlockFragmentActivity
 		Intent i = getIntent();
 
 		// Récuperer le pseudo entré en connection
-		String pseudo = i.getStringExtra("pseudo");
+		String nom = i.getStringExtra("nom");
+		String prenom = i.getStringExtra("prenom");
 		int fonction = Integer.parseInt(i.getStringExtra("fonction"));
-		Log.v(TAG, pseudo + fonction);
+		Log.v(TAG, nom + prenom + fonction);
 
 		// Si l'utilisateur est un médecin.
 		if (fonction == 1) {
@@ -280,7 +281,7 @@ public class HospitalisationsActivity extends SherlockFragmentActivity
 
 			// Affiche dans le menu le nom du médecin connecté et sa fonction
 			tvFonction = (TextView) findViewById(R.id.tvNomMedecin);
-			RecuperationJSON(pseudo, fonction);
+			tvFonction.setText(prenom + " " + nom);
 		}
 		// Si l'utilisateru est une secrétaire médicale
 		else if (fonction == 2) {
@@ -321,7 +322,7 @@ public class HospitalisationsActivity extends SherlockFragmentActivity
 				}
 			});
 			tvFonction = (TextView) findViewById(R.id.tvNomSecretaireMedicale);
-			RecuperationJSON(pseudo, fonction);
+			tvFonction.setText(prenom + " " + nom);
 		}
 		// Si l'utilisateur n'est ni médecin, ni secrétaire médicale.
 		else {
@@ -332,105 +333,105 @@ public class HospitalisationsActivity extends SherlockFragmentActivity
 		}
 	}
 
-	public void RecuperationJSON(String pseudo, int fonction) {
-		// Cette fonction a pour but de renvoyer le nom et le prénom de
-		// l'utilisateru a partir de son pseudo.
-		// Il prend en argument le pseudo et la fonction (médecin, secrétaire)
-		// de l'utilisateur si celui ci existe bien.
-		// Il affiche dans le menu le nom et prénom.
-
-		Log.d(TAG, "entered in recuperationJSON");
-		if (android.os.Build.VERSION.SDK_INT > 9) {
-			StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
-					.permitAll().build();
-			StrictMode.setThreadPolicy(policy);
-		}
-
-		// Creation d'une instance ParserJSON
-		ParserJSON jParser = new ParserJSON();
-
-		// Cas d'un médecin
-		if (fonction == 1) {
-			// On récupère JSON string à partir de l'URL
-			JSONObject json = jParser.getJSONFromUrl(urlMed);
-
-			try {
-				personnes = json.getJSONArray("medecin");
-
-				Log.d(TAG, "JSON get array working");
-				String pseudonyme = "";
-				String nom = "";
-				String prenom = "";
-
-				// Boucle sur tous les membres de Ouroboros inscrit dans le JSON
-				for (int i = 0; i < personnes.length(); i++) {
-					JSONObject c = personnes.getJSONObject(i);
-
-					// On récupère toutes les données qu'on stocke dans une
-					// variable
-
-					pseudonyme = c.getString(medecinColumns.KEY_PSEUDO);
-					nom = c.getString(medecinColumns.KEY_NOM);
-					prenom = c.getString(medecinColumns.KEY_PRENOM);
-
-					Log.v(TAG, "pseudo" + pseudonyme + "bli");
-					Log.v(TAG, "bli" + pseudo + "bli");
-
-					// Comparaison du pseudo et mdp avec ceux rentré par
-					// l'utilisateur
-					if (pseudonyme.compareTo(pseudo) == 0) {
-						Log.d(TAG, "JSON person found");
-						tvFonction.setText(prenom + " " + nom); // On écrit le
-																// nom et prénom
-																// dans le menu
-					}
-
-				}
-			} catch (JSONException e) {
-				e.printStackTrace();
-			}
-		}
-		// Cas d'une secrétaire médicale
-		else if (fonction == 2) {
-			// On récupère JSON string à partir de l'URL
-			JSONObject json = jParser.getJSONFromUrl(urlsecMed);
-
-			try {
-				personnes = json.getJSONArray("secretaire_medicale");
-
-				Log.d(TAG, "JSON get array working");
-				String pseudonyme = "";
-				String nom = "";
-				String prenom = "";
-
-				// Boucle sur tous les membres de Ouroboros inscrit dans le JSON
-				for (int i = 0; i < personnes.length(); i++) {
-					JSONObject c = personnes.getJSONObject(i);
-
-					// On récupère toutes les données qu'on stocke dans une
-					// variable
-
-					pseudonyme = c.getString(medecinColumns.KEY_PSEUDO);
-					nom = c.getString(medecinColumns.KEY_NOM);
-					prenom = c.getString(medecinColumns.KEY_PRENOM);
-
-					Log.v(TAG, "pseudo" + pseudonyme + "bli");
-					Log.v(TAG, "bli" + pseudo + "bli");
-
-					// Comparaison du pseudo et mdp avec ceux rentré par
-					// l'utilisateur
-					if (pseudonyme.compareTo(pseudo) == 0) {
-						Log.d(TAG, "JSON person found");
-						tvFonction.setText(prenom + " " + nom);
-					}
-
-				}
-			} catch (JSONException e) {
-				e.printStackTrace();
-			}
-
-		}
-	}
+//	public void RecuperationJSON(String pseudo, int fonction) {
+//		// Cette fonction a pour but de renvoyer le nom et le prénom de
+//		// l'utilisateru a partir de son pseudo.
+//		// Il prend en argument le pseudo et la fonction (médecin, secrétaire)
+//		// de l'utilisateur si celui ci existe bien.
+//		// Il affiche dans le menu le nom et prénom.
+//
+//		Log.d(TAG, "entered in recuperationJSON");
+//		if (android.os.Build.VERSION.SDK_INT > 9) {
+//			StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
+//					.permitAll().build();
+//			StrictMode.setThreadPolicy(policy);
+//		}
+//
+//		// Creation d'une instance ParserJSON
+//		ParserJSON jParser = new ParserJSON();
+//
+//		// Cas d'un médecin
+//		if (fonction == 1) {
+//			// On récupère JSON string à partir de l'URL
+//			JSONObject json = jParser.getJSONFromUrl(urlMed);
+//
+//			try {
+//				personnes = json.getJSONArray("medecin");
+//
+//				Log.d(TAG, "JSON get array working");
+//				String pseudonyme = "";
+//				String nom = "";
+//				String prenom = "";
+//
+//				// Boucle sur tous les membres de Ouroboros inscrit dans le JSON
+//				for (int i = 0; i < personnes.length(); i++) {
+//					JSONObject c = personnes.getJSONObject(i);
+//
+//					// On récupère toutes les données qu'on stocke dans une
+//					// variable
+//
+//					pseudonyme = c.getString(medecinColumns.KEY_PSEUDO);
+//					nom = c.getString(medecinColumns.KEY_NOM);
+//					prenom = c.getString(medecinColumns.KEY_PRENOM);
+//
+//					Log.v(TAG, "pseudo" + pseudonyme + "bli");
+//					Log.v(TAG, "bli" + pseudo + "bli");
+//
+//					// Comparaison du pseudo et mdp avec ceux rentré par
+//					// l'utilisateur
+//					if (pseudonyme.compareTo(pseudo) == 0) {
+//						Log.d(TAG, "JSON person found");
+//						tvFonction.setText(prenom + " " + nom); // On écrit le
+//																// nom et prénom
+//																// dans le menu
+//					}
+//
+//				}
+//			} catch (JSONException e) {
+//				e.printStackTrace();
+//			}
+//		}
+//		// Cas d'une secrétaire médicale
+//		else if (fonction == 2) {
+//			// On récupère JSON string à partir de l'URL
+//			JSONObject json = jParser.getJSONFromUrl(urlsecMed);
+//
+//			try {
+//				personnes = json.getJSONArray("secretaire_medicale");
+//
+//				Log.d(TAG, "JSON get array working");
+//				String pseudonyme = "";
+//				String nom = "";
+//				String prenom = "";
+//
+//				// Boucle sur tous les membres de Ouroboros inscrit dans le JSON
+//				for (int i = 0; i < personnes.length(); i++) {
+//					JSONObject c = personnes.getJSONObject(i);
+//
+//					// On récupère toutes les données qu'on stocke dans une
+//					// variable
+//
+//					pseudonyme = c.getString(medecinColumns.KEY_PSEUDO);
+//					nom = c.getString(medecinColumns.KEY_NOM);
+//					prenom = c.getString(medecinColumns.KEY_PRENOM);
+//
+//					Log.v(TAG, "pseudo" + pseudonyme + "bli");
+//					Log.v(TAG, "bli" + pseudo + "bli");
+//
+//					// Comparaison du pseudo et mdp avec ceux rentré par
+//					// l'utilisateur
+//					if (pseudonyme.compareTo(pseudo) == 0) {
+//						Log.d(TAG, "JSON person found");
+//						tvFonction.setText(prenom + " " + nom);
+//					}
+//
+//				}
+//			} catch (JSONException e) {
+//				e.printStackTrace();
+//			}
+//
+//		}
+//	}
 
 	@Override
 	public void onPatientSelected(int position, Patient patient) {
