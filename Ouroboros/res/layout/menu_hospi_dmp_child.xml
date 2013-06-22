@@ -1,20 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
- 
-<LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:orientation="vertical"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:id="@+id/list_item_child"
-        android:gravity="center_vertical">
- 
- 
-    <TextView android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:id="@+id/list_item_text_child"
-              android:textSize="20sp"
-              android:padding="10dp"
-              android:layout_marginLeft="70dp"/>
- 
- 
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/list_item_child"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/item_selector"
+    android:gravity="center_vertical"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/list_item_text_child"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="70dp"
+        android:padding="10dp"
+        android:textSize="20sp" />
+
 </LinearLayout>
