@@ -6,6 +6,8 @@ import java.util.List;
 
 public class Patient {
 	
+	/*	----------	Déclaration des attributs de la classe Patient	----------*/
+	
 	public enum Sexe {
 		Masculin,
 		Feminin;
@@ -28,26 +30,25 @@ public class Patient {
 	private String medecinTraitant;
 	private boolean hospitalise;
 
-	
-	
-
 	public static List<Patient> ALL;
 	
 	static{
 		ALL = new ArrayList<Patient>();
 	}
 
+	//Constructeur de la classe Patient sans paramètre
 	public Patient (){
 		
 	}
-	 
-	public Patient( String nom, String prenom, Sexe sexe,
+	
+	//Constructeur de la classe patient avec comme paramètre tous les attributs de la classe 
+	public Patient(int id, String nom, String prenom, Sexe sexe,
 			Date dateNaissance, String lieuNaissance, String adresse,
 			String ville, String code_postal, String pays, String nationalite,
 			String telephone, String numSS, String medecinTraitant,
 			boolean hospitalise) {
 		super();
-		//this.id = id;
+		this.id = id;
 		this.nom = nom;
 		this.prenom = prenom;
 		this.sexe = sexe;
@@ -63,14 +64,8 @@ public class Patient {
 		this.medecinTraitant = medecinTraitant;
 		this.hospitalise = hospitalise;
 	}
-
-	public Patient(String valNom, String valPrenom, Date valDate, Sexe valSexe){
-		nom = valNom;
-		prenom = valPrenom;
-		dateNaissance = valDate;
-		sexe = valSexe;
-	}
 	
+	/* ----------	Déclaration des Mutateurs & Accesseurs	----------*/
 	
 	public String getNom() {
 		return nom;
@@ -183,6 +178,5 @@ public class Patient {
 	public void setHospitalise(boolean hospitalise) {
 		this.hospitalise = hospitalise;
 	}
-
 
 }

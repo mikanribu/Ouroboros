@@ -5,11 +5,14 @@ public class PersonnelAdministratif extends Personnel {
 	
 	public String metier;
 
+	//Constructeur de la classe PersonnelAdministratif
 	public PersonnelAdministratif(String metier) {
 		super();
 		this.metier = metier;
 	}
 
+	/* ----------	Déclaration des Mutateurs & Accesseurs	----------*/
+	
 	public String getMetier() {
 		return metier;
 	}

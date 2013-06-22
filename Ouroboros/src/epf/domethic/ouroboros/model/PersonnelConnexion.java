@@ -1,9 +1,12 @@
 package epf.domethic.ouroboros.model;
 
+//Classe définissant le type de l'utilisateur lors de sa connexion
 public class PersonnelConnexion {
 
 	public int fonction;
-	// médecin: 1; secrétaire médicale:2; secrétaire administrative: 3; médecin DIM:4; membre du personnel:5; administrateur:6;
+	/* médecin: 1; secrétaire médicale:2; secrétaire administrative: 3; 
+	 * médecin DIM:4; membre du personnel:5; administrateur:6;
+	 */
 	public String pseudo;
 	public String password;
 	
@@ -19,7 +22,8 @@ public class PersonnelConnexion {
 		this.password = password;
 	}
 	
-	// Getters and Setters
+	/* ----------	Déclaration des Mutateurs & Accesseurs	----------*/
+	
 	public int getFonction() {
 		return fonction;
 	}

@@ -15,17 +15,12 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ExpandableListView.OnChildClickListener;
-import android.widget.Toast;
-
 import java.util.ArrayList;
 import java.util.HashMap;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import com.actionbarsherlock.app.SherlockFragment;
-
 import epf.domethic.ouroboros.R;
 import epf.domethic.ouroboros.adapter.MenuGaucheHospiDMPAdapter;
 import epf.domethic.ouroboros.dao.RadioDAO;
@@ -124,22 +119,18 @@ public class ListeGaucheHospiDMPFragment extends SherlockFragment {
 
 		mExpandableList.setOnChildClickListener(new OnChildClickListener() {
 			@Override
-			public boolean onChildClick(ExpandableListView parent, View v,
-					int group_position, int child_position, long id) {
-				
-				
-				FragmentManager manager = ListeGaucheHospiDMPFragment.this
-						.getFragmentManager();
+			public boolean onChildClick(ExpandableListView parent, View v,int group_position, int child_position, long id) {
+				FragmentManager manager = ListeGaucheHospiDMPFragment.this.getFragmentManager();
+
 
 				if (group_position == 3 && child_position == 1) {
 
-					FragmentTransaction fragmentTransaction = manager
-							.beginTransaction();
-
-					fragmentTransaction.replace(R.id.deuxTiers,
-							fragment_afficher_radio);
-					fragmentTransaction.addToBackStack("vers_radio");
+					FragmentTransaction fragmentTransaction = manager.beginTransaction();
+					//manager.popBackStack();
+					fragmentTransaction.replace(R.id.deuxTiers,fragment_afficher_radio);
+					//fragmentTransaction.addToBackStack("vers_radio");
 					fragmentTransaction.commit();
+
 					Log.v("TAG","blaaaaaaaaaaaaaablaaaaaaaaaaaaa   "+child_position);
 					
 					//listener.onRadioSelected(child_position, radio);
@@ -182,6 +173,10 @@ public class ListeGaucheHospiDMPFragment extends SherlockFragment {
         
 		return view;
 
+	}
+	
+	public void onDetach(){
+		super.onDetach();
 	}
 
 

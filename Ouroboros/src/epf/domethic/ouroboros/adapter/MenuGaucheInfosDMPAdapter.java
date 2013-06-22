@@ -13,12 +13,12 @@ import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.TextView;
  
-public class MyListAdapter extends BaseExpandableListAdapter {
+public class MenuGaucheInfosDMPAdapter extends BaseExpandableListAdapter {
  
 	private Context context;
 	private ArrayList<TitreListe> deptList;
   
-	public MyListAdapter(Context context, ArrayList<TitreListe> deptList) {
+	public MenuGaucheInfosDMPAdapter(Context context, ArrayList<TitreListe> deptList) {
 		this.context = context;
 		this.deptList = deptList;
 	}
@@ -81,11 +81,10 @@ public class MyListAdapter extends BaseExpandableListAdapter {
 		 if (view == null) {
 			 LayoutInflater inf = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 			 view = inf.inflate(R.layout.menu_infos_dmp_titre, null);
-	  }
-	   
-	  TextView heading = (TextView) view.findViewById(R.id.heading);
-	  heading.setText(headerInfo.getName().trim());
-	  return view;
+		 }	   
+		  TextView heading = (TextView) view.findViewById(R.id.heading);
+		  heading.setText(headerInfo.getName().trim());
+		  return view;
 	 }
 	 
 	 @Override

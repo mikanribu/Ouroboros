@@ -1,13 +1,13 @@
 package epf.domethic.ouroboros.activity;
 
 
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
-
 import com.actionbarsherlock.app.SherlockFragment;
-
+import com.actionbarsherlock.app.ActionBar;
 import epf.domethic.ouroboros.R;
 import epf.domethic.ouroboros.dao.RadioDAO;
 import epf.domethic.ouroboros.model.Radio;
@@ -18,6 +18,9 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
+import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,11 +45,9 @@ public class AfficherRadioFragment extends SherlockFragment {
 	private Radio radio;
 
 	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
-		// this.dao = new RadioDAO(getActivity());
-		View view = inflater.inflate(R.layout.fragment_afficher_radio,
-				container, false);
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
+		View view = inflater.inflate(R.layout.fragment_afficher_radio,container, false);
+
 		titre = (TextView) view.findViewById(R.id.tvTitreRadio);
 		nomRadio = (TextView) view.findViewById(R.id.tvRadioValue);
 		cause = (TextView) view.findViewById(R.id.tvCauseValue);
@@ -143,5 +144,12 @@ public class AfficherRadioFragment extends SherlockFragment {
 		// medecin.setText(cursor.getString(6));
 		// description.setText(cursor.getString(7));
 		// interpretation.setText(cursor.getString(8));
+	
 	}
+
+
+	public void onDetach(){
+		super.onDetach();
+	}
+	
 }

@@ -102,9 +102,6 @@ public class OngletsDMPFragment extends SherlockFragment implements ActionBar.Ta
 	@Override
 	public void onTabUnselected(Tab tab, FragmentTransaction ft) {
 		// TODO Auto-generated method stub
-	//	ft.remove(mFragment); //
-		
-		
 	}
 	@Override
 	public void onTabReselected(Tab tab, FragmentTransaction fragmentTransaction) {
