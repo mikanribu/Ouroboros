@@ -12,16 +12,13 @@ import android.app.ActionBar;
 import android.app.AlertDialog;
 import android.app.SearchManager;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
-import android.database.Cursor;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.text.InputFilter.LengthFilter;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -33,7 +30,6 @@ import epf.domethic.ouroboros.R;
 import epf.domethic.ouroboros.activity.ListerPatientsFragment.OnPatientSelectedListener;
 import epf.domethic.ouroboros.model.Patient;
 import epf.domethic.ouroboros.outils.ParserJSON;
-import epf.domethic.ouroboros.outils.PersonnelConnexionColumns;
 import epf.domethic.ouroboros.outils.medecinColumns;
 import epf.domethic.ouroboros.widget.AnimationLayout;
 
@@ -64,10 +60,10 @@ public class HospitalisationsActivity extends SherlockFragmentActivity implement
 	AlertDialog.Builder boite;
 	
 	// Fragments
-	ListerPatientsFragment fragment_liste = new ListerPatientsFragment();
-	AfficherPatientFragment fragment_detail = new AfficherPatientFragment();
-	RechercheGeneraleFragment fragment_recherche_g = new RechercheGeneraleFragment();
-	AfficherRadioFragment fragment_radio = new AfficherRadioFragment();
+	ListerPatientsFragment liste_patients = new ListerPatientsFragment();
+	AfficherPatientFragment detail_patient = new AfficherPatientFragment();
+	RechercheGeneraleFragment recherche = new RechercheGeneraleFragment();
+	AfficherRadioFragment radio = new AfficherRadioFragment();
 	
 	JSONArray personnes = null;
 	
@@ -118,8 +114,8 @@ public class HospitalisationsActivity extends SherlockFragmentActivity implement
 			FragmentManager manager = HospitalisationsActivity.this.getSupportFragmentManager();
 			FragmentTransaction fragmentTransaction = manager.beginTransaction();
 			
-			fragmentTransaction.add(R.id.tiers, fragment_liste);
-			fragmentTransaction.add(R.id.deuxTiers, fragment_detail);
+			fragmentTransaction.add(R.id.tiers, liste_patients);
+			fragmentTransaction.add(R.id.deuxTiers, detail_patient);
 			fragmentTransaction.addToBackStack("vers_hospi");
 			fragmentTransaction.commit();
 			
@@ -151,7 +147,7 @@ public class HospitalisationsActivity extends SherlockFragmentActivity implement
 					if (str != "fragment_recherche_g") {
 						FragmentTransaction fragmentTransaction = manager.beginTransaction();
 						manager.popBackStack();
-						fragmentTransaction.replace(R.id.tiers,fragment_recherche_g);
+						fragmentTransaction.replace(R.id.tiers,recherche);
 						fragmentTransaction.addToBackStack("vers_recherche");
 						fragmentTransaction.commit();
 					}
@@ -173,8 +169,8 @@ public class HospitalisationsActivity extends SherlockFragmentActivity implement
 					if (str != "vers_hospi") {
 						FragmentTransaction fragmentTransaction = manager.beginTransaction();
 						manager.popBackStack();
-						fragmentTransaction.replace(R.id.tiers, fragment_liste);
-						fragmentTransaction.replace(R.id.deuxTiers, fragment_detail);					
+						fragmentTransaction.replace(R.id.tiers, liste_patients);
+						fragmentTransaction.replace(R.id.deuxTiers, detail_patient);					
 						fragmentTransaction.addToBackStack("vers_hospi");
 						fragmentTransaction.commit();
 					}
@@ -230,18 +226,7 @@ public class HospitalisationsActivity extends SherlockFragmentActivity implement
 			tvArchives.setOnClickListener(new View.OnClickListener() {
 				@Override
 				public void onClick(View v) {
-//					FragmentManager manager = HospitalisationsActivity.this.getSupportFragmentManager();
-//					String str = manager.getBackStackEntryAt(0).getName();
-//	
-//					if (str != "fragment_radio") {
-//						FragmentTransaction fragmentTransaction = manager.beginTransaction();
-//						manager.popBackStack();
-//						fragmentTransaction.replace(R.id.deuxTiers,fragment_radio);
-//						fragmentTransaction.addToBackStack("fragment_radio");
-//						fragmentTransaction.commit();
-//					}
-//	
-//				}
+
 					boite.show();
 				}
 			});
@@ -400,7 +385,7 @@ public class HospitalisationsActivity extends SherlockFragmentActivity implement
 	@Override
 	public void onPatientSelected(int position, Patient patient) {
 		this.position = position;
-		fragment_detail.afficherPatient(patient);
+		detail_patient.afficherPatient(patient);
 		
 
 	}

@@ -3,13 +3,10 @@ package epf.domethic.ouroboros.activity;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import com.actionbarsherlock.app.SherlockActivity;
-import com.actionbarsherlock.view.Menu;
-
 import epf.domethic.ouroboros.R;
 import epf.domethic.ouroboros.outils.ParserJSON;
 import epf.domethic.ouroboros.outils.PersonnelConnexionColumns;
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.StrictMode;
@@ -20,7 +17,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class ConnexionActivity extends SherlockActivity {
+public class ConnexionActivity extends Activity {
 
 	Button bConnexion;
 	EditText etPswd;

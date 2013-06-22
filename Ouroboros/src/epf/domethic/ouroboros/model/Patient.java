@@ -42,13 +42,12 @@ public class Patient {
 	}
 	
 	//Constructeur de la classe patient avec comme paramètre tous les attributs de la classe 
-	public Patient(int id, String nom, String prenom, Sexe sexe,
+	public Patient( String nom, String prenom, Sexe sexe,
 			Date dateNaissance, String lieuNaissance, String adresse,
 			String ville, String code_postal, String pays, String nationalite,
 			String telephone, String numSS, String medecinTraitant,
 			boolean hospitalise) {
 		super();
-		this.id = id;
 		this.nom = nom;
 		this.prenom = prenom;
 		this.sexe = sexe;

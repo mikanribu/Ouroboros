@@ -1,14 +1,13 @@
 package epf.domethic.ouroboros.activity;
 
-import com.actionbarsherlock.app.SherlockFragment;
-
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import epf.domethic.ouroboros.R;
 
-public class RechercheGeneraleFragment extends SherlockFragment {
+public class RechercheGeneraleFragment extends Fragment {
 
 
 	@Override
