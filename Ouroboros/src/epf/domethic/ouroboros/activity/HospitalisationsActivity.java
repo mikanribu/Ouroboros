@@ -22,6 +22,7 @@ import android.os.StrictMode;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
+import android.view.ContextThemeWrapper;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.LinearLayout;
@@ -167,9 +168,11 @@ public class HospitalisationsActivity extends SherlockFragmentActivity
 			
 			// Création de la boîte de dialogue qui sera affichée lorsque
 			// l'utilisateur cliquera sur des boutons pas développé
-			boite = new AlertDialog.Builder(this);
+			ContextThemeWrapper ctw = new ContextThemeWrapper( this, R.style.ThemeHoloDialog );
+	        
+			boite = new AlertDialog.Builder(ctw);
 			boite.setTitle("La fonction n'est pas encore implémentée!");
-			boite.setIcon(R.drawable.en_travaux);
+			boite.setIcon(R.drawable.travaux);
 			boite.setMessage("Cette fonction n'a pas été développée dans cette version.");
 			boite.setNegativeButton("Retour", null);
 

@@ -936,7 +936,7 @@ containing a value of this type.
         public static final int item_selector=0x7f020081;
         /**   Couleur qui correspond à un élément d'une liste sélectionné. 
          */
-        public static final int list_activated=0x7f020097;
+        public static final int list_activated=0x7f020098;
         public static final int list_arrow_selected_holo=0x7f020082;
         public static final int list_selected_holo=0x7f020083;
         public static final int list_unread_holo=0x7f020084;
@@ -956,8 +956,9 @@ containing a value of this type.
         public static final int menu_mon_compte=0x7f020092;
         public static final int menu_transfert=0x7f020093;
         public static final int patient_selector=0x7f020094;
-        public static final int uroboroslogoseul=0x7f020095;
-        public static final int valide_connexion=0x7f020096;
+        public static final int travaux=0x7f020095;
+        public static final int uroboroslogoseul=0x7f020096;
+        public static final int valide_connexion=0x7f020097;
     }
     public static final class id {
         public static final int SubItem=0x7f0500a5;
@@ -1338,10 +1339,10 @@ containing a value of this type.
  All customizations that are NOT specific to a particular API-level can go here. 
          */
         public static final int AppTheme=0x7f0b005a;
-        public static final int MenuTextViewSectionStyle=0x7f0b005e;
-        public static final int MenuTextViewTitleStyle=0x7f0b005f;
-        public static final int MenuViewSectionStyle=0x7f0b0060;
-        public static final int MenuWritingUserInfo=0x7f0b005d;
+        public static final int MenuTextViewSectionStyle=0x7f0b005f;
+        public static final int MenuTextViewTitleStyle=0x7f0b0060;
+        public static final int MenuViewSectionStyle=0x7f0b0061;
+        public static final int MenuWritingUserInfo=0x7f0b005e;
         public static final int MyActionBar=0x7f0b005b;
         /**  Any customizations for your app running on 3.0+ devices here 
          */
@@ -1388,6 +1389,7 @@ containing a value of this type.
         public static final int Theme_Sherlock_Light_DarkActionBar=0x7f0b0056;
         public static final int Theme_Sherlock_Light_NoActionBar=0x7f0b0058;
         public static final int Theme_Sherlock_NoActionBar=0x7f0b0057;
+        public static final int ThemeHoloDialog=0x7f0b005d;
         public static final int Widget=0x7f0b0000;
         public static final int Widget_Sherlock_ActionBar=0x7f0b0002;
         public static final int Widget_Sherlock_ActionBar_Solid=0x7f0b0003;

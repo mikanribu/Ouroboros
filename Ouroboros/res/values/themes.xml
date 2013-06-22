@@ -4,6 +4,9 @@
         <!-- Any customizations for your app running on 3.0+ devices here -->
     </style>  
     
+    <style name="ThemeHoloDialog" parent="android:Theme.Holo.Dialog">
+	</style>
+    
     <style name="MenuWritingUserInfo">
         <!-- Any customizations for your app running on 4.0+ devices here -->
         <item name="android:layout_width">wrap_content</item>
