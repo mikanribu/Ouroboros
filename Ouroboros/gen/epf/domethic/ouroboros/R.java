@@ -933,30 +933,31 @@ containing a value of this type.
         public static final int ic_launcher=0x7f02007e;
         public static final int ic_menu_search=0x7f02007f;
         public static final int infos_g=0x7f020080;
+        public static final int item_selector=0x7f020081;
         /**   Couleur qui correspond à un élément d'une liste sélectionné. 
          */
-        public static final int list_activated=0x7f020096;
-        public static final int list_arrow_selected_holo=0x7f020081;
-        public static final int list_selected_holo=0x7f020082;
-        public static final int list_unread_holo=0x7f020083;
-        public static final int logo_blanc=0x7f020084;
-        public static final int logo_donnees_patient=0x7f020085;
-        public static final int logo_fin_hospi=0x7f020086;
-        public static final int logo_impression_dossier=0x7f020087;
-        public static final int logo_new_doc=0x7f020088;
-        public static final int logo_new_hospi=0x7f020089;
-        public static final int male=0x7f02008a;
-        public static final int menu_a_codifier=0x7f02008b;
-        public static final int menu_action_search=0x7f02008c;
-        public static final int menu_ajout_doc=0x7f02008d;
-        public static final int menu_archives=0x7f02008e;
-        public static final int menu_creer_dossier=0x7f02008f;
-        public static final int menu_hospitalisations=0x7f020090;
-        public static final int menu_mon_compte=0x7f020091;
-        public static final int menu_transfert=0x7f020092;
-        public static final int patient_selector=0x7f020093;
-        public static final int uroboroslogoseul=0x7f020094;
-        public static final int valide_connexion=0x7f020095;
+        public static final int list_activated=0x7f020097;
+        public static final int list_arrow_selected_holo=0x7f020082;
+        public static final int list_selected_holo=0x7f020083;
+        public static final int list_unread_holo=0x7f020084;
+        public static final int logo_blanc=0x7f020085;
+        public static final int logo_donnees_patient=0x7f020086;
+        public static final int logo_fin_hospi=0x7f020087;
+        public static final int logo_impression_dossier=0x7f020088;
+        public static final int logo_new_doc=0x7f020089;
+        public static final int logo_new_hospi=0x7f02008a;
+        public static final int male=0x7f02008b;
+        public static final int menu_a_codifier=0x7f02008c;
+        public static final int menu_action_search=0x7f02008d;
+        public static final int menu_ajout_doc=0x7f02008e;
+        public static final int menu_archives=0x7f02008f;
+        public static final int menu_creer_dossier=0x7f020090;
+        public static final int menu_hospitalisations=0x7f020091;
+        public static final int menu_mon_compte=0x7f020092;
+        public static final int menu_transfert=0x7f020093;
+        public static final int patient_selector=0x7f020094;
+        public static final int uroboroslogoseul=0x7f020095;
+        public static final int valide_connexion=0x7f020096;
     }
     public static final class id {
         public static final int SubItem=0x7f0500a5;

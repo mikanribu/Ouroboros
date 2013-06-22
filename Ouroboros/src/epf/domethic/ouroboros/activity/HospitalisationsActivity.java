@@ -83,13 +83,16 @@ public class HospitalisationsActivity extends SherlockFragmentActivity
 		super.onCreate(savedInstanceState);
 		Intent intent = getIntent ();
 		
-
-		// Récuperer le pseudo entré en connexion
-		String pseudo = intent.getStringExtra("pseudo");
-		if(getStringExtra("fonction")!=null){
-			int fonction = Integer.parseInt(intent.getStringExtra("fonction"));
-			Log.v(TAG, pseudo + fonction);
+		// Récuperer le pseudo entré en connection
+		String nom = intent.getStringExtra("nom");
+		String prenom = intent.getStringExtra("prenom");
+					
+		int fonction =0;
+		if(intent.getStringExtra("fonction")!=null){
+			fonction = Integer.parseInt(intent.getStringExtra("fonction"));
 		}
+		Log.v(TAG, nom + prenom + fonction);
+		
 	    String destination = null ;
 	    destinations.add("recherche");
 		destinations.add("liste_patients");
@@ -127,16 +130,11 @@ public class HospitalisationsActivity extends SherlockFragmentActivity
 			fragmentTransaction.add(R.id.tiers, liste_patients);
 			fragmentTransaction.add(R.id.deuxTiers, detail_patient);
 
-<<<<<<< HEAD
+
 			fragmentTransaction.addToBackStack("vers_hospi");
-			fragmentTransaction.commit();			
-=======
-		// Récuperer le pseudo entré en connection
-		String nom = i.getStringExtra("nom");
-		String prenom = i.getStringExtra("prenom");
-		int fonction = Integer.parseInt(i.getStringExtra("fonction"));
-		Log.v(TAG, nom + prenom + fonction);
->>>>>>> 6ea443646523d07e09bcbb51ba89d8c0f4e56c99
+			fragmentTransaction.commit();	
+			
+		
 
 	    }
 		// Si l'utilisateur est un médecin.
