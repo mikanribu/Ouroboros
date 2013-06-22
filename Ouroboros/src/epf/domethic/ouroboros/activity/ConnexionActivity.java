@@ -35,7 +35,7 @@ public class ConnexionActivity extends SherlockActivity {
 	
 	//url ou l'on peut accéder au JSON de connexion.
 	static String url = "http://raw.github.com/Mikanribu/Ouroboros/master/json_personnelconnexion";
-	static String url_user ="https://raw.github.com/Mikanribu/Ouroboros/master/json_utilisateurs";
+	static String url_user ="http://raw.github.com/Mikanribu/Ouroboros/master/json_utilisateurs";
 	
 	
 	@Override
