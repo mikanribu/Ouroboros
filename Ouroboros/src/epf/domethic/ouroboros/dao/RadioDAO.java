@@ -97,8 +97,8 @@ public class RadioDAO {
 		database.insert(RadioDBOpenHelper.TABLE_RADIO, null, values); //Insert les données dans la BDD
 	}
 	
+	//Fonction permettant de savoir si la Base de Données est vide
 	public boolean dbIsEmpty () {
-		//Savoir si la base de données est vide
 		Cursor cur = database.rawQuery("SELECT COUNT(*) FROM "+ RadioDBOpenHelper.TABLE_RADIO, null);
 		
 		if (cur != null) {							 //Si le curseur n'est pas null
