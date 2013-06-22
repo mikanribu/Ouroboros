@@ -9,9 +9,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.actionbarsherlock.app.SherlockFragment;
-import com.actionbarsherlock.app.SherlockListFragment;
-
 import epf.domethic.ouroboros.R;
 import epf.domethic.ouroboros.dao.PatientDAO;
 
@@ -25,15 +22,14 @@ import android.app.Activity;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.os.StrictMode;
+import android.support.v4.app.ListFragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AbsListView;
 import android.widget.ListView;
-import android.widget.Toast;
 
-public class ListerPatientsFragment extends SherlockListFragment {
+public class ListerPatientsFragment extends ListFragment {
 
 	public interface OnPatientSelectedListener {
 		public void onPatientSelected(int position, Patient patient);

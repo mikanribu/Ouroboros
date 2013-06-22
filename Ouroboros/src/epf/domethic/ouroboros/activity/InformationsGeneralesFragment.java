@@ -29,10 +29,18 @@ public class InformationsGeneralesFragment extends SherlockFragment{
 	private TextView nMedecinTraitant;
 	
 	private Patient patient;
+	private int id;
 	
     @Override
    	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState ){
    		View view = inflater.inflate(R.layout.fragment_infos_g,container, false);
+   		
+   		Bundle bundle = this.getArguments();
+   		//int identifiant_patient = bundle.getInt("identifiant", id);
+   		if(getArguments()!=null)
+   		{
+   		int myInt = getArguments().getInt("identifiant", id);
+   		}
    		
 		nNomPatient = (TextView)view.findViewById(R.id.tvNomPatient);
 		nSexePatient = (TextView)view.findViewById(R.id.tvSexeValuePatient);

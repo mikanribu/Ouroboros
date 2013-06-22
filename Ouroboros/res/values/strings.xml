@@ -15,7 +15,7 @@
     <string name="title_activity_archives">Archives</string>
     <string name="title_activity_codification">Codification</string>
     <string name="title_activity_vue_donnees_socio">Données socio-démographiques</string>
-    <string name="title_activity_recherche_patients">Recherche Patients</string>
+    <string name="title_activity_dmp_patient">Recherche Patients</string>
     
     <string name="deconnexion">Déconnexion</string>
     <string name="trouverPatient">Trouver un patient</string>

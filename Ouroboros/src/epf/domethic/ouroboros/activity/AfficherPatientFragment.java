@@ -2,22 +2,19 @@ package epf.domethic.ouroboros.activity;
 
 import java.text.SimpleDateFormat;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.actionbarsherlock.app.SherlockFragment;
-
 import epf.domethic.ouroboros.R;
-import epf.domethic.ouroboros.activity.ListerPatientsFragment.OnPatientSelectedListener;
 import epf.domethic.ouroboros.model.Patient;
 
-public class AfficherPatientFragment extends SherlockFragment {
+public class AfficherPatientFragment extends Fragment {
 
 	/*----------	Déclaration des variables	----------*/
 	private TextView nNomPatient;
@@ -34,13 +31,12 @@ public class AfficherPatientFragment extends SherlockFragment {
 	private TextView nMedecinTraitant;
 	
 	private Button bVisualiserDMP;
-	private OnPatientSelectedListener listener;
 	
 	InformationsGeneralesFragment fragment_infos_dmp = new InformationsGeneralesFragment();
 	ListeGaucheInfosDMPFragment fragment_menu_gauche_infos_dmp = new ListeGaucheInfosDMPFragment();
-	OngletsDMPFragment fragment_onglets_dmp = new OngletsDMPFragment();
 
 	private Patient patient;
+
 	
 	/*----------	Déclaration des fonctions	----------*/
 	
@@ -66,18 +62,14 @@ public class AfficherPatientFragment extends SherlockFragment {
 		
 		//Le bouton permettant d'aller voir le DMP du patient
 		bVisualiserDMP =(Button)view.findViewById(R.id.bVueDMP);
+		final Intent intent_dmp = new Intent(getActivity(), DMPActivity.class);
 		bVisualiserDMP.setOnClickListener(new View.OnClickListener() {
 		    @Override
 		    public void onClick(View v) {
-		    	FragmentManager manager = getSherlockActivity().getSupportFragmentManager();  
-		        FragmentTransaction fragmentTransaction = manager.beginTransaction();
-		        manager.popBackStack();	    	
-		    	fragmentTransaction.replace(R.id.deuxTiers, fragment_onglets_dmp);
-		    	fragmentTransaction.addToBackStack("vers_infos_dmp");
-		    	fragmentTransaction.commit();
+		    	startActivity(intent_dmp);
 		    }
 		});		
-		
+			
 		return view;
 	}
 	
