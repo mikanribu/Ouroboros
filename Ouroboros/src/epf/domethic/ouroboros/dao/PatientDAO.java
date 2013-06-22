@@ -156,20 +156,17 @@ public class PatientDAO {
 		database.insert(PatientDBOpenHelper.TABLE_PATIENT, null, values);
 	}
 	
+	//Fonction permettant de savoir si la Base de Données est vide
 	public boolean dbIsEmpty () {
-		//Savoir si la base de données est vide
 		Cursor cur = database.rawQuery("SELECT COUNT(*) FROM "+ PatientDBOpenHelper.TABLE_PATIENT, null);
 		
-		if (cur != null) {
-			Log.v("TAG","DANS focntion DBEMPTY !!!!!");
-		    cur.moveToFirst();                       // Always one row returned.
-		    if (cur.getInt (0) == 0) {               // Zero count means empty table.
-		    	Log.v("TAG","EMPTY !!!!!");
+		if (cur != null) {							 //Si le curseur n'est pas null
+		    cur.moveToFirst();                       // On pointe le curseur sur le premier élément
+		    if (cur.getInt (0) == 0) {               // Zero signifie que la table est vide
 		    	return true;
 		    }
 		}
-		Log.v("TAG","NO EMPTY !!!!!");
-		return false;
+		return false;								 //On retourne false si la table n'est pas vide
 	}
 	
 }
