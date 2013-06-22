@@ -110,4 +110,17 @@ public class RadioDAO {
 		return false;					//On retourne false si la table n'est pas vide
 	}
 	
+	public Radio getRadio(Cursor cursor){
+		Radio radio = new Radio();
+		radio.setTitre(cursor.getString(0));
+		radio.setNomRadio(cursor.getString(1));
+		radio.setCause(cursor.getString(2));
+		radio.setDate(cursor.getString(3));
+		radio.setMedecin(cursor.getString(4));
+		radio.setDescription(cursor.getString(5));
+		radio.setInterpretation(cursor.getString(6));
+		
+		return radio;
+	}
+	
 }

@@ -69,7 +69,7 @@ public class AfficherRadioFragment extends SherlockFragment {
 			}
 		
 		
-		afficherRadio();
+		//afficherRadio();
 		
 		image.setOnClickListener(new View.OnClickListener() {
 			@Override
@@ -147,6 +147,18 @@ public class AfficherRadioFragment extends SherlockFragment {
 	
 	}
 
+	
+	
+	public void afficherRadio(Radio radio) {
+		titre.setText(radio.getTitre());
+		nomRadio.setText(radio.getNomRadio());
+		cause.setText(radio.getCause());
+		date.setText(radio.getDate());
+		medecin.setText(radio.getMedecin());
+		description.setText(radio.getDescription());
+		interpretation.setText(radio.getInterpretation());
+
+	}
 
 	public void onDetach(){
 		super.onDetach();

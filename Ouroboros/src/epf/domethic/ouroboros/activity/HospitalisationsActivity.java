@@ -1,5 +1,7 @@
 package epf.domethic.ouroboros.activity;
 
+import java.util.ArrayList;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -28,9 +30,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import epf.domethic.ouroboros.R;
 import epf.domethic.ouroboros.activity.ListerPatientsFragment.OnPatientSelectedListener;
-import epf.domethic.ouroboros.dao.RadioDAO;
 import epf.domethic.ouroboros.model.Patient;
-import epf.domethic.ouroboros.model.Radio;
 import epf.domethic.ouroboros.outils.ParserJSON;
 import epf.domethic.ouroboros.outils.medecinColumns;
 import epf.domethic.ouroboros.widget.AnimationLayout;
@@ -57,6 +57,9 @@ public class HospitalisationsActivity extends SherlockFragmentActivity
 	private TextView tvArchives;
 	private TextView tvMonCompte;
 	private TextView tvHospitalisation;
+	private ArrayList<String> destinations = new ArrayList<String>();
+	
+	
 
 	// Boîte de dialogue pour les fonctions non encore implémentée
 	AlertDialog.Builder boite;
@@ -66,7 +69,6 @@ public class HospitalisationsActivity extends SherlockFragmentActivity
 	ListerPatientsFragment liste_patients = new ListerPatientsFragment();
 	AfficherPatientFragment detail_patient = new AfficherPatientFragment();
 	RechercheGeneraleFragment recherche = new RechercheGeneraleFragment();
-	AfficherRadioFragment radio = new AfficherRadioFragment();
 
 	JSONArray personnes = null;
 
@@ -80,13 +82,56 @@ public class HospitalisationsActivity extends SherlockFragmentActivity
 	protected void onCreate(Bundle savedInstanceState) {
 
 		super.onCreate(savedInstanceState);
-		Intent i = getIntent();
+		Intent intent = getIntent ();
+		
 
-		// Récuperer le pseudo entré en connection
-		String pseudo = i.getStringExtra("pseudo");
-		int fonction = Integer.parseInt(i.getStringExtra("fonction"));
-		Log.v(TAG, pseudo + fonction);
+		// Récuperer le pseudo entré en connexion
+		String pseudo = intent.getStringExtra("pseudo");
+		if(getStringExtra("fonction")!=null){
+			int fonction = Integer.parseInt(intent.getStringExtra("fonction"));
+			Log.v(TAG, pseudo + fonction);
+		}
+	    String destination = null ;
+	    destinations.add("recherche");
+		destinations.add("liste_patients");
+	    
+	    Bundle b = intent.getExtras();
+	    if(b!=null)
+	    {
+	    	destination =(String) b.get("destination");
+	    }
 
+	    int position_liste=57;
+	    for (int i=0; i<destinations.size(); i++){
+	    	if(destination==destinations.get(i))
+	    		position_liste = i;
+	    }
+	    
+	    FragmentManager manager = HospitalisationsActivity.this.getSupportFragmentManager();
+	    FragmentTransaction fragmentTransaction = manager.beginTransaction();
+	    switch(position_liste){
+	    case 0:
+	    	manager.popBackStack();
+	    	fragmentTransaction.replace(R.id.tiers,recherche);
+	    	fragmentTransaction.addToBackStack("vers_recherche");
+	    	fragmentTransaction.commit();
+	    	break;
+	    
+	    case 1:
+	    	manager.popBackStack();			
+			fragmentTransaction.replace(R.id.tiers, liste_patients);
+			fragmentTransaction.replace(R.id.deuxTiers, detail_patient);
+			fragmentTransaction.addToBackStack("vers_hospi");
+			fragmentTransaction.commit();
+		
+		default:
+			fragmentTransaction.add(R.id.tiers, liste_patients);
+			fragmentTransaction.add(R.id.deuxTiers, detail_patient);
+
+			fragmentTransaction.addToBackStack("vers_hospi");
+			fragmentTransaction.commit();			
+
+	    }
 		// Si l'utilisateur est un médecin.
 		if (fonction == 1) {
 			setContentView(R.layout.activity_hospitalisations);
@@ -114,15 +159,7 @@ public class HospitalisationsActivity extends SherlockFragmentActivity
 			mLayout = (AnimationLayout) findViewById(R.id.animation_layout);
 			mLayout.setListener(this);
 	
-			FragmentManager manager = HospitalisationsActivity.this.getSupportFragmentManager();
-			FragmentTransaction fragmentTransaction = manager.beginTransaction();
 			
-			fragmentTransaction.add(R.id.tiers, liste_patients);
-			fragmentTransaction.add(R.id.deuxTiers, detail_patient);
-
-			fragmentTransaction.addToBackStack("vers_hospi");
-			fragmentTransaction.commit();
-
 			// Création de la boîte de dialogue qui sera affichée lorsque
 			// l'utilisateur cliquera sur des boutons pas développé
 			boite = new AlertDialog.Builder(this);
@@ -418,12 +455,6 @@ public class HospitalisationsActivity extends SherlockFragmentActivity
 	public void onPatientSelected(int position, Patient patient) {
 		this.position = position;
 		detail_patient.afficherPatient(patient);
-	}
-
-
-	public void onRadioSelected(int position, RadioDAO dao, String nom) {
-		this.position = position;
-		radio.afficherRadio(nom, dao);
 	}
 
 	@Override

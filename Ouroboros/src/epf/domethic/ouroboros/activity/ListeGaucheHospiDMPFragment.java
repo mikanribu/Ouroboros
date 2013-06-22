@@ -133,10 +133,15 @@ public class ListeGaucheHospiDMPFragment extends SherlockFragment {
 
 					Log.v("TAG","blaaaaaaaaaaaaaablaaaaaaaaaaaaa   "+child_position);
 					
-					//listener.onRadioSelected(child_position, radio);
+
+					Cursor cursor = dao.getRadiosCursor(child_position);
+					cursor.moveToFirst();
 					
-					//fragment_afficher_radio.afficherRadio(child_position);
-					//fragment_afficher_radio.afficherRadio("Thorax", dao);
+					Log.v("TAG", "Cursor count " + cursor.getCount());
+					Log.v("TAG", "cursor string " + cursor.getString(2));
+					
+					radio = dao.getRadio(cursor);
+					listener.onRadioSelected(child_position, radio);
 
 				}
 
