@@ -10,7 +10,10 @@ import com.actionbarsherlock.view.Menu;
 import epf.domethic.ouroboros.R;
 import epf.domethic.ouroboros.outils.ParserJSON;
 import epf.domethic.ouroboros.outils.PersonnelConnexionColumns;
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.util.Log;
@@ -32,6 +35,7 @@ public class ConnexionActivity extends SherlockActivity {
 	
 	//url ou l'on peut accéder au JSON de connexion.
 	static String url = "http://raw.github.com/Mikanribu/Ouroboros/master/json_personnelconnexion";
+	static String url_user ="https://raw.github.com/Mikanribu/Ouroboros/master/json_utilisateurs";
 	
 	
 	@Override
@@ -56,13 +60,13 @@ public class ConnexionActivity extends SherlockActivity {
 					String lepseudo = etPseudo.getText().toString().trim();
 					String lepswd = etPswd.getText().toString().trim();
 					
-					//try {
+					if(isOnline() ==true) {
 						int fonction = RecuperationJSON(lepseudo,lepswd);
 						
 					//Si un utilisateur a le même pseudo et mot de passe que ce qu'il a rentré
 						if(fonction != 0){
 							
-							// On crèe l'utilisateur s'il a entré un pseudo et mdp correct
+							// On créé l'utilisateur s'il a entré un pseudo et mot de passe correct
 							Log.v(TAG, "la fonction:"+fonction);
 							
 						// Il est renvoyé à la page d'accueil
@@ -78,10 +82,10 @@ public class ConnexionActivity extends SherlockActivity {
 							Toast.makeText(getApplicationContext(), "Mot de passe ou pseudonyme incorrect!", Toast.LENGTH_SHORT).show();
 						}
 						
-					/*}
-					catch (Exception e) {
-						  Toast.makeText(ConnexionActivity.this, e.getMessage(), Toast.LENGTH_SHORT);
-						}*/
+					}
+					else {
+						 Toast.makeText(getApplicationContext(), "Aucune connexion à Internet !", Toast.LENGTH_LONG).show();
+						}
 				}
 				else{
 					Toast.makeText(getApplicationContext(), "Les deux champs sont vides!", Toast.LENGTH_SHORT).show();
@@ -140,5 +144,15 @@ public class ConnexionActivity extends SherlockActivity {
             e.printStackTrace();
         }
         return 0; // Lorsque la fonction vaut 0, le couple (pseudo, mdp) n'existe pas.
+	}
+	
+	public boolean isOnline() {
+	    ConnectivityManager cm =
+	        (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+	    NetworkInfo netInfo = cm.getActiveNetworkInfo();
+	    if (netInfo != null && netInfo.isConnectedOrConnecting()) {
+	        return true;
+	    }
+	    return false;
 	}
 }
