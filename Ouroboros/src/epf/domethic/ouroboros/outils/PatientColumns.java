@@ -4,7 +4,8 @@ import android.provider.BaseColumns;
 
 //Classe permettant de récupérer le nom des colonnes de la table Patient
 public class PatientColumns implements BaseColumns {
-
+	
+	//Colonnes de la table Patient
 	public static final String KEY_ID ="id";
 	public static final String KEY_NOM = "nom";
     public static final String KEY_PRENOM = "prenom";
@@ -20,4 +21,12 @@ public class PatientColumns implements BaseColumns {
     public static final String KEY_NUMSS = "num_ss";
     public static final String KEY_MEDECIN_TRAITANT = "medecin_traitant";
     public static final String KEY_HOSPITALISE = "hospitalise";
+    
+    //Colonnes de la table Utilisateur
+    public static final String KEY_PSEUDO ="pseudo";
+    public static final String KEY_MDP ="password";
+    public static final String KEY_MAIL ="mail";
+    public static final String KEY_SERVICE ="service";
+    public static final String KEY_FONCTION ="fonction";
+
 }

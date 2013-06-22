@@ -8,6 +8,7 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import epf.domethic.ouroboros.data.RadioDBOpenHelper;
+import epf.domethic.ouroboros.model.Radio;
 import epf.domethic.ouroboros.outils.DocumentColumns;
 import epf.domethic.ouroboros.outils.PatientColumns;
 
@@ -57,10 +58,13 @@ public class RadioDAO {
 				new String[]{DocumentColumns._ID, DocumentColumns.KEY_ID_PATIENT, DocumentColumns.KEY_NOM, 
 				DocumentColumns.KEY_RADIO, DocumentColumns.KEY_DATE, DocumentColumns.KEY_MEDECIN, 
 				DocumentColumns.KEY_DESCRIPTION, DocumentColumns.KEY_INTERPRETATION};
+
+
 		String where = PatientColumns.KEY_NOM + " like '%" + like + "%'";			//Clause où le nom de la radio correspond à la chaine de caractère like	
 		String[] whereArgs = new String[]{like};
 		//Retourne un curseur sur les tables qui correspondent au critère de sélection
 		return	database.query(RadioDBOpenHelper.TABLE_RADIO,columns, where, null, null, null, null);
+
 	}
 	
 	/*Fonction qui permet de récupérer les tables de la BDD selon un critère

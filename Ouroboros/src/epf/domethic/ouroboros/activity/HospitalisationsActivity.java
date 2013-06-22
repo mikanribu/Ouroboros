@@ -28,13 +28,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 import epf.domethic.ouroboros.R;
 import epf.domethic.ouroboros.activity.ListerPatientsFragment.OnPatientSelectedListener;
+import epf.domethic.ouroboros.dao.RadioDAO;
 import epf.domethic.ouroboros.model.Patient;
+import epf.domethic.ouroboros.model.Radio;
 import epf.domethic.ouroboros.outils.ParserJSON;
 import epf.domethic.ouroboros.outils.medecinColumns;
 import epf.domethic.ouroboros.widget.AnimationLayout;
 
-public class HospitalisationsActivity extends SherlockFragmentActivity implements
-		AnimationLayout.Listener, OnPatientSelectedListener {
+public class HospitalisationsActivity extends SherlockFragmentActivity
+		implements AnimationLayout.Listener, OnPatientSelectedListener {
 	/** Called when the activity is first created. */
 
 	private int position;
@@ -43,7 +45,7 @@ public class HospitalisationsActivity extends SherlockFragmentActivity implement
 	public final static String TAG = "Demo";
 	protected LinearLayout mList;
 	protected AnimationLayout mLayout;
-	
+
 	// Les boutons du menu
 	private TextView tvFonction;
 	private TextView tvDeconnexion;
@@ -55,22 +57,30 @@ public class HospitalisationsActivity extends SherlockFragmentActivity implement
 	private TextView tvArchives;
 	private TextView tvMonCompte;
 	private TextView tvHospitalisation;
-	
+
 	// Boîte de dialogue pour les fonctions non encore implémentée
 	AlertDialog.Builder boite;
-	
+
 	// Fragments
+<<<<<<< HEAD
 	ListerPatientsFragment liste_patients = new ListerPatientsFragment();
 	AfficherPatientFragment detail_patient = new AfficherPatientFragment();
 	RechercheGeneraleFragment recherche = new RechercheGeneraleFragment();
 	AfficherRadioFragment radio = new AfficherRadioFragment();
 	
+=======
+	ListerPatientsFragment fragment_liste = new ListerPatientsFragment();
+	AfficherPatientFragment fragment_detail = new AfficherPatientFragment();
+	AfficherRadioFragment fragment_radio = new AfficherRadioFragment();
+	RechercheGeneraleFragment fragment_recherche_g = new RechercheGeneraleFragment();
+
+>>>>>>> 6812b7f0e85c773f6b51feaa0c62b9d6fc0bde24
 	JSONArray personnes = null;
-	
-	//url ou l'on peut accéder au JSON des sécrétaires médicales.
+
+	// url ou l'on peut accéder au JSON des sécrétaires médicales.
 	static String urlsecMed = "http://raw.github.com/Mikanribu/Ouroboros/master/json_secretaires_med";
-	
-	//url ou l'on peut accéder au JSON des médecins.
+
+	// url ou l'on peut accéder au JSON des médecins.
 	static String urlMed = "http://raw.github.com/Mikanribu/Ouroboros/master/json_medecins";
 
 	@Override
@@ -78,203 +88,258 @@ public class HospitalisationsActivity extends SherlockFragmentActivity implement
 
 		super.onCreate(savedInstanceState);
 		Intent i = getIntent();
-		
-		//Récuperer le pseudo entré en connection
-		String pseudo = i.getStringExtra("pseudo"); 
-	    int fonction = Integer.parseInt(i.getStringExtra("fonction")); 
-	    Log.v(TAG, pseudo + fonction);
-	    
-	    
-	   // Si l'utilisateur est un médecin.
-	    if(fonction==1){
-			setContentView(R.layout.activity_hospitalisations);	
-			
-	
+
+		// Récuperer le pseudo entré en connection
+		String pseudo = i.getStringExtra("pseudo");
+		int fonction = Integer.parseInt(i.getStringExtra("fonction"));
+		Log.v(TAG, pseudo + fonction);
+
+		// Si l'utilisateur est un médecin.
+		if (fonction == 1) {
+			setContentView(R.layout.activity_hospitalisations);
+
 			ActionBar actionBar = getActionBar();
-			
+
 			Resources r = getResources();
-			
+
 			Drawable myDrawable;
-			
-			myDrawable = r.getDrawable(R.drawable.barre_haut);		
-			
+
+			myDrawable = r.getDrawable(R.drawable.barre_haut);
+
 			actionBar.setBackgroundDrawable(myDrawable);
 			actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
-			actionBar.setHomeButtonEnabled(true); // The icone_launcher will not go
-													// back automatically to home
+			actionBar.setHomeButtonEnabled(true); // The icone_launcher will not
+													// go
+													// back automatically to
+													// home
 													// (API min 14)
-	
+
 			// Pas d'affichage du nom de l'application dans la barre d'action
 			actionBar.setDisplayShowTitleEnabled(false);
-	
+
 			mList = (LinearLayout) findViewById(R.id.animation_layout_sidebar);
 			mLayout = (AnimationLayout) findViewById(R.id.animation_layout);
 			mLayout.setListener(this);
+<<<<<<< HEAD
 	
 			FragmentManager manager = HospitalisationsActivity.this.getSupportFragmentManager();
 			FragmentTransaction fragmentTransaction = manager.beginTransaction();
 			
 			fragmentTransaction.add(R.id.tiers, liste_patients);
 			fragmentTransaction.add(R.id.deuxTiers, detail_patient);
+=======
+
+			FragmentManager manager = HospitalisationsActivity.this
+					.getSupportFragmentManager();
+			FragmentTransaction fragmentTransaction = manager
+					.beginTransaction();
+
+			fragmentTransaction.add(R.id.tiers, fragment_liste);
+			fragmentTransaction.add(R.id.deuxTiers, fragment_detail);
+>>>>>>> 6812b7f0e85c773f6b51feaa0c62b9d6fc0bde24
 			fragmentTransaction.addToBackStack("vers_hospi");
 			fragmentTransaction.commit();
-			
-			// Création de la boîte de dialogue qui sera affichée lorsque l'utilisateur cliquera sur des boutons pas développé
-	        boite = new AlertDialog.Builder(this);
-	        boite.setTitle("La fonction n'est pas encore implémentée!");
-	        boite.setIcon(R.drawable.en_travaux);
-	        boite.setMessage("Cette fonction n'a pas été développée dans cette version.");
-	        boite.setNegativeButton("Retour", null);
-			
-	        // Déconnecter l'utilisateur
+
+			// Création de la boîte de dialogue qui sera affichée lorsque
+			// l'utilisateur cliquera sur des boutons pas développé
+			boite = new AlertDialog.Builder(this);
+			boite.setTitle("La fonction n'est pas encore implémentée!");
+			boite.setIcon(R.drawable.en_travaux);
+			boite.setMessage("Cette fonction n'a pas été développée dans cette version.");
+			boite.setNegativeButton("Retour", null);
+
+			// Déconnecter l'utilisateur
 			tvDeconnexion = (TextView) findViewById(R.id.tvDeconnexion);
-			final Intent intent_connexion = new Intent(HospitalisationsActivity.this, ConnexionActivity.class);
+			final Intent intent_connexion = new Intent(
+					HospitalisationsActivity.this, ConnexionActivity.class);
 			tvDeconnexion.setOnClickListener(new OnClickListener() {
 				@Override
 				public void onClick(View v) {
 					startActivity(intent_connexion);
 				}
 			});
-	
+
 			// Amener l'utilisateur sur la page recherche d'une personne
 			tvRecherche = (TextView) findViewById(R.id.tvRecherche);
 			tvRecherche.setOnClickListener(new View.OnClickListener() {
 				@Override
 				public void onClick(View v) {
-					FragmentManager manager = HospitalisationsActivity.this.getSupportFragmentManager();
+					FragmentManager manager = HospitalisationsActivity.this
+							.getSupportFragmentManager();
 					String str = manager.getBackStackEntryAt(0).getName();
-	
+
 					if (str != "fragment_recherche_g") {
-						FragmentTransaction fragmentTransaction = manager.beginTransaction();
+						FragmentTransaction fragmentTransaction = manager
+								.beginTransaction();
 						manager.popBackStack();
+<<<<<<< HEAD
 						fragmentTransaction.replace(R.id.tiers,recherche);
+=======
+						fragmentTransaction.replace(R.id.tiers,
+								fragment_recherche_g);
+>>>>>>> 6812b7f0e85c773f6b51feaa0c62b9d6fc0bde24
 						fragmentTransaction.addToBackStack("vers_recherche");
 						fragmentTransaction.commit();
 					}
-					
+
 				}
 			});
-	
-			// Amener l'utilisateru sur la liste de totues les hospitalisations auquel il a accès
+
+			// Amener l'utilisateru sur la liste de totues les hospitalisations
+			// auquel il a accès
 			tvHospitalisation = (TextView) findViewById(R.id.tvHospitalisation);
 			tvHospitalisation.setOnClickListener(new View.OnClickListener() {
 				@Override
 				public void onClick(View v) {
-					
-					//removeMenuDMP();
-					
-					FragmentManager manager = HospitalisationsActivity.this.getSupportFragmentManager();
+
+					// removeMenuDMP();
+
+					FragmentManager manager = HospitalisationsActivity.this
+							.getSupportFragmentManager();
 					String str = manager.getBackStackEntryAt(0).getName();
-					
+
 					if (str != "vers_hospi") {
-						FragmentTransaction fragmentTransaction = manager.beginTransaction();
+						FragmentTransaction fragmentTransaction = manager
+								.beginTransaction();
 						manager.popBackStack();
+<<<<<<< HEAD
 						fragmentTransaction.replace(R.id.tiers, liste_patients);
 						fragmentTransaction.replace(R.id.deuxTiers, detail_patient);					
+=======
+						fragmentTransaction.replace(R.id.tiers, fragment_liste);
+						fragmentTransaction.replace(R.id.deuxTiers,
+								fragment_detail);
+>>>>>>> 6812b7f0e85c773f6b51feaa0c62b9d6fc0bde24
 						fragmentTransaction.addToBackStack("vers_hospi");
 						fragmentTransaction.commit();
 					}
 				}
 			});
-			
+
 			// Fonction non implémentée: renvoit vers la boite de dialogue
-			tvCreationDossier= (TextView) findViewById(R.id.tvCreationDossier);
+			tvCreationDossier = (TextView) findViewById(R.id.tvCreationDossier);
 			tvCreationDossier.setOnClickListener(new View.OnClickListener() {
-				
+
 				@Override
 				public void onClick(View v) {
-					// TODO Auto-generated method stub
-	                boite.show();
-					
+					boite.show();
+
 				}
 			});
-			
+
 			// Fonction non implémentée: renvoit vers la boite de dialogue
-			tvAjoutDoc= (TextView) findViewById(R.id.tvAjoutDocument);
+			tvAjoutDoc = (TextView) findViewById(R.id.tvAjoutDocument);
 			tvAjoutDoc.setOnClickListener(new View.OnClickListener() {
-				
+
 				@Override
 				public void onClick(View v) {
-					// TODO Auto-generated method stub
 					boite.show();
 				}
 			});
-			
+
 			// Fonction non implémentée: renvoit vers la boite de dialogue
-			tvTransfert= (TextView) findViewById(R.id.tvTransfert);
+			tvTransfert = (TextView) findViewById(R.id.tvTransfert);
 			tvTransfert.setOnClickListener(new View.OnClickListener() {
-				
+
 				@Override
 				public void onClick(View v) {
 					// TODO Auto-generated method stub
 					boite.show();
 				}
 			});
-			
-			tvCodification= (TextView) findViewById(R.id.tvACodifier);
+
+			tvCodification = (TextView) findViewById(R.id.tvACodifier);
 			tvCodification.setOnClickListener(new View.OnClickListener() {
-				
+
 				@Override
 				public void onClick(View v) {
-					// TODO Auto-generated method stub
 					boite.show();
 				}
+
 			});
-	
-			// Fonction non implémentée: renvoit vers la boite de dialogue
+
 			tvArchives = (TextView) findViewById(R.id.tvArchives);
 			tvArchives.setOnClickListener(new View.OnClickListener() {
 				@Override
 				public void onClick(View v) {
 
+				}
+			});
+
+			// Fonction non implémentée: renvoit vers la boite de dialogue
+			tvArchives = (TextView) findViewById(R.id.tvArchives);
+			tvArchives.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+<<<<<<< HEAD
+
+=======
+					// FragmentManager manager =
+					// HospitalisationsActivity.this.getSupportFragmentManager();
+					// String str = manager.getBackStackEntryAt(0).getName();
+					//
+					// if (str != "fragment_radio") {
+					// FragmentTransaction fragmentTransaction =
+					// manager.beginTransaction();
+					// manager.popBackStack();
+					// fragmentTransaction.replace(R.id.deuxTiers,fragment_radio);
+					// fragmentTransaction.addToBackStack("fragment_radio");
+					// fragmentTransaction.commit();
+					// }
+					//
+					// }
+>>>>>>> 6812b7f0e85c773f6b51feaa0c62b9d6fc0bde24
 					boite.show();
 				}
 			});
-			
+
 			// Fonction non implémentée: renvoit vers la boite de dialogue
-			tvMonCompte= (TextView) findViewById(R.id.tvMonCompte);
+			tvMonCompte = (TextView) findViewById(R.id.tvMonCompte);
 			tvMonCompte.setOnClickListener(new View.OnClickListener() {
-				
+
 				@Override
 				public void onClick(View v) {
 					// TODO Auto-generated method stub
 					boite.show();
 				}
 			});
-				
+
 			// Affiche dans le menu le nom du médecin connecté et sa fonction
 			tvFonction = (TextView) findViewById(R.id.tvNomMedecin);
 			RecuperationJSON(pseudo, fonction);
-	    }
-	    // Si l'utilisateru est une secrétaire médicale
-		else if (fonction==2){
+		}
+		// Si l'utilisateru est une secrétaire médicale
+		else if (fonction == 2) {
 			Log.v(TAG, "la est le probleme?");
 			setContentView(R.layout.menu_secretaire_medicale);
-			
+
 			ActionBar actionBar = getActionBar();
 
 			Resources r = getResources();
 			Drawable myDrawable;
 			myDrawable = r.getDrawable(R.drawable.barre_hautsecadm);
 			Log.v(TAG, "nn");
-			
+
 			actionBar.setBackgroundDrawable(myDrawable);
 			actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
-			actionBar.setHomeButtonEnabled(true); // The icone_launcher will not go
-													// back automatically to home
+			actionBar.setHomeButtonEnabled(true); // The icone_launcher will not
+													// go
+													// back automatically to
+													// home
 													// (API min 14)
 
 			// Pas d'affichage du nom de l'application dans la barre d'action
 			actionBar.setDisplayShowTitleEnabled(false);
-			
+
 			mList = (LinearLayout) findViewById(R.id.animation_layout_sidebar);
 			mLayout = (AnimationLayout) findViewById(R.id.animation_layout);
 			mLayout.setListener(this);
-			
-			//Gère la déconnexion de l'utilisateur
+
+			// Gère la déconnexion de l'utilisateur
 			tvDeconnexion = (TextView) findViewById(R.id.tvDeconnexion);
-			final Intent intent_connexion = new Intent(HospitalisationsActivity.this, ConnexionActivity.class);
-			
+			final Intent intent_connexion = new Intent(
+					HospitalisationsActivity.this, ConnexionActivity.class);
+
 			tvDeconnexion.setOnClickListener(new OnClickListener() {
 				@Override
 				public void onClick(View v) {
@@ -284,110 +349,129 @@ public class HospitalisationsActivity extends SherlockFragmentActivity implement
 			tvFonction = (TextView) findViewById(R.id.tvNomSecretaireMedicale);
 			RecuperationJSON(pseudo, fonction);
 		}
-	    //Si l'utilisateur n'est ni médecin, ni secrétaire médicale.
-		else{
-			Toast.makeText(getApplicationContext(), "Ce type d'utilisateur n'a pas encore été implémenté.", Toast.LENGTH_SHORT).show();
-			
+		// Si l'utilisateur n'est ni médecin, ni secrétaire médicale.
+		else {
+			Toast.makeText(getApplicationContext(),
+					"Ce type d'utilisateur n'a pas encore été implémenté.",
+					Toast.LENGTH_SHORT).show();
+
 		}
 	}
-	
+
 	public void RecuperationJSON(String pseudo, int fonction) {
-		// Cette fonction a pour but de renvoyer le nom et le prénom de l'utilisateru a partir de son pseudo.
-		// Il prend en argument le pseudo et la fonction (médecin, secrétaire) de l'utilisateur si celui ci existe bien.
+		// Cette fonction a pour but de renvoyer le nom et le prénom de
+		// l'utilisateru a partir de son pseudo.
+		// Il prend en argument le pseudo et la fonction (médecin, secrétaire)
+		// de l'utilisateur si celui ci existe bien.
 		// Il affiche dans le menu le nom et prénom.
-		
+
 		Log.d(TAG, "entered in recuperationJSON");
 		if (android.os.Build.VERSION.SDK_INT > 9) {
-		    StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-		    StrictMode.setThreadPolicy(policy);
+			StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
+					.permitAll().build();
+			StrictMode.setThreadPolicy(policy);
 		}
-		
+
 		// Creation d'une instance ParserJSON
-        ParserJSON jParser = new ParserJSON(); 
-        
-        // Cas d'un médecin
-        if(fonction==1){
-	        //On récupère JSON string à partir de l'URL
-	        JSONObject json = jParser.getJSONFromUrl(urlMed);
-	        
-	        try {
-	            personnes = json.getJSONArray("medecin");
-	             
-	            Log.d(TAG, "JSON get array working"); 
-	            String pseudonyme="";
-	            String nom ="";
-	            String prenom ="";
-	            
-	            // Boucle sur tous les membres de Ouroboros inscrit dans le JSON
-	            for(int i = 0; i < personnes.length(); i++){
-	                JSONObject c = personnes.getJSONObject(i);
-	                 
-	                // On récupère toutes les données qu'on stocke dans une variable
-	                
-	                pseudonyme = c.getString(medecinColumns.KEY_PSEUDO);
-	                nom = c.getString(medecinColumns.KEY_NOM);
-	                prenom = c.getString(medecinColumns.KEY_PRENOM);
-	               
-	                Log.v(TAG, "pseudo"+pseudonyme+"bli"); 
-	                Log.v(TAG, "bli"+pseudo+"bli"); 
-	                
-	                //Comparaison du pseudo et mdp avec ceux rentré par l'utilisateur
-	                if(pseudonyme.compareTo(pseudo)==0){
-	                	Log.d(TAG, "JSON person found"); 
-	                	tvFonction.setText(prenom+" "+nom); //On écrit le nom et prénom dans le menu
-	                }
-	                     
-	            }
-	        } catch (JSONException e) {
-	            e.printStackTrace();
-	        }
-        }
-        // Cas d'une secrétaire médicale
-	    else if(fonction==2){
-	    	//On récupère JSON string à partir de l'URL
-	        JSONObject json = jParser.getJSONFromUrl(urlsecMed);
-	        
-	        try {
-	            personnes = json.getJSONArray("secretaire_medicale");
-	             
-	            Log.d(TAG, "JSON get array working"); 
-	            String pseudonyme="";
-	            String nom ="";
-	            String prenom ="";
-	            
-	            // Boucle sur tous les membres de Ouroboros inscrit dans le JSON
-	            for(int i = 0; i < personnes.length(); i++){
-	                JSONObject c = personnes.getJSONObject(i);
-	                 
-	                // On récupère toutes les données qu'on stocke dans une variable
-	                
-	                pseudonyme = c.getString(medecinColumns.KEY_PSEUDO);
-	                nom = c.getString(medecinColumns.KEY_NOM);
-	                prenom = c.getString(medecinColumns.KEY_PRENOM);
-	               
-	                Log.v(TAG, "pseudo"+pseudonyme+"bli"); 
-	                Log.v(TAG, "bli"+pseudo+"bli"); 
-	                
-	                //Comparaison du pseudo et mdp avec ceux rentré par l'utilisateur
-	                if(pseudonyme.compareTo(pseudo)==0){
-	                	Log.d(TAG, "JSON person found"); 
-	                	tvFonction.setText(prenom+ " "+ nom);
-	                }
-	                     
-	            }
-	        } catch (JSONException e) {
-	            e.printStackTrace();
-	        }
-	        	
-	    }
+		ParserJSON jParser = new ParserJSON();
+
+		// Cas d'un médecin
+		if (fonction == 1) {
+			// On récupère JSON string à partir de l'URL
+			JSONObject json = jParser.getJSONFromUrl(urlMed);
+
+			try {
+				personnes = json.getJSONArray("medecin");
+
+				Log.d(TAG, "JSON get array working");
+				String pseudonyme = "";
+				String nom = "";
+				String prenom = "";
+
+				// Boucle sur tous les membres de Ouroboros inscrit dans le JSON
+				for (int i = 0; i < personnes.length(); i++) {
+					JSONObject c = personnes.getJSONObject(i);
+
+					// On récupère toutes les données qu'on stocke dans une
+					// variable
+
+					pseudonyme = c.getString(medecinColumns.KEY_PSEUDO);
+					nom = c.getString(medecinColumns.KEY_NOM);
+					prenom = c.getString(medecinColumns.KEY_PRENOM);
+
+					Log.v(TAG, "pseudo" + pseudonyme + "bli");
+					Log.v(TAG, "bli" + pseudo + "bli");
+
+					// Comparaison du pseudo et mdp avec ceux rentré par
+					// l'utilisateur
+					if (pseudonyme.compareTo(pseudo) == 0) {
+						Log.d(TAG, "JSON person found");
+						tvFonction.setText(prenom + " " + nom); // On écrit le
+																// nom et prénom
+																// dans le menu
+					}
+
+				}
+			} catch (JSONException e) {
+				e.printStackTrace();
+			}
+		}
+		// Cas d'une secrétaire médicale
+		else if (fonction == 2) {
+			// On récupère JSON string à partir de l'URL
+			JSONObject json = jParser.getJSONFromUrl(urlsecMed);
+
+			try {
+				personnes = json.getJSONArray("secretaire_medicale");
+
+				Log.d(TAG, "JSON get array working");
+				String pseudonyme = "";
+				String nom = "";
+				String prenom = "";
+
+				// Boucle sur tous les membres de Ouroboros inscrit dans le JSON
+				for (int i = 0; i < personnes.length(); i++) {
+					JSONObject c = personnes.getJSONObject(i);
+
+					// On récupère toutes les données qu'on stocke dans une
+					// variable
+
+					pseudonyme = c.getString(medecinColumns.KEY_PSEUDO);
+					nom = c.getString(medecinColumns.KEY_NOM);
+					prenom = c.getString(medecinColumns.KEY_PRENOM);
+
+					Log.v(TAG, "pseudo" + pseudonyme + "bli");
+					Log.v(TAG, "bli" + pseudo + "bli");
+
+					// Comparaison du pseudo et mdp avec ceux rentré par
+					// l'utilisateur
+					if (pseudonyme.compareTo(pseudo) == 0) {
+						Log.d(TAG, "JSON person found");
+						tvFonction.setText(prenom + " " + nom);
+					}
+
+				}
+			} catch (JSONException e) {
+				e.printStackTrace();
+			}
+
+		}
 	}
 
 	@Override
 	public void onPatientSelected(int position, Patient patient) {
 		this.position = position;
+<<<<<<< HEAD
 		detail_patient.afficherPatient(patient);
 		
+=======
+		fragment_detail.afficherPatient(patient);
+	}
+>>>>>>> 6812b7f0e85c773f6b51feaa0c62b9d6fc0bde24
 
+	public void onRadioSelected(int position, RadioDAO dao, String nom) {
+		this.position = position;
+		fragment_radio.afficherRadio(nom, dao);
 	}
 
 	@Override
