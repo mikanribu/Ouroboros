@@ -32,7 +32,6 @@ import epf.domethic.ouroboros.dao.RadioDAO;
 import epf.domethic.ouroboros.model.Patient;
 import epf.domethic.ouroboros.model.Radio;
 import epf.domethic.ouroboros.outils.ParserJSON;
-import epf.domethic.ouroboros.outils.medecinColumns;
 import epf.domethic.ouroboros.widget.AnimationLayout;
 
 public class HospitalisationsActivity extends SherlockFragmentActivity

@@ -12,6 +12,7 @@ import epf.domethic.ouroboros.activity.Utils;
 import epf.domethic.ouroboros.data.PatientDBOpenHelper;
 import epf.domethic.ouroboros.data.RadioDBOpenHelper;
 import epf.domethic.ouroboros.model.Patient;
+import epf.domethic.ouroboros.model.User;
 import epf.domethic.ouroboros.outils.DocumentColumns;
 import epf.domethic.ouroboros.outils.PatientColumns;
 
@@ -69,22 +70,24 @@ public class UserDAO {
 		String where = PatientColumns.KEY_PSEUDO + "='" + pseudo + "' and " + 
 				PatientColumns.KEY_MDP + "='" + mdp + "'";
 		String[] whereArgs = new String[]{pseudo};
-		return	database.query(PatientDBOpenHelper.TABLE_USER,columns, where, null, null, null, null);
+		Cursor cursor=null;
+		cursor=database.query(PatientDBOpenHelper.TABLE_USER,columns, where, null, null, null, null);
+		return cursor;
 	}
 	
 	
-	public void ajouterUser(ArrayList<String> arrayUsers){
+	public void ajouterUser(User user){
 		ContentValues values = new ContentValues();
 		// ajout de toutes les valeurs dans le champ de la BDD correspondant
 		//values.put(DocumentColumns.KEY_ID_PATIENT, arrayUsers.get(0));
-		values.put(PatientColumns.KEY_PSEUDO, arrayUsers.get(1));
-		values.put(PatientColumns.KEY_MDP, arrayUsers.get(2));
-		values.put(PatientColumns.KEY_NOM, arrayUsers.get(3));	
-		values.put(PatientColumns.KEY_PRENOM, arrayUsers.get(4));
-		values.put(PatientColumns.KEY_MAIL, arrayUsers.get(5));
-		values.put(PatientColumns.KEY_TELEPHONE, arrayUsers.get(6));
-		values.put(PatientColumns.KEY_SERVICE, arrayUsers.get(7));
-		values.put(PatientColumns.KEY_FONCTION, arrayUsers.get(8));
+		values.put(PatientColumns.KEY_PSEUDO, user.getPseudo());
+		values.put(PatientColumns.KEY_MDP, user.getPassword());
+		values.put(PatientColumns.KEY_NOM, user.getNom());	
+		values.put(PatientColumns.KEY_PRENOM, user.getPrenom());
+		values.put(PatientColumns.KEY_MAIL, user.getMail());
+		values.put(PatientColumns.KEY_TELEPHONE, user.getTelephone());
+		values.put(PatientColumns.KEY_SERVICE, user.getService());
+		values.put(PatientColumns.KEY_FONCTION, user.getFonction());
 
 		database.insert(PatientDBOpenHelper.TABLE_USER, null, values); //Insert les données dans la BDD
 	}

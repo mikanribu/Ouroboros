@@ -1,17 +1,24 @@
 package epf.domethic.ouroboros.activity;
 
+import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import epf.domethic.ouroboros.R;
+import epf.domethic.ouroboros.dao.UserDAO;
+import epf.domethic.ouroboros.model.User;
 import epf.domethic.ouroboros.outils.ParserJSON;
 import epf.domethic.ouroboros.outils.PatientColumns;
-import epf.domethic.ouroboros.outils.PersonnelConnexionColumns;
 import android.app.Activity;
 
 import android.content.Context;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -21,6 +28,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Toast;
 
 public class ConnexionActivity extends Activity {
@@ -34,8 +42,11 @@ public class ConnexionActivity extends Activity {
 	JSONArray lesutilisateurs = null;
 	
 	//url ou l'on peut accéder au JSON de connexion.
-	static String url = "http://raw.github.com/Mikanribu/Ouroboros/master/json_personnelconnexion";
 	static String url_user ="http://raw.github.com/Mikanribu/Ouroboros/master/json_utilisateurs";
+	
+	private UserDAO dao;
+	private User user;
+	List<User> userList = new ArrayList<User>();
 	
 	
 	@Override
@@ -43,7 +54,12 @@ public class ConnexionActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_connexion);
 		
-		
+		this.dao = new UserDAO(this);
+		if(dao.dbIsEmpty()==true){
+			Log.d(TAG, "dbEmpty");
+			RecuperationJSON_DATABASE();
+		}
+				
 		etPseudo = (EditText)findViewById(R.id.etPseudo);		
 		etPswd = (EditText) findViewById(R.id.etPswd);	
 		bConnexion = (Button)findViewById(R.id.bConnexion);
@@ -61,6 +77,7 @@ public class ConnexionActivity extends Activity {
 					String lepswd = etPswd.getText().toString().trim();
 					
 					if(isOnline() ==true) {
+						Log.d(TAG, "user online");
 //						int fonction = RecuperationJSON(lepseudo,lepswd);
 //						
 //					//Si un utilisateur a le même pseudo et mot de passe que ce qu'il a rentré
@@ -84,7 +101,32 @@ public class ConnexionActivity extends Activity {
 //						
 					}
 					else {
-						 Toast.makeText(getApplicationContext(), "Aucune connexion à Internet !", Toast.LENGTH_LONG).show();
+						 Toast.makeText(getApplicationContext(), "Attention, vous travaillez hors connexion!", Toast.LENGTH_LONG).show();
+						 Cursor cursor = dao.getUsersCursor(lepseudo, lepswd);
+
+						 if(cursor==null){
+							 Log.d(TAG, "cursor null");
+							 Toast.makeText(getApplicationContext(), "Mot de passe ou pseudonyme incorrect!", Toast.LENGTH_SHORT).show();
+						 }
+						 else{
+							 cursor.moveToFirst();
+							 Log.d(TAG, "cursor non null");
+							 final Intent intent_connexion = new Intent(ConnexionActivity.this, HospitalisationsActivity.class);
+							 Log.d(TAG, "JSON person found"); 
+							 
+							 String nom = cursor.getString(3);
+							 Log.v(TAG, nom);
+							 String prenom = cursor.getString(4);
+							 Log.v(TAG, prenom);
+							 int fonction = Integer.parseInt(cursor.getString(8));
+							 cursor.close();
+			                 intent_connexion.putExtra("fonction", String.valueOf(fonction));
+							 intent_connexion.putExtra("nom", nom);
+							 intent_connexion.putExtra("prenom", prenom);
+							 Log.v(TAG, fonction + nom + prenom); 
+							 startActivity(intent_connexion); 
+						 }
+						 
 						}
 				}
 				else{
@@ -155,6 +197,54 @@ public class ConnexionActivity extends Activity {
         if(fonction==0){
         	Toast.makeText(getApplicationContext(), "Mot de passe ou pseudonyme incorrect!", Toast.LENGTH_SHORT).show();
         }
+	}
+	
+	public void RecuperationJSON_DATABASE(){
+		Log.d(TAG, "entered in recuperation JSON_DATABASE");
+		if (android.os.Build.VERSION.SDK_INT > 9) {
+			StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
+					.permitAll().build();
+			StrictMode.setThreadPolicy(policy);
+		}
+		
+				ParserJSON jParser = new ParserJSON();
+				Log.d(TAG, "1");
+				// On récupère JSON string à partir de l'URL
+				JSONObject json = jParser.getJSONFromUrl(url_user);
+				Log.d(TAG, "1b");
+
+				try {
+					Log.d(TAG, "2a");
+					lesutilisateurs = json.getJSONArray("utilisateurs");
+					Log.d(TAG, "2");
+
+					// Boucle sur tous les patients du fichier JSON
+					for (int i = 0; i < lesutilisateurs.length(); i++) {
+						Log.d(TAG, "3");
+
+						JSONObject c = lesutilisateurs.getJSONObject(i);
+
+						// On récupère toutes les données qu'on stocke dans une variable
+						int fonction = Integer.parseInt(c.getString(PatientColumns.KEY_FONCTION));
+		                String pseudo = c.getString(PatientColumns.KEY_PSEUDO);
+		                String password = c.getString(PatientColumns.KEY_MDP);
+						String nom = c.getString(PatientColumns.KEY_NOM);
+						String prenom = c.getString(PatientColumns.KEY_PRENOM);
+						String mail = c.getString(PatientColumns.KEY_MAIL);		
+						String telephone = c.getString(PatientColumns.KEY_TELEPHONE);
+						String service = c.getString(PatientColumns.KEY_SERVICE);
+						
+						User u = new User(pseudo, password, nom, prenom, mail, telephone,
+								service, fonction);
+
+						UserDAO dao = new UserDAO(this);
+						dao.ajouterUser(u); // Ajoute un patient dans la BDD
+						dao.close();
+						// patientList.add(p);
+					}
+				} catch (JSONException e) {
+					e.printStackTrace();
+				}
 	}
 	
 	public boolean isOnline() {
