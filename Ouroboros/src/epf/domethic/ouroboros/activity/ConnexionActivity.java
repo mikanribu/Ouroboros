@@ -12,7 +12,7 @@ import epf.domethic.ouroboros.R;
 import epf.domethic.ouroboros.dao.UserDAO;
 import epf.domethic.ouroboros.model.User;
 import epf.domethic.ouroboros.outils.ParserJSON;
-import epf.domethic.ouroboros.outils.PatientColumns;
+import epf.domethic.ouroboros.outils.PersColumns;
 import android.app.Activity;
 
 import android.content.Context;
@@ -169,11 +169,11 @@ public class ConnexionActivity extends Activity {
                  
                 // On récupère toutes les données qu'on stocke dans une variable
                 
-                fonction = Integer.parseInt(c.getString(PatientColumns.KEY_FONCTION));
-                pseudo = c.getString(PatientColumns.KEY_PSEUDO);
-                password = c.getString(PatientColumns.KEY_MDP);
-                nom=c.getString(PatientColumns.KEY_NOM);
-                prenom=c.getString(PatientColumns.KEY_PRENOM);
+                fonction = Integer.parseInt(c.getString(PersColumns.KEY_FONCTION));
+                pseudo = c.getString(PersColumns.KEY_PSEUDO);
+                password = c.getString(PersColumns.KEY_MDP);
+                nom=c.getString(PersColumns.KEY_NOM);
+                prenom=c.getString(PersColumns.KEY_PRENOM);
                 
                 Log.v(TAG, "pseudo"+pseudonyme+"bli"); 
                 Log.v(TAG, "bli"+pseudo+"bli"); 
@@ -225,14 +225,14 @@ public class ConnexionActivity extends Activity {
 						JSONObject c = lesutilisateurs.getJSONObject(i);
 
 						// On récupère toutes les données qu'on stocke dans une variable
-						int fonction = Integer.parseInt(c.getString(PatientColumns.KEY_FONCTION));
-		                String pseudo = c.getString(PatientColumns.KEY_PSEUDO);
-		                String password = c.getString(PatientColumns.KEY_MDP);
-						String nom = c.getString(PatientColumns.KEY_NOM);
-						String prenom = c.getString(PatientColumns.KEY_PRENOM);
-						String mail = c.getString(PatientColumns.KEY_MAIL);		
-						String telephone = c.getString(PatientColumns.KEY_TELEPHONE);
-						String service = c.getString(PatientColumns.KEY_SERVICE);
+						int fonction = Integer.parseInt(c.getString(PersColumns.KEY_FONCTION));
+		                String pseudo = c.getString(PersColumns.KEY_PSEUDO);
+		                String password = c.getString(PersColumns.KEY_MDP);
+						String nom = c.getString(PersColumns.KEY_NOM);
+						String prenom = c.getString(PersColumns.KEY_PRENOM);
+						String mail = c.getString(PersColumns.KEY_MAIL);		
+						String telephone = c.getString(PersColumns.KEY_TELEPHONE);
+						String service = c.getString(PersColumns.KEY_SERVICE);
 						
 						User u = new User(pseudo, password, nom, prenom, mail, telephone,
 								service, fonction);

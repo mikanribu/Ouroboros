@@ -16,7 +16,7 @@ import epf.domethic.ouroboros.adapter.PatientCursorAdapter;
 import epf.domethic.ouroboros.model.Patient;
 import epf.domethic.ouroboros.model.Patient.Sexe;
 import epf.domethic.ouroboros.outils.ParserJSON;
-import epf.domethic.ouroboros.outils.PatientColumns;
+import epf.domethic.ouroboros.outils.PersColumns;
 
 import android.app.Activity;
 import android.database.Cursor;
@@ -172,30 +172,30 @@ public class ListerPatientsFragment extends ListFragment {
 				JSONObject c = patients.getJSONObject(i);
 
 				// On récupère toutes les données qu'on stocke dans une variable
-				String nom = c.getString(PatientColumns.KEY_NOM);
-				String prenom = c.getString(PatientColumns.KEY_PRENOM);
-				Sexe sexe = Sexe.valueOf(c.getString(PatientColumns.KEY_SEXE));
+				String nom = c.getString(PersColumns.KEY_NOM);
+				String prenom = c.getString(PersColumns.KEY_PRENOM);
+				Sexe sexe = Sexe.valueOf(c.getString(PersColumns.KEY_SEXE));
 				Date dateNaissance = null;
 				// Récupère la date de naissance du format Date
 				try {
 					dateNaissance = Utils.parserDate(c
-							.getString(PatientColumns.KEY_DATE_NAISSANCE));
+							.getString(PersColumns.KEY_DATE_NAISSANCE));
 				} catch (ParseException e) {
 					e.printStackTrace();
 				}
 				String lieuNaissance = c
-						.getString(PatientColumns.KEY_LIEU_NAISSANCE);
-				String adresse = c.getString(PatientColumns.KEY_ADRESSE);
-				String ville = c.getString(PatientColumns.KEY_VILLE);
-				String codePostal = c.getString(PatientColumns.KEY_CODE_POSTAL);
-				String pays = c.getString(PatientColumns.KEY_PAYS);
+						.getString(PersColumns.KEY_LIEU_NAISSANCE);
+				String adresse = c.getString(PersColumns.KEY_ADRESSE);
+				String ville = c.getString(PersColumns.KEY_VILLE);
+				String codePostal = c.getString(PersColumns.KEY_CODE_POSTAL);
+				String pays = c.getString(PersColumns.KEY_PAYS);
 				String nationalite = c
-						.getString(PatientColumns.KEY_NATIONALITE);
-				String telephone = c.getString(PatientColumns.KEY_TELEPHONE);
-				String numSS = c.getString(PatientColumns.KEY_NUMSS);
+						.getString(PersColumns.KEY_NATIONALITE);
+				String telephone = c.getString(PersColumns.KEY_TELEPHONE);
+				String numSS = c.getString(PersColumns.KEY_NUMSS);
 				String medecinTraitant = c
-						.getString(PatientColumns.KEY_MEDECIN_TRAITANT);
-				boolean hospitalise = c.getInt(PatientColumns.KEY_HOSPITALISE) == 1;
+						.getString(PersColumns.KEY_MEDECIN_TRAITANT);
+				boolean hospitalise = c.getInt(PersColumns.KEY_HOSPITALISE) == 1;
 				// Création d'un patient avec les données
 				Patient p = new Patient(nom, prenom, sexe, dateNaissance,
 						lieuNaissance, adresse, ville, codePostal, pays,

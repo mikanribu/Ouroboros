@@ -17,7 +17,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.app.Activity;
-import android.os.StrictMode;
 import android.util.Log;
 
 //Permet de parser JSON venant d'une url et de retourner un JSONObject
@@ -29,8 +28,7 @@ public class ParserJSON extends Activity {
 	static InputStream is = null;	
 
 	// constructor
-    public ParserJSON() {
- 
+    public ParserJSON() { 
     }
  
     public JSONObject getJSONFromUrl(String url) {
@@ -65,19 +63,19 @@ public class ParserJSON extends Activity {
         }
          
         try {
+        	//Création d'un BufferedReader pour lire le json récupéré par l'url
             BufferedReader reader = new BufferedReader(new InputStreamReader(is, "UTF-8"), 8);
-            StringBuilder sb = new StringBuilder();
-            String line = null;
+            StringBuilder sb = new StringBuilder(); 		//Création d'un StringBuilder afin de construire 
+            String line = null;								//Un objet string à partir de l'objet lu par le BufferedReader
             while ((line = reader.readLine()) != null) {
                 sb.append(line + "\n"); //Ajout d'un saut de ligne
             }
             is.close();
-            json = sb.toString();
+            json = sb.toString();		//On transpose l'objet de type StringBuilder en String plus commode a utiliser
         //Récupération des erreurs
         } catch (Exception e) {
             Log.e("Buffer Error", "Error converting result " + e.toString());
         }
- 
         // On essaye de parser l'objet String en JSON object
         try {
             jObj = new JSONObject(json);
@@ -86,7 +84,6 @@ public class ParserJSON extends Activity {
         }
  
         // retourne JSON Object
-        Log.v("TAG","Fin fonction JSONParser"+jObj);
         return jObj; 
     }
 }

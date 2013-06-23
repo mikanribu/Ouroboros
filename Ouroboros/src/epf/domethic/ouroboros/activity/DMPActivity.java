@@ -30,7 +30,7 @@ import epf.domethic.ouroboros.R;
 import epf.domethic.ouroboros.activity.ListeGaucheHospiDMPFragment.OnRadioSelectedListener;
 import epf.domethic.ouroboros.model.Radio;
 import epf.domethic.ouroboros.outils.ParserJSON;
-import epf.domethic.ouroboros.outils.PatientColumns;
+import epf.domethic.ouroboros.outils.PersColumns;
 import epf.domethic.ouroboros.widget.AnimationLayout;
 
 public class DMPActivity extends SherlockFragmentActivity implements
@@ -312,9 +312,9 @@ public class DMPActivity extends SherlockFragmentActivity implements
 					// On récupère toutes les données qu'on stocke dans une
 					// variable
 
-					pseudonyme = c.getString(PatientColumns.KEY_PSEUDO);
-					nom = c.getString(PatientColumns.KEY_NOM);
-					prenom = c.getString(PatientColumns.KEY_PRENOM);
+					pseudonyme = c.getString(PersColumns.KEY_PSEUDO);
+					nom = c.getString(PersColumns.KEY_NOM);
+					prenom = c.getString(PersColumns.KEY_PRENOM);
 
 					Log.v(TAG, "pseudo" + pseudonyme + "bli");
 					Log.v(TAG, "bli" + pseudo + "bli");
@@ -353,9 +353,9 @@ public class DMPActivity extends SherlockFragmentActivity implements
 					// On récupère toutes les données qu'on stocke dans une
 					// variable
 
-					pseudonyme = c.getString(PatientColumns.KEY_PSEUDO);
-					nom = c.getString(PatientColumns.KEY_NOM);
-					prenom = c.getString(PatientColumns.KEY_PRENOM);
+					pseudonyme = c.getString(PersColumns.KEY_PSEUDO);
+					nom = c.getString(PersColumns.KEY_NOM);
+					prenom = c.getString(PersColumns.KEY_PRENOM);
 
 					Log.v(TAG, "pseudo" + pseudonyme + "bli");
 					Log.v(TAG, "bli" + pseudo + "bli");

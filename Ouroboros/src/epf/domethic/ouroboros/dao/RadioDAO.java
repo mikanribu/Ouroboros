@@ -10,7 +10,7 @@ import android.database.sqlite.SQLiteDatabase;
 import epf.domethic.ouroboros.data.RadioDBOpenHelper;
 import epf.domethic.ouroboros.model.Radio;
 import epf.domethic.ouroboros.outils.DocumentColumns;
-import epf.domethic.ouroboros.outils.PatientColumns;
+import epf.domethic.ouroboros.outils.PersColumns;
 
 public class RadioDAO {
 
@@ -27,7 +27,7 @@ public class RadioDAO {
 	public RadioDAO(Context context) {
 		this.context = context;
 		this.helper = new RadioDBOpenHelper(context);   
-		database = helper.getWritableDatabase();
+		database = helper.getWritableDatabase();		//Autorise l'écriture dans la BDD
 	}
 	//Fonction permettant de fermer la BDD Radio
 	public void close() {
@@ -58,10 +58,8 @@ public class RadioDAO {
 				new String[]{DocumentColumns._ID, DocumentColumns.KEY_ID_PATIENT, DocumentColumns.KEY_NOM, 
 				DocumentColumns.KEY_RADIO, DocumentColumns.KEY_DATE, DocumentColumns.KEY_MEDECIN, 
 				DocumentColumns.KEY_DESCRIPTION, DocumentColumns.KEY_INTERPRETATION};
-
-
-		String where = PatientColumns.KEY_NOM + " like '%" + like + "%'";			//Clause où le nom de la radio correspond à la chaine de caractère like	
-		String[] whereArgs = new String[]{like};
+		//Clause où le nom de la radio correspond à la chaine de caractère 'like'.	
+		String where = PersColumns.KEY_NOM + " like '%" + like + "%'";		
 		//Retourne un curseur sur les tables qui correspondent au critère de sélection
 		return	database.query(RadioDBOpenHelper.TABLE_RADIO,columns, where, null, null, null, null);
 
@@ -74,8 +72,7 @@ public class RadioDAO {
 				new String[]{DocumentColumns._ID, DocumentColumns.KEY_ID_PATIENT, DocumentColumns.KEY_NOM, 
 				DocumentColumns.KEY_RADIO, DocumentColumns.KEY_DATE, DocumentColumns.KEY_MEDECIN, 
 				DocumentColumns.KEY_DESCRIPTION, DocumentColumns.KEY_INTERPRETATION};
-		String where = PatientColumns._ID + " like '%" + like + "%'";		 		//Si l'id de la radio est comme l'entier 'like'
-		int whereArgs = like;
+		String where = PersColumns._ID + " like '%" + like + "%'";		 		//Si l'id de la radio est comme l'entier 'like'
 		//Retourne un curseur sur les tables qui correspondent au critère de sélection
 		return	database.query(RadioDBOpenHelper.TABLE_RADIO,columns, where, null, null, null, null); 
 	}
@@ -84,7 +81,7 @@ public class RadioDAO {
 	arrayRadios correspond à la liste des attributs d'une radio*/
 	public void ajouterRadio(ArrayList<String> arrayRadios){
 		ContentValues values = new ContentValues();
-		// ajout de toutes les valeurs dans le champ de la BDD correspondant
+		// Ajout de toutes les valeurs dans le champ de la BDD correspondant
 		values.put(DocumentColumns.KEY_ID_PATIENT, arrayRadios.get(0));
 		values.put(DocumentColumns.KEY_NOM, arrayRadios.get(1));
 		values.put(DocumentColumns.KEY_RADIO, arrayRadios.get(2));
@@ -94,7 +91,7 @@ public class RadioDAO {
 		values.put(DocumentColumns.KEY_DESCRIPTION, arrayRadios.get(6));
 		values.put(DocumentColumns.KEY_INTERPRETATION, arrayRadios.get(7));
 
-		database.insert(RadioDBOpenHelper.TABLE_RADIO, null, values); //Insert les données dans la BDD
+		database.insert(RadioDBOpenHelper.TABLE_RADIO, null, values); 	//Insertion des données dans la BDD
 	}
 	
 	//Fonction permettant de savoir si la Base de Données est vide

@@ -1,104 +1,104 @@
 package epf.domethic.ouroboros.dao;
 
-import java.util.ArrayList;
-
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
-import android.util.Log;
-import epf.domethic.ouroboros.activity.Utils;
-import epf.domethic.ouroboros.data.PatientDBOpenHelper;
-import epf.domethic.ouroboros.data.RadioDBOpenHelper;
-import epf.domethic.ouroboros.model.Patient;
+import epf.domethic.ouroboros.data.PersDBOpenHelper;
 import epf.domethic.ouroboros.model.User;
-import epf.domethic.ouroboros.outils.DocumentColumns;
-import epf.domethic.ouroboros.outils.PatientColumns;
+import epf.domethic.ouroboros.outils.PersColumns;
 
 public class UserDAO {
 
-	private final static String TAG = PatientDAO.class.getSimpleName();
-
+	/* ----------	Déclaration des variables	---------- */
 	private Context context;
 	
-	private SQLiteDatabase database;
+	private SQLiteDatabase database;		//Base de données
 	
-	private PatientDBOpenHelper helper;
+	private PersDBOpenHelper helper;
 	
+	/* ----------	Déclaration des fonctions	---------- */
+	
+	//Constructeur
 	public UserDAO(Context context) {
 		this.context = context;
-		this.helper = new PatientDBOpenHelper(context);
-		database = helper.getWritableDatabase();
+		this.helper = new PersDBOpenHelper(context);
+		database = helper.getWritableDatabase();	//Autorise l'écriture dans la BDD	
 	}
 	
+	//Fonction permettant de fermer la BDD 
 	public void close() {
 		helper.close();
 	}
 	
+	//Fonction permettant l'ouverture de la BDD
 	public UserDAO open() throws SQLException {
-		helper = new PatientDBOpenHelper(context);
+		helper = new PersDBOpenHelper(context);
 		database = helper.getWritableDatabase();
         return this;
     }
 	
+	/* Focntion permettant de récupérer toutes les données de la table utilisateurs */
 	public Cursor getUsersCursor(){
-		String[] columns = 
-				new String[]{PatientColumns._ID, PatientColumns.KEY_PSEUDO, PatientColumns.KEY_MDP,
-				PatientColumns.KEY_NOM, PatientColumns.KEY_PRENOM, PatientColumns.KEY_MAIL,
-				PatientColumns.KEY_TELEPHONE, PatientColumns.KEY_SERVICE, PatientColumns.KEY_FONCTION};
-		return	database.query(PatientDBOpenHelper.TABLE_USER,columns, null, null, null, null, null, null);
+		String[] columns = 					//Colonnes à récupérer
+				new String[]{PersColumns._ID, PersColumns.KEY_PSEUDO, PersColumns.KEY_MDP,
+				PersColumns.KEY_NOM, PersColumns.KEY_PRENOM, PersColumns.KEY_MAIL,
+				PersColumns.KEY_TELEPHONE, PersColumns.KEY_SERVICE, PersColumns.KEY_FONCTION};
+		//Retourne toutes les données de la tables utilisateurs 
+		return	database.query(PersDBOpenHelper.TABLE_USER,columns, null, null, null, null, null, null);
 	}
 	
 	//Fonction qui permet de récupérer l'utilisateur selon son pseudo 
 	public Cursor getUsersCursor(String pseudo){
 		String[] columns = 
-				new String[]{PatientColumns._ID, PatientColumns.KEY_PSEUDO, PatientColumns.KEY_MDP,
-				PatientColumns.KEY_NOM, PatientColumns.KEY_PRENOM, PatientColumns.KEY_MAIL,
-				PatientColumns.KEY_TELEPHONE, PatientColumns.KEY_SERVICE, PatientColumns.KEY_FONCTION};
-		String where = PatientColumns.KEY_PSEUDO + " like '%" + pseudo + "%'";
-		String[] whereArgs = new String[]{pseudo};
-		return	database.query(PatientDBOpenHelper.TABLE_USER,columns, where, null, null, null, null);
+				new String[]{PersColumns._ID, PersColumns.KEY_PSEUDO, PersColumns.KEY_MDP,
+				PersColumns.KEY_NOM, PersColumns.KEY_PRENOM, PersColumns.KEY_MAIL,
+				PersColumns.KEY_TELEPHONE, PersColumns.KEY_SERVICE, PersColumns.KEY_FONCTION};
+		//Clause où le pseudo de l'utilisateur correspond à la chaine de caractère 'like'
+		String where = PersColumns.KEY_PSEUDO + " like '%" + pseudo + "%'";
+		//Retourne un curseur sur les tables qui correspondent au critère de sélection
+		return	database.query(PersDBOpenHelper.TABLE_USER,columns, where, null, null, null, null);
 	}
 	
 	//Fonction qui permet de récupérer l'utilisateur selon son pseudo & mot de passe
 	public Cursor getUsersCursor(String pseudo, String mdp){
 		String[] columns = 
-				new String[]{PatientColumns._ID, PatientColumns.KEY_PSEUDO, PatientColumns.KEY_MDP,
-				PatientColumns.KEY_NOM, PatientColumns.KEY_PRENOM, PatientColumns.KEY_MAIL,
-				PatientColumns.KEY_TELEPHONE, PatientColumns.KEY_SERVICE, PatientColumns.KEY_FONCTION};
-		String where = PatientColumns.KEY_PSEUDO + "='" + pseudo + "' and " + 
-				PatientColumns.KEY_MDP + "='" + mdp + "'";
-		String[] whereArgs = new String[]{pseudo};
+				new String[]{PersColumns._ID, PersColumns.KEY_PSEUDO, PersColumns.KEY_MDP,
+				PersColumns.KEY_NOM, PersColumns.KEY_PRENOM, PersColumns.KEY_MAIL,
+				PersColumns.KEY_TELEPHONE, PersColumns.KEY_SERVICE, PersColumns.KEY_FONCTION};
+		//Clause concernant le pseudo ainsi que le mot de passe de l'utilisateur
+		String where = PersColumns.KEY_PSEUDO + "='" + pseudo + "' and " + 
+				PersColumns.KEY_MDP + "='" + mdp + "'";
 		Cursor cursor=null;
-		cursor=database.query(PatientDBOpenHelper.TABLE_USER,columns, where, null, null, null, null);
+		cursor=database.query(PersDBOpenHelper.TABLE_USER,columns, where, null, null, null, null);
 		return cursor;
 	}
 	
-	
+	/*Fonction qui permet d'ajouter un utilisateur dans la base de données */
 	public void ajouterUser(User user){
 		ContentValues values = new ContentValues();
 		// ajout de toutes les valeurs dans le champ de la BDD correspondant
 		//values.put(DocumentColumns.KEY_ID_PATIENT, arrayUsers.get(0));
-		values.put(PatientColumns.KEY_PSEUDO, user.getPseudo());
-		values.put(PatientColumns.KEY_MDP, user.getPassword());
-		values.put(PatientColumns.KEY_NOM, user.getNom());	
-		values.put(PatientColumns.KEY_PRENOM, user.getPrenom());
-		values.put(PatientColumns.KEY_MAIL, user.getMail());
-		values.put(PatientColumns.KEY_TELEPHONE, user.getTelephone());
-		values.put(PatientColumns.KEY_SERVICE, user.getService());
-		values.put(PatientColumns.KEY_FONCTION, user.getFonction());
+		values.put(PersColumns.KEY_PSEUDO, user.getPseudo());
+		values.put(PersColumns.KEY_MDP, user.getPassword());
+		values.put(PersColumns.KEY_NOM, user.getNom());	
+		values.put(PersColumns.KEY_PRENOM, user.getPrenom());
+		values.put(PersColumns.KEY_MAIL, user.getMail());
+		values.put(PersColumns.KEY_TELEPHONE, user.getTelephone());
+		values.put(PersColumns.KEY_SERVICE, user.getService());
+		values.put(PersColumns.KEY_FONCTION, user.getFonction());
 
-		database.insert(PatientDBOpenHelper.TABLE_USER, null, values); //Insert les données dans la BDD
+		database.insert(PersDBOpenHelper.TABLE_USER, null, values); 	//Insertion des données dans la BDD
 	}
 
 	//Fonction permettant de savoir si la Base de Données est vide
 	public boolean dbIsEmpty () {
-		Cursor cur = database.rawQuery("SELECT COUNT(*) FROM "+ PatientDBOpenHelper.TABLE_USER, null);
+		Cursor cur = database.rawQuery("SELECT COUNT(*) FROM "+ PersDBOpenHelper.TABLE_USER, null);
 		
 		if (cur != null) {							//Si le curseur n'est pas null
 		    cur.moveToFirst();                      // On pointe le curseur sur le premier élément
-		    if (cur.getInt (0) == 0) {               // Zero signifie que la table est vide
+		    if (cur.getInt (0) == 0) {              // Zero signifie que la table est vide
 		    	return true;
 		    }
 		}

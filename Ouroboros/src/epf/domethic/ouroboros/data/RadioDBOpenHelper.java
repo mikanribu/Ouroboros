@@ -11,7 +11,7 @@ public class RadioDBOpenHelper extends SQLiteOpenHelper {
 	
 	/* ----------	Déclaration des variables	----------*/
 	
-	private final static String TAG = PatientDBOpenHelper.class.getSimpleName(); 
+	private final static String TAG = PersDBOpenHelper.class.getSimpleName(); 
 	
 	private static final String DATABASE_NAME = "radios.db";			// Nom de la Base de Données
 	private static final int DATABASE_VERSION = 1;						// Version de la Base de Données
