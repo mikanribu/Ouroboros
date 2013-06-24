@@ -1,27 +1,17 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".PageConnexionActivity" 
-    android:background="@drawable/fond">
+    style="@style/ConnexionLayout"
+    tools:context=".PageConnexionActivity" >
 
     <EditText
         android:id="@+id/etPseudo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/Style_Entree_Connexion"
         android:layout_alignTop="@+id/ivEncadre"
         android:layout_marginRight="53dp"
         android:layout_marginTop="51dp"
         android:layout_toLeftOf="@+id/bConnexion"
-        android:ems="10"
-        android:height="100dp"
         android:inputType="textPersonName"
-        android:text="@string/pseudo"
-        android:width="250dp" />
+        android:text="@string/pseudo" />
 
     <ImageView
         android:id="@+id/ivGrandLogo"
@@ -35,21 +25,9 @@
 
     <Button
         android:id="@+id/bConnexion"
-        android:layout_width="140dp"
-        android:layout_height="140dp"
+        style="@style/Style_Bouton_Connexion"
         android:layout_alignRight="@+id/ivEncadre"
-        android:layout_alignTop="@+id/etPseudo"
-        android:layout_marginRight="39dp"
-        android:background="@drawable/custom_btn_breaker_bay"
-        android:gravity="center"
-        android:padding="10dip"
-        android:shadowColor="#000000"
-        android:shadowDx="1"
-        android:shadowDy="1"
-        android:shadowRadius="0.6"
-        android:textColor="#FFFFFF"
-        android:textSize="14sp"
-        android:textStyle="bold" />
+        android:layout_alignTop="@+id/etPseudo" />
 
     <ImageView
         android:id="@+id/ivValiderConnexion"
@@ -63,15 +41,11 @@
 
     <EditText
         android:id="@+id/etPswd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style= "@style/Style_Entree_Connexion"
         android:layout_alignBottom="@+id/bConnexion"
         android:layout_alignLeft="@+id/etPseudo"
-        android:ems="10"
-        android:height="100dp"
-        android:inputType="textPersonName"
-        android:text="@string/pswd"
-        android:width="250dp" />
+       android:inputType="textPassword"
+        android:text="@string/pswd" />
 
     <ImageView
         android:id="@+id/ivEncadre"

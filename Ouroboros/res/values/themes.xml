@@ -6,6 +6,42 @@
     
     <style name="ThemeHoloDialog" parent="android:Theme.Holo.Dialog">
 	</style>
+	
+    <style name="ConnexionLayout">
+        <!-- Any customizations for your app running on 4.0+ devices here -->
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:paddingBottom">@dimen/activity_vertical_margin</item>
+        <item name="android:paddingLeft">@dimen/activity_horizontal_margin</item>
+        <item name="android:paddingRight">@dimen/activity_horizontal_margin</item>
+        <item name="android:paddingTop">@dimen/activity_vertical_margin</item>
+        <item name="android:background">@drawable/fond</item>
+    </style>
+    
+    <style name="Style_Bouton_Connexion">
+        <!-- Any customizations for your app running on 4.0+ devices here -->
+        <item name="android:layout_width">@dimen/taille_bouton_connexion</item>
+        <item name="android:layout_height">@dimen/taille_bouton_connexion</item>
+        <item name="android:layout_marginRight">39dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:shadowColor">@color/Black</item>
+        <item name="android:shadowDx">1</item>
+        <item name="android:shadowDy">1</item>
+        <item name="android:shadowRadius">0.6</item>
+        <item name="android:textColor">@color/White</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:background">@drawable/custom_btn_breaker_bay</item>
+    </style>
+    
+    <style name="Style_Entree_Connexion">
+        <!-- Any customizations for your app running on 4.0+ devices here -->
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:ems">10</item>
+        <item name="android:height">100dp</item>
+        <item name="android:width">250dp</item>
+    </style>
     
     <style name="MenuWritingUserInfo">
         <!-- Any customizations for your app running on 4.0+ devices here -->
@@ -21,7 +57,7 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginTop">4dp</item>
         <item name="android:gravity">center</item>
-        <item name="android:shadowColor">#000000</item>
+        <item name="android:shadowColor">@color/Black</item>
         <item name="android:shadowDx">1</item>
         <item name="android:shadowDy">1</item>
         <item name="android:shadowRadius">0.6</item>
@@ -38,7 +74,7 @@
         <item name="android:paddingBottom">2dp</item>
         <item name="android:paddingLeft">2dp</item>
         <item name="android:paddingTop">20dp</item>
-        <item name="android:textColor">#A9A9A9</item>
+        <item name="android:textColor">@color/GrisTexteTitreMenu</item>
         <item name="android:textSize">18sp</item>
     </style>
     
@@ -46,7 +82,7 @@
         <!-- Any customizations for your app running on 4.0+ devices here -->
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">0.5dp</item>
-        <item name="android:background">#484848</item>
+        <item name="android:background">@color/GrisViewMenu</item>
         <item name="android:paddingTop">16dp</item>
     </style>
     

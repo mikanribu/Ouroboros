@@ -18,8 +18,12 @@
     </style>
 
     <color name="White">#FFFFFF</color>
+    <color name="Black">#000000</color>
     <color name="GrisMenu">#e9e8e8</color>
     <color name="BleuMedecin">#696fe8</color>
+    <color name="GrisFondMenu">#282828</color>
+    <color name="GrisViewMenu">#484848</color>
+    <color name="GrisTexteTitreMenu">#A9A9A9</color>
     
     <!--  Couleur qui correspond à un élément d'une liste sélectionné. -->
     <drawable name="list_activated">#81cfeb</drawable>

@@ -8,7 +8,7 @@
         android:id="@+id/animation_layout_sidebar"
         android:layout_width="200dip"
         android:layout_height="match_parent"
-        android:background="#282828"
+        android:background="@color/GrisFondMenu"
         android:orientation="vertical" >
 
         <!-- On crée le menu ici -->
@@ -21,7 +21,7 @@
             android:layout_marginTop="4dp"
             android:paddingLeft="10dp"
             android:paddingTop="3dp"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/White"
             android:textSize="18sp" />
 
         <TextView
@@ -34,7 +34,7 @@
             android:paddingLeft="30dp"
             android:paddingTop="2dp"
             android:text="@string/medecin"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/White"
             android:textSize="16sp" />
 
         <View
