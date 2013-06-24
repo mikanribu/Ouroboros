@@ -5,6 +5,7 @@ import java.text.SimpleDateFormat;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,7 +45,7 @@ public class AfficherPatientFragment extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState ){
 		View view = inflater.inflate(R.layout.fragment_visualiser_patients,container, false);
-		
+		Log.v ("COUCOU", "LOG de onCreateView Patient");
 		/*Récupération des variables de type du layout "fragment_visualiser_patients"
 		 * Permet de récuéperer les TextView afin de leur affilier une valeur		 */		
 		nNomPatient = (TextView)view.findViewById(R.id.tvNomPatient);
@@ -78,7 +79,7 @@ public class AfficherPatientFragment extends Fragment {
 	public void afficherPatient (Patient patient) {
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 		this.patient = patient;
-		
+		Log.v ("COUCOU", "LOG de afficherPatient");
 		//On affilie chaque TextView à une valeur de la classe Patient
 		nNomPatient.setText(patient.getPrenom() + " " + patient.getNom());
 		nSexePatient.setText(patient.getSexe().toString());

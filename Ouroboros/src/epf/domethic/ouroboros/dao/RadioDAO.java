@@ -109,13 +109,13 @@ public class RadioDAO {
 	
 	public Radio getRadio(Cursor cursor){
 		Radio radio = new Radio();
-		radio.setTitre(cursor.getString(0));
-		radio.setNomRadio(cursor.getString(1));
-		radio.setCause(cursor.getString(2));
-		radio.setDate(cursor.getString(3));
-		radio.setMedecin(cursor.getString(4));
-		radio.setDescription(cursor.getString(5));
-		radio.setInterpretation(cursor.getString(6));
+		radio.setTitre(cursor.getString(1));
+		radio.setNomRadio(cursor.getString(2));
+		radio.setCause(cursor.getString(3));
+		radio.setDate(cursor.getString(4));
+		radio.setMedecin(cursor.getString(5));
+		radio.setDescription(cursor.getString(6));
+		radio.setInterpretation(cursor.getString(7));
 		
 		return radio;
 	}

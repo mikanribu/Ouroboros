@@ -76,6 +76,7 @@ public class DMPActivity extends SherlockFragmentActivity implements
 	public void onCreate(Bundle savedInstanceState) {
 
 		super.onCreate(savedInstanceState);
+		Log.v ("COUCOU", "LOG de onCreate DMP");
 		getSupportActionBar().setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 		setContentView(R.layout.activity_dmp);
 		
@@ -144,7 +145,7 @@ public class DMPActivity extends SherlockFragmentActivity implements
 			}
 		});
 
-		// Amener l'utilisateru sur la liste de totues les hospitalisations
+		// Amener l'utilisateru sur la liste de toutes les hospitalisations
 		// auquel il a accès
 		tvHospitalisation = (TextView) findViewById(R.id.tvHospitalisation);
 		final Intent intent_liste = new Intent(DMPActivity.this,HospitalisationsActivity.class);
@@ -324,8 +325,8 @@ public class DMPActivity extends SherlockFragmentActivity implements
 		switch (position) {
 		case 1:
 			listeOnglets.clear();
-			fragmentTransaction.replace(R.id.detail, hospitalisation);
-			listeOnglets.add(hospitalisation);
+			fragmentTransaction.replace(R.id.detail, radio_fragment);
+			listeOnglets.add(radio_fragment);
 			fragmentTransaction.replace(R.id.menu_gauche, menu_hospi);
 			listeOnglets.add(menu_hospi);
 			break;
@@ -361,6 +362,8 @@ public class DMPActivity extends SherlockFragmentActivity implements
 	@Override
 	public void onRadioSelected(int position, Radio radio) {
 		this.position = position;
+		Log.v("TAG", "position frrrgrl "+ position );
+		Log.v("TAG", "radio dvfdkfjg "+ radio.getMedecin());
 		radio_fragment.afficherRadio(radio);
 
 	}

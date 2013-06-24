@@ -47,7 +47,7 @@ public class AfficherRadioFragment extends SherlockFragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.fragment_afficher_radio,container, false);
-
+		Log.v("YO", "Log onCreateView Radio ");
 		titre = (TextView) view.findViewById(R.id.tvTitreRadio);
 		nomRadio = (TextView) view.findViewById(R.id.tvRadioValue);
 		cause = (TextView) view.findViewById(R.id.tvCauseValue);
@@ -56,21 +56,10 @@ public class AfficherRadioFragment extends SherlockFragment {
 		description = (TextView) view.findViewById(R.id.tvDescriptionValue);
 		interpretation = (TextView) view
 				.findViewById(R.id.tvInterpretationValue);
-		
-		try {
-			  image = (ImageView)view.findViewById(R.id.ivRadio);
-;
-			Bitmap bitmap = BitmapFactory.decodeStream((InputStream)new URL(imageUrl).getContent());
-			  image.setImageBitmap(bitmap); 
-			} catch (MalformedURLException e) {
-			  e.printStackTrace();
-			} catch (IOException e) {
-			  e.printStackTrace();
-			}
+		image = (ImageView)view.findViewById(R.id.ivRadio);
 		
 		
-		//afficherRadio();
-		
+			
 		image.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -79,14 +68,13 @@ public class AfficherRadioFragment extends SherlockFragment {
 					FragmentTransaction fragmentTransaction = manager.beginTransaction();
 					fragmentTransaction.replace(R.id.deuxTiers,fragment_zoom_radio);
 					fragmentTransaction.commit();
-				}
-			
+				}		
 		});
 
 		return view;
 	}
 
-	public void afficherRadio(int id) {
+/*	public void afficherRadio(int id) {
 		RadioDAO dao = null;
 		Cursor cursor = dao.getRadiosCursor(id);
 
@@ -134,34 +122,37 @@ public class AfficherRadioFragment extends SherlockFragment {
 		} else
 			Log.v("TAG", "EMPTY ");
 		// titre.setText(cursor.getString(2));
-		Log.v("TAG", "Cursor 1 " + titre);
 		// nomRadio.setText(cursor.getString(3));
-		Log.v("TAG", "Cursor 2 " + nomRadio);
 		// cause.setText(cursor.getString(4));
-		Log.v("TAG", "Cursor 3 " + cause);
-
 		// date.setText(cursor.getString(5));
 		// medecin.setText(cursor.getString(6));
 		// description.setText(cursor.getString(7));
 		// interpretation.setText(cursor.getString(8));
-	
-	}
-
-	
+	}*/
 	
 	public void afficherRadio(Radio radio) {
+		
+		this.radio=radio;
 		titre.setText(radio.getTitre());
 		nomRadio.setText(radio.getNomRadio());
 		cause.setText(radio.getCause());
 		date.setText(radio.getDate());
+		Log.v("TAG","Log afficherRadio" );
+		Log.v("TAG","clem" +radio.getMedecin());
 		medecin.setText(radio.getMedecin());
+		Log.v("TAG","clem apres setTex " + medecin);
 		description.setText(radio.getDescription());
 		interpretation.setText(radio.getInterpretation());
-
-	}
-
-	public void onDetach(){
-		super.onDetach();
+		
+		try {
+			  
+			Bitmap bitmap = BitmapFactory.decodeStream((InputStream)new URL(imageUrl).getContent());
+			  image.setImageBitmap(bitmap); 
+			} catch (MalformedURLException e) {
+			  e.printStackTrace();
+			} catch (IOException e) {
+			  e.printStackTrace();
+			}
 	}
 	
 }

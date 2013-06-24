@@ -1,6 +1,7 @@
 package epf.domethic.ouroboros.activity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,7 @@ public class HospitalisationEnCoursFragment extends SherlockFragment{
 	
 	 @Override
 	   	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState ){
+		 Log.v ("COUCOU", "LOG de onCreateView HospiEn Cours");
 	   		View view = inflater.inflate(R.layout.fragment_afficher_radio,container, false);
 	   		return view;
 	 }
