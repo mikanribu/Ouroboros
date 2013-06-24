@@ -12,7 +12,6 @@ import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.StrictMode;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.View;
@@ -36,14 +35,8 @@ import epf.domethic.ouroboros.widget.AnimationLayout;
 public class DMPActivity extends SherlockFragmentActivity implements
 		TabListener, AnimationLayout.Listener, OnRadioSelectedListener {
 
-	InformationsGeneralesFragment infos = new InformationsGeneralesFragment();
-	HospitalisationEnCoursFragment hospitalisation = new HospitalisationEnCoursFragment();
-	HistoriqueFragment historique = new HistoriqueFragment();
-	CodificationFragment codification = new CodificationFragment();
-	ListeGaucheHospiDMPFragment menu_hospi = new ListeGaucheHospiDMPFragment();
-	ListeGaucheInfosDMPFragment menu_infos = new ListeGaucheInfosDMPFragment();
+	
 	private ArrayList<SherlockFragment> listeOnglets = new ArrayList<SherlockFragment>();
-	AfficherRadioFragment radio_fragment = new AfficherRadioFragment();
 	private int position;
 	public final static String TAG = "Demo";
 	protected AnimationLayout mLayout;
@@ -65,10 +58,12 @@ public class DMPActivity extends SherlockFragmentActivity implements
 	AlertDialog.Builder boite;
 
 	// Fragments
-	ListerPatientsFragment liste_patients = new ListerPatientsFragment();
-	AfficherPatientFragment detail_patient = new AfficherPatientFragment();
-	RechercheGeneraleFragment recherche = new RechercheGeneraleFragment();
-
+	InformationsGeneralesFragment infos = new InformationsGeneralesFragment();
+ 	HospitalisationEnCoursFragment hospitalisation = new HospitalisationEnCoursFragment();
+	ListeGaucheHospiDMPFragment menu_hospi = new ListeGaucheHospiDMPFragment();
+	ListeGaucheInfosDMPFragment menu_infos = new ListeGaucheInfosDMPFragment();
+	AfficherRadioFragment radio_fragment = new AfficherRadioFragment();
+	
 	JSONArray personnes = null;
 
 	// url ou l'on peut accéder au JSON des sécrétaires médicales.
@@ -142,28 +137,21 @@ public class DMPActivity extends SherlockFragmentActivity implements
 
 		// Amener l'utilisateur sur la page recherche d'une personne
 		tvRecherche = (TextView) findViewById(R.id.tvRecherche);
-		final Intent intent_hospi = new Intent(DMPActivity.this,
-			HospitalisationsActivity.class);
 		tvRecherche.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				intent_hospi.putExtra("destination", "recherche");
-				startActivity(intent_hospi);
-				
+				boite.show();				
 			}
 		});
 
 		// Amener l'utilisateru sur la liste de totues les hospitalisations
 		// auquel il a accès
 		tvHospitalisation = (TextView) findViewById(R.id.tvHospitalisation);
-		final Intent intent_liste = new Intent(DMPActivity.this,
-				HospitalisationsActivity.class);
+		final Intent intent_liste = new Intent(DMPActivity.this,HospitalisationsActivity.class);
 		tvHospitalisation.setOnClickListener(new View.OnClickListener() {
 				@Override
 				public void onClick(View v) {
-					intent_liste.putExtra("destination", "liste_patients");
-					startActivity(intent_hospi);
-					
+					startActivity(intent_liste);					
 				}
 		});
 
@@ -226,52 +214,6 @@ public class DMPActivity extends SherlockFragmentActivity implements
 			}
 		});
 
-		/*
-		 * // Affiche dans le menu le nom du médecin connecté et sa fonction
-		 * tvFonction = (TextView) findViewById(R.id.tvNomMedecin);
-		 * RecuperationJSON(pseudo, fonction);
-		 */
-		// }
-
-		/*
-		 * // Si l'utilisateru est une secrétaire médicale else if (fonction ==
-		 * 2) { Log.v(TAG, "la est le probleme?");
-		 * setContentView(R.layout.menu_secretaire_medicale);
-		 * 
-		 * android.app.ActionBar actionBar = getActionBar(); Resources resources
-		 * = getResources(); Drawable drawable;
-		 * 
-		 * drawable = resources.getDrawable(R.drawable.barre_hautsecadm);
-		 * Log.v(TAG, "nn");
-		 * 
-		 * actionBar.setBackgroundDrawable(drawable);
-		 * actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
-		 * actionBar.setHomeButtonEnabled(true); // The icone_launcher will not
-		 * // go // back automatically to // home // (API min 14)
-		 * 
-		 * // Pas d'affichage du nom de l'application dans la barre d'action
-		 * actionBar.setDisplayShowTitleEnabled(false);
-		 * 
-		 * mList = (LinearLayout) findViewById(R.id.animation_layout_sidebar);
-		 * mLayout = (AnimationLayout) findViewById(R.id.animation_layout);
-		 * mLayout.setListener(this);
-		 * 
-		 * // Gère la déconnexion de l'utilisateur tvDeconnexion = (TextView)
-		 * findViewById(R.id.tvDeconnexion); final Intent intent_connexion = new
-		 * Intent( DMPActivity.this, ConnexionActivity.class);
-		 * 
-		 * tvDeconnexion.setOnClickListener(new OnClickListener() {
-		 * 
-		 * @Override public void onClick(View v) {
-		 * startActivity(intent_connexion); } }); tvFonction = (TextView)
-		 * findViewById(R.id.tvNomSecretaireMedicale); RecuperationJSON(pseudo,
-		 * fonction); } // Si l'utilisateur n'est ni médecin, ni secrétaire
-		 * médicale. else { Toast.makeText(getApplicationContext(),
-		 * "Ce type d'utilisateur n'a pas encore été implémenté.",
-		 * Toast.LENGTH_SHORT).show();
-		 * 
-		 * }
-		 */
 
 	}
 
@@ -389,21 +331,10 @@ public class DMPActivity extends SherlockFragmentActivity implements
 			break;
 
 		case 2:
-			for (int i = 0; i < listeOnglets.size(); i++) {
-				fragmentTransaction.remove(listeOnglets.get(i));
-			}
-			listeOnglets.clear();
-			fragmentTransaction.add(R.id.menu_gauche, historique);
-			listeOnglets.add(historique);
+			boite.show();
 			break;
-
 		case 3:
-			for (int i = 0; i < listeOnglets.size(); i++) {
-				fragmentTransaction.remove(listeOnglets.get(i));
-			}
-			listeOnglets.clear();
-			fragmentTransaction.add(R.id.menu_gauche, codification);
-			listeOnglets.add(codification);
+			boite.show();
 			break;
 
 		default:

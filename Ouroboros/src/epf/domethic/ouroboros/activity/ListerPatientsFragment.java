@@ -92,12 +92,8 @@ public class ListerPatientsFragment extends ListFragment {
 	}
 
 	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
-
-		View view = inflater.inflate(R.layout.fragment_patients_list,
-				container, false);
-
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,	Bundle savedInstanceState) {
+		View view = inflater.inflate(R.layout.fragment_patients_list,container, false);
 		return view;
 	}
 
