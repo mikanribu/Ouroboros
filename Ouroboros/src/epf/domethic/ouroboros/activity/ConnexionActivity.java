@@ -33,6 +33,7 @@ import android.widget.Toast;
 
 public class ConnexionActivity extends Activity {
 
+	/*----------	Déclaration des variables	----------*/
 	Button bConnexion;
 	EditText etPswd;
 	EditText etPseudo;
@@ -48,6 +49,7 @@ public class ConnexionActivity extends Activity {
 	private User user;
 	List<User> userList = new ArrayList<User>();
 	
+	/*----------	Déclaration des fonctions	----------*/
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

@@ -13,7 +13,7 @@ import epf.domethic.ouroboros.R;
 
 
 public class HospitalisationEnCoursFragment extends SherlockFragment{
-	
+	//Création de la vue
 	 @Override
 	   	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState ){
 		 Log.v ("COUCOU", "LOG de onCreateView HospiEn Cours");

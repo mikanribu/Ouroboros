@@ -19,7 +19,8 @@ public class ListeGaucheInfosDMPFragment extends SherlockFragment {
  
 	private ListView listViewInfos;
  
-    /** Called when the activity is first created. */
+	/*----------	Déclaration des fonctions	----------*/
+	//Création de la vue
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState ){
 		View view = inflater.inflate(R.layout.fragment_liste_infos_dmp,container, false);
@@ -37,12 +38,12 @@ public class ListeGaucheInfosDMPFragment extends SherlockFragment {
         map = new HashMap<String, String>();
         //on insère un élément titre que l'on récupérera dans le textView titre créé dans le fichier item_list_infos_dmp.xml
         map.put("titre", "Données Patient");
-        //on insère la référence à l'image (converti en String car normalement c'est un int que l'on récupérera dans l'imageView créé dans le fichier affichageitem.xml
+        //on insère la référence à l'image (converti en String car normalement c'est un int que l'on récupérera dans l'imageView créée dans le fichier affichageitem.xml)
         map.put("img", String.valueOf(R.drawable.logo_donnees_patient));
         //enfin on ajoute cette hashMap dans la arrayList
         listItem.add(map);
  
-        //On refait la manip plusieurs fois avec des données différentes pour former les items de notre ListView
+        //On refait la manipulation plusieurs fois avec des données différentes pour former les items de notre ListView
  
         map = new HashMap<String, String>();
         map.put("titre", "Nouvelle hospitalisation");

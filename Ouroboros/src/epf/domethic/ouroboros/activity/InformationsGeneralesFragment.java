@@ -15,6 +15,7 @@ import epf.domethic.ouroboros.model.Patient;
 
 public class InformationsGeneralesFragment extends SherlockFragment{
 	
+	/*----------	Déclaration des variables	----------*/
 	private TextView nNomPatient;
 	private TextView nSexePatient;
 	private TextView nLieuNaissance;
@@ -31,6 +32,9 @@ public class InformationsGeneralesFragment extends SherlockFragment{
 	private Patient patient;
 	private int id;
 	
+	/*----------	Déclaration des fonctions	----------*/
+	
+	//Création de la vue
     @Override
    	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState ){
    		View view = inflater.inflate(R.layout.fragment_infos_g,container, false);
@@ -42,6 +46,7 @@ public class InformationsGeneralesFragment extends SherlockFragment{
    		int myInt = getArguments().getInt("identifiant", id);
    		}
    		
+   	//Récupération des variables du layout pour leur affilier une valeur
 		nNomPatient = (TextView)view.findViewById(R.id.tvNomPatient);
 		nSexePatient = (TextView)view.findViewById(R.id.tvSexeValuePatient);
 		nLieuNaissance = (TextView)view.findViewById(R.id.tvLieuNaissanceValuePatient);
@@ -58,9 +63,10 @@ public class InformationsGeneralesFragment extends SherlockFragment{
    		return view;
        }
     
+    //Méthode d'affichage du patient
     public void afficherPatient (Patient patient) {
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-		
+		//On affilie chaque TextView à une valeur de la classe Patient
 		this.patient = patient;
 		nNomPatient.setText(patient.getPrenom() + " " + patient.getNom());
 		nSexePatient.setText(patient.getSexe().toString());

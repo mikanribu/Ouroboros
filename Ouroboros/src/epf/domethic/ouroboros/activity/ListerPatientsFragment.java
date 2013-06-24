@@ -35,13 +35,12 @@ public class ListerPatientsFragment extends ListFragment {
 		public void onPatientSelected(int position, Patient patient);
 	}
 
+	/*----------	Déclaration des variables	----------*/
 	// url contenant le fichier json des patients de l'application
 	static String url = "http://raw.github.com/Mikanribu/Ouroboros/master/json_patients";
 
 	private OnPatientSelectedListener listener;
-
 	private ListView patientListView;
-
 	private PatientDAO dao;
 	private Patient patient; // Création d'un patient de la classe Patient
 
@@ -52,6 +51,7 @@ public class ListerPatientsFragment extends ListFragment {
 	JSONArray patients = null; // Objet JSON récupéré de la classe ParserJSON
 	List<Patient> patientList = new ArrayList<Patient>();
 
+	/*----------	Déclaration des fonctions	----------*/
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -59,29 +59,23 @@ public class ListerPatientsFragment extends ListFragment {
 		
 		// Récupération de la listview créée dans le fichier main.xml
 		patientListView = getListView();
-
 		patientList = (ArrayList<Patient>) Patient.ALL;
 		
 		//Choix du mode de sélection : un seul élément de la liste peut être sélectionné
 		patientListView.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
-		
 		patientListView.setAdapter(adapter);
-
 	}
 
 	@Override
 	public void onStart() {
 		super.onStart();
-		Log.v ("COUCOU", "LOG de onStart");
 		//Sélection du premier élément de la liste lors du lancement du fragment
-		patientListView.performItemClick(getListView(), 0, 0);
-		
+		patientListView.performItemClick(getListView(), 0, 0);		
 	}
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		Log.v ("COUCOU", "LOG de onCreate");
 		this.dao = new PatientDAO(getActivity());
 
 		// On vérifie si la base de données est vide ou non
@@ -102,9 +96,7 @@ public class ListerPatientsFragment extends ListFragment {
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,	Bundle savedInstanceState) {
-		Log.v ("COUCOU", "LOG de onCreateView ListerPatient");
 		View view = inflater.inflate(R.layout.fragment_patients_list,container, false);
-		Log.v ("COUCOU", "Apres LOG de onCreateView ListerPatient");
 		return view;
 	}
 

@@ -41,7 +41,7 @@ public class HospitalisationsActivity extends FragmentActivity implements Animat
 	protected LinearLayout mList;
 	protected AnimationLayout mLayout;
 
-	// Les boutons du menu
+	// Contenu du menu
 	private TextView tvFonction;
 	private TextView tvDeconnexion;
 	private TextView tvRecherche;
@@ -53,10 +53,10 @@ public class HospitalisationsActivity extends FragmentActivity implements Animat
 	private TextView tvMonCompte;
 	private TextView tvHospitalisation;	
 
-	// Boîte de dialogue pour les fonctions non encore implémentée
+	// Boîte de dialogue pour les fonctions non implémentées
 	AlertDialog.Builder boite;
 
-	//Fragment
+	//Déclaration des fragments
 	AfficherPatientFragment detail_patient = new AfficherPatientFragment();
 	ListerPatientsFragment liste_patients = new ListerPatientsFragment();
 	
@@ -95,10 +95,8 @@ public class HospitalisationsActivity extends FragmentActivity implements Animat
 		mLayout.setListener(this);
 
 		
-		// Création de la boîte de dialogue qui sera affichée lorsque
-		// l'utilisateur cliquera sur des boutons pas développé
+		// Création de la boîte de dialogue qui sera affichée lorsque l'utilisateur cliquera sur des boutons du menu non développés
 		ContextThemeWrapper ctw = new ContextThemeWrapper( this, R.style.ThemeHoloDialog );
-        
 		boite = new AlertDialog.Builder(ctw);
 		boite.setTitle("La fonction n'est pas encore implémentée!");
 		boite.setIcon(R.drawable.travaux);
@@ -119,11 +117,10 @@ public class HospitalisationsActivity extends FragmentActivity implements Animat
 		if(fonction == 0){
 			Intent intent = getIntent ();
 			
-			// Récuperer le pseudo entré en connection
+			// Récuperer le pseudo entré en connexion
 			String nom = intent.getStringExtra("nom");
 			String prenom = intent.getStringExtra("prenom");
-						
-			
+									
 			if(intent.getStringExtra("fonction")!=null){
 				fonction = Integer.parseInt(intent.getStringExtra("fonction"));
 			}
@@ -136,7 +133,7 @@ public class HospitalisationsActivity extends FragmentActivity implements Animat
 				myDrawable = r.getDrawable(R.drawable.barre_haut);
 				actionBar.setBackgroundDrawable(myDrawable);
 				
-				// Amener l'utilisateur sur la page recherche d'une personne
+				// Fonction Recherche non implémentée: renvoie vers la boite de dialogue
 				tvRecherche = (TextView) findViewById(R.id.tvRecherche);
 				tvRecherche.setOnClickListener(new View.OnClickListener() {
 					@Override
@@ -145,7 +142,7 @@ public class HospitalisationsActivity extends FragmentActivity implements Animat
 					}
 				});
 	
-				// Fonction non implémentée: renvoit vers la boite de dialogue
+				// Fonction Création dossier non implémentée: renvoie vers la boite de dialogue
 				tvCreationDossier = (TextView) findViewById(R.id.tvCreationDossier);
 				tvCreationDossier.setOnClickListener(new View.OnClickListener() {
 	
@@ -155,20 +152,18 @@ public class HospitalisationsActivity extends FragmentActivity implements Animat
 					}
 				});
 	
-				// Fonction non implémentée: renvoit vers la boite de dialogue
+				// Fonction Ajout document non implémentée: renvoie vers la boite de dialogue
 				tvAjoutDoc = (TextView) findViewById(R.id.tvAjoutDocument);
 				tvAjoutDoc.setOnClickListener(new View.OnClickListener() {
-	
 					@Override
 					public void onClick(View v) {
 						boite.show();
 					}
 				});
 	
-				// Fonction non implémentée: renvoit vers la boite de dialogue
+				// Fonction Transfert non implémentée: renvoie vers la boite de dialogue
 				tvTransfert = (TextView) findViewById(R.id.tvTransfert);
 				tvTransfert.setOnClickListener(new View.OnClickListener() {
-	
 					@Override
 					public void onClick(View v) {
 						// TODO Auto-generated method stub
@@ -176,16 +171,17 @@ public class HospitalisationsActivity extends FragmentActivity implements Animat
 					}
 				});
 	
+				// Fonction A codifier non implémentée: renvoie vers la boite de dialogue
 				tvCodification = (TextView) findViewById(R.id.tvACodifier);
 				tvCodification.setOnClickListener(new View.OnClickListener() {
-	
 					@Override
 					public void onClick(View v) {
 						boite.show();
 					}
 	
 				});
-	
+				
+				// Fonction Archives non implémentée: renvoie vers la boite de dialogue
 				tvArchives = (TextView) findViewById(R.id.tvArchives);
 				tvArchives.setOnClickListener(new View.OnClickListener() {
 					@Override
@@ -194,22 +190,11 @@ public class HospitalisationsActivity extends FragmentActivity implements Animat
 					}
 				});
 	
-				// Fonction non implémentée: renvoit vers la boite de dialogue
-				tvArchives = (TextView) findViewById(R.id.tvArchives);
-				tvArchives.setOnClickListener(new View.OnClickListener() {
-					@Override
-					public void onClick(View v) {
-						boite.show();
-					}
-				});
-	
-				// Fonction non implémentée: renvoit vers la boite de dialogue
+				// Fonction Mon compte non implémentée: renvoie vers la boite de dialogue
 				tvMonCompte = (TextView) findViewById(R.id.tvMonCompte);
-				tvMonCompte.setOnClickListener(new View.OnClickListener() {
-	
+				tvMonCompte.setOnClickListener(new View.OnClickListener() {	
 					@Override
 					public void onClick(View v) {
-						// TODO Auto-generated method stub
 						boite.show();
 					}
 				});
@@ -218,26 +203,26 @@ public class HospitalisationsActivity extends FragmentActivity implements Animat
 				tvFonction = (TextView) findViewById(R.id.tvNomMedecin);
 				tvFonction.setText(prenom + " " + nom);
 			}
-			// Si l'utilisateru est une secrétaire médicale
+			
+			// Si l'utilisateur est une secrétaire médicale
 			else if (fonction == 2) {
-				Log.v(TAG, "la est le probleme?");
 				setContentView(R.layout.menu_secretaire_medicale);
 	
 				myDrawable = r.getDrawable(R.drawable.barre_hautsecadm);
 				actionBar.setBackgroundDrawable(myDrawable);
-				
-				Log.v(TAG, "nn");
-	
+		
+				// Affiche dans le menu le nom de la secrétaire médicale connectée et sa fonction
 				tvFonction = (TextView) findViewById(R.id.tvNomSecretaireMedicale);
 				tvFonction.setText(prenom + " " + nom);
 			}
+			
 			// Si l'utilisateur n'est ni médecin, ni secrétaire médicale.
 			else {
-				Toast.makeText(getApplicationContext(),
-						"Ce type d'utilisateur n'a pas encore été implémenté.",
-						Toast.LENGTH_SHORT).show();
+				Toast.makeText(getApplicationContext(),"Ce type d'utilisateur n'a pas encore été implémenté.",Toast.LENGTH_SHORT).show();
 			}
 		}
+		
+		
 		FragmentManager fragmentManager = getSupportFragmentManager();
 		FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 		
@@ -248,7 +233,6 @@ public class HospitalisationsActivity extends FragmentActivity implements Animat
 
 	@Override
 	public void onPatientSelected(int position, Patient patient) {
-		Log.v ("COUCOU", "LOG de onPatientSelected");
 		this.position = position;
 		detail_patient.afficherPatient(patient);
 	}
@@ -278,6 +262,7 @@ public class HospitalisationsActivity extends FragmentActivity implements Animat
 		return (super.onOptionsItemSelected(menuItem));
 	}
 
+	//Lorsqu'on clique à un endroit du layout de contenu, le menu slide se rétracte
 	public void onClickContentButton(View v) {
 		mLayout.toggleSidebar();
 	}
@@ -291,22 +276,19 @@ public class HospitalisationsActivity extends FragmentActivity implements Animat
 		}
 	}
 
-	/* Callback of AnimationLayout.Listener to monitor status of Sidebar */
 	@Override
 	public void onSidebarOpened() {
 		Log.d(TAG, "opened");
 	}
 
-	/* Callback of AnimationLayout.Listener to monitor status of Sidebar */
 	@Override
 	public void onSidebarClosed() {
 		Log.d(TAG, "closed");
 	}
 
-	/* Callback of AnimationLayout.Listener to monitor status of Sidebar */
+	
 	@Override
 	public boolean onContentTouchedWhenOpening() {
-		// the content area is touched when sidebar opening, close sidebar
 		Log.d(TAG, "going to close sidebar");
 		mLayout.closeSidebar();
 		return true;

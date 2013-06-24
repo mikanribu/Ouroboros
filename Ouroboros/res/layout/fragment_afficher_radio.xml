@@ -79,7 +79,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignTop="@+id/tvRadio"
-            android:layout_marginLeft="450dp"
+            android:layout_marginLeft="400dp"
             android:text="@string/form_date"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textSize="20sp"
@@ -90,7 +90,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/tvDate"
-            android:layout_marginLeft="600dp"
+            android:layout_marginLeft="550dp"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
@@ -118,7 +118,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignTop="@+id/tvCause"
-            android:layout_marginLeft="450dp"
+            android:layout_marginLeft="400dp"
             android:text="@string/form_medecin"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textSize="20sp"
@@ -137,9 +137,8 @@
             android:layout_width="200dp"
             android:layout_height="300dp"
             android:layout_alignParentRight="true"
-            android:layout_below="@+id/tvMedecinValue"
+            android:layout_alignParentTop="true"
             android:contentDescription="Affichage radio" />
-
     </RelativeLayout>
 
     <RelativeLayout

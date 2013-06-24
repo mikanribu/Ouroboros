@@ -362,8 +362,6 @@ public class DMPActivity extends SherlockFragmentActivity implements
 	@Override
 	public void onRadioSelected(int position, Radio radio) {
 		this.position = position;
-		Log.v("TAG", "position frrrgrl "+ position );
-		Log.v("TAG", "radio dvfdkfjg "+ radio.getMedecin());
 		radio_fragment.afficherRadio(radio);
 
 	}

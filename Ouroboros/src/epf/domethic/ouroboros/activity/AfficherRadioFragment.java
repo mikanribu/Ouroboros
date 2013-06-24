@@ -1,7 +1,5 @@
 package epf.domethic.ouroboros.activity;
 
-
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.MalformedURLException;
@@ -11,7 +9,6 @@ import com.actionbarsherlock.app.ActionBar;
 import epf.domethic.ouroboros.R;
 import epf.domethic.ouroboros.dao.RadioDAO;
 import epf.domethic.ouroboros.model.Radio;
-import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -29,6 +26,7 @@ import android.widget.TextView;
 
 public class AfficherRadioFragment extends SherlockFragment {
 
+	/*----------	Déclaration des variables	----------*/
 	private TextView titre;
 	private TextView nomRadio;
 	private TextView cause;
@@ -37,122 +35,65 @@ public class AfficherRadioFragment extends SherlockFragment {
 	private TextView description;
 	private TextView interpretation;
 	private ImageView image;
-	private String imageUrl="https://lh5.googleusercontent.com/-n7mdm7I7FGs/URqueT_BT-I/AAAAAAAAAbs/9MYmXlmpSAo/s1024/Bonzai%252520Rock%252520Sunset.jpg";
- 
-	ZoomRadioFragment fragment_zoom_radio= new ZoomRadioFragment();
-
-	// RadioDAO dao = null;
+	//private String imageUrl = "https://lh5.googleusercontent.com/-n7mdm7I7FGs/URqueT_BT-I/AAAAAAAAAbs/9MYmXlmpSAo/s1024/Bonzai%252520Rock%252520Sunset.jpg";
+	private String imageUrl ="http://www.prisedevue.com/francais/chapitres/info_pratique/picsbio/radio.jpg";
 	private Radio radio;
+	
+	//Déclaration du fragment
+	ZoomRadioFragment fragment_zoom_radio = new ZoomRadioFragment();
+	
 
+	/*----------	Déclaration des fonctions	----------*/
+	//Création de la vue
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.fragment_afficher_radio,container, false);
-		Log.v("YO", "Log onCreateView Radio ");
+		//Récupération des variables du layout fragment_afficher_radio pour leur affilier une valeur
 		titre = (TextView) view.findViewById(R.id.tvTitreRadio);
 		nomRadio = (TextView) view.findViewById(R.id.tvRadioValue);
 		cause = (TextView) view.findViewById(R.id.tvCauseValue);
 		date = (TextView) view.findViewById(R.id.tvDateValue);
 		medecin = (TextView) view.findViewById(R.id.tvMedecinValue);
 		description = (TextView) view.findViewById(R.id.tvDescriptionValue);
-		interpretation = (TextView) view
-				.findViewById(R.id.tvInterpretationValue);
-		image = (ImageView)view.findViewById(R.id.ivRadio);
-		
-		
-			
+		interpretation = (TextView) view.findViewById(R.id.tvInterpretationValue);
+		image = (ImageView) view.findViewById(R.id.ivRadio);
+
+		//Quand on clique sur l'image, on appelle le fragment ZoomRadioFragment
 		image.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				FragmentManager manager = AfficherRadioFragment.this.getFragmentManager();
-
-					FragmentTransaction fragmentTransaction = manager.beginTransaction();
-					fragmentTransaction.replace(R.id.deuxTiers,fragment_zoom_radio);
-					fragmentTransaction.commit();
-				}		
+				FragmentTransaction fragmentTransaction = manager.beginTransaction();
+				Log.v("YO", "je vais afficher la radio");
+				fragmentTransaction.replace(R.id.animation_layout_content, fragment_zoom_radio);
+				fragmentTransaction.commit();
+			}
 		});
 
 		return view;
 	}
 
-/*	public void afficherRadio(int id) {
-		RadioDAO dao = null;
-		Cursor cursor = dao.getRadiosCursor(id);
-
-		titre.setText(cursor.getString(2));
-		nomRadio.setText(cursor.getString(3));
-		cause.setText(cursor.getString(4));
-		date.setText(cursor.getString(5));
-		medecin.setText(cursor.getString(6));
-		description.setText(cursor.getString(7));
-		interpretation.setText(cursor.getString(8));
-	}
-
-	public void afficherRadio() {
-		titre.setText("Thorax test");
-		nomRadio.setText("Radio du thorax");
-		cause.setText("Faiblesse pulmonaire");
-		date.setText("22/05/2013");
-		medecin.setText("Dr House");
-		description.setText("Eminuit autem inter humilia supergressa iam impotentia fines mediocrium delictorum nefanda Clematii.");
-		interpretation.setText("Tempore quo primis auspiciis in mundanum fulgorem surgeret victura dum erunt homines Roma.");
-
-	}
-
-	public void afficherRadio(String nom, RadioDAO dao) {
-
-		Cursor cursor = dao.getRadiosCursor("Thorax");
-		cursor.moveToFirst();
-		String test;
-		if (cursor != null && cursor.getCount() > 0) {
-
-			Log.v("TAG", "Cursor count " + cursor.getCount());
-			Log.v("TAG", "cursor string " + cursor.getString(2));
-			// Log.v("TAG","Cursor "+cursor.moveToFirst());
-			test = cursor.getString(2);
-
-			//titre.setText(cursor.getString(2));
-			titre.setText("blablbalabldblebrgl");
-			Log.v("TAG", "Cursor TEST " + test);
-			Log.v("TAG", "TEST !!!!!!!!! " + radio.getTitre());
-
-			//titre.setText("Radio du thorax test");
-			// titre.setText(radio.getTitre());
-
-			Log.v("TAG", "Cursor 1 " + titre);
-		} else
-			Log.v("TAG", "EMPTY ");
-		// titre.setText(cursor.getString(2));
-		// nomRadio.setText(cursor.getString(3));
-		// cause.setText(cursor.getString(4));
-		// date.setText(cursor.getString(5));
-		// medecin.setText(cursor.getString(6));
-		// description.setText(cursor.getString(7));
-		// interpretation.setText(cursor.getString(8));
-	}*/
-	
+	//Méthode d'affichage de la radio
 	public void afficherRadio(Radio radio) {
-		
-		this.radio=radio;
+		this.radio = radio;
+		//On affilie chaque TextView à une valeur de la classe Radio
 		titre.setText(radio.getTitre());
 		nomRadio.setText(radio.getNomRadio());
 		cause.setText(radio.getCause());
 		date.setText(radio.getDate());
-		Log.v("TAG","Log afficherRadio" );
-		Log.v("TAG","clem" +radio.getMedecin());
 		medecin.setText(radio.getMedecin());
-		Log.v("TAG","clem apres setTex " + medecin);
 		description.setText(radio.getDescription());
 		interpretation.setText(radio.getInterpretation());
-		
+
+		//On cherche l'image via une URL
 		try {
-			  
-			Bitmap bitmap = BitmapFactory.decodeStream((InputStream)new URL(imageUrl).getContent());
-			  image.setImageBitmap(bitmap); 
-			} catch (MalformedURLException e) {
-			  e.printStackTrace();
-			} catch (IOException e) {
-			  e.printStackTrace();
-			}
+			Bitmap bitmap = BitmapFactory.decodeStream((InputStream) new URL(imageUrl).getContent());
+			image.setImageBitmap(bitmap);
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
-	
+
 }

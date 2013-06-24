@@ -40,35 +40,29 @@ public class ListeGaucheHospiDMPFragment extends SherlockFragment {
 	private OnRadioSelectedListener listener;
 	private Radio radio;
 
+	//URL pour accéder au JSON des radios et des patients
 	static String url2 = "http://raw.github.com/Mikanribu/Ouroboros/master/json_radios";
 	static String url = "http://raw.github.com/Mikanribu/Ouroboros/master/json_patients";
 	JSONArray radios = null;
-
+	
+	//Déclaration du fragment
 	AfficherRadioFragment fragment_afficher_radio = new AfficherRadioFragment();
-
-	private final static String TAG = ListerPatientsFragment.class.getSimpleName();
     
     RadioDAO dao =null;
 
-    
-    
+    //Création de la vue
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		Log.v ("COUCOU", "LOG de onCreateView ListeGauche");
 		View view = inflater.inflate(R.layout.fragment_liste_hospi_dmp,container, false);
 
 		this.dao = new RadioDAO(getActivity());
-
 		mExpandableList = (ExpandableListView) view.findViewById(R.id.menu_gauche_hospi);
 		
-
 		if (dao.dbIsEmpty() == true) {
-			Log.v("TAG", "DANS LE IF!!!!!");
 			RecuperationJSON();
 		}
 
-		// Méthode temporaire pour avoir un menu propre en attendant d'aller
-		// chercher dans la bdd
+		// Méthode temporaire pour avoir un menu propre en attendant d'aller chercher dans la bdd
 		ArrayList<String> arrayNomParents = new ArrayList<String>();
 		arrayNomParents.add("Analyses"); // indice 0
 		arrayNomParents.add("Examens"); // indice 1
@@ -108,8 +102,7 @@ public class ListeGaucheHospiDMPFragment extends SherlockFragment {
 			}
 			parent.setArrayChildren(arrayChildren);
 
-			// in this array we add the Parent object. We will use the
-			// arrayParents at the setAdapter
+			// in this array we add the Parent object. We will use the arrayParents at the setAdapter
 			arrayParents.add(parent);
 
 		}
@@ -118,28 +111,15 @@ public class ListeGaucheHospiDMPFragment extends SherlockFragment {
 		mExpandableList.setAdapter(new MenuGaucheHospiDMPAdapter(
 				getSherlockActivity(), arrayParents));
 
+		//Ecouteur d'événement de l'expandable liste
 		mExpandableList.setOnChildClickListener(new OnChildClickListener() {
 			@Override
 			public boolean onChildClick(ExpandableListView parent, View v,int group_position, int child_position, long id) {
-				FragmentManager manager = ListeGaucheHospiDMPFragment.this.getFragmentManager();
 
 				if (group_position == 3 && child_position == 1) {
-
-					/*FragmentTransaction fragmentTransaction = manager.beginTransaction();
-					//manager.popBackStack();
-					Log.v("TAG", "avant appel frgament");
-					fragmentTransaction.replace(R.id.deuxTiers,fragment_afficher_radio);
-					//fragmentTransaction.addToBackStack("vers_radio");
-					fragmentTransaction.commit();
-					Log.v("TAG", "apres appel frgament");*/
-					
 					Cursor cursor = dao.getRadiosCursor(child_position);
 					cursor.moveToFirst();
-					
-					Log.v("TAG", "cursor string " + cursor.getString(2));
-					
 					radio = dao.getRadio(cursor);
-					Log.v("TAG", "test radio liste gauche " + radio.getMedecin());
 					listener.onRadioSelected(child_position, radio);
 				}
 
@@ -155,7 +135,7 @@ public class ListeGaucheHospiDMPFragment extends SherlockFragment {
         map.put("img", String.valueOf(R.drawable.logo_new_doc));
         listItem.add(map);
         
-      //Création d'un SimpleAdapter qui se chargera de mettre les items présent dans notre list (listItem) dans la vue affichageitem
+      //Création d'un SimpleAdapter qui se chargera de mettre les items présents dans notre liste (listItem) dans la vue affichageitem
         SimpleAdapter mSchedule = new SimpleAdapter (getActivity().getBaseContext(), listItem, R.layout.menu_infos_dmp_elements,
                new String[] {"img", "titre", "description"}, new int[] {R.id.ivImage, R.id.tvTitre});
  
@@ -188,27 +168,6 @@ public class ListeGaucheHospiDMPFragment extends SherlockFragment {
 		listener = null;
 	}
 
-	public class Parent {
-		private String mTitle;
-		private ArrayList<String> mArrayChildren;
-
-		public String getTitle() {
-			return mTitle;
-		}
-
-		public void setTitle(String mTitle) {
-			this.mTitle = mTitle;
-		}
-
-		public ArrayList<String> getArrayChildren() {
-			return mArrayChildren;
-		}
-
-		public void setArrayChildren(ArrayList<String> mArrayChildren) {
-			this.mArrayChildren = mArrayChildren;
-		}
-	}
-	
 	public void RecuperationJSON() {
 
 		if (android.os.Build.VERSION.SDK_INT > 9) {
@@ -268,5 +227,25 @@ public class ListeGaucheHospiDMPFragment extends SherlockFragment {
 		// Tri des noms des patients par ordre alphabétique
 		// Collections.sort(patientList, new NameComparator());
 		// dao.close();
+	}
+	public class Parent {
+		private String mTitle;
+		private ArrayList<String> mArrayChildren;
+
+		public String getTitle() {
+			return mTitle;
+		}
+
+		public void setTitle(String mTitle) {
+			this.mTitle = mTitle;
+		}
+
+		public ArrayList<String> getArrayChildren() {
+			return mArrayChildren;
+		}
+
+		public void setArrayChildren(ArrayList<String> mArrayChildren) {
+			this.mArrayChildren = mArrayChildren;
+		}
 	}
 }
