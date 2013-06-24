@@ -1000,7 +1000,7 @@ containing a value of this type.
         public static final int abs__textButton=0x7f050015;
         public static final int abs__title=0x7f05001d;
         public static final int abs__up=0x7f05000b;
-        public static final int action_recherche=0x7f0500a8;
+        public static final int action_recherche=0x7f0500a9;
         public static final int animation_layout=0x7f05003a;
         public static final int animation_layout_content=0x7f050011;
         public static final int animation_layout_sidebar=0x7f050010;
@@ -1025,12 +1025,13 @@ containing a value of this type.
         public static final int ivRadioZoom=0x7f05009a;
         public static final int ivSexe=0x7f0500a4;
         public static final int ivValiderConnexion=0x7f050038;
-        public static final int langue=0x7f0500a7;
+        public static final int langue=0x7f0500a8;
         public static final int listMode=0x7f050002;
         public static final int list_item=0x7f05009d;
         public static final int list_item_child=0x7f05009b;
         public static final int list_item_text_child=0x7f05009c;
         public static final int list_item_text_view=0x7f05009e;
+        public static final int list_section=0x7f0500a7;
         public static final int liste_infos_dmp=0x7f05007d;
         public static final int liste_new_doc=0x7f05007c;
         public static final int menu_gauche=0x7f050049;
@@ -1173,8 +1174,9 @@ containing a value of this type.
         public static final int menu_infos_dmp_titre=0x7f030024;
         public static final int menu_secretaire_medicale=0x7f030025;
         public static final int patients_list_entry=0x7f030026;
-        public static final int sherlock_spinner_dropdown_item=0x7f030027;
-        public static final int sherlock_spinner_item=0x7f030028;
+        public static final int patients_list_section=0x7f030027;
+        public static final int sherlock_spinner_dropdown_item=0x7f030028;
+        public static final int sherlock_spinner_item=0x7f030029;
     }
     public static final class menu {
         public static final int accueil=0x7f0d0000;

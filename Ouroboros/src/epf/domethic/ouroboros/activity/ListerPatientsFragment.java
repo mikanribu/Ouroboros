@@ -56,7 +56,7 @@ public class ListerPatientsFragment extends ListFragment {
 	public void onActivityCreated(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onActivityCreated(savedInstanceState);
-
+		
 		// Récupération de la listview créée dans le fichier main.xml
 		patientListView = getListView();
 
@@ -64,9 +64,18 @@ public class ListerPatientsFragment extends ListFragment {
 		
 		//Choix du mode de sélection : un seul élément de la liste peut être sélectionné
 		patientListView.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
-
+		
 		patientListView.setAdapter(adapter);
 
+	}
+
+	@Override
+	public void onStart() {
+		super.onStart();
+		
+		//Sélection du premier élément de la liste lors du lancement du fragment
+		patientListView.performItemClick(getListView(), 0, 0);
+		
 	}
 
 	@Override
@@ -87,7 +96,7 @@ public class ListerPatientsFragment extends ListFragment {
 
 		adapter = new PatientCursorAdapter(getActivity(),
 				dao.getPatientsCursor(), true); // Définition de l'adapter
-
+		
 		setListAdapter(adapter);
 	}
 
