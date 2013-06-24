@@ -1001,7 +1001,11 @@ containing a value of this type.
         public static final int abs__textButton=0x7f050015;
         public static final int abs__title=0x7f05001d;
         public static final int abs__up=0x7f05000b;
+<<<<<<< HEAD
         public static final int action_recherche=0x7f0500a1;
+=======
+        public static final int action_recherche=0x7f0500a9;
+>>>>>>> Roxanne
         public static final int animation_layout=0x7f05003a;
         public static final int animation_layout_content=0x7f050011;
         public static final int animation_layout_sidebar=0x7f050010;
@@ -1022,12 +1026,22 @@ containing a value of this type.
         public static final int ivRadioZoom=0x7f050092;
         public static final int ivSexe=0x7f05009d;
         public static final int ivValiderConnexion=0x7f050038;
+<<<<<<< HEAD
         public static final int langue=0x7f0500a0;
         public static final int listMode=0x7f050002;
         public static final int list_item=0x7f050095;
         public static final int list_item_child=0x7f050093;
         public static final int list_item_text_child=0x7f050094;
         public static final int list_item_text_view=0x7f050096;
+=======
+        public static final int langue=0x7f0500a8;
+        public static final int listMode=0x7f050002;
+        public static final int list_item=0x7f05009d;
+        public static final int list_item_child=0x7f05009b;
+        public static final int list_item_text_child=0x7f05009c;
+        public static final int list_item_text_view=0x7f05009e;
+        public static final int list_section=0x7f0500a7;
+>>>>>>> Roxanne
         public static final int liste_infos_dmp=0x7f05007d;
         public static final int liste_new_doc=0x7f05007c;
         public static final int menu_gauche=0x7f050049;
@@ -1158,6 +1172,7 @@ containing a value of this type.
         public static final int fragment_liste_hospi_dmp=0x7f03001b;
         public static final int fragment_liste_infos_dmp=0x7f03001c;
         public static final int fragment_patients_list=0x7f03001d;
+<<<<<<< HEAD
         public static final int fragment_visualiser_patients=0x7f03001e;
         public static final int fragment_zoom_radio=0x7f03001f;
         public static final int menu_hospi_dmp_child=0x7f030020;
@@ -1168,6 +1183,20 @@ containing a value of this type.
         public static final int patients_list_entry=0x7f030025;
         public static final int sherlock_spinner_dropdown_item=0x7f030026;
         public static final int sherlock_spinner_item=0x7f030027;
+=======
+        public static final int fragment_recherche_patients=0x7f03001e;
+        public static final int fragment_visualiser_patients=0x7f03001f;
+        public static final int fragment_zoom_radio=0x7f030020;
+        public static final int menu_hospi_dmp_child=0x7f030021;
+        public static final int menu_hospi_dmp_parent=0x7f030022;
+        public static final int menu_infos_dmp_elements=0x7f030023;
+        public static final int menu_infos_dmp_titre=0x7f030024;
+        public static final int menu_secretaire_medicale=0x7f030025;
+        public static final int patients_list_entry=0x7f030026;
+        public static final int patients_list_section=0x7f030027;
+        public static final int sherlock_spinner_dropdown_item=0x7f030028;
+        public static final int sherlock_spinner_item=0x7f030029;
+>>>>>>> Roxanne
     }
     public static final class menu {
         public static final int accueil=0x7f0d0000;
