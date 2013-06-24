@@ -1,5 +1,6 @@
 package epf.domethic.ouroboros.activity;
 
+import android.app.Activity;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.os.StrictMode;
@@ -49,8 +50,11 @@ public class ListeGaucheHospiDMPFragment extends SherlockFragment {
     
     RadioDAO dao =null;
 
+    
+    
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+		Log.v ("COUCOU", "LOG de onCreateView ListeGauche");
 		View view = inflater.inflate(R.layout.fragment_liste_hospi_dmp,container, false);
 
 		this.dao = new RadioDAO(getActivity());
@@ -91,7 +95,6 @@ public class ListeGaucheHospiDMPFragment extends SherlockFragment {
 				Cursor c = dao.getRadiosCursor("Thorax");
 				c.moveToFirst();
 				cursor.moveToFirst();
-				Log.v("YO", "Curseur LIKE :"+ c.getString(2));
 
 				while (!cursor.isAfterLast()) {
 					arrayChildren.add(cursor.getString(2));
@@ -111,8 +114,6 @@ public class ListeGaucheHospiDMPFragment extends SherlockFragment {
 
 		}
 
-		// arrayParents.get(3).getArrayChildren().get(1)
-
 		// sets the adapter that provides data to the list.
 		mExpandableList.setAdapter(new MenuGaucheHospiDMPAdapter(
 				getSherlockActivity(), arrayParents));
@@ -122,27 +123,24 @@ public class ListeGaucheHospiDMPFragment extends SherlockFragment {
 			public boolean onChildClick(ExpandableListView parent, View v,int group_position, int child_position, long id) {
 				FragmentManager manager = ListeGaucheHospiDMPFragment.this.getFragmentManager();
 
-
 				if (group_position == 3 && child_position == 1) {
 
-					FragmentTransaction fragmentTransaction = manager.beginTransaction();
+					/*FragmentTransaction fragmentTransaction = manager.beginTransaction();
 					//manager.popBackStack();
+					Log.v("TAG", "avant appel frgament");
 					fragmentTransaction.replace(R.id.deuxTiers,fragment_afficher_radio);
 					//fragmentTransaction.addToBackStack("vers_radio");
 					fragmentTransaction.commit();
-
-					Log.v("TAG","blaaaaaaaaaaaaaablaaaaaaaaaaaaa   "+child_position);
+					Log.v("TAG", "apres appel frgament");*/
 					
-
 					Cursor cursor = dao.getRadiosCursor(child_position);
 					cursor.moveToFirst();
 					
-					Log.v("TAG", "Cursor count " + cursor.getCount());
 					Log.v("TAG", "cursor string " + cursor.getString(2));
 					
 					radio = dao.getRadio(cursor);
+					Log.v("TAG", "test radio liste gauche " + radio.getMedecin());
 					listener.onRadioSelected(child_position, radio);
-
 				}
 
 				return false;
@@ -171,20 +169,24 @@ public class ListeGaucheHospiDMPFragment extends SherlockFragment {
          	public void onItemClick(AdapterView<?> a, View v, int position, long id) {
 				//on récupère la HashMap contenant les infos de notre item (titre, description, img)
         		HashMap<String, String> map = (HashMap<String, String>) lvlistNewDoc.getItemAtPosition(position);
-        		
         	}
          });
-        
         
 		return view;
 
 	}
 	
-	public void onDetach(){
-		super.onDetach();
+	@Override
+	public void onAttach(Activity activity) {
+		super.onAttach(activity);
+		listener = (OnRadioSelectedListener) activity;
 	}
 
-
+	@Override
+	public void onDetach() {
+		super.onDetach();
+		listener = null;
+	}
 
 	public class Parent {
 		private String mTitle;
@@ -207,52 +209,6 @@ public class ListeGaucheHospiDMPFragment extends SherlockFragment {
 		}
 	}
 	
-	
-/*	public boolean onChildClick(ExpandableListView parent, View v,
-			int groupPosition, int childPosition, long id) {
-		
-		//listener.onRadioSelected(childPosition, radio);
-		
-		Log.v("TAG","Clicked on child   ");
-		
-		
-		
-		FragmentManager manager = ListeGaucheHospiDMPFragment.this
-				.getFragmentManager();
-
-		if (groupPosition == 3 && childPosition == 1) {
-
-			FragmentTransaction fragmentTransaction = manager
-					.beginTransaction();
-
-			fragmentTransaction.replace(R.id.deuxTiers,
-					fragment_afficher_radio);
-			fragmentTransaction.addToBackStack("vers_radio");
-			fragmentTransaction.commit();
-			Log.v("TAG","blaaaaaaaaaaaaaablaaaaaaaaaaaaa   "+childPosition);
-			
-			listener.onRadioSelected(childPosition, radio);
-			
-			//fragment_afficher_radio.afficherRadio(child_position);
-			//fragment_afficher_radio.afficherRadio("Thorax", dao);
-
-		}
-	
-		return false;
-	}*/	
-	
-/*	
-	public void onListItemClick(ListView l, View v, int position, long id) {
-		super.onListItemClick(l, v, position, id);
-		if (listener != null) {
-			// listener.onPatientSelected(position);
-			Cursor cursor = (Cursor) getListAdapter().getItem(position);
-			patient = dao.getPatient(cursor);
-			listener.onPatientSelected(position, patient);
-		}
-	}*/
-	
-
 	public void RecuperationJSON() {
 
 		if (android.os.Build.VERSION.SDK_INT > 9) {

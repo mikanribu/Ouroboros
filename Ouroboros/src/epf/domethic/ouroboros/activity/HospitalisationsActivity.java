@@ -248,6 +248,7 @@ public class HospitalisationsActivity extends FragmentActivity implements Animat
 
 	@Override
 	public void onPatientSelected(int position, Patient patient) {
+		Log.v ("COUCOU", "LOG de onPatientSelected");
 		this.position = position;
 		detail_patient.afficherPatient(patient);
 	}

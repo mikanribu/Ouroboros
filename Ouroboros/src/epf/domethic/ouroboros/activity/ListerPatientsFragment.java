@@ -72,7 +72,7 @@ public class ListerPatientsFragment extends ListFragment {
 	@Override
 	public void onStart() {
 		super.onStart();
-		
+		Log.v ("COUCOU", "LOG de onStart");
 		//Sélection du premier élément de la liste lors du lancement du fragment
 		patientListView.performItemClick(getListView(), 0, 0);
 		
@@ -81,7 +81,7 @@ public class ListerPatientsFragment extends ListFragment {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-
+		Log.v ("COUCOU", "LOG de onCreate");
 		this.dao = new PatientDAO(getActivity());
 
 		// On vérifie si la base de données est vide ou non
@@ -102,7 +102,9 @@ public class ListerPatientsFragment extends ListFragment {
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,	Bundle savedInstanceState) {
+		Log.v ("COUCOU", "LOG de onCreateView ListerPatient");
 		View view = inflater.inflate(R.layout.fragment_patients_list,container, false);
+		Log.v ("COUCOU", "Apres LOG de onCreateView ListerPatient");
 		return view;
 	}
 

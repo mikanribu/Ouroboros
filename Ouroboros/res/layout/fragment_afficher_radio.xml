@@ -137,8 +137,9 @@
             android:layout_width="200dp"
             android:layout_height="300dp"
             android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
+            android:layout_below="@+id/tvMedecinValue"
             android:contentDescription="Affichage radio" />
+
     </RelativeLayout>
 
     <RelativeLayout
