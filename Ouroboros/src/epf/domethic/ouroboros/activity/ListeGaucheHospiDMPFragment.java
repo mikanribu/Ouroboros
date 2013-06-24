@@ -125,13 +125,13 @@ public class ListeGaucheHospiDMPFragment extends SherlockFragment {
 
 				if (group_position == 3 && child_position == 1) {
 
-					FragmentTransaction fragmentTransaction = manager.beginTransaction();
+					/*FragmentTransaction fragmentTransaction = manager.beginTransaction();
 					//manager.popBackStack();
 					Log.v("TAG", "avant appel frgament");
 					fragmentTransaction.replace(R.id.deuxTiers,fragment_afficher_radio);
 					//fragmentTransaction.addToBackStack("vers_radio");
 					fragmentTransaction.commit();
-					Log.v("TAG", "apres appel frgament");
+					Log.v("TAG", "apres appel frgament");*/
 					
 					Cursor cursor = dao.getRadiosCursor(child_position);
 					cursor.moveToFirst();
