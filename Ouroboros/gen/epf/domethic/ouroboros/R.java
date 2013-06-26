@@ -688,6 +688,7 @@ containing a value of this type.
         public static final int GrisFondMenu=0x7f07000a;
         public static final int GrisMenu=0x7f070008;
         public static final int GrisTexteTitreMenu=0x7f07000c;
+        public static final int GrisTitreFormulaire=0x7f07000d;
         public static final int GrisViewMenu=0x7f07000b;
         public static final int White=0x7f070006;
         public static final int abs__background_holo_dark=0x7f070000;
@@ -696,10 +697,10 @@ containing a value of this type.
         public static final int abs__bright_foreground_disabled_holo_light=0x7f070005;
         public static final int abs__bright_foreground_holo_dark=0x7f070002;
         public static final int abs__bright_foreground_holo_light=0x7f070003;
-        public static final int abs__primary_text_disable_only_holo_dark=0x7f07000d;
-        public static final int abs__primary_text_disable_only_holo_light=0x7f07000e;
-        public static final int abs__primary_text_holo_dark=0x7f07000f;
-        public static final int abs__primary_text_holo_light=0x7f070010;
+        public static final int abs__primary_text_disable_only_holo_dark=0x7f07000e;
+        public static final int abs__primary_text_disable_only_holo_light=0x7f07000f;
+        public static final int abs__primary_text_holo_dark=0x7f070010;
+        public static final int abs__primary_text_holo_light=0x7f070011;
     }
     public static final class dimen {
         /**  Default height of an action bar. 
@@ -1317,13 +1318,28 @@ containing a value of this type.
  All customizations that are NOT specific to a particular API-level can go here. 
          */
         public static final int AppTheme=0x7f0b005a;
-        public static final int ConnexionLayout=0x7f0b005e;
-        public static final int MenuTextViewSectionStyle=0x7f0b0062;
-        public static final int MenuTextViewTitleStyle=0x7f0b0063;
-        public static final int MenuViewSectionStyle=0x7f0b0064;
-        public static final int MenuWritingUserInfo=0x7f0b0061;
+        /**  Style de la connexion 
+         */
+        public static final int ConnexionLayout=0x7f0b0065;
+        /**  Style des formulaires 
+         */
+        public static final int FormButton=0x7f0b005e;
+        public static final int FormLigneSeparation_TitreetSection=0x7f0b0061;
+        public static final int FormTitre=0x7f0b0060;
+        public static final int FormTxtVwSimpleTexte=0x7f0b0063;
+        public static final int FormTxtVwSimpleTexte_Value=0x7f0b0064;
+        public static final int FormTxtVwTitreSection=0x7f0b0062;
+        public static final int FormViewSouligneTitre=0x7f0b005f;
+        public static final int MenuTextViewSectionStyle=0x7f0b006a;
+        public static final int MenuTextViewTitleStyle=0x7f0b006b;
+        public static final int MenuViewSectionStyle=0x7f0b006c;
+        public static final int MenuWritingUserFonction=0x7f0b0069;
+        /**  Style du Menu 
+         */
+        public static final int MenuWritingUserName=0x7f0b0068;
         public static final int MyActionBar=0x7f0b005b;
-        /**  Any customizations for your app running on 3.0+ devices here 
+        /**  Style général 
+ Any customizations for your app running on 3.0+ devices here 
          */
         public static final int MyAppTheme=0x7f0b005c;
         public static final int Sherlock___TextAppearance_Small=0x7f0b0046;
@@ -1337,8 +1353,8 @@ containing a value of this type.
         public static final int Sherlock___Widget_Holo_ListView=0x7f0b0026;
         public static final int Sherlock___Widget_Holo_Spinner=0x7f0b0023;
         public static final int Sherlock___Widget_SearchAutoCompleteTextView=0x7f0b0033;
-        public static final int Style_Bouton_Connexion=0x7f0b005f;
-        public static final int Style_Entree_Connexion=0x7f0b0060;
+        public static final int Style_Bouton_Connexion=0x7f0b0066;
+        public static final int Style_Entree_Connexion=0x7f0b0067;
         public static final int TextAppearance_Sherlock=0x7f0b004a;
         public static final int TextAppearance_Sherlock_Light_SearchResult=0x7f0b004e;
         public static final int TextAppearance_Sherlock_Light_SearchResult_Subtitle=0x7f0b0050;

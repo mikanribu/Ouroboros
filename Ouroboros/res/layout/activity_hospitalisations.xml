@@ -15,21 +15,12 @@
 
         <TextView
             android:id="@+id/tvNomMedecin"
-            style="@style/MenuWritingUserInfo"
-            android:layout_marginTop="4dp"
-            android:paddingLeft="10dp"
-            android:paddingTop="3dp"
-            android:textSize="18sp" />
+            style="@style/MenuWritingUserName" />
 
         <TextView
             android:id="@+id/tvMedecin"
-            style="@style/MenuWritingUserInfo"
-            android:layout_marginTop="2dp"
-            android:paddingBottom="8dp"
-            android:paddingLeft="30dp"
-            android:paddingTop="2dp"
-            android:text="@string/medecin"
-            android:textSize="16sp" />
+            style="@style/MenuWritingUserFonction"
+            android:text="@string/medecin" />
 
         <View
             style="@style/MenuViewSectionStyle" />

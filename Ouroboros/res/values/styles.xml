@@ -24,6 +24,7 @@
     <color name="GrisFondMenu">#282828</color>
     <color name="GrisViewMenu">#484848</color>
     <color name="GrisTexteTitreMenu">#A9A9A9</color>
+    <color name="GrisTitreFormulaire">#969696</color>
     
     <!--  Couleur qui correspond à un élément d'une liste sélectionné. -->
     <drawable name="list_activated">#81cfeb</drawable>

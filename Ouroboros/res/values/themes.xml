@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
+    
+    <!-- Style général -->
     <style name="MyAppTheme" parent="@android:style/Theme.Holo.Light">
         <!-- Any customizations for your app running on 3.0+ devices here -->
     </style>  
@@ -7,6 +9,67 @@
     <style name="ThemeHoloDialog" parent="android:Theme.Holo.Dialog">
 	</style>
 	
+	<!-- Style des formulaires -->
+	<style name="FormButton">
+        <!-- Any customizations for your app running on 4.0+ devices here -->
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:layout_alignParentTop">true</item>
+    </style>
+    
+	<style name="FormViewSouligneTitre">
+        <!-- Any customizations for your app running on 4.0+ devices here -->
+        <item name="android:layout_width">300dp</item>
+        <item name="android:layout_alignParentLeft">true</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:layout_marginRight">24dp</item>
+        <item name="android:background">@color/GrisTitreFormulaire</item>
+        <item name="android:paddingTop">16dp</item>
+    </style>
+    
+	<style name="FormTitre">
+        <!-- Any customizations for your app running on 4.0+ devices here -->
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_alignParentLeft">true</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceLarge</item>
+    </style>
+    
+	<style name="FormLigneSeparation_TitreetSection">
+        <!-- Any customizations for your app running on 4.0+ devices here -->
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">@android:color/black</item>
+        <item name="android:paddingTop">16dp</item>
+    </style>
+    
+	<style name="FormTxtVwTitreSection">
+	    <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">15dp</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceLarge</item>
+		<item name="android:textSize">22sp</item>
+        <item name="android:textColor">@color/GrisTitreFormulaire</item>
+	</style>
+	
+	<style name="FormTxtVwSimpleTexte">
+	    <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceLarge</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+	</style>
+	
+	<style name="FormTxtVwSimpleTexte_Value">
+	    <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceLarge</item>
+	</style>
+    
+    <!-- Style de la connexion -->
     <style name="ConnexionLayout">
         <!-- Any customizations for your app running on 4.0+ devices here -->
         <item name="android:layout_width">match_parent</item>
@@ -43,12 +106,30 @@
         <item name="android:width">250dp</item>
     </style>
     
-    <style name="MenuWritingUserInfo">
+    <!-- Style du Menu -->
+    <style name="MenuWritingUserName">
         <!-- Any customizations for your app running on 4.0+ devices here -->
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_gravity">left</item>
+        <item name="android:layout_marginTop">4dp</item>
         <item name="android:textColor">@color/White</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingTop">3dp</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+    
+    <style name="MenuWritingUserFonction">
+        <!-- Any customizations for your app running on 4.0+ devices here -->
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">left</item>
+        <item name="android:layout_marginTop">2dp</item>
+        <item name="android:textColor">@color/White</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:paddingLeft">30dp</item>
+        <item name="android:paddingTop">2dp</item>
+        <item name="android:textSize">16sp</item>
     </style>
     
     <style name="MenuTextViewSectionStyle">
