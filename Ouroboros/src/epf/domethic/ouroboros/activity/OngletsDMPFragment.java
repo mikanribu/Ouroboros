@@ -4,19 +4,19 @@ import java.util.ArrayList;
 
 import android.app.AlertDialog;
 import android.os.Bundle;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.widget.Button;
+
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.ActionBar.TabListener;
 import com.actionbarsherlock.app.SherlockFragment;
 import com.actionbarsherlock.app.ActionBar.Tab;
 
 import epf.domethic.ouroboros.R;
-import epf.domethic.ouroboros.activity.ListeGaucheHospiDMPFragment.OnRadioSelectedListener;
 import epf.domethic.ouroboros.model.Patient;
-import epf.domethic.ouroboros.model.Radio;
 
-public class OngletsDMPFragment extends SherlockFragment implements TabListener {
+public class OngletsDMPFragment extends SherlockFragment implements
+		TabListener {
 
 	
 	private ArrayList<SherlockFragment> listeOnglets = new ArrayList<SherlockFragment>();
@@ -31,6 +31,8 @@ public class OngletsDMPFragment extends SherlockFragment implements TabListener 
 	ListeGaucheHospiDMPFragment menu_hospi = new ListeGaucheHospiDMPFragment();
 	ListeGaucheInfosDMPFragment menu_infos = new ListeGaucheInfosDMPFragment();
 	AfficherRadioFragment radio_fragment = new AfficherRadioFragment();
+	
+	Button bModif;
 	
 	
 	@Override
@@ -65,6 +67,7 @@ public class OngletsDMPFragment extends SherlockFragment implements TabListener 
 		boite.setIcon(R.drawable.en_travaux);
 		boite.setMessage("Cette fonction n'a pas été développée dans cette version.");
 		boite.setNegativeButton("Retour", null);
+		
 	}
 
 	@Override
@@ -73,14 +76,10 @@ public class OngletsDMPFragment extends SherlockFragment implements TabListener 
 		int position = tab.getPosition();
 		switch (position) {
 		case 1:
-			for(int i=0; i<listeOnglets.size(); i++)
-				fragmentTransaction.remove(listeOnglets.get(i));
-			listeOnglets.clear();
 			fragmentTransaction.replace(R.id.tiers, menu_hospi);
-			listeOnglets.add(menu_hospi);
-			fragmentTransaction.replace(R.id.deuxTiers, infos);
-			listeOnglets.add(infos);
-			
+			if(!infos.isVisible()){
+				fragmentTransaction.replace(R.id.deuxTiers, infos);
+			}
 			break;
 
 		case 2:
@@ -91,14 +90,11 @@ public class OngletsDMPFragment extends SherlockFragment implements TabListener 
 			break;
 
 		default:
-			for(int i=0; i<listeOnglets.size(); i++)
-				fragmentTransaction.remove(listeOnglets.get(i));
-			listeOnglets.clear();
-			fragmentTransaction.replace(R.id.deuxTiers, infos);
 			infos.getPatient(this.patient);
 			fragmentTransaction.replace(R.id.tiers, menu_infos);
-			listeOnglets.add(menu_infos);
-			listeOnglets.add(infos);
+			if(!infos.isVisible()){
+				fragmentTransaction.replace(R.id.deuxTiers, infos);
+			}
 			break;
 		}
 

@@ -5,9 +5,7 @@ import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
 import com.actionbarsherlock.app.SherlockFragment;
-import com.actionbarsherlock.app.ActionBar;
 import epf.domethic.ouroboros.R;
-import epf.domethic.ouroboros.dao.RadioDAO;
 import epf.domethic.ouroboros.model.Radio;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -15,9 +13,6 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
-import android.os.Bundle;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -102,5 +97,9 @@ public class AfficherRadioFragment extends SherlockFragment {
 	public Radio getVueRadio(Radio radio){
 		this.radio=radio;
 		return radio;
+	}
+	
+	public void onDetach(){
+		super.onDetach();
 	}
 }

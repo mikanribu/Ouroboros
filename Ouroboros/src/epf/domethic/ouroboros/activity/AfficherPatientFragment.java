@@ -68,6 +68,7 @@ public class AfficherPatientFragment extends SherlockFragment {
 		    public void onClick(View v) {
 				FragmentManager fragmentManager = getFragmentManager();
 				FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+				fragmentManager.popBackStack();
 				fragmentTransaction.replace(R.id.deuxTiers, onglets);
 				onglets.getPatient(patient);
 				fragmentTransaction.commit();
@@ -102,4 +103,7 @@ public class AfficherPatientFragment extends SherlockFragment {
 		return patient;
 	}
 	
+	public void onDetach(){
+		super.onDetach();
+	}
 }
