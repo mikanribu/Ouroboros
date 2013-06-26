@@ -107,12 +107,29 @@
     </style>
     
     <!-- Style du Menu -->
-    <style name="MenuWritingUserInfo">
+    <style name="MenuWritingUserName">
         <!-- Any customizations for your app running on 4.0+ devices here -->
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_gravity">left</item>
+        <item name="android:layout_marginTop">4dp</item>
         <item name="android:textColor">@color/White</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingTop">3dp</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+    
+    <style name="MenuWritingUserFonction">
+        <!-- Any customizations for your app running on 4.0+ devices here -->
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">left</item>
+        <item name="android:layout_marginTop">2dp</item>
+        <item name="android:textColor">@color/White</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:paddingLeft">30dp</item>
+        <item name="android:paddingTop">2dp</item>
+        <item name="android:textSize">16sp</item>
     </style>
     
     <style name="MenuTextViewSectionStyle">

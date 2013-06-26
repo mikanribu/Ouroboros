@@ -1349,12 +1349,13 @@ containing a value of this type.
         public static final int FormTxtVwSimpleTexte_Value=0x7f0b0064;
         public static final int FormTxtVwTitreSection=0x7f0b0062;
         public static final int FormViewSouligneTitre=0x7f0b005f;
-        public static final int MenuTextViewSectionStyle=0x7f0b0069;
-        public static final int MenuTextViewTitleStyle=0x7f0b006a;
-        public static final int MenuViewSectionStyle=0x7f0b006b;
+        public static final int MenuTextViewSectionStyle=0x7f0b006a;
+        public static final int MenuTextViewTitleStyle=0x7f0b006b;
+        public static final int MenuViewSectionStyle=0x7f0b006c;
+        public static final int MenuWritingUserFonction=0x7f0b0069;
         /**  Style du Menu 
          */
-        public static final int MenuWritingUserInfo=0x7f0b0068;
+        public static final int MenuWritingUserName=0x7f0b0068;
         public static final int MyActionBar=0x7f0b005b;
         /**  Style général 
  Any customizations for your app running on 3.0+ devices here 
