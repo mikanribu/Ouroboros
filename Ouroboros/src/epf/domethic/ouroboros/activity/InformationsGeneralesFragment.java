@@ -2,19 +2,20 @@ package epf.domethic.ouroboros.activity;
 
 import java.text.SimpleDateFormat;
 
+import com.actionbarsherlock.app.SherlockFragment;
+
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
-
-import com.actionbarsherlock.app.SherlockFragment;
 
 import epf.domethic.ouroboros.R;
 import epf.domethic.ouroboros.model.Patient;
 
-public class InformationsGeneralesFragment extends SherlockFragment{
-	
+public class InformationsGeneralesFragment extends SherlockFragment {
+
 	/*----------	Déclaration des variables	----------*/
 	private TextView nNomPatient;
 	private TextView nSexePatient;
@@ -29,24 +30,21 @@ public class InformationsGeneralesFragment extends SherlockFragment{
 	private TextView nTelephone;
 	private TextView nMedecinTraitant;
 	
+	private Button bModif;
+
 	private Patient patient;
-	private int id;
+
 	
 	/*----------	Déclaration des fonctions	----------*/
 	
-	//Création de la vue
-    @Override
-   	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState ){
-   		View view = inflater.inflate(R.layout.fragment_infos_g,container, false);
-   		
-   		Bundle bundle = this.getArguments();
-   		//int identifiant_patient = bundle.getInt("identifiant", id);
-   		if(getArguments()!=null)
-   		{
-   		int myInt = getArguments().getInt("identifiant", id);
-   		}
-   		
-   	//Récupération des variables du layout pour leur affilier une valeur
+	//Création de la vue 
+	@Override
+	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState ){
+		View view = inflater.inflate(R.layout.fragment_infos_g,container, false);
+
+		
+		/*Récupération des variables de type du layout "fragment_visualiser_patients"
+		 * Permet de récupérer les TextView afin de leur affilier une valeur		 */		
 		nNomPatient = (TextView)view.findViewById(R.id.tvNomPatient);
 		nSexePatient = (TextView)view.findViewById(R.id.tvSexeValuePatient);
 		nLieuNaissance = (TextView)view.findViewById(R.id.tvLieuNaissanceValuePatient);
@@ -59,15 +57,24 @@ public class InformationsGeneralesFragment extends SherlockFragment{
 		nNumeroSS = (TextView)view.findViewById(R.id.tvSSValuePatient);
 		nTelephone = (TextView)view.findViewById(R.id.tvTelephoneValuePatient);
 		nMedecinTraitant = (TextView)view.findViewById(R.id.tvMedecinTraitantValuePatient);
-				
-   		return view;
-       }
-    
-    //Méthode d'affichage du patient
-    public void afficherPatient (Patient patient) {
+		
+		afficherPatient(patient);
+		
+		bModif =(Button)view.findViewById(R.id.bModif);
+		bModif.setOnClickListener(new View.OnClickListener() {
+		    @Override
+		    public void onClick(View v) {
+		    }
+		});		
+			
+		return view;
+	}
+	
+	// Fonction permettant d'affilier une valeur aux TextView
+	// Permet d'afficher les données du patient dans le fragment 
+	public void afficherPatient (Patient patient) {
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 		//On affilie chaque TextView à une valeur de la classe Patient
-		this.patient = patient;
 		nNomPatient.setText(patient.getPrenom() + " " + patient.getNom());
 		nSexePatient.setText(patient.getSexe().toString());
 		nLieuNaissance.setText(patient.getLieuNaissance());
@@ -81,4 +88,10 @@ public class InformationsGeneralesFragment extends SherlockFragment{
 		nTelephone.setText(patient.getTelephone());;
 		nMedecinTraitant.setText(patient.getMedecinTraitant());;
 	}
+	
+	public Patient getPatient(Patient patient){
+		this.patient=patient;
+		return patient;
+	}
+	
 }

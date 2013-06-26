@@ -1,8 +1,11 @@
 package epf.domethic.ouroboros.activity;
 
-import java.util.ArrayList;
-
 import org.json.JSONArray;
+
+import com.actionbarsherlock.app.SherlockFragmentActivity;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuInflater;
+import com.actionbarsherlock.view.MenuItem;
 
 import android.app.ActionBar;
 import android.app.AlertDialog;
@@ -12,14 +15,10 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.ContextThemeWrapper;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.LinearLayout;
@@ -27,14 +26,18 @@ import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 import epf.domethic.ouroboros.R;
+import epf.domethic.ouroboros.activity.ListeGaucheHospiDMPFragment.OnRadioSelectedListener;
 import epf.domethic.ouroboros.activity.ListerPatientsFragment.OnPatientSelectedListener;
 import epf.domethic.ouroboros.model.Patient;
+import epf.domethic.ouroboros.model.Radio;
 import epf.domethic.ouroboros.widget.AnimationLayout;
 
-public class HospitalisationsActivity extends FragmentActivity implements AnimationLayout.Listener, OnPatientSelectedListener {
+public class HospitalisationsActivity extends SherlockFragmentActivity implements 
+	AnimationLayout.Listener, OnPatientSelectedListener, OnRadioSelectedListener {
 	/** Called when the activity is first created. */
 
 	private int position;
+	private Patient patient;
 	public static Context appContext;
 
 	public final static String TAG = "Demo";
@@ -51,7 +54,6 @@ public class HospitalisationsActivity extends FragmentActivity implements Animat
 	private TextView tvCodification;
 	private TextView tvArchives;
 	private TextView tvMonCompte;
-	private TextView tvHospitalisation;	
 
 	// Boîte de dialogue pour les fonctions non implémentées
 	AlertDialog.Builder boite;
@@ -59,6 +61,7 @@ public class HospitalisationsActivity extends FragmentActivity implements Animat
 	//Déclaration des fragments
 	AfficherPatientFragment detail_patient = new AfficherPatientFragment();
 	ListerPatientsFragment liste_patients = new ListerPatientsFragment();
+	AfficherRadioFragment fragment_radio = new AfficherRadioFragment();
 	
 	public int fonction = 0;
 	
@@ -114,7 +117,7 @@ public class HospitalisationsActivity extends FragmentActivity implements Animat
 			}
 		});
 
-		if(fonction == 0){
+		
 			Intent intent = getIntent ();
 			
 			// Récuperer le pseudo entré en connexion
@@ -127,9 +130,7 @@ public class HospitalisationsActivity extends FragmentActivity implements Animat
 			Log.v(TAG, nom + prenom + fonction);
 				   
 			// Si l'utilisateur est un médecin.
-			if (fonction == 1) {
-				setContentView(R.layout.activity_hospitalisations);
-	
+			if (fonction == 1) {	
 				myDrawable = r.getDrawable(R.drawable.barre_haut);
 				actionBar.setBackgroundDrawable(myDrawable);
 				
@@ -220,27 +221,36 @@ public class HospitalisationsActivity extends FragmentActivity implements Animat
 			else {
 				Toast.makeText(getApplicationContext(),"Ce type d'utilisateur n'a pas encore été implémenté.",Toast.LENGTH_SHORT).show();
 			}
-		}
-		
-		
+		 		
 		FragmentManager fragmentManager = getSupportFragmentManager();
 		FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-		
-		fragmentTransaction.add(R.id.tiers, liste_patients);
 		fragmentTransaction.add(R.id.deuxTiers, detail_patient);
+		fragmentTransaction.add(R.id.tiers, liste_patients);
+		
 		fragmentTransaction.commit();
 	}
 
 	@Override
 	public void onPatientSelected(int position, Patient patient) {
 		this.position = position;
-		detail_patient.afficherPatient(patient);
+		detail_patient.getDetailPatient(patient);	
 	}
-
+	
+	public void onRadioSelected(int position, Radio radio){
+		this.position = position;
+		
+		FragmentManager fragmentManager = getSupportFragmentManager();
+		FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+		fragmentTransaction.replace(R.id.deuxTiers, fragment_radio);
+		
+		fragmentTransaction.commit();
+		fragment_radio.getVueRadio(radio);
+	}
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the options menu from XML
-		MenuInflater inflater = getMenuInflater();
+		MenuInflater inflater = getSupportMenuInflater();
 		inflater.inflate(R.menu.accueil, menu);
 
 		// Get the SearchView and set the searchable configuration

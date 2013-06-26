@@ -20,8 +20,8 @@
             android:layout_centerVertical="true"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
-        <Button
-            android:id="@+id/bVueDMP"
+         <Button
+            android:id="@+id/bModif"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
@@ -63,7 +63,7 @@
             android:paddingTop="16dp" />
 
         <TextView
-            android:id="@+id/tvSexe"
+            android:id="@+id/tvSexePatient"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignLeft="@+id/tvTitreInfosGenerales"
@@ -75,20 +75,20 @@
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
-            android:id="@+id/tvSexeValue"
+            android:id="@+id/tvSexeValuePatient"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/tvSexe"
-          	android:layout_alignLeft="@+id/tvDateNaissanceValue"
-            android:layout_toRightOf="@+id/tvSexe"
+            android:layout_alignBottom="@+id/tvSexePatient"
+          	android:layout_alignLeft="@+id/textview_date_naissance_value"
+            android:layout_toRightOf="@+id/tvSexePatient"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
-            android:id="@+id/tvDateNaissance"
+            android:id="@+id/tvDateNaissancePatient"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/tvSexe"
-           	android:layout_below="@+id/tvSexe"
+            android:layout_alignLeft="@+id/tvSexePatient"
+           	android:layout_below="@+id/tvSexePatient"
             android:layout_marginTop="16dp"
             android:textStyle="bold"
             android:textSize="20sp"
@@ -96,19 +96,19 @@
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
-            android:id="@+id/tvDateNaissanceValue"
+            android:id="@+id/textview_date_naissance_value"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/tvDateNaissance"
+            android:layout_alignBottom="@+id/tvDateNaissancePatient"
             android:layout_marginLeft="225dp"
             android:textAppearance="?android:attr/textAppearanceLarge" />
         
         <TextView
-            android:id="@+id/tvSS"
-            android:layout_alignLeft="@+id/tvSexe"
+            android:id="@+id/tvSSPatient"
+            android:layout_alignLeft="@+id/tvSexePatient"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/tvDateNaissance"
+            android:layout_below="@+id/tvDateNaissancePatient"
             android:layout_marginTop="16dp"
             android:textStyle="bold"
             android:textSize="20sp"
@@ -116,19 +116,19 @@
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
-            android:id="@+id/tvSSValue"
+            android:id="@+id/tvSSValuePatient"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/tvSS"
-            android:layout_alignLeft="@+id/tvDateNaissanceValue"
-            android:layout_toRightOf="@+id/tvSS"
+            android:layout_alignBottom="@+id/tvSSPatient"
+            android:layout_alignLeft="@+id/textview_date_naissance_value"
+            android:layout_toRightOf="@+id/tvSSPatient"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
-            android:id="@+id/tvLieuNaissance"
+            android:id="@+id/tvLieuNaissancePatient"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/tvDateNaissance"
+            android:layout_alignTop="@+id/tvDateNaissancePatient"
             android:layout_marginLeft="450dp"
             android:textStyle="bold"
             android:textSize="20sp"
@@ -139,7 +139,7 @@
             android:id="@+id/tvLieuNaissanceValuePatient"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/tvLieuNaissance"
+            android:layout_alignBottom="@+id/tvLieuNaissancePatient"
             android:layout_marginLeft="675dp"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -171,7 +171,7 @@
             android:paddingTop="16dp" />
 
         <TextView
-            android:id="@+id/tvAdresse"
+            android:id="@+id/tvAdressePatient"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignLeft="@+id/tvTitreResidence"
@@ -183,20 +183,20 @@
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
-            android:id="@+id/tvAdresseValue"
+            android:id="@+id/tvAdresseValuePatient"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/tvAdresse"
-          	android:layout_alignLeft="@+id/tvCodePostalValue"
-            android:layout_toRightOf="@+id/tvAdresse"
+            android:layout_alignBottom="@+id/tvAdressePatient"
+          	android:layout_alignLeft="@+id/tvCodePostalValuePatient"
+            android:layout_toRightOf="@+id/tvAdressePatient"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
-            android:id="@+id/tvCodePostal"
+            android:id="@+id/tvCodePostalPatient"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/tvAdresse"
-           	android:layout_below="@+id/tvAdresse"
+            android:layout_alignLeft="@+id/tvAdressePatient"
+           	android:layout_below="@+id/tvAdressePatient"
             android:layout_marginTop="16dp"
             android:textStyle="bold"
             android:textSize="20sp"
@@ -204,19 +204,19 @@
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
-            android:id="@+id/tvCodePostalValue"
+            android:id="@+id/tvCodePostalValuePatient"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/tvCodePostal"
+            android:layout_alignBottom="@+id/tvCodePostalPatient"
             android:layout_marginLeft="225dp"
             android:textAppearance="?android:attr/textAppearanceLarge" />
         
         <TextView
-            android:id="@+id/tvPays"
-            android:layout_alignLeft="@+id/tvAdresse"
+            android:id="@+id/tvPaysPatient"
+            android:layout_alignLeft="@+id/tvAdressePatient"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/tvCodePostal"
+            android:layout_below="@+id/tvCodePostalPatient"
             android:layout_marginTop="16dp"
             android:textStyle="bold"
             android:textSize="20sp"
@@ -224,19 +224,19 @@
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
-            android:id="@+id/tvPaysValue"
+            android:id="@+id/tvPaysValuePatient"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/tvPays"
-            android:layout_alignLeft="@+id/tvCodePostalValue"
-            android:layout_toRightOf="@+id/tvPays"
+            android:layout_alignBottom="@+id/tvPaysPatient"
+            android:layout_alignLeft="@+id/tvCodePostalValuePatient"
+            android:layout_toRightOf="@+id/tvPaysPatient"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
-            android:id="@+id/tvVille"
+            android:id="@+id/tvVillePatient"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/tvCodePostal"
+            android:layout_alignTop="@+id/tvCodePostalPatient"
             android:layout_marginLeft="450dp"
             android:textStyle="bold"
             android:textSize="20sp"
@@ -244,19 +244,19 @@
             android:textAppearance="?android:attr/textAppearanceLarge" />
         
         <TextView
-            android:id="@+id/tvVilleValue"
+            android:id="@+id/tvVilleValuePatient"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/tvVille"
+            android:layout_alignBottom="@+id/tvVillePatient"
             android:layout_marginLeft="675dp"
             android:textAppearance="?android:attr/textAppearanceLarge" />
         
         <TextView
-            android:id="@+id/tvNationalite"
+            android:id="@+id/tvNationalitePatient"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/tvPays"
-            android:layout_alignLeft="@+id/tvVille"
+            android:layout_alignTop="@+id/tvPaysPatient"
+            android:layout_alignLeft="@+id/tvVillePatient"
             android:textStyle="bold"
             android:textSize="20sp"
             android:text="@string/form_nationalite"
@@ -266,8 +266,8 @@
             android:id="@+id/tvNationaliteValuePatient"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/tvNationalite"
-           	android:layout_alignLeft="@+id/tvVilleValue"
+            android:layout_alignBottom="@+id/tvNationalitePatient"
+           	android:layout_alignLeft="@+id/tvVilleValuePatient"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         </RelativeLayout>
@@ -299,7 +299,7 @@
             android:paddingTop="16dp" />
 
         <TextView
-            android:id="@+id/tvTelephone"
+            android:id="@+id/tvTelephonePatient"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignLeft="@+id/tvTitreDivers"
@@ -311,20 +311,20 @@
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
-            android:id="@+id/tvTelephoneValue"
+            android:id="@+id/tvTelephoneValuePatient"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/tvTelephone"
-          	android:layout_alignLeft="@+id/tvMedecinTraitantValue"
-            android:layout_toRightOf="@+id/tvTelephone"
+            android:layout_alignBottom="@+id/tvTelephonePatient"
+          	android:layout_alignLeft="@+id/tvMedecinTraitantValuePatient"
+            android:layout_toRightOf="@+id/tvTelephonePatient"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
-            android:id="@+id/tvMedecinTraitant"
+            android:id="@+id/tvMedecinTraitantPatient"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/tvTelephone"
-           	android:layout_below="@+id/tvTelephone"
+            android:layout_alignLeft="@+id/tvTelephonePatient"
+           	android:layout_below="@+id/tvTelephonePatient"
             android:layout_marginTop="16dp"
             android:textStyle="bold"
             android:textSize="20sp"
@@ -332,19 +332,19 @@
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
-            android:id="@+id/tvMedecinTraitantValue"
+            android:id="@+id/tvMedecinTraitantValuePatient"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/tvMedecinTraitant"
+            android:layout_alignBottom="@+id/tvMedecinTraitantPatient"
             android:layout_marginLeft="225dp"
             android:textAppearance="?android:attr/textAppearanceLarge" />
         
         <TextView
             android:id="@+id/tvRemarques"
-            android:layout_alignLeft="@+id/tvTelephone"
+            android:layout_alignLeft="@+id/tvTelephonePatient"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/tvMedecinTraitant"
+            android:layout_below="@+id/tvMedecinTraitantPatient"
             android:layout_marginTop="16dp"
             android:textStyle="bold"
             android:textSize="20sp"
@@ -356,7 +356,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/tvRemarques"
-            android:layout_alignLeft="@+id/tvMedecinTraitantValue"
+            android:layout_alignLeft="@+id/tvMedecinTraitantValuePatient"
             android:layout_toRightOf="@+id/tvRemarques"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 

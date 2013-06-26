@@ -6,7 +6,6 @@ import java.util.Date;
 
 public abstract class Utils {
 	
-	
 	public static String formaterDate(Date date){
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 		return sdf.format(date);

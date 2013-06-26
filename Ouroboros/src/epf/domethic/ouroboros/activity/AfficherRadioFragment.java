@@ -48,6 +48,7 @@ public class AfficherRadioFragment extends SherlockFragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.fragment_afficher_radio,container, false);
+		
 		//Récupération des variables du layout fragment_afficher_radio pour leur affilier une valeur
 		titre = (TextView) view.findViewById(R.id.tvTitreRadio);
 		nomRadio = (TextView) view.findViewById(R.id.tvRadioValue);
@@ -58,6 +59,8 @@ public class AfficherRadioFragment extends SherlockFragment {
 		interpretation = (TextView) view.findViewById(R.id.tvInterpretationValue);
 		image = (ImageView) view.findViewById(R.id.ivRadio);
 
+		afficherRadio(radio);
+		
 		//Quand on clique sur l'image, on appelle le fragment ZoomRadioFragment
 		image.setOnClickListener(new View.OnClickListener() {
 			@Override
@@ -65,7 +68,8 @@ public class AfficherRadioFragment extends SherlockFragment {
 				FragmentManager manager = AfficherRadioFragment.this.getFragmentManager();
 				FragmentTransaction fragmentTransaction = manager.beginTransaction();
 				Log.v("YO", "je vais afficher la radio");
-				fragmentTransaction.replace(R.id.animation_layout_content, fragment_zoom_radio);
+				manager.popBackStack();
+				fragmentTransaction.replace(R.id.tiers, fragment_zoom_radio);
 				fragmentTransaction.commit();
 			}
 		});
@@ -75,7 +79,6 @@ public class AfficherRadioFragment extends SherlockFragment {
 
 	//Méthode d'affichage de la radio
 	public void afficherRadio(Radio radio) {
-		this.radio = radio;
 		//On affilie chaque TextView à une valeur de la classe Radio
 		titre.setText(radio.getTitre());
 		nomRadio.setText(radio.getNomRadio());
@@ -96,4 +99,8 @@ public class AfficherRadioFragment extends SherlockFragment {
 		}
 	}
 
+	public Radio getVueRadio(Radio radio){
+		this.radio=radio;
+		return radio;
+	}
 }

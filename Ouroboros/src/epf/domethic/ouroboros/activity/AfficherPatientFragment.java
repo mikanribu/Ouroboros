@@ -2,10 +2,11 @@ package epf.domethic.ouroboros.activity;
 
 import java.text.SimpleDateFormat;
 
-import android.content.Intent;
+import com.actionbarsherlock.app.SherlockFragment;
+
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.util.Log;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +16,7 @@ import android.widget.TextView;
 import epf.domethic.ouroboros.R;
 import epf.domethic.ouroboros.model.Patient;
 
-public class AfficherPatientFragment extends Fragment {
+public class AfficherPatientFragment extends SherlockFragment {
 
 	/*----------	Déclaration des variables	----------*/
 	private TextView nNomPatient;
@@ -32,9 +33,7 @@ public class AfficherPatientFragment extends Fragment {
 	private TextView nMedecinTraitant;
 	
 	private Button bVisualiserDMP;
-	
-	InformationsGeneralesFragment fragment_infos_dmp = new InformationsGeneralesFragment();
-	ListeGaucheInfosDMPFragment fragment_menu_gauche_infos_dmp = new ListeGaucheInfosDMPFragment();
+	OngletsDMPFragment onglets = new OngletsDMPFragment();
 
 	private Patient patient;
 
@@ -45,6 +44,8 @@ public class AfficherPatientFragment extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState ){
 		View view = inflater.inflate(R.layout.fragment_visualiser_patients,container, false);
+
+		
 		/*Récupération des variables de type du layout "fragment_visualiser_patients"
 		 * Permet de récupérer les TextView afin de leur affilier une valeur		 */		
 		nNomPatient = (TextView)view.findViewById(R.id.tvNomPatient);
@@ -62,11 +63,14 @@ public class AfficherPatientFragment extends Fragment {
 		
 		//Le bouton permettant d'aller voir le DMP du patient
 		bVisualiserDMP =(Button)view.findViewById(R.id.bVueDMP);
-		final Intent intent_dmp = new Intent(getActivity(), DMPActivity.class);
 		bVisualiserDMP.setOnClickListener(new View.OnClickListener() {
 		    @Override
 		    public void onClick(View v) {
-		    	startActivity(intent_dmp);
+				FragmentManager fragmentManager = getFragmentManager();
+				FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+				fragmentTransaction.replace(R.id.deuxTiers, onglets);
+				onglets.getPatient(patient);
+				fragmentTransaction.commit();
 		    }
 		});		
 			
@@ -77,7 +81,6 @@ public class AfficherPatientFragment extends Fragment {
 	// Permet d'afficher les données du patient dans le fragment 
 	public void afficherPatient (Patient patient) {
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-		this.patient = patient;
 		//On affilie chaque TextView à une valeur de la classe Patient
 		nNomPatient.setText(patient.getPrenom() + " " + patient.getNom());
 		nSexePatient.setText(patient.getSexe().toString());
@@ -91,6 +94,12 @@ public class AfficherPatientFragment extends Fragment {
 		nNumeroSS.setText(patient.getNumSS());;
 		nTelephone.setText(patient.getTelephone());;
 		nMedecinTraitant.setText(patient.getMedecinTraitant());;
+	}
+	
+	public Patient getDetailPatient(Patient patient){
+		this.patient=patient;
+		afficherPatient(patient);
+		return patient;
 	}
 	
 }

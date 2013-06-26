@@ -16,10 +16,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import epf.domethic.ouroboros.R;
+import epf.domethic.ouroboros.model.Radio;
 
 public class ZoomRadioFragment extends SherlockFragment {
 	
 	private ImageView image;
+	private Radio radio;
 	//private String imageUrl="https://lh5.googleusercontent.com/-n7mdm7I7FGs/URqueT_BT-I/AAAAAAAAAbs/9MYmXlmpSAo/s1024/Bonzai%252520Rock%252520Sunset.jpg";
 	private String imageUrl ="http://www.prisedevue.com/francais/chapitres/info_pratique/picsbio/radio.jpg";
 
@@ -43,5 +45,5 @@ public class ZoomRadioFragment extends SherlockFragment {
 		
 		return view;
 	}
-
+	
 }
