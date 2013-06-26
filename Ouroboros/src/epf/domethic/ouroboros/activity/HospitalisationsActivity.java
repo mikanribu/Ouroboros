@@ -54,6 +54,7 @@ public class HospitalisationsActivity extends SherlockFragmentActivity implement
 	private TextView tvCodification;
 	private TextView tvArchives;
 	private TextView tvMonCompte;
+	private TextView tvHospitalisations;
 
 	// Boîte de dialogue pour les fonctions non implémentées
 	AlertDialog.Builder boite;
@@ -79,19 +80,18 @@ public class HospitalisationsActivity extends SherlockFragmentActivity implement
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_hospitalisations);
 		
-		ActionBar actionBar = getActionBar();
 		Resources r = getResources();
 		Drawable myDrawable;
 
-		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
-		actionBar.setHomeButtonEnabled(true); // The icone_launcher will not
+		getSupportActionBar().setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+		getSupportActionBar().setHomeButtonEnabled(true); // The icone_launcher will not
 												// go
 												// back automatically to
 												// home
 												// (API min 14)
 
 		// Pas d'affichage du nom de l'application dans la barre d'action
-		actionBar.setDisplayShowTitleEnabled(false);
+		getSupportActionBar().setDisplayShowTitleEnabled(false);
 
 		mList = (LinearLayout) findViewById(R.id.animation_layout_sidebar);
 		mLayout = (AnimationLayout) findViewById(R.id.animation_layout);
@@ -132,7 +132,24 @@ public class HospitalisationsActivity extends SherlockFragmentActivity implement
 			// Si l'utilisateur est un médecin.
 			if (fonction == 1) {	
 				myDrawable = r.getDrawable(R.drawable.barre_haut);
-				actionBar.setBackgroundDrawable(myDrawable);
+				getSupportActionBar().setBackgroundDrawable(myDrawable);
+				
+				tvHospitalisations = (TextView) findViewById(R.id.tvHospitalisation);
+				tvHospitalisations.setOnClickListener(new View.OnClickListener() {
+					@Override
+					public void onClick(View v) {
+						// TODO Auto-generated method stub
+						FragmentManager fragmentManager = getSupportFragmentManager();
+						FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+						if(!detail_patient.isVisible()&& !liste_patients.isVisible()){
+							getSupportActionBar().removeAllTabs();
+							fragmentTransaction.add(R.id.deuxTiers, detail_patient);
+							fragmentTransaction.add(R.id.tiers, liste_patients);
+							fragmentTransaction.commit();
+						}					
+						
+					}
+				});
 				
 				// Fonction Recherche non implémentée: renvoie vers la boite de dialogue
 				tvRecherche = (TextView) findViewById(R.id.tvRecherche);
@@ -203,6 +220,12 @@ public class HospitalisationsActivity extends SherlockFragmentActivity implement
 				// Affiche dans le menu le nom du médecin connecté et sa fonction
 				tvFonction = (TextView) findViewById(R.id.tvNomMedecin);
 				tvFonction.setText(prenom + " " + nom);
+				
+				FragmentManager fragmentManager = getSupportFragmentManager();
+				FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+				fragmentTransaction.add(R.id.deuxTiers, detail_patient);
+				fragmentTransaction.add(R.id.tiers, liste_patients);
+				fragmentTransaction.commit();
 			}
 			
 			// Si l'utilisateur est une secrétaire médicale
@@ -210,7 +233,7 @@ public class HospitalisationsActivity extends SherlockFragmentActivity implement
 				setContentView(R.layout.menu_secretaire_medicale);
 	
 				myDrawable = r.getDrawable(R.drawable.barre_hautsecadm);
-				actionBar.setBackgroundDrawable(myDrawable);
+				getSupportActionBar().setBackgroundDrawable(myDrawable);
 		
 				// Affiche dans le menu le nom de la secrétaire médicale connectée et sa fonction
 				tvFonction = (TextView) findViewById(R.id.tvNomSecretaireMedicale);
@@ -221,13 +244,6 @@ public class HospitalisationsActivity extends SherlockFragmentActivity implement
 			else {
 				Toast.makeText(getApplicationContext(),"Ce type d'utilisateur n'a pas encore été implémenté.",Toast.LENGTH_SHORT).show();
 			}
-		 		
-		FragmentManager fragmentManager = getSupportFragmentManager();
-		FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-		fragmentTransaction.add(R.id.deuxTiers, detail_patient);
-		fragmentTransaction.add(R.id.tiers, liste_patients);
-		
-		fragmentTransaction.commit();
 	}
 
 	@Override

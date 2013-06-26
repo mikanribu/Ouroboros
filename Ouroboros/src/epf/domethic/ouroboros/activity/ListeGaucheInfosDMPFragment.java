@@ -85,4 +85,8 @@ public class ListeGaucheInfosDMPFragment extends SherlockFragment {
  
         return view;
     }
+    
+    public void onDetach(){
+		super.onDetach();
+	}
 }
