@@ -17,7 +17,7 @@
             style="@style/FormTitre" />
 
          <Button
-            android:id="@+id/bVueDMP"
+            android:id="@+id/bModif"
             style="@style/FormButton"
             android:text="@string/modif_infos" />
 
