@@ -9,10 +9,6 @@
 
     <TextView
         android:id="@+id/list_item_text_child"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="70dp"
-        android:padding="10dp"
-        android:textSize="20sp" />
+        style="@style/Menu_Hospi_fils"/>
 
 </LinearLayout>

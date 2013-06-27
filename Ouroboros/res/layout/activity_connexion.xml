@@ -15,10 +15,8 @@
 
     <ImageView
         android:id="@+id/ivGrandLogo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/Style_logo_grand"
         android:layout_above="@+id/etPseudo"
-        android:layout_centerHorizontal="true"
         android:layout_marginBottom="41dp"
         android:contentDescription="@string/grand_logo"
         android:src="@drawable/grand_logo" />
@@ -49,10 +47,7 @@
 
     <ImageView
         android:id="@+id/ivEncadre"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
+        style="@style/Style_encadre"
         android:layout_marginBottom="82dp"
         android:contentDescription="@string/encadre"
         android:src="@drawable/encadre" />
