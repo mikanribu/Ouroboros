@@ -7,12 +7,12 @@ import java.net.URL;
 import com.actionbarsherlock.app.SherlockFragment;
 import epf.domethic.ouroboros.R;
 import epf.domethic.ouroboros.model.Radio;
+import android.animation.Animator;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
-import android.util.Log;
+import android.os.StrictMode;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,13 +30,8 @@ public class AfficherRadioFragment extends SherlockFragment {
 	private TextView description;
 	private TextView interpretation;
 	private ImageView image;
-	//private String imageUrl = "https://lh5.googleusercontent.com/-n7mdm7I7FGs/URqueT_BT-I/AAAAAAAAAbs/9MYmXlmpSAo/s1024/Bonzai%252520Rock%252520Sunset.jpg";
-	private String imageUrl ="http://www.prisedevue.com/francais/chapitres/info_pratique/picsbio/radio.jpg";
+	private String imageUrl ="http://m.goirand.free.fr/evaluation_anatomie/cliche_thorax.jpg";
 	private Radio radio;
-	
-	//Déclaration du fragment
-	ZoomRadioFragment fragment_zoom_radio = new ZoomRadioFragment();
-	
 
 	/*----------	Déclaration des fonctions	----------*/
 	//Création de la vue
@@ -57,15 +52,11 @@ public class AfficherRadioFragment extends SherlockFragment {
 		afficherRadio(radio);
 		
 		//Quand on clique sur l'image, on appelle le fragment ZoomRadioFragment
+		final Intent intent_zoom = new Intent(getSherlockActivity(), ZoomRadioActivity.class);
 		image.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				FragmentManager manager = AfficherRadioFragment.this.getFragmentManager();
-				FragmentTransaction fragmentTransaction = manager.beginTransaction();
-				Log.v("YO", "je vais afficher la radio");
-				manager.popBackStack();
-				fragmentTransaction.replace(R.id.tiers, fragment_zoom_radio);
-				fragmentTransaction.commit();
+				startActivity(intent_zoom);
 			}
 		});
 
@@ -83,6 +74,12 @@ public class AfficherRadioFragment extends SherlockFragment {
 		description.setText(radio.getDescription());
 		interpretation.setText(radio.getInterpretation());
 
+		if (android.os.Build.VERSION.SDK_INT > 9) {
+			StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
+					.permitAll().build();
+			StrictMode.setThreadPolicy(policy);
+		}
+		
 		//On cherche l'image via une URL
 		try {
 			Bitmap bitmap = BitmapFactory.decodeStream((InputStream) new URL(imageUrl).getContent());
@@ -97,9 +94,5 @@ public class AfficherRadioFragment extends SherlockFragment {
 	public Radio getVueRadio(Radio radio){
 		this.radio=radio;
 		return radio;
-	}
-	
-	public void onDetach(){
-		super.onDetach();
 	}
 }
