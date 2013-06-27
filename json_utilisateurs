@@ -43,6 +43,17 @@
 		"telephone": "06.78.55.03.18",
 		"service": "neurologie",
     		"fonction": "1"
+	},
+	{
+		"id": "3",
+		"pseudo": "cpages",
+    		"password": "ouroboros",
+		"nom": "Pages",
+		"prenom": "Clémentine",
+		"mail": "clementine.pages@dmail.com",
+		"telephone": "06.78.55.06.13",
+		"service": "cardiologie",
+    		"fonction": "1"
 	}
  ]
 }
