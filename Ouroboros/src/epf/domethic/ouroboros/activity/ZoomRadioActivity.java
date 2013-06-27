@@ -13,7 +13,7 @@ import epf.domethic.ouroboros.R;
 public class ZoomRadioActivity extends SherlockActivity {
 
 	private WebView webView;
-	private String imageUrl ="http://m.goirand.free.fr/evaluation_anatomie/cliche_thorax.jpg";
+	private String imageUrl ="https://raw.github.com/Mikanribu/Ouroboros/master/cliche_thorax.jpg";
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

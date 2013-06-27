@@ -160,7 +160,6 @@ public class ListeGaucheHospiDMPFragment extends SherlockFragment {
         		HashMap<String, String> map = (HashMap<String, String>) lvlistNewDoc.getItemAtPosition(position);
         	}
          });
-        
 		return view;
 
 	}
@@ -228,7 +227,7 @@ public class ListeGaucheHospiDMPFragment extends SherlockFragment {
 				dao = new RadioDAO(this.getActivity());
 				dao.ajouterRadio(r);
 			}
-			
+			dao.close();
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
