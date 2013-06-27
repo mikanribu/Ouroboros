@@ -1,145 +1,216 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_marginRight="@dimen/activity_horizontal_margin"
-    android:orientation="vertical"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin" >
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:id="@+id/container" >
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-
-        <TextView
-            android:id="@+id/tvTitreRadio"
-            style="@style/FormTitre"/>
-    </RelativeLayout>
-
-    <View
-        style="@style/FormLigneSeparation_TitreetSection"   />
-
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/activity_vertical_margin" >
+        android:layout_marginRight="16dp"
+        android:orientation="vertical"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="16dp" >
 
-        <TextView
-            android:id="@+id/tvTitreCause"
-            style="@style/FormTxtVwTitreSection"
-            android:text="@string/titre_cause" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
 
-        <View
-            style="@style/FormViewSouligneTitre"
-            android:layout_below="@+id/tvTitreCause" />
-
-        <TextView
-            android:id="@+id/tvRadio"
-            style="@style/FormTxtVwSimpleTexte"
-            android:layout_alignLeft="@+id/tvTitreCause"
-            android:layout_below="@+id/tvTitreCause"
-            android:layout_marginTop="30dp"
-            android:text="@string/form_radio" />
-
-        <TextView
-            android:id="@+id/tvRadioValue"
-            style="@style/FormTxtVwSimpleTexte_Value"
-            android:layout_alignBottom="@+id/tvRadio"
-            android:layout_alignLeft="@+id/tvRadioValue"
-            android:layout_marginLeft="30dp"
-            android:layout_toRightOf="@+id/tvRadio" />
-
-        <TextView
-            android:id="@+id/tvDate"
-            style="@style/FormTxtVwSimpleTexte"
-            android:layout_alignTop="@+id/tvRadio"
-            android:layout_marginLeft="400dp"
-            android:text="@string/form_date" />
-
-        <TextView
-            android:id="@+id/tvDateValue"
-            style="@style/FormTxtVwSimpleTexte_Value"
-            android:layout_alignBottom="@+id/tvDate"
-            android:layout_marginLeft="550dp" />
-
-        <TextView
-            android:id="@+id/tvCause"
-            style="@style/FormTxtVwSimpleTexte"
-            android:layout_alignLeft="@+id/tvRadio"
-            android:layout_below="@+id/tvRadio"
-            android:layout_marginTop="16dp"
-            android:text="@string/form_cause" />
-
-        <TextView
-            android:id="@+id/tvCauseValue"
-            style="@style/FormTxtVwSimpleTexte_Value"
-            android:layout_alignBottom="@+id/tvCause"
-            android:layout_alignLeft="@+id/tvRadioValue" />
-
-        <TextView
-            android:id="@+id/tvMedecin"
-            style="@style/FormTxtVwSimpleTexte"
-            android:layout_alignTop="@+id/tvCause"
-            android:layout_marginLeft="400dp"
-            android:text="@string/form_medecin" />
-
-        <TextView
-            android:id="@+id/tvMedecinValue"
-            style="@style/FormTxtVwSimpleTexte_Value"
-            android:layout_alignBottom="@+id/tvMedecin"
-            android:layout_alignLeft="@+id/tvDateValue" />
-
-        <ImageView
-            android:id="@+id/ivRadio"
-            android:layout_width="200dp"
-            android:layout_height="300dp"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
-            android:contentDescription="Affichage radio" />
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/activity_vertical_margin" >
-
-        <TextView
-            android:id="@+id/tvTitreDescription"
-            style="@style/FormTxtVwTitreSection"
-            android:text="@string/titre_description" />
+            <TextView
+                android:id="@+id/tvTitreRadio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+        </RelativeLayout>
 
         <View
-            style="@style/FormViewSouligneTitre"
-            android:layout_below="@+id/tvTitreDescription" />
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/black"
+            android:paddingTop="16dp" />
 
-        <TextView
-            android:id="@+id/tvDescription"
-            style="@style/FormTxtVwSimpleTexte"
-            android:layout_alignLeft="@+id/tvTitreDescription"
-            android:layout_below="@+id/tvTitreDescription"
-            android:layout_marginTop="30dp"
-            android:text="@string/form_description" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_vertical_margin" >
 
-        <TextView
-            android:id="@+id/tvDescriptionValue"
-            style="@style/FormTxtVwSimpleTexte_Value"
-            android:layout_alignLeft="@+id/tvDescription"
-            android:layout_below="@+id/tvDescription" />
+            <TextView
+                android:id="@+id/tvTitreCause"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/titre_cause"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="#969696"
+                android:textSize="22sp" />
 
-        <TextView
-            android:id="@+id/tvInterpretation"
-            style="@style/FormTxtVwSimpleTexte"
-            android:layout_alignLeft="@+id/tvDescription"
-            android:layout_below="@+id/tvDescriptionValue"
-            android:layout_marginTop="50dp"
-            android:text="@string/form_interpretation" />
+            <View
+                android:layout_width="300dp"
+                android:layout_height="1dp"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/tvTitreCause"
+                android:layout_marginRight="24dp"
+                android:background="#969696"
+                android:paddingTop="16dp" />
 
-        <TextView
-            android:id="@+id/tvInterpretationValue"
-            style="@style/FormTxtVwSimpleTexte_Value"
-            android:layout_alignLeft="@+id/tvInterpretation"
-            android:layout_below="@+id/tvInterpretation" />
-    </RelativeLayout>
+            <TextView
+                android:id="@+id/tvRadio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/tvTitreCause"
+                android:layout_below="@+id/tvTitreCause"
+                android:layout_marginTop="30dp"
+                android:text="@string/form_radio"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
-</LinearLayout>
+            <TextView
+                android:id="@+id/tvRadioValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/tvRadio"
+                android:layout_alignLeft="@+id/tvRadioValue"
+                android:layout_marginLeft="30dp"
+                android:layout_toRightOf="@+id/tvRadio"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <TextView
+                android:id="@+id/tvDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/tvRadio"
+                android:layout_marginLeft="400dp"
+                android:text="@string/form_date"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvDateValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/tvDate"
+                android:layout_marginLeft="550dp"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <TextView
+                android:id="@+id/tvCause"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/tvRadio"
+                android:layout_below="@+id/tvRadio"
+                android:layout_marginTop="16dp"
+                android:text="@string/form_cause"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvCauseValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/tvCause"
+                android:layout_alignLeft="@+id/tvRadioValue"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <TextView
+                android:id="@+id/tvMedecin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/tvCause"
+                android:layout_marginLeft="400dp"
+                android:text="@string/form_medecin"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvMedecinValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/tvMedecin"
+                android:layout_alignLeft="@+id/tvDateValue"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <ImageView
+                android:id="@+id/ivRadio"
+                android:layout_width="200dp"
+                android:layout_height="300dp"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:contentDescription="Affichage radio" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_vertical_margin" >
+
+            <TextView
+                android:id="@+id/tvTitreDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/titre_description"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="#969696"
+                android:textSize="22sp" />
+
+            <View
+                android:layout_width="300dp"
+                android:layout_height="1dp"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/tvTitreDescription"
+                android:layout_marginRight="24dp"
+                android:background="#969696"
+                android:paddingTop="16dp" />
+
+            <TextView
+                android:id="@+id/tvDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/tvTitreDescription"
+                android:layout_below="@+id/tvTitreDescription"
+                android:layout_marginTop="30dp"
+                android:text="@string/form_description"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvDescriptionValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/tvDescription"
+                android:layout_below="@+id/tvDescription"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <TextView
+                android:id="@+id/tvInterpretation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/tvDescription"
+                android:layout_below="@+id/tvDescriptionValue"
+                android:layout_marginTop="50dp"
+                android:text="@string/form_interpretation"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvInterpretationValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/tvInterpretation"
+                android:layout_below="@+id/tvInterpretation"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</ScrollView>
