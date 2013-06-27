@@ -11,7 +11,7 @@
         android:layout_marginTop="51dp"
         android:layout_toLeftOf="@+id/bConnexion"
         android:inputType="textPersonName"
-        android:text="@string/pseudo" />
+        android:hint="@string/pseudo" />
 
     <ImageView
         android:id="@+id/ivGrandLogo"
@@ -43,7 +43,7 @@
         android:layout_alignBottom="@+id/bConnexion"
         android:layout_alignLeft="@+id/etPseudo"
        android:inputType="textPassword"
-        android:text="@string/pswd" />
+        android:hint="@string/pswd" />
 
     <ImageView
         android:id="@+id/ivEncadre"

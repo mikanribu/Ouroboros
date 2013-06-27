@@ -5,10 +5,7 @@ import android.app.AlertDialog;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.os.StrictMode;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
-import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,6 +25,7 @@ import com.actionbarsherlock.app.SherlockFragment;
 import epf.domethic.ouroboros.R;
 import epf.domethic.ouroboros.adapter.MenuGaucheHospiDMPAdapter;
 import epf.domethic.ouroboros.dao.RadioDAO;
+import epf.domethic.ouroboros.model.Patient;
 import epf.domethic.ouroboros.model.Radio;
 import epf.domethic.ouroboros.outils.DocumentColumns;
 import epf.domethic.ouroboros.outils.ParserJSON;
@@ -42,10 +40,10 @@ public class ListeGaucheHospiDMPFragment extends SherlockFragment {
 	private ListView lvlistNewDoc;
 	private OnRadioSelectedListener listener;
 	private Radio radio;
+	private Patient patient;
 
 	//URL pour accéder au JSON des radios et des patients
 	static String url2 = "http://raw.github.com/Mikanribu/Ouroboros/master/json_radios";
-	static String url = "http://raw.github.com/Mikanribu/Ouroboros/master/json_patients";
 	JSONArray radios = null;
 	
 	//Déclaration du fragment
@@ -87,14 +85,16 @@ public class ListeGaucheHospiDMPFragment extends SherlockFragment {
 			// Récupérer ici les enfants
 			arrayChildren = new ArrayList<String>();
 
-			if (arrayNomParents.get(i) == "Radiographies") {
+			if (arrayNomParents.get(i) == "Radiographies" ) {
 				Cursor cursor = dao.getRadiosCursor();
 				cursor.moveToFirst();
-
-				while (!cursor.isAfterLast()) {
-					arrayChildren.add(cursor.getString(2));
-					
-					cursor.moveToNext();
+				
+				if (cursor.getInt(1) == patient.getId() ) {
+					while (!cursor.isAfterLast()) {
+						arrayChildren.add(cursor.getString(2));
+						
+						cursor.moveToNext();
+					}
 				}
 			} 
 			parent.setArrayChildren(arrayChildren);
@@ -103,7 +103,8 @@ public class ListeGaucheHospiDMPFragment extends SherlockFragment {
 			arrayParents.add(parent);
 
 		}
-
+		
+		//mExpandableList.setChoiceMode(ExpandableListView.CHOICE_MODE_SINGLE);
 		// sets the adapter that provides data to the list.
 		mExpandableList.setAdapter(new MenuGaucheHospiDMPAdapter(
 				getSherlockActivity(), arrayParents));
@@ -118,7 +119,9 @@ public class ListeGaucheHospiDMPFragment extends SherlockFragment {
 					cursor.moveToFirst();
 					radio = dao.getRadio(cursor);
 					listener.onRadioSelected(child_position, radio);
+					
 				}
+				//v.setSelected(true);
 
 				return false;
 			}
@@ -128,15 +131,7 @@ public class ListeGaucheHospiDMPFragment extends SherlockFragment {
             @Override
             public boolean onGroupClick(ExpandableListView parent, View v, int group_position, long id) {
                 //Log.d("group click", mTag);
-            	if(group_position !=3){
-            		AlertDialog.Builder boite;
-            		boite = new AlertDialog.Builder(getSherlockActivity(), R.style.ThemeHoloDialog);
-            		boite.setTitle("La fonction n'est pas encore implémentée!");
-            		boite.setIcon(R.drawable.travaux);
-            		boite.setMessage("Cette fonction n'a pas été développée dans cette version.");
-            		boite.setNegativeButton("Retour", null);
-            		boite.show();
-            	}
+            	
                 return false;
             }
         });
@@ -232,8 +227,8 @@ public class ListeGaucheHospiDMPFragment extends SherlockFragment {
 
 				dao = new RadioDAO(this.getActivity());
 				dao.ajouterRadio(r);
-
 			}
+			
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
@@ -257,5 +252,10 @@ public class ListeGaucheHospiDMPFragment extends SherlockFragment {
 		public void setArrayChildren(ArrayList<String> mArrayChildren) {
 			this.mArrayChildren = mArrayChildren;
 		}
+	}
+	
+	public Patient getPatient(Patient patient){
+		this.patient=patient;
+		return patient;
 	}
 }

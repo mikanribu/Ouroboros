@@ -172,6 +172,7 @@ public class ListerPatientsFragment extends SherlockListFragment {
 				JSONObject c = patients.getJSONObject(i);
 
 				// On récupère toutes les données qu'on stocke dans une variable
+				int id = c.getInt(PersColumns.KEY_ID);
 				String nom = c.getString(PersColumns.KEY_NOM);
 				String prenom = c.getString(PersColumns.KEY_PRENOM);
 				Sexe sexe = Sexe.valueOf(c.getString(PersColumns.KEY_SEXE));
@@ -197,7 +198,7 @@ public class ListerPatientsFragment extends SherlockListFragment {
 						.getString(PersColumns.KEY_MEDECIN_TRAITANT);
 				boolean hospitalise = c.getInt(PersColumns.KEY_HOSPITALISE) == 1;
 				// Création d'un patient avec les données
-				Patient p = new Patient(nom, prenom, sexe, dateNaissance,
+				Patient p = new Patient(id, nom, prenom, sexe, dateNaissance,
 						lieuNaissance, adresse, ville, codePostal, pays,
 						nationalite, telephone, numSS, medecinTraitant,
 						hospitalise);

@@ -5,7 +5,8 @@
     android:layout_height="fill_parent"
     
     android:gravity="center_vertical"
-    android:orientation="vertical" >
+    android:orientation="vertical" 
+    android:background="@drawable/patient_selector">
 
     <TextView
         android:id="@+id/list_item_text_child"

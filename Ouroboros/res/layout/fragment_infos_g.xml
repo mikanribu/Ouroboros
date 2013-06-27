@@ -18,11 +18,7 @@
 
          <Button
             android:id="@+id/bModif"
-<<<<<<< HEAD
-            style="@style/FormButton" 
-=======
             style="@style/FormButton"
->>>>>>> 57aff0944042f61ae2cf94874c728d7f8f755d69
             android:text="@string/modif_infos" />
 
     </RelativeLayout>
