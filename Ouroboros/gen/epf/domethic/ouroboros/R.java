@@ -967,7 +967,7 @@ containing a value of this type.
         public static final int valide_connexion=0x7f020097;
     }
     public static final class id {
-        public static final int SubItem=0x7f05008b;
+        public static final int SubItem=0x7f05008c;
         public static final int abs__action_bar=0x7f050022;
         public static final int abs__action_bar_container=0x7f050021;
         public static final int abs__action_bar_subtitle=0x7f050013;
@@ -1007,12 +1007,13 @@ containing a value of this type.
         public static final int abs__textButton=0x7f050015;
         public static final int abs__title=0x7f05001d;
         public static final int abs__up=0x7f05000b;
-        public static final int action_recherche=0x7f05008e;
+        public static final int action_recherche=0x7f05008f;
         public static final int animation_layout=0x7f05003a;
         public static final int animation_layout_content=0x7f050011;
         public static final int animation_layout_sidebar=0x7f050010;
         public static final int bConnexion=0x7f050036;
-        public static final int bVueDMP=0x7f050061;
+        public static final int bModif=0x7f050061;
+        public static final int bVueDMP=0x7f050080;
         public static final int container=0x7f050050;
         public static final int detail=0x7f05004a;
         public static final int deuxTiers=0x7f05004c;
@@ -1020,20 +1021,20 @@ containing a value of this type.
         public static final int edit_query=0x7f050028;
         public static final int etPseudo=0x7f050034;
         public static final int etPswd=0x7f050039;
-        public static final int heading=0x7f050086;
+        public static final int heading=0x7f050087;
         public static final int homeAsUp=0x7f050006;
         public static final int ivEncadre=0x7f050035;
         public static final int ivGrandLogo=0x7f050037;
-        public static final int ivImage=0x7f050084;
+        public static final int ivImage=0x7f050085;
         public static final int ivRadio=0x7f05005a;
-        public static final int ivSexe=0x7f05008a;
+        public static final int ivSexe=0x7f05008b;
         public static final int ivValiderConnexion=0x7f050038;
-        public static final int langue=0x7f05008d;
+        public static final int langue=0x7f05008e;
         public static final int listMode=0x7f050002;
-        public static final int list_item=0x7f050082;
-        public static final int list_item_child=0x7f050080;
-        public static final int list_item_text_child=0x7f050081;
-        public static final int list_item_text_view=0x7f050083;
+        public static final int list_item=0x7f050083;
+        public static final int list_item_child=0x7f050081;
+        public static final int list_item_text_child=0x7f050082;
+        public static final int list_item_text_view=0x7f050084;
         public static final int liste_infos_dmp=0x7f05007f;
         public static final int liste_new_doc=0x7f05007e;
         public static final int menu_gauche=0x7f050049;
@@ -1058,7 +1059,7 @@ containing a value of this type.
         public static final int tvCodePostalValuePatient=0x7f05006e;
         public static final int tvCreationDossier=0x7f050042;
         public static final int tvDate=0x7f050055;
-        public static final int tvDateNaiss=0x7f05008c;
+        public static final int tvDateNaiss=0x7f05008d;
         public static final int tvDateNaissancePatient=0x7f050066;
         public static final int tvDateValue=0x7f050056;
         public static final int tvDeconnexion=0x7f05003d;
@@ -1077,10 +1078,10 @@ containing a value of this type.
         public static final int tvMonCompte=0x7f050048;
         public static final int tvNationalitePatient=0x7f050074;
         public static final int tvNationaliteValuePatient=0x7f050075;
-        public static final int tvNom=0x7f050089;
+        public static final int tvNom=0x7f05008a;
         public static final int tvNomMedecin=0x7f05003b;
         public static final int tvNomPatient=0x7f050060;
-        public static final int tvNomSecretaireMedicale=0x7f050087;
+        public static final int tvNomSecretaireMedicale=0x7f050088;
         public static final int tvPaysPatient=0x7f050070;
         public static final int tvPaysValuePatient=0x7f050071;
         public static final int tvRadio=0x7f050053;
@@ -1090,13 +1091,13 @@ containing a value of this type.
         public static final int tvRemarquesValue=0x7f05007c;
         public static final int tvSSPatient=0x7f050067;
         public static final int tvSSValuePatient=0x7f050068;
-        public static final int tvSecretaireMedicale=0x7f050088;
+        public static final int tvSecretaireMedicale=0x7f050089;
         public static final int tvSequence=0x7f05004e;
         public static final int tvSexePatient=0x7f050063;
         public static final int tvSexeValuePatient=0x7f050064;
         public static final int tvTelephonePatient=0x7f050077;
         public static final int tvTelephoneValuePatient=0x7f050078;
-        public static final int tvTitre=0x7f050085;
+        public static final int tvTitre=0x7f050086;
         public static final int tvTitreCause=0x7f050052;
         public static final int tvTitreDescription=0x7f05005b;
         public static final int tvTitreDivers=0x7f050076;
@@ -1320,7 +1321,7 @@ containing a value of this type.
         public static final int AppTheme=0x7f0b005a;
         /**  Style de la connexion 
          */
-        public static final int ConnexionLayout=0x7f0b0065;
+        public static final int ConnexionLayout=0x7f0b0068;
         /**  Style des formulaires 
          */
         public static final int FormButton=0x7f0b005e;
@@ -1330,13 +1331,18 @@ containing a value of this type.
         public static final int FormTxtVwSimpleTexte_Value=0x7f0b0064;
         public static final int FormTxtVwTitreSection=0x7f0b0062;
         public static final int FormViewSouligneTitre=0x7f0b005f;
-        public static final int MenuTextViewSectionStyle=0x7f0b006a;
-        public static final int MenuTextViewTitleStyle=0x7f0b006b;
-        public static final int MenuViewSectionStyle=0x7f0b006c;
-        public static final int MenuWritingUserFonction=0x7f0b0069;
+        public static final int ListePatient_SimpleTexte=0x7f0b0066;
+        public static final int ListePatient_Texte_Dessous=0x7f0b0067;
+        /**  Style de la liste de patient 
+         */
+        public static final int ListePatient_img=0x7f0b0065;
+        public static final int MenuTextViewSectionStyle=0x7f0b006d;
+        public static final int MenuTextViewTitleStyle=0x7f0b006e;
+        public static final int MenuViewSectionStyle=0x7f0b006f;
+        public static final int MenuWritingUserFonction=0x7f0b006c;
         /**  Style du Menu 
          */
-        public static final int MenuWritingUserName=0x7f0b0068;
+        public static final int MenuWritingUserName=0x7f0b006b;
         public static final int MyActionBar=0x7f0b005b;
         /**  Style général 
  Any customizations for your app running on 3.0+ devices here 
@@ -1353,8 +1359,8 @@ containing a value of this type.
         public static final int Sherlock___Widget_Holo_ListView=0x7f0b0026;
         public static final int Sherlock___Widget_Holo_Spinner=0x7f0b0023;
         public static final int Sherlock___Widget_SearchAutoCompleteTextView=0x7f0b0033;
-        public static final int Style_Bouton_Connexion=0x7f0b0066;
-        public static final int Style_Entree_Connexion=0x7f0b0067;
+        public static final int Style_Bouton_Connexion=0x7f0b0069;
+        public static final int Style_Entree_Connexion=0x7f0b006a;
         public static final int TextAppearance_Sherlock=0x7f0b004a;
         public static final int TextAppearance_Sherlock_Light_SearchResult=0x7f0b004e;
         public static final int TextAppearance_Sherlock_Light_SearchResult_Subtitle=0x7f0b0050;

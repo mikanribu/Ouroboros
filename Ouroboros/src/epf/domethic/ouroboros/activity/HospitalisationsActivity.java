@@ -78,25 +78,6 @@ public class HospitalisationsActivity extends SherlockFragmentActivity implement
 	public void onCreate(Bundle savedInstanceState) {
 
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_hospitalisations);
-		
-		Resources r = getResources();
-		Drawable myDrawable;
-
-		getSupportActionBar().setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
-		getSupportActionBar().setHomeButtonEnabled(true); // The icone_launcher will not
-												// go
-												// back automatically to
-												// home
-												// (API min 14)
-
-		// Pas d'affichage du nom de l'application dans la barre d'action
-		getSupportActionBar().setDisplayShowTitleEnabled(false);
-
-		mList = (LinearLayout) findViewById(R.id.animation_layout_sidebar);
-		mLayout = (AnimationLayout) findViewById(R.id.animation_layout);
-		mLayout.setListener(this);
-
 		
 		// Création de la boîte de dialogue qui sera affichée lorsque l'utilisateur cliquera sur des boutons du menu non développés
 		ContextThemeWrapper ctw = new ContextThemeWrapper( this, R.style.ThemeHoloDialog );
@@ -105,139 +86,224 @@ public class HospitalisationsActivity extends SherlockFragmentActivity implement
 		boite.setIcon(R.drawable.travaux);
 		boite.setMessage("Cette fonction n'a pas été développée dans cette version.");
 		boite.setNegativeButton("Retour", null);
-
-		// Déconnecter l'utilisateur
-		tvDeconnexion = (TextView) findViewById(R.id.tvDeconnexion);
-		final Intent intent_connexion = new Intent(
-				HospitalisationsActivity.this, ConnexionActivity.class);
-		tvDeconnexion.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				startActivity(intent_connexion);
-			}
-		});
-
 		
-			Intent intent = getIntent ();
+		Intent intent = getIntent ();
 			
-			// Récuperer le pseudo entré en connexion
-			String nom = intent.getStringExtra("nom");
-			String prenom = intent.getStringExtra("prenom");
-									
-			if(intent.getStringExtra("fonction")!=null){
-				fonction = Integer.parseInt(intent.getStringExtra("fonction"));
-			}
-			Log.v(TAG, nom + prenom + fonction);
+		// Récuperer le pseudo entré en connexion
+		String nom = intent.getStringExtra("nom");
+		String prenom = intent.getStringExtra("prenom");
+								
+		if(intent.getStringExtra("fonction")!=null){
+			fonction = Integer.parseInt(intent.getStringExtra("fonction"));
+		}
+		Log.v(TAG, nom + prenom + fonction);
 				   
-			// Si l'utilisateur est un médecin.
-			if (fonction == 1) {	
-				myDrawable = r.getDrawable(R.drawable.barre_haut);
-				getSupportActionBar().setBackgroundDrawable(myDrawable);
-				
-				tvHospitalisations = (TextView) findViewById(R.id.tvHospitalisation);
-				tvHospitalisations.setOnClickListener(new View.OnClickListener() {
-					@Override
-					public void onClick(View v) {
-						// TODO Auto-generated method stub
-						FragmentManager fragmentManager = getSupportFragmentManager();
-						FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-						if(!detail_patient.isVisible()&& !liste_patients.isVisible()){
-							getSupportActionBar().removeAllTabs();
-							fragmentTransaction.add(R.id.deuxTiers, detail_patient);
-							fragmentTransaction.add(R.id.tiers, liste_patients);
-							fragmentTransaction.commit();
-						}					
-						
-					}
-				});
-				
-				// Fonction Recherche non implémentée: renvoie vers la boite de dialogue
-				tvRecherche = (TextView) findViewById(R.id.tvRecherche);
-				tvRecherche.setOnClickListener(new View.OnClickListener() {
-					@Override
-					public void onClick(View v) {
-						boite.show();
-					}
-				});
-	
-				// Fonction Création dossier non implémentée: renvoie vers la boite de dialogue
-				tvCreationDossier = (TextView) findViewById(R.id.tvCreationDossier);
-				tvCreationDossier.setOnClickListener(new View.OnClickListener() {
-	
-					@Override
-					public void onClick(View v) {
-						boite.show();
-					}
-				});
-	
-				// Fonction Ajout document non implémentée: renvoie vers la boite de dialogue
-				tvAjoutDoc = (TextView) findViewById(R.id.tvAjoutDocument);
-				tvAjoutDoc.setOnClickListener(new View.OnClickListener() {
-					@Override
-					public void onClick(View v) {
-						boite.show();
-					}
-				});
-	
-				// Fonction Transfert non implémentée: renvoie vers la boite de dialogue
-				tvTransfert = (TextView) findViewById(R.id.tvTransfert);
-				tvTransfert.setOnClickListener(new View.OnClickListener() {
-					@Override
-					public void onClick(View v) {
-						// TODO Auto-generated method stub
-						boite.show();
-					}
-				});
-	
-				// Fonction A codifier non implémentée: renvoie vers la boite de dialogue
-				tvCodification = (TextView) findViewById(R.id.tvACodifier);
-				tvCodification.setOnClickListener(new View.OnClickListener() {
-					@Override
-					public void onClick(View v) {
-						boite.show();
-					}
-	
-				});
-				
-				// Fonction Archives non implémentée: renvoie vers la boite de dialogue
-				tvArchives = (TextView) findViewById(R.id.tvArchives);
-				tvArchives.setOnClickListener(new View.OnClickListener() {
-					@Override
-					public void onClick(View v) {
-						boite.show();
-					}
-				});
-	
-				// Fonction Mon compte non implémentée: renvoie vers la boite de dialogue
-				tvMonCompte = (TextView) findViewById(R.id.tvMonCompte);
-				tvMonCompte.setOnClickListener(new View.OnClickListener() {	
-					@Override
-					public void onClick(View v) {
-						boite.show();
-					}
-				});
-	
-				// Affiche dans le menu le nom du médecin connecté et sa fonction
-				tvFonction = (TextView) findViewById(R.id.tvNomMedecin);
-				tvFonction.setText(prenom + " " + nom);
-				
-				FragmentManager fragmentManager = getSupportFragmentManager();
-				FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-				fragmentTransaction.add(R.id.deuxTiers, detail_patient);
-				fragmentTransaction.add(R.id.tiers, liste_patients);
-				fragmentTransaction.commit();
-			}
+		// Si l'utilisateur est un médecin.
+		if (fonction == 1) {
+			// View: Medecin
+			setContentView(R.layout.activity_hospitalisations);
 			
-			// Si l'utilisateur est une secrétaire médicale
-			else if (fonction == 2) {
-				setContentView(R.layout.menu_secretaire_medicale);
+			Resources r = getResources();
+			Drawable myDrawable;
+			
+			// Mettre en place la barre du haut
+			myDrawable = r.getDrawable(R.drawable.barre_haut);
+			getSupportActionBar().setBackgroundDrawable(myDrawable);
+
+			//Désactiver le retour automatique à la page d'accueil de l'icone launcher
+			getSupportActionBar().setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+			getSupportActionBar().setHomeButtonEnabled(true); 
+
+			// Pas d'affichage du nom de l'application dans la barre d'action
+			getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+			// Mettre en place le menu slide
+			mList = (LinearLayout) findViewById(R.id.animation_layout_sidebar);
+			mLayout = (AnimationLayout) findViewById(R.id.animation_layout);
+			mLayout.setListener(this);
+			
+			
+				
+			// Menu: Deconnexion du médecin
+			tvDeconnexion = (TextView) findViewById(R.id.tvDeconnexion);
+			final Intent intent_connexion = new Intent(
+					HospitalisationsActivity.this, ConnexionActivity.class);
+			tvDeconnexion.setOnClickListener(new OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					startActivity(intent_connexion);
+				}
+			});
+			
+			// Menu: Liste des hospitalisations en cours
+			tvHospitalisations = (TextView) findViewById(R.id.tvHospitalisation);
+			tvHospitalisations.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					// TODO Auto-generated method stub
+					FragmentManager fragmentManager = getSupportFragmentManager();
+					FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+					if(!detail_patient.isVisible()&& !liste_patients.isVisible()){
+						getSupportActionBar().removeAllTabs();
+						fragmentTransaction.add(R.id.deuxTiers, detail_patient);
+						fragmentTransaction.add(R.id.tiers, liste_patients);
+						fragmentTransaction.commit();
+					}											
+				}
+			});
+				
+			// Fonction Recherche non implémentée: renvoie vers la boite de dialogue
+			tvRecherche = (TextView) findViewById(R.id.tvRecherche);
+			tvRecherche.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					boite.show();
+				}
+			});
 	
-				myDrawable = r.getDrawable(R.drawable.barre_hautsecadm);
-				getSupportActionBar().setBackgroundDrawable(myDrawable);
+			// Fonction Création dossier non implémentée: renvoie vers la boite de dialogue
+			tvCreationDossier = (TextView) findViewById(R.id.tvCreationDossier);
+			tvCreationDossier.setOnClickListener(new View.OnClickListener() {
+	
+				@Override
+				public void onClick(View v) {
+					boite.show();
+				}
+			});
+	
+			// Fonction Ajout document non implémentée: renvoie vers la boite de dialogue
+			tvAjoutDoc = (TextView) findViewById(R.id.tvAjoutDocument);
+			tvAjoutDoc.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					boite.show();
+				}
+			});
+	
+			// Fonction Transfert non implémentée: renvoie vers la boite de dialogue
+			tvTransfert = (TextView) findViewById(R.id.tvTransfert);
+			tvTransfert.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					// TODO Auto-generated method stub
+					boite.show();
+				}
+			});
+	
+			// Fonction A codifier non implémentée: renvoie vers la boite de dialogue
+			tvCodification = (TextView) findViewById(R.id.tvACodifier);
+			tvCodification.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					boite.show();
+				}
+			});
+				
+			// Fonction Archives non implémentée: renvoie vers la boite de dialogue
+			tvArchives = (TextView) findViewById(R.id.tvArchives);
+			tvArchives.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					boite.show();
+				}
+			});
+	
+			// Fonction Mon compte non implémentée: renvoie vers la boite de dialogue
+			tvMonCompte = (TextView) findViewById(R.id.tvMonCompte);
+			tvMonCompte.setOnClickListener(new View.OnClickListener() {	
+				@Override
+				public void onClick(View v) {
+					boite.show();
+				}
+			});
+	
+			// Affiche dans le menu le nom du médecin connecté et sa fonction
+			tvFonction = (TextView) findViewById(R.id.tvNomMedecin);
+			tvFonction.setText(prenom + " " + nom);
+			
+			FragmentManager fragmentManager = getSupportFragmentManager();
+			FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+			fragmentTransaction.add(R.id.deuxTiers, detail_patient);
+			fragmentTransaction.add(R.id.tiers, liste_patients);
+			fragmentTransaction.commit();
+		}
+			
+		// Si l'utilisateur est une secrétaire médicale
+		else if (fonction == 2) {
+			// Menu: Secrétaire Médicale
+			setContentView(R.layout.menu_secretaire_medicale);
+				
+			Resources r = getResources();
+			Drawable myDrawable;
+
+			//Désactiver le retour automatique à la page d'accueil de l'icone launcher
+			getSupportActionBar().setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+			getSupportActionBar().setHomeButtonEnabled(true); 
+
+			// Pas d'affichage du nom de l'application dans la barre d'action
+			getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+			// Animation du menu
+			mList = (LinearLayout) findViewById(R.id.animation_layout_sidebar);
+			mLayout = (AnimationLayout) findViewById(R.id.animation_layout);
+			mLayout.setListener(this);
+				
+	
+			myDrawable = r.getDrawable(R.drawable.barre_hautsecadm);
+			getSupportActionBar().setBackgroundDrawable(myDrawable);
 		
-				// Affiche dans le menu le nom de la secrétaire médicale connectée et sa fonction
-				tvFonction = (TextView) findViewById(R.id.tvNomSecretaireMedicale);
-				tvFonction.setText(prenom + " " + nom);
+			// Menu: Deconnexion de la secrétaire Médicale
+			tvDeconnexion = (TextView) findViewById(R.id.tvDeconnexion);
+			final Intent intent_connexion = new Intent(
+				HospitalisationsActivity.this, ConnexionActivity.class);
+	
+			tvDeconnexion.setOnClickListener(new OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					startActivity(intent_connexion);
+				}
+			});
+			
+			// Menu: Liste des hospitalisations en cours
+			tvHospitalisations = (TextView) findViewById(R.id.tvHospitalisation);
+			tvHospitalisations.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					// TODO Auto-generated method stub
+					boite.show();											
+				}
+			});
+							
+			// Fonction Recherche non implémentée: renvoie vers la boite de dialogue
+			tvRecherche = (TextView) findViewById(R.id.tvRecherche);
+			tvRecherche.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					boite.show();
+				}
+			});
+			
+			// Fonction Mon compte non implémentée: renvoie vers la boite de dialogue
+			tvMonCompte = (TextView) findViewById(R.id.tvMonCompte);
+			tvMonCompte.setOnClickListener(new View.OnClickListener() {	
+				@Override
+				public void onClick(View v) {
+					boite.show();
+				}
+			});
+				
+			// Fonction Création dossier non implémentée: renvoie vers la boite de dialogue
+			tvCreationDossier = (TextView) findViewById(R.id.tvCreationDossier);
+			tvCreationDossier.setOnClickListener(new View.OnClickListener() {			
+				@Override
+				public void onClick(View v) {
+					boite.show();
+				}
+			});
+						
+			// Affiche dans le menu le nom de la secrétaire médicale connectée et sa fonction
+			tvFonction = (TextView) findViewById(R.id.tvNomSecretaireMedicale);
+			tvFonction.setText(prenom + " " + nom);
 			}
 			
 			// Si l'utilisateur n'est ni médecin, ni secrétaire médicale.

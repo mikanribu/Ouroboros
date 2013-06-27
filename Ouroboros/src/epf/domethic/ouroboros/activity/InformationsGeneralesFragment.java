@@ -71,7 +71,7 @@ public class InformationsGeneralesFragment extends SherlockFragment {
 		
 		afficherPatient(patient);
 		
-		bModif =(Button)view.findViewById(R.id.bVueDMP);
+		bModif =(Button)view.findViewById(R.id.bModif);
 		bModif.setOnClickListener(new View.OnClickListener() {
 		    @Override
 		    public void onClick(View v) {
