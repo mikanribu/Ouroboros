@@ -7,6 +7,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 import epf.domethic.ouroboros.data.RadioDBOpenHelper;
 import epf.domethic.ouroboros.model.Radio;
 import epf.domethic.ouroboros.outils.DocumentColumns;
@@ -45,7 +46,7 @@ public class RadioDAO {
 	public Cursor getRadiosCursor(){
 		String[] columns = 			//Colonnes à récupérer
 				new String[]{DocumentColumns._ID, DocumentColumns.KEY_ID_PATIENT, DocumentColumns.KEY_NOM,
-				DocumentColumns.KEY_RADIO, DocumentColumns.KEY_DATE, DocumentColumns.KEY_MEDECIN,
+				DocumentColumns.KEY_RADIO, DocumentColumns.KEY_CAUSE, DocumentColumns.KEY_DATE, DocumentColumns.KEY_MEDECIN,
 				DocumentColumns.KEY_DESCRIPTION, DocumentColumns.KEY_INTERPRETATION};
 		//Retourne toutes les tables de la BDD Radio trié dans l'ordre alphabétique
 		return	database.query(RadioDBOpenHelper.TABLE_RADIO,columns, null, null, null, null, DocumentColumns.KEY_DATE, null);
@@ -56,7 +57,7 @@ public class RadioDAO {
 	public Cursor getRadiosCursor(String like){
 		String[] columns =						//Colonnes à récupérer 
 				new String[]{DocumentColumns._ID, DocumentColumns.KEY_ID_PATIENT, DocumentColumns.KEY_NOM, 
-				DocumentColumns.KEY_RADIO, DocumentColumns.KEY_DATE, DocumentColumns.KEY_MEDECIN, 
+				DocumentColumns.KEY_RADIO, DocumentColumns.KEY_CAUSE, DocumentColumns.KEY_DATE, DocumentColumns.KEY_MEDECIN, 
 				DocumentColumns.KEY_DESCRIPTION, DocumentColumns.KEY_INTERPRETATION};
 		//Clause où le nom de la radio correspond à la chaine de caractère 'like'.	
 		String where = PersColumns.KEY_NOM + " like '%" + like + "%'";		
@@ -70,7 +71,7 @@ public class RadioDAO {
 	public Cursor getRadiosCursor(int like){
 		String[] columns = 					//Colonnes à récupérer
 				new String[]{DocumentColumns._ID, DocumentColumns.KEY_ID_PATIENT, DocumentColumns.KEY_NOM, 
-				DocumentColumns.KEY_RADIO, DocumentColumns.KEY_DATE, DocumentColumns.KEY_MEDECIN, 
+				DocumentColumns.KEY_RADIO, DocumentColumns.KEY_CAUSE, DocumentColumns.KEY_DATE, DocumentColumns.KEY_MEDECIN, 
 				DocumentColumns.KEY_DESCRIPTION, DocumentColumns.KEY_INTERPRETATION};
 		String where = PersColumns._ID + " like '%" + like + "%'";		 		//Si l'id de la radio est comme l'entier 'like'
 		//Retourne un curseur sur les tables qui correspondent au critère de sélection
@@ -85,12 +86,14 @@ public class RadioDAO {
 		values.put(DocumentColumns.KEY_ID_PATIENT, arrayRadios.get(0));
 		values.put(DocumentColumns.KEY_NOM, arrayRadios.get(1));
 		values.put(DocumentColumns.KEY_RADIO, arrayRadios.get(2));
-		values.put(DocumentColumns.KEY_CAUSE, arrayRadios.get(3));	
+		values.put(DocumentColumns.KEY_CAUSE, arrayRadios.get(3));
 		values.put(DocumentColumns.KEY_DATE, arrayRadios.get(4));
 		values.put(DocumentColumns.KEY_MEDECIN, arrayRadios.get(5));
 		values.put(DocumentColumns.KEY_DESCRIPTION, arrayRadios.get(6));
 		values.put(DocumentColumns.KEY_INTERPRETATION, arrayRadios.get(7));
 
+
+		
 		database.insert(RadioDBOpenHelper.TABLE_RADIO, null, values); 	//Insertion des données dans la BDD
 	}
 	
@@ -109,13 +112,15 @@ public class RadioDAO {
 	
 	public Radio getRadio(Cursor cursor){
 		Radio radio = new Radio();
+
+		radio.setId_patient(cursor.getInt(1));
 		radio.setTitre(cursor.getString(2));
 		radio.setNomRadio(cursor.getString(3));
-		radio.setCause(cursor.getString(3));
-		radio.setDate(cursor.getString(4));
-		radio.setMedecin(cursor.getString(5));
-		radio.setDescription(cursor.getString(6));
-		radio.setInterpretation(cursor.getString(7));
+		radio.setCause(cursor.getString(4));
+		radio.setDate(cursor.getString(5));
+		radio.setMedecin(cursor.getString(6));
+		radio.setDescription(cursor.getString(7));
+		radio.setInterpretation(cursor.getString(8));
 		
 		return radio;
 	}

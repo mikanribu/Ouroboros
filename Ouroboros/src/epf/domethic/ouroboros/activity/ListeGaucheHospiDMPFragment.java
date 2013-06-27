@@ -86,8 +86,6 @@ public class ListeGaucheHospiDMPFragment extends SherlockFragment {
 
 			if (arrayNomParents.get(i) == "Radiographies") {
 				Cursor cursor = dao.getRadiosCursor();
-				Cursor c = dao.getRadiosCursor("Thorax");
-				c.moveToFirst();
 				cursor.moveToFirst();
 
 				while (!cursor.isAfterLast()) {
@@ -219,14 +217,10 @@ public class ListeGaucheHospiDMPFragment extends SherlockFragment {
 				dao = new RadioDAO(this.getActivity());
 				dao.ajouterRadio(r);
 
-				// patientList.add(p);
 			}
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
-		// Tri des noms des patients par ordre alphabétique
-		// Collections.sort(patientList, new NameComparator());
-		// dao.close();
 	}
 	public class Parent {
 		private String mTitle;
