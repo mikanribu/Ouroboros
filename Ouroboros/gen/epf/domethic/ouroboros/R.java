@@ -942,7 +942,7 @@ containing a value of this type.
         public static final int item_selector=0x7f020080;
         /**   Couleur qui correspond à un élément d'une liste sélectionné. 
          */
-        public static final int list_activated=0x7f020097;
+        public static final int list_activated=0x7f020099;
         public static final int list_arrow_selected_holo=0x7f020081;
         public static final int list_selected_holo=0x7f020082;
         public static final int list_unread_holo=0x7f020083;
@@ -952,19 +952,21 @@ containing a value of this type.
         public static final int logo_impression_dossier=0x7f020087;
         public static final int logo_new_doc=0x7f020088;
         public static final int logo_new_hospi=0x7f020089;
-        public static final int male=0x7f02008a;
-        public static final int menu_a_codifier=0x7f02008b;
-        public static final int menu_action_search=0x7f02008c;
-        public static final int menu_ajout_doc=0x7f02008d;
-        public static final int menu_archives=0x7f02008e;
-        public static final int menu_creer_dossier=0x7f02008f;
-        public static final int menu_hospitalisations=0x7f020090;
-        public static final int menu_mon_compte=0x7f020091;
-        public static final int menu_transfert=0x7f020092;
-        public static final int patient_selector=0x7f020093;
-        public static final int travaux=0x7f020094;
-        public static final int uroboroslogoseul=0x7f020095;
-        public static final int valide_connexion=0x7f020096;
+        public static final int logo_secretaire=0x7f02008a;
+        public static final int male=0x7f02008b;
+        public static final int menu_a_codifier=0x7f02008c;
+        public static final int menu_action_search=0x7f02008d;
+        public static final int menu_ajout_doc=0x7f02008e;
+        public static final int menu_archives=0x7f02008f;
+        public static final int menu_creer_dossier=0x7f020090;
+        public static final int menu_hospitalisations=0x7f020091;
+        public static final int menu_mon_compte=0x7f020092;
+        public static final int menu_transfert=0x7f020093;
+        public static final int patient_selector=0x7f020094;
+        public static final int secretaire_medicale=0x7f020095;
+        public static final int travaux=0x7f020096;
+        public static final int uroboroslogoseul=0x7f020097;
+        public static final int valide_connexion=0x7f020098;
     }
     public static final class id {
         public static final int SubItem=0x7f05008a;
@@ -1151,8 +1153,9 @@ containing a value of this type.
         public static final int menu_infos_dmp_titre=0x7f030022;
         public static final int menu_secretaire_medicale=0x7f030023;
         public static final int patients_list_entry=0x7f030024;
-        public static final int sherlock_spinner_dropdown_item=0x7f030025;
-        public static final int sherlock_spinner_item=0x7f030026;
+        public static final int secretaire_layout=0x7f030025;
+        public static final int sherlock_spinner_dropdown_item=0x7f030026;
+        public static final int sherlock_spinner_item=0x7f030027;
     }
     public static final class menu {
         public static final int accueil=0x7f0d0000;

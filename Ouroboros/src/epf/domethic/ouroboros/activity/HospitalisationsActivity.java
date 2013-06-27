@@ -63,6 +63,7 @@ public class HospitalisationsActivity extends SherlockFragmentActivity implement
 	AfficherPatientFragment detail_patient = new AfficherPatientFragment();
 	ListerPatientsFragment liste_patients = new ListerPatientsFragment();
 	AfficherRadioFragment fragment_radio = new AfficherRadioFragment();
+	SecretaireFragment secretaire = new SecretaireFragment();
 	
 	public int fonction = 0;
 	
@@ -304,6 +305,11 @@ public class HospitalisationsActivity extends SherlockFragmentActivity implement
 			// Affiche dans le menu le nom de la secrétaire médicale connectée et sa fonction
 			tvFonction = (TextView) findViewById(R.id.tvNomSecretaireMedicale);
 			tvFonction.setText(prenom + " " + nom);
+			
+			FragmentManager fragmentManager = getSupportFragmentManager();
+			FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+			fragmentTransaction.add(R.id.tiers, secretaire);
+			fragmentTransaction.commit();
 			}
 			
 			// Si l'utilisateur n'est ni médecin, ni secrétaire médicale.
