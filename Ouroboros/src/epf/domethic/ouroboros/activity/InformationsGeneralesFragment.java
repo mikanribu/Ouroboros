@@ -47,8 +47,14 @@ public class InformationsGeneralesFragment extends SherlockFragment {
 		View view = inflater.inflate(R.layout.fragment_infos_g,container, false);
 
 
+<<<<<<< HEAD
 		ContextThemeWrapper ctw = new ContextThemeWrapper(getSherlockActivity(), R.style.ThemeHoloDialog );
 		boite = new AlertDialog.Builder(ctw);
+=======
+		// Création de la boîte de dialogue qui sera affichée lorsque
+		// l'utilisateur cliquera sur des boutons pas développé
+		boite = new AlertDialog.Builder(getSherlockActivity(), R.style.ThemeHoloDialog);
+>>>>>>> 57aff0944042f61ae2cf94874c728d7f8f755d69
 		boite.setTitle("La fonction n'est pas encore implémentée!");
 		boite.setIcon(R.drawable.travaux);
 		boite.setMessage("Cette fonction n'a pas été développée dans cette version.");

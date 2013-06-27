@@ -69,6 +69,44 @@
         <item name="android:textAppearance">?android:attr/textAppearanceLarge</item>
 	</style>
     
+	<!-- Style de la liste de patient -->
+	<style name="ListePatient_img">
+	    <item name="android:layout_width">wrap_content</item>
+	    <item name="android:layout_height">wrap_content</item>
+	    <item name="android:layout_alignParentRight">true</item>
+	</style>
+	
+	<style name="ListePatient_SimpleTexte">
+	    <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceLarge</item>
+	</style>
+	
+	<style name="ListePatient_Texte_Dessous">
+	    <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/GrisTitreFormulaire</item>
+        <item name="android:paddingLeft">12dp</item>
+        <item name="android:textSize">18sp</item>
+	</style>
+	
+	<!-- Style du menu du DMP à l'onglet hospitalisation -->
+	<style name="Menu_OngletHospi">
+	    <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">65dp</item>
+        <item name="android:layout_marginLeft">62dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textSize">20sp</item>
+	</style>
+	<style name="Menu_Hospi_fils">
+	    <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">70dp</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:textSize">20sp</item>
+	</style>
+	
     <!-- Style de la connexion -->
     <style name="ConnexionLayout">
         <!-- Any customizations for your app running on 4.0+ devices here -->
@@ -104,6 +142,21 @@
         <item name="android:ems">10</item>
         <item name="android:height">100dp</item>
         <item name="android:width">250dp</item>
+    </style>
+    
+    <style name="Style_logo_grand">
+        <!-- Any customizations for your app running on 4.0+ devices here -->
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerHorizontal">true</item>
+    </style>
+    
+    <style name="Style_encadre">
+        <!-- Any customizations for your app running on 4.0+ devices here -->
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_alignParentBottom">true</item>
+    	<item name="android:layout_centerHorizontal">true</item>
     </style>
     
     <!-- Style du Menu -->

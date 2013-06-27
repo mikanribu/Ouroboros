@@ -684,12 +684,13 @@ containing a value of this type.
     }
     public static final class color {
         public static final int Black=0x7f070007;
-        public static final int BleuMedecin=0x7f070009;
-        public static final int GrisFondMenu=0x7f07000a;
+        public static final int BleuMedecin=0x7f07000a;
+        public static final int GrisFondMenu=0x7f07000b;
         public static final int GrisMenu=0x7f070008;
-        public static final int GrisTexteTitreMenu=0x7f07000c;
-        public static final int GrisTitreFormulaire=0x7f07000d;
-        public static final int GrisViewMenu=0x7f07000b;
+        public static final int GrisTexteTitreMenu=0x7f07000d;
+        public static final int GrisTitreFormulaire=0x7f07000e;
+        public static final int GrisViewMenu=0x7f07000c;
+        public static final int LigneMenuHospi=0x7f070009;
         public static final int White=0x7f070006;
         public static final int abs__background_holo_dark=0x7f070000;
         public static final int abs__background_holo_light=0x7f070001;
@@ -697,10 +698,10 @@ containing a value of this type.
         public static final int abs__bright_foreground_disabled_holo_light=0x7f070005;
         public static final int abs__bright_foreground_holo_dark=0x7f070002;
         public static final int abs__bright_foreground_holo_light=0x7f070003;
-        public static final int abs__primary_text_disable_only_holo_dark=0x7f07000e;
-        public static final int abs__primary_text_disable_only_holo_light=0x7f07000f;
-        public static final int abs__primary_text_holo_dark=0x7f070010;
-        public static final int abs__primary_text_holo_light=0x7f070011;
+        public static final int abs__primary_text_disable_only_holo_dark=0x7f07000f;
+        public static final int abs__primary_text_disable_only_holo_light=0x7f070010;
+        public static final int abs__primary_text_holo_dark=0x7f070011;
+        public static final int abs__primary_text_holo_light=0x7f070012;
     }
     public static final class dimen {
         /**  Default height of an action bar. 
@@ -928,30 +929,30 @@ containing a value of this type.
         public static final int bouton_connexion_transparent=0x7f020073;
         public static final int codification=0x7f020074;
         public static final int custom_btn_breaker_bay=0x7f020075;
-        public static final int en_travaux=0x7f020076;
-        public static final int encadre=0x7f020077;
-        public static final int female=0x7f020078;
-        public static final int fond=0x7f020079;
-        public static final int grand_logo=0x7f02007a;
-        public static final int hospi_en_cours=0x7f02007b;
-        public static final int ic_contact_picture=0x7f02007c;
-        public static final int ic_langues=0x7f02007d;
-        public static final int ic_launcher=0x7f02007e;
-        public static final int ic_menu_search=0x7f02007f;
-        public static final int infos_g=0x7f020080;
-        public static final int item_selector=0x7f020081;
+        public static final int encadre=0x7f020076;
+        public static final int female=0x7f020077;
+        public static final int fond=0x7f020078;
+        public static final int grand_logo=0x7f020079;
+        public static final int hospi_en_cours=0x7f02007a;
+        public static final int ic_contact_picture=0x7f02007b;
+        public static final int ic_langues=0x7f02007c;
+        public static final int ic_launcher=0x7f02007d;
+        public static final int ic_menu_search=0x7f02007e;
+        public static final int infos_g=0x7f02007f;
+        public static final int item_selector=0x7f020080;
         /**   Couleur qui correspond à un élément d'une liste sélectionné. 
          */
-        public static final int list_activated=0x7f020098;
-        public static final int list_arrow_selected_holo=0x7f020082;
-        public static final int list_selected_holo=0x7f020083;
-        public static final int list_unread_holo=0x7f020084;
-        public static final int logo_blanc=0x7f020085;
-        public static final int logo_donnees_patient=0x7f020086;
-        public static final int logo_fin_hospi=0x7f020087;
-        public static final int logo_impression_dossier=0x7f020088;
-        public static final int logo_new_doc=0x7f020089;
-        public static final int logo_new_hospi=0x7f02008a;
+        public static final int list_activated=0x7f020099;
+        public static final int list_arrow_selected_holo=0x7f020081;
+        public static final int list_selected_holo=0x7f020082;
+        public static final int list_unread_holo=0x7f020083;
+        public static final int logo_blanc=0x7f020084;
+        public static final int logo_donnees_patient=0x7f020085;
+        public static final int logo_fin_hospi=0x7f020086;
+        public static final int logo_impression_dossier=0x7f020087;
+        public static final int logo_new_doc=0x7f020088;
+        public static final int logo_new_hospi=0x7f020089;
+        public static final int logo_secretaire=0x7f02008a;
         public static final int male=0x7f02008b;
         public static final int menu_a_codifier=0x7f02008c;
         public static final int menu_action_search=0x7f02008d;
@@ -962,9 +963,10 @@ containing a value of this type.
         public static final int menu_mon_compte=0x7f020092;
         public static final int menu_transfert=0x7f020093;
         public static final int patient_selector=0x7f020094;
-        public static final int travaux=0x7f020095;
-        public static final int uroboroslogoseul=0x7f020096;
-        public static final int valide_connexion=0x7f020097;
+        public static final int secretaire_medicale=0x7f020095;
+        public static final int travaux=0x7f020096;
+        public static final int uroboroslogoseul=0x7f020097;
+        public static final int valide_connexion=0x7f020098;
     }
     public static final class id {
         public static final int SubItem=0x7f050089;
@@ -1012,8 +1014,14 @@ containing a value of this type.
         public static final int animation_layout_content=0x7f050011;
         public static final int animation_layout_sidebar=0x7f050010;
         public static final int bConnexion=0x7f050036;
+<<<<<<< HEAD
         public static final int bModif=0x7f05005e;
         public static final int bVueDMP=0x7f05007d;
+=======
+        public static final int bModif=0x7f05005f;
+        public static final int bVueDMP=0x7f05007e;
+        public static final int container=0x7f05004e;
+>>>>>>> 57aff0944042f61ae2cf94874c728d7f8f755d69
         public static final int deuxTiers=0x7f05004a;
         public static final int disableHome=0x7f050009;
         public static final int edit_query=0x7f050028;
@@ -1023,12 +1031,19 @@ containing a value of this type.
         public static final int homeAsUp=0x7f050006;
         public static final int ivEncadre=0x7f050035;
         public static final int ivGrandLogo=0x7f050037;
+<<<<<<< HEAD
         public static final int ivImage=0x7f050082;
         public static final int ivRadio=0x7f050057;
         public static final int ivSexe=0x7f050088;
+=======
+        public static final int ivImage=0x7f050083;
+        public static final int ivRadio=0x7f050058;
+        public static final int ivSexe=0x7f050089;
+>>>>>>> 57aff0944042f61ae2cf94874c728d7f8f755d69
         public static final int ivValiderConnexion=0x7f050038;
         public static final int langue=0x7f05008b;
         public static final int listMode=0x7f050002;
+<<<<<<< HEAD
         public static final int list_item=0x7f050080;
         public static final int list_item_child=0x7f05007e;
         public static final int list_item_text_child=0x7f05007f;
@@ -1036,11 +1051,21 @@ containing a value of this type.
         public static final int liste_infos_dmp=0x7f05007c;
         public static final int liste_new_doc=0x7f05007b;
         public static final int menu_gauche_hospi=0x7f05007a;
+=======
+        public static final int list_item=0x7f050081;
+        public static final int list_item_child=0x7f05007f;
+        public static final int list_item_text_child=0x7f050080;
+        public static final int list_item_text_view=0x7f050082;
+        public static final int liste_infos_dmp=0x7f05007d;
+        public static final int liste_new_doc=0x7f05007c;
+        public static final int menu_gauche_hospi=0x7f05007b;
+>>>>>>> 57aff0944042f61ae2cf94874c728d7f8f755d69
         public static final int normal=0x7f050001;
         public static final int showCustom=0x7f050008;
         public static final int showHome=0x7f050005;
         public static final int showTitle=0x7f050007;
         public static final int tabMode=0x7f050003;
+<<<<<<< HEAD
         public static final int textview_date_naissance_value=0x7f050062;
         public static final int tiers=0x7f050049;
         public static final int tvACodifier=0x7f050045;
@@ -1105,6 +1130,72 @@ containing a value of this type.
         public static final int tvTrouverPatient=0x7f05003e;
         public static final int tvVillePatient=0x7f05006f;
         public static final int tvVilleValuePatient=0x7f050070;
+=======
+        public static final int textview_date_naissance_value=0x7f050063;
+        public static final int tiers=0x7f050049;
+        public static final int tvACodifier=0x7f050045;
+        public static final int tvAdressePatient=0x7f05006a;
+        public static final int tvAdresseValuePatient=0x7f05006b;
+        public static final int tvAjoutDocument=0x7f050043;
+        public static final int tvArchives=0x7f050047;
+        public static final int tvAutresActions=0x7f050046;
+        public static final int tvCause=0x7f050055;
+        public static final int tvCauseValue=0x7f050056;
+        public static final int tvChildItem=0x7f05004d;
+        public static final int tvCodePostalPatient=0x7f05006d;
+        public static final int tvCodePostalValuePatient=0x7f05006c;
+        public static final int tvCreationDossier=0x7f050042;
+        public static final int tvDate=0x7f050053;
+        public static final int tvDateNaiss=0x7f05008b;
+        public static final int tvDateNaissancePatient=0x7f050064;
+        public static final int tvDateValue=0x7f050054;
+        public static final int tvDeconnexion=0x7f05003d;
+        public static final int tvDescription=0x7f05005a;
+        public static final int tvDescriptionValue=0x7f05005b;
+        public static final int tvGererVosDossiers=0x7f050041;
+        public static final int tvHospitalisation=0x7f05003f;
+        public static final int tvInterpretation=0x7f05005c;
+        public static final int tvInterpretationValue=0x7f05005d;
+        public static final int tvLieuNaissancePatient=0x7f050067;
+        public static final int tvLieuNaissanceValuePatient=0x7f050068;
+        public static final int tvMedecin=0x7f05003c;
+        public static final int tvMedecinTraitantPatient=0x7f050078;
+        public static final int tvMedecinTraitantValuePatient=0x7f050077;
+        public static final int tvMedecinValue=0x7f050057;
+        public static final int tvMonCompte=0x7f050048;
+        public static final int tvNationalitePatient=0x7f050072;
+        public static final int tvNationaliteValuePatient=0x7f050073;
+        public static final int tvNom=0x7f050088;
+        public static final int tvNomMedecin=0x7f05003b;
+        public static final int tvNomPatient=0x7f05005e;
+        public static final int tvNomSecretaireMedicale=0x7f050086;
+        public static final int tvPaysPatient=0x7f05006e;
+        public static final int tvPaysValuePatient=0x7f05006f;
+        public static final int tvRadio=0x7f050051;
+        public static final int tvRadioValue=0x7f050052;
+        public static final int tvRecherche=0x7f050040;
+        public static final int tvRemarques=0x7f050079;
+        public static final int tvRemarquesValue=0x7f05007a;
+        public static final int tvSSPatient=0x7f050065;
+        public static final int tvSSValuePatient=0x7f050066;
+        public static final int tvSecretaireMedicale=0x7f050087;
+        public static final int tvSequence=0x7f05004c;
+        public static final int tvSexePatient=0x7f050061;
+        public static final int tvSexeValuePatient=0x7f050062;
+        public static final int tvTelephonePatient=0x7f050075;
+        public static final int tvTelephoneValuePatient=0x7f050076;
+        public static final int tvTitre=0x7f050084;
+        public static final int tvTitreCause=0x7f050050;
+        public static final int tvTitreDescription=0x7f050059;
+        public static final int tvTitreDivers=0x7f050074;
+        public static final int tvTitreInfosGenerales=0x7f050060;
+        public static final int tvTitreRadio=0x7f05004f;
+        public static final int tvTitreResidence=0x7f050069;
+        public static final int tvTransfert=0x7f050044;
+        public static final int tvTrouverPatient=0x7f05003e;
+        public static final int tvVillePatient=0x7f050070;
+        public static final int tvVilleValuePatient=0x7f050071;
+>>>>>>> 57aff0944042f61ae2cf94874c728d7f8f755d69
         public static final int useLogo=0x7f050004;
         public static final int wrap_content=0x7f050000;
         public static final int wvDoc=0x7f05004b;
@@ -1150,8 +1241,14 @@ containing a value of this type.
         public static final int menu_infos_dmp_titre=0x7f030022;
         public static final int menu_secretaire_medicale=0x7f030023;
         public static final int patients_list_entry=0x7f030024;
+<<<<<<< HEAD
         public static final int sherlock_spinner_dropdown_item=0x7f030025;
         public static final int sherlock_spinner_item=0x7f030026;
+=======
+        public static final int secretaire_layout=0x7f030025;
+        public static final int sherlock_spinner_dropdown_item=0x7f030026;
+        public static final int sherlock_spinner_item=0x7f030027;
+>>>>>>> 57aff0944042f61ae2cf94874c728d7f8f755d69
     }
     public static final class menu {
         public static final int accueil=0x7f0d0000;
@@ -1317,7 +1414,7 @@ containing a value of this type.
         public static final int AppTheme=0x7f0b005a;
         /**  Style de la connexion 
          */
-        public static final int ConnexionLayout=0x7f0b0065;
+        public static final int ConnexionLayout=0x7f0b006a;
         /**  Style des formulaires 
          */
         public static final int FormButton=0x7f0b005e;
@@ -1327,13 +1424,22 @@ containing a value of this type.
         public static final int FormTxtVwSimpleTexte_Value=0x7f0b0064;
         public static final int FormTxtVwTitreSection=0x7f0b0062;
         public static final int FormViewSouligneTitre=0x7f0b005f;
-        public static final int MenuTextViewSectionStyle=0x7f0b006a;
-        public static final int MenuTextViewTitleStyle=0x7f0b006b;
-        public static final int MenuViewSectionStyle=0x7f0b006c;
-        public static final int MenuWritingUserFonction=0x7f0b0069;
+        public static final int ListePatient_SimpleTexte=0x7f0b0066;
+        public static final int ListePatient_Texte_Dessous=0x7f0b0067;
+        /**  Style de la liste de patient 
+         */
+        public static final int ListePatient_img=0x7f0b0065;
+        public static final int MenuTextViewSectionStyle=0x7f0b0071;
+        public static final int MenuTextViewTitleStyle=0x7f0b0072;
+        public static final int MenuViewSectionStyle=0x7f0b0073;
+        public static final int MenuWritingUserFonction=0x7f0b0070;
         /**  Style du Menu 
          */
-        public static final int MenuWritingUserName=0x7f0b0068;
+        public static final int MenuWritingUserName=0x7f0b006f;
+        public static final int Menu_Hospi_fils=0x7f0b0069;
+        /**  Style du menu du DMP à l'onglet hospitalisation 
+         */
+        public static final int Menu_OngletHospi=0x7f0b0068;
         public static final int MyActionBar=0x7f0b005b;
         /**  Style général 
  Any customizations for your app running on 3.0+ devices here 
@@ -1350,8 +1456,10 @@ containing a value of this type.
         public static final int Sherlock___Widget_Holo_ListView=0x7f0b0026;
         public static final int Sherlock___Widget_Holo_Spinner=0x7f0b0023;
         public static final int Sherlock___Widget_SearchAutoCompleteTextView=0x7f0b0033;
-        public static final int Style_Bouton_Connexion=0x7f0b0066;
-        public static final int Style_Entree_Connexion=0x7f0b0067;
+        public static final int Style_Bouton_Connexion=0x7f0b006b;
+        public static final int Style_Entree_Connexion=0x7f0b006c;
+        public static final int Style_encadre=0x7f0b006e;
+        public static final int Style_logo_grand=0x7f0b006d;
         public static final int TextAppearance_Sherlock=0x7f0b004a;
         public static final int TextAppearance_Sherlock_Light_SearchResult=0x7f0b004e;
         public static final int TextAppearance_Sherlock_Light_SearchResult_Subtitle=0x7f0b0050;

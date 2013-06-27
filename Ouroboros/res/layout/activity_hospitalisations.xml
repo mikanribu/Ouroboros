@@ -8,7 +8,7 @@
         android:id="@+id/animation_layout_sidebar"
         android:layout_width="200dip"
         android:layout_height="match_parent"
-        android:background="#282828"
+        android:background="@color/GrisFondMenu"
         android:orientation="vertical" >
 
         <!-- On crée le menu ici -->
