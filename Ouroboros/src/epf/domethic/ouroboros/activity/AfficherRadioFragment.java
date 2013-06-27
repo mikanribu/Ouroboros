@@ -51,7 +51,7 @@ public class AfficherRadioFragment extends SherlockFragment {
 
 		afficherRadio(radio);
 		
-		//Quand on clique sur l'image, on appelle le fragment ZoomRadioFragment
+		//Quand on clique sur l'image, on appelle l'activité ZoomRadioFragment
 		final Intent intent_zoom = new Intent(getSherlockActivity(), ZoomRadioActivity.class);
 		image.setOnClickListener(new View.OnClickListener() {
 			@Override
@@ -91,6 +91,7 @@ public class AfficherRadioFragment extends SherlockFragment {
 		}
 	}
 
+	//on instancie la radio à afficher
 	public Radio getVueRadio(Radio radio){
 		this.radio=radio;
 		return radio;

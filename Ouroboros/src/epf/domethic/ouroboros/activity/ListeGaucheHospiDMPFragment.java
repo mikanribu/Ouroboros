@@ -1,11 +1,9 @@
 package epf.domethic.ouroboros.activity;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.os.StrictMode;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,10 +30,12 @@ import epf.domethic.ouroboros.outils.ParserJSON;
 
 public class ListeGaucheHospiDMPFragment extends SherlockFragment {
 	
+	//interface du listener de la radio sélectionnée
 	public interface OnRadioSelectedListener {
 		public void onRadioSelected(int position, Radio radio);
 	}
 	
+	//Variables utilisées dans le fragment
 	private ExpandableListView mExpandableList;
 	private ListView lvlistNewDoc;
 	private OnRadioSelectedListener listener;
@@ -56,9 +56,11 @@ public class ListeGaucheHospiDMPFragment extends SherlockFragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.fragment_liste_hospi_dmp,container, false);
 
+		//on récupère la bdd de l'activité
 		this.dao = new RadioDAO(getActivity());
 		mExpandableList = (ExpandableListView) view.findViewById(R.id.menu_gauche_hospi);
 		
+		//si l'activité est vide on récupère le JSON
 		if (dao.dbIsEmpty() == true) {
 			RecuperationJSON();
 		}
@@ -72,19 +74,20 @@ public class ListeGaucheHospiDMPFragment extends SherlockFragment {
 		arrayNomParents.add("Fiches de suivi"); // indice 4
 		arrayNomParents.add("Consultations"); // indice 5
 
+		//Tableaux des noms des parents et de leurs enfants
 		ArrayList<Parent> arrayParents = new ArrayList<Parent>();
 		ArrayList<String> arrayChildren = new ArrayList<String>();
 
-		// here we set the parents and the children
+		// Implémentation des parents et leurs enfants
 		for (int i = 0; i < arrayNomParents.size(); i++) {
-			// for each "i" create a new Parent object to set the title and the
-			// children
+			
 			Parent parent = new Parent();
-			parent.setTitle(arrayNomParents.get(i));
+			parent.setTitle(arrayNomParents.get(i)); //titre associé aux parents
 
 			// Récupérer ici les enfants
 			arrayChildren = new ArrayList<String>();
 
+			//depuis la bdd récupère les enfants
 			if (arrayNomParents.get(i) == "Radiographies" ) {
 				Cursor cursor = dao.getRadiosCursor();
 				cursor.moveToFirst();
@@ -98,22 +101,20 @@ public class ListeGaucheHospiDMPFragment extends SherlockFragment {
 				}
 			} 
 			parent.setArrayChildren(arrayChildren);
-
-			// in this array we add the Parent object. We will use the arrayParents at the setAdapter
 			arrayParents.add(parent);
 
 		}
 		
-		//mExpandableList.setChoiceMode(ExpandableListView.CHOICE_MODE_SINGLE);
-		// sets the adapter that provides data to the list.
-		mExpandableList.setAdapter(new MenuGaucheHospiDMPAdapter(
-				getSherlockActivity(), arrayParents));
+		// set l'adapter
+		mExpandableList.setAdapter(new MenuGaucheHospiDMPAdapter(getSherlockActivity(), arrayParents));
 
-		//Ecouteur d'événement de l'expandable liste
+		//listener de l'expandable liste
 		mExpandableList.setOnChildClickListener(new OnChildClickListener() {
 			@Override
+			//sur click d'un enfant
 			public boolean onChildClick(ExpandableListView parent, View v,int group_position, int child_position, long id) {
 
+				//sélection de la radio du thorax 
 				if (group_position == 3 && child_position == 1) {
 					Cursor cursor = dao.getRadiosCursor(child_position);
 					cursor.moveToFirst();
@@ -121,14 +122,15 @@ public class ListeGaucheHospiDMPFragment extends SherlockFragment {
 					listener.onRadioSelected(child_position, radio);
 					
 				}
-				//v.setSelected(true);
-
 				return false;
 			}
 		});
+		
+		//listener des parents
 		mExpandableList.setOnGroupClickListener(new OnGroupClickListener() {
 
             @Override
+            //action après un click sur un parent
             public boolean onGroupClick(ExpandableListView parent, View v, int group_position, long id) {
                 //Log.d("group click", mTag);
             	
@@ -136,6 +138,7 @@ public class ListeGaucheHospiDMPFragment extends SherlockFragment {
             }
         });
 
+		//instancie la list view contenant l'élément nouveau document
 		lvlistNewDoc = (ListView)view.findViewById(R.id.liste_new_doc);
         ArrayList<HashMap<String, String>> listItem = new ArrayList<HashMap<String, String>>();
         HashMap<String, String> map;
@@ -151,7 +154,7 @@ public class ListeGaucheHospiDMPFragment extends SherlockFragment {
         //On attribue à notre listView l'adapter que l'on vient de créer
         lvlistNewDoc.setAdapter(mSchedule);
  
-        //Enfin on met un écouteur d'évènement sur notre listView
+        //Enfin on met un listener sur notre listView
         lvlistNewDoc.setOnItemClickListener(new OnItemClickListener() {
 			@Override
         	@SuppressWarnings("unchecked")

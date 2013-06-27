@@ -70,8 +70,10 @@ public class InformationsGeneralesFragment extends SherlockFragment {
 		nTelephone = (TextView)view.findViewById(R.id.tvTelephoneValuePatient);
 		nMedecinTraitant = (TextView)view.findViewById(R.id.tvMedecinTraitantValuePatient);
 		
+		//Affichage du patient
 		afficherPatient(patient);
 		
+		//On ne peut pas modifier les données : affichage de la boîte de dialogur
 		bModif =(Button)view.findViewById(R.id.bModif);
 		bModif.setOnClickListener(new View.OnClickListener() {
 		    @Override
@@ -102,6 +104,7 @@ public class InformationsGeneralesFragment extends SherlockFragment {
 		nMedecinTraitant.setText(patient.getMedecinTraitant());;
 	}
 	
+	//instanciation du patient dans le fragment
 	public Patient getPatient(Patient patient){
 		this.patient=patient;
 		return patient;

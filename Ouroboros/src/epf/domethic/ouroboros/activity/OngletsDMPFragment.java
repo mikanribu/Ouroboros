@@ -6,7 +6,6 @@ import android.app.AlertDialog;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.view.ContextThemeWrapper;
-import android.widget.Button;
 
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.ActionBar.TabListener;
@@ -19,7 +18,7 @@ import epf.domethic.ouroboros.model.Patient;
 public class OngletsDMPFragment extends SherlockFragment implements
 		TabListener {
 
-	
+	//déclaration des variables
 	private ArrayList<SherlockFragment> listeOnglets = new ArrayList<SherlockFragment>();
 	private int position;
 	private Patient patient;
@@ -32,15 +31,13 @@ public class OngletsDMPFragment extends SherlockFragment implements
 	ListeGaucheHospiDMPFragment menu_hospi = new ListeGaucheHospiDMPFragment();
 	ListeGaucheInfosDMPFragment menu_infos = new ListeGaucheInfosDMPFragment();
 	AfficherRadioFragment radio_fragment = new AfficherRadioFragment();
-	
-	Button bModif;
-	
-	
+		
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		
 		super.onCreate(savedInstanceState);
 		
+		//on ajoute les onglets à la barre d'action
 		ActionBar.Tab tab_infos = getSherlockActivity().getSupportActionBar().newTab();
 		tab_infos.setText("Informations");
 		tab_infos.setTabListener(this);
@@ -73,12 +70,16 @@ public class OngletsDMPFragment extends SherlockFragment implements
 	}
 
 	@Override
+	//Si un onglet est sélectionné
 	public void onTabSelected(Tab tab, FragmentTransaction fragmentTransaction) {
 
+		//index de l'onglet sélectionné
 		int position = tab.getPosition();
 		switch (position) {
-		case 1:
-			infos.getPatient(this.patient);
+		case 1: //Si hospitalisation
+			
+			infos.getPatient(this.patient); //instanciation du patient dans le fragment infos
+			//S'ils ne sont pas présents à l'écran,  affichage des onglets infos et menu hôspitalisation
 			if(!menu_hospi.isResumed()){
 				fragmentTransaction.replace(R.id.tiers, menu_hospi);
 				menu_hospi.getPatient(patient);
@@ -89,16 +90,16 @@ public class OngletsDMPFragment extends SherlockFragment implements
 			break;
 
 		case 2:
-			boite.show();
-//			 getSherlockActivity().getSupportActionBar()
-//			 	.selectTab(getSherlockActivity().getSupportActionBar().getTabAt(this.position));
+			boite.show(); //Pas encore implémenté: boîte de dialogue
 			break;
 		case 3:
-			boite.show();
+			boite.show(); //Pas encore implémenté: boîte de dialogue
 			break;
 
 		default:
-			infos.getPatient(this.patient);
+			
+			infos.getPatient(this.patient); //instanciation du patient dans le fragment infos
+			//S'ils ne sont pas présents à l'écran,  affichage des onglets infos et menu informations
 			if(!menu_infos.isResumed())
 				fragmentTransaction.replace(R.id.tiers, menu_infos);
 			if(!infos.isResumed())
@@ -124,6 +125,7 @@ public class OngletsDMPFragment extends SherlockFragment implements
 		
 	}
 	
+	//instanciation du patient dans le fragment
 	public Patient getPatient(Patient patient){
 		this.patient=patient;
 		return patient;

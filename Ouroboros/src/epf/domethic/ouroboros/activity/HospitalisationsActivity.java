@@ -167,7 +167,7 @@ public class HospitalisationsActivity extends SherlockFragmentActivity implement
 			tvDeconnexion.setOnClickListener(new OnClickListener() {
 				@Override
 				public void onClick(View v) {
-					startActivity(intent_connexion);
+					startActivity(intent_deconnexion);
 				}
 			});
 			
@@ -261,7 +261,8 @@ public class HospitalisationsActivity extends SherlockFragmentActivity implement
 			// Affiche dans le menu le nom du médecin connecté et sa fonction
 			tvFonction = (TextView) findViewById(R.id.tvNomMedecin);
 			tvFonction.setText(prenom + " " + nom);
-			
+
+			//Affichage de la liste des patients et du détail de celui sélectionné
 			FragmentManager fragmentManager = getSupportFragmentManager();
 			FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 			fragmentTransaction.add(R.id.deuxTiers, detail_patient);
@@ -271,8 +272,8 @@ public class HospitalisationsActivity extends SherlockFragmentActivity implement
 			
 		// Si l'utilisateur est une secrétaire médicale
 		else if (fonction == 2) {
-			setContentView(R.layout.menu_secretaire_medicale);
-					myDrawable = r.getDrawable(R.drawable.barre_hautsecadm);
+			setContentView(R.layout.menu_secretaire_medicale); //vue de la secrétaire
+			myDrawable = r.getDrawable(R.drawable.barre_hautsecadm);
 			getSupportActionBar().setBackgroundDrawable(myDrawable);
 	
 			// Affiche dans le menu le nom de la secrétaire médicale connectée et sa fonction
@@ -300,13 +301,12 @@ public class HospitalisationsActivity extends SherlockFragmentActivity implement
 			
 			// Menu: Deconnexion de la secrétaire Médicale
 			tvDeconnexion = (TextView) findViewById(R.id.tvDeconnexion);
-			final Intent intent_deconnexion = new Intent(
-					HospitalisationsActivity.this, ConnexionActivity.class);
+			final Intent intent_deconnexion = new Intent(HospitalisationsActivity.this, ConnexionActivity.class);
 			
 			tvDeconnexion.setOnClickListener(new OnClickListener() {
 				@Override
 				public void onClick(View v) {
-					startActivity(intent_connexion);
+					startActivity(intent_deconnexion);
 				}
 			});
 						
@@ -360,27 +360,31 @@ public class HospitalisationsActivity extends SherlockFragmentActivity implement
 		
 		// Si l'utilisateur n'est ni médecin, ni secrétaire médicale.
 		else {
+			//toast pour informer l'utilisateur de ce qu'il se passe
 			Toast.makeText(getApplicationContext(),"Ce type d'utilisateur n'a pas encore été implémenté.",Toast.LENGTH_SHORT).show();
 		}
 			
 	}
 
 	@Override
+	//Si un patient est sélectionné dans la liste des hospitalisation
 	public void onPatientSelected(int position, Patient patient) {
-		this.position = position;
-		detail_patient.getDetailPatient(patient);	
+		this.position = position; //on récupère le patient en question
+		detail_patient.getDetailPatient(patient);	//on le transmet au fragment détail d'un patient
 	}
 	
+	//Si une radio est sélectionnée dans le menu hospitalisation du dmp
 	public void onRadioSelected(int position, Radio radio){
-		this.position = position;
+		this.position = position; //on récupère la radio en question
 		
+		//S'il n'est pas encore à l'écran on affiche le fragment concernant la radio et ses informations
 		if(!fragment_radio.isResumed()){
 			FragmentManager fragmentManager = getSupportFragmentManager();
 			FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 			fragmentTransaction.replace(R.id.deuxTiers, fragment_radio);
 			fragmentTransaction.commit();
 		}
-		fragment_radio.getVueRadio(radio);
+		fragment_radio.getVueRadio(radio); //on transmet la radio au fragment de l'affichage de la radio
 	}
 	
 	@Override
@@ -403,7 +407,6 @@ public class HospitalisationsActivity extends SherlockFragmentActivity implement
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem menuItem) {
-		int id=menuItem.getItemId();
 		if (menuItem.getItemId() == android.R.id.home) {
 			mLayout.toggleSidebar();
 		}

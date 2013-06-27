@@ -33,7 +33,7 @@ public class AfficherPatientFragment extends SherlockFragment {
 	private TextView nMedecinTraitant;
 	
 	private Button bVisualiserDMP;
-	OngletsDMPFragment onglets = new OngletsDMPFragment();
+	OngletsDMPFragment onglets = new OngletsDMPFragment(); //fragment onglets de la barre d'action
 
 	private Patient patient;
 
@@ -65,12 +65,13 @@ public class AfficherPatientFragment extends SherlockFragment {
 		bVisualiserDMP =(Button)view.findViewById(R.id.bVueDMP);
 		bVisualiserDMP.setOnClickListener(new View.OnClickListener() {
 		    @Override
+		    //s'il y a clic sur le bouton, on remplace le fragment actuel par le fragment des onglets
 		    public void onClick(View v) {
 				FragmentManager fragmentManager = getFragmentManager();
 				FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 				fragmentManager.popBackStack();
 				fragmentTransaction.replace(R.id.deuxTiers, onglets);
-				onglets.getPatient(patient);
+				onglets.getPatient(patient); //instanciation du patient dans le fragment onglets
 				fragmentTransaction.commit();
 		    }
 		});		
@@ -97,6 +98,7 @@ public class AfficherPatientFragment extends SherlockFragment {
 		nMedecinTraitant.setText(patient.getMedecinTraitant());;
 	}
 	
+	//instancie et appelle l'affichage du patient dans le fragment
 	public Patient getDetailPatient(Patient patient){
 		this.patient=patient;
 		afficherPatient(patient);

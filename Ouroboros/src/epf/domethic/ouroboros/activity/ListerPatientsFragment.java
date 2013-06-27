@@ -125,10 +125,11 @@ public class ListerPatientsFragment extends SherlockListFragment {
 	}
 
 	@Override
+	//Si un élément est cliqué
 	public void onListItemClick(ListView l, View v, int position, long id) {
 		super.onListItemClick(l, v, position, id);
 		if (listener != null) {
-			
+			//on récupère l'élément sélectionné et on active la fonction du listner
 			Cursor cursor = (Cursor) getListAdapter().getItem(position);
 			patient = dao.getPatient(cursor);
 			listener.onPatientSelected(position, patient);
@@ -136,9 +137,6 @@ public class ListerPatientsFragment extends SherlockListFragment {
 		}
 	}
 
-	public Patient getPatientSelected() {
-		return patient;
-	}
 
 	@Override
 	public void onResume() {
