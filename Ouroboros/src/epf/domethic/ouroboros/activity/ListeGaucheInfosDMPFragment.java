@@ -6,6 +6,7 @@ import java.util.HashMap;
 import com.actionbarsherlock.app.SherlockFragment;
 
 import epf.domethic.ouroboros.R;
+import android.app.AlertDialog;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -79,7 +80,13 @@ public class ListeGaucheInfosDMPFragment extends SherlockFragment {
          	public void onItemClick(AdapterView<?> a, View v, int position, long id) {
 				//on récupère la HashMap contenant les infos de notre item (titre, description, img)
         		HashMap<String, String> map = (HashMap<String, String>) listViewInfos.getItemAtPosition(position);
-        		
+        		AlertDialog.Builder boite;
+        		boite = new AlertDialog.Builder(getSherlockActivity(), R.style.ThemeHoloDialog);
+        		boite.setTitle("La fonction n'est pas encore implémentée!");
+        		boite.setIcon(R.drawable.travaux);
+        		boite.setMessage("Cette fonction n'a pas été développée dans cette version.");
+        		boite.setNegativeButton("Retour", null);
+        		boite.show();        		
         	}
          });
  
