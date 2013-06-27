@@ -6,6 +6,7 @@ import com.actionbarsherlock.app.SherlockFragment;
 
 import android.app.AlertDialog;
 import android.os.Bundle;
+import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,11 +47,10 @@ public class InformationsGeneralesFragment extends SherlockFragment {
 		View view = inflater.inflate(R.layout.fragment_infos_g,container, false);
 
 
-		// Création de la boîte de dialogue qui sera affichée lorsque
-		// l'utilisateur cliquera sur des boutons pas développé
-		boite = new AlertDialog.Builder(getSherlockActivity());
+		ContextThemeWrapper ctw = new ContextThemeWrapper(getSherlockActivity(), R.style.ThemeHoloDialog );
+		boite = new AlertDialog.Builder(ctw);
 		boite.setTitle("La fonction n'est pas encore implémentée!");
-		boite.setIcon(R.drawable.en_travaux);
+		boite.setIcon(R.drawable.travaux);
 		boite.setMessage("Cette fonction n'a pas été développée dans cette version.");
 		boite.setNegativeButton("Retour", null);
 		
@@ -71,7 +71,7 @@ public class InformationsGeneralesFragment extends SherlockFragment {
 		
 		afficherPatient(patient);
 		
-		bModif =(Button)view.findViewById(R.id.bVueDMP);
+		bModif =(Button)view.findViewById(R.id.bModif);
 		bModif.setOnClickListener(new View.OnClickListener() {
 		    @Override
 		    public void onClick(View v) {
@@ -106,7 +106,5 @@ public class InformationsGeneralesFragment extends SherlockFragment {
 		return patient;
 	}
 	
-	public void onDetach(){
-		super.onDetach();
-	}
+
 }

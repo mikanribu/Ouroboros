@@ -5,7 +5,9 @@ package epf.domethic.ouroboros.activity;
 import com.actionbarsherlock.app.SherlockActivity;
 import android.os.Bundle;
 import android.webkit.WebSettings;
+import android.webkit.WebSettings.ZoomDensity;
 import android.webkit.WebView;
+import android.widget.RelativeLayout;
 import epf.domethic.ouroboros.R;
 
 public class ZoomRadioActivity extends SherlockActivity {
@@ -18,17 +20,19 @@ public class ZoomRadioActivity extends SherlockActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_zoom_radio);
 		webView = (WebView) findViewById(R.id.wvDoc);
+
 		// On cherche l'image via l'URL
 		try {
 
 			webView.loadUrl(imageUrl);
-			WebSettings settings = webView.getSettings();
-			settings.setBuiltInZoomControls(true);
-			settings.setDisplayZoomControls(false);
-			settings.setUseWideViewPort(true);
-			settings.setDefaultZoom(WebSettings.ZoomDensity.FAR);
-			settings.setLoadWithOverviewMode(true);
+		 WebSettings webSettings = webView.getSettings();
+			webSettings.setBuiltInZoomControls(true);
+			//webSettings.setDisplayZoomControls(false);
+			webSettings.setUseWideViewPort(true);
+	//		webSettings.setDefaultZoom(ZoomDensity.FAR);
+			webSettings.setLoadWithOverviewMode(true);
 
+			 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

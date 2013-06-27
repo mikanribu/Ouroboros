@@ -21,12 +21,8 @@
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
          <Button
-            android:id="@+id/bVueDMP"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginRight="118dp"
+            android:id="@+id/bModif"
+            style="@style/FormButton" 
             android:text="@string/modif_infos" />
 
     </RelativeLayout>

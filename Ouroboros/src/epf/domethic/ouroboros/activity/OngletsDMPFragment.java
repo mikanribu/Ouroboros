@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import android.app.AlertDialog;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
+import android.view.ContextThemeWrapper;
 import android.widget.Button;
 
 import com.actionbarsherlock.app.ActionBar;
@@ -62,9 +63,10 @@ public class OngletsDMPFragment extends SherlockFragment implements
 
 		// Création de la boîte de dialogue qui sera affichée lorsque
 		// l'utilisateur cliquera sur des boutons pas développé
-		boite = new AlertDialog.Builder(getSherlockActivity());
+		ContextThemeWrapper ctw = new ContextThemeWrapper(getSherlockActivity(), R.style.ThemeHoloDialog );
+		boite = new AlertDialog.Builder(ctw);
 		boite.setTitle("La fonction n'est pas encore implémentée!");
-		boite.setIcon(R.drawable.en_travaux);
+		boite.setIcon(R.drawable.travaux);
 		boite.setMessage("Cette fonction n'a pas été développée dans cette version.");
 		boite.setNegativeButton("Retour", null);
 		
@@ -76,14 +78,17 @@ public class OngletsDMPFragment extends SherlockFragment implements
 		int position = tab.getPosition();
 		switch (position) {
 		case 1:
-			fragmentTransaction.replace(R.id.tiers, menu_hospi);
-			if(!infos.isVisible()){
+			if(!menu_hospi.isResumed())
+				fragmentTransaction.replace(R.id.tiers, menu_hospi);
+			if(!infos.isResumed())
 				fragmentTransaction.replace(R.id.deuxTiers, infos);
-			}
+			
 			break;
 
 		case 2:
 			boite.show();
+//			 getSherlockActivity().getSupportActionBar()
+//			 	.selectTab(getSherlockActivity().getSupportActionBar().getTabAt(this.position));
 			break;
 		case 3:
 			boite.show();
@@ -91,10 +96,11 @@ public class OngletsDMPFragment extends SherlockFragment implements
 
 		default:
 			infos.getPatient(this.patient);
-			fragmentTransaction.replace(R.id.tiers, menu_infos);
-			if(!infos.isVisible()){
+			if(!menu_infos.isResumed())
+				fragmentTransaction.replace(R.id.tiers, menu_infos);
+			if(!infos.isResumed())
 				fragmentTransaction.replace(R.id.deuxTiers, infos);
-			}
+			
 			break;
 		}
 
