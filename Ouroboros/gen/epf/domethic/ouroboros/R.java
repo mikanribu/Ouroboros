@@ -1319,7 +1319,7 @@ containing a value of this type.
         public static final int AppTheme=0x7f0b005a;
         /**  Style de la connexion 
          */
-        public static final int ConnexionLayout=0x7f0b0065;
+        public static final int ConnexionLayout=0x7f0b0068;
         /**  Style des formulaires 
          */
         public static final int FormButton=0x7f0b005e;
@@ -1329,13 +1329,18 @@ containing a value of this type.
         public static final int FormTxtVwSimpleTexte_Value=0x7f0b0064;
         public static final int FormTxtVwTitreSection=0x7f0b0062;
         public static final int FormViewSouligneTitre=0x7f0b005f;
-        public static final int MenuTextViewSectionStyle=0x7f0b006a;
-        public static final int MenuTextViewTitleStyle=0x7f0b006b;
-        public static final int MenuViewSectionStyle=0x7f0b006c;
-        public static final int MenuWritingUserFonction=0x7f0b0069;
+        public static final int ListePatient_SimpleTexte=0x7f0b0066;
+        public static final int ListePatient_Texte_Dessous=0x7f0b0067;
+        /**  Style de la liste de patient 
+         */
+        public static final int ListePatient_img=0x7f0b0065;
+        public static final int MenuTextViewSectionStyle=0x7f0b006d;
+        public static final int MenuTextViewTitleStyle=0x7f0b006e;
+        public static final int MenuViewSectionStyle=0x7f0b006f;
+        public static final int MenuWritingUserFonction=0x7f0b006c;
         /**  Style du Menu 
          */
-        public static final int MenuWritingUserName=0x7f0b0068;
+        public static final int MenuWritingUserName=0x7f0b006b;
         public static final int MyActionBar=0x7f0b005b;
         /**  Style général 
  Any customizations for your app running on 3.0+ devices here 
@@ -1352,8 +1357,8 @@ containing a value of this type.
         public static final int Sherlock___Widget_Holo_ListView=0x7f0b0026;
         public static final int Sherlock___Widget_Holo_Spinner=0x7f0b0023;
         public static final int Sherlock___Widget_SearchAutoCompleteTextView=0x7f0b0033;
-        public static final int Style_Bouton_Connexion=0x7f0b0066;
-        public static final int Style_Entree_Connexion=0x7f0b0067;
+        public static final int Style_Bouton_Connexion=0x7f0b0069;
+        public static final int Style_Entree_Connexion=0x7f0b006a;
         public static final int TextAppearance_Sherlock=0x7f0b004a;
         public static final int TextAppearance_Sherlock_Light_SearchResult=0x7f0b004e;
         public static final int TextAppearance_Sherlock_Light_SearchResult_Subtitle=0x7f0b0050;

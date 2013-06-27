@@ -16,17 +16,13 @@
 
         <TextView
             android:id="@+id/tvNom"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="12dp"
-            android:textAppearance="?android:attr/textAppearanceLarge" >
+            style="@style/ListePatient_SimpleTexte"
+            android:paddingLeft="12dp" >
         </TextView>
 
         <ImageView
             android:id="@+id/ivSexe"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
+            style="@style/ListePatient_img"
             android:layout_marginRight="10dp" >
         </ImageView>
     </RelativeLayout>
@@ -38,11 +34,7 @@
 
         <TextView
             android:id="@+id/tvDateNaiss"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="12dp"
-            android:textColor="#969696"
-            android:textSize="18sp" >
+            style="@style/ListePatient_Texte_Dessous" >
         </TextView>
     </LinearLayout>
 

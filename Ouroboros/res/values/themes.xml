@@ -69,6 +69,27 @@
         <item name="android:textAppearance">?android:attr/textAppearanceLarge</item>
 	</style>
     
+	<!-- Style de la liste de patient -->
+	<style name="ListePatient_img">
+	    <item name="android:layout_width">wrap_content</item>
+	    <item name="android:layout_height">wrap_content</item>
+	    <item name="android:layout_alignParentRight">true</item>
+	</style>
+	
+	<style name="ListePatient_SimpleTexte">
+	    <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceLarge</item>
+	</style>
+	
+	<style name="ListePatient_Texte_Dessous">
+	    <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/GrisTitreFormulaire</item>
+        <item name="android:paddingLeft">12dp</item>
+        <item name="android:textSize">18sp</item>
+	</style>
+	
     <!-- Style de la connexion -->
     <style name="ConnexionLayout">
         <!-- Any customizations for your app running on 4.0+ devices here -->
