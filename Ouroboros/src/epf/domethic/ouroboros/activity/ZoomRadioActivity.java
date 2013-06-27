@@ -22,12 +22,10 @@ public class ZoomRadioActivity extends SherlockActivity {
 		try {
 
 			webView.loadUrl(imageUrl);
-			WebSettings settings = webView.getSettings();
-			settings.setBuiltInZoomControls(true);
-			settings.setDisplayZoomControls(false);
-			settings.setUseWideViewPort(true);
-			settings.setDefaultZoom(WebSettings.ZoomDensity.FAR);
-			settings.setLoadWithOverviewMode(true);
+			WebSettings webSettings = webView.getSettings();
+			webSettings.setBuiltInZoomControls(true);
+			webSettings.setUseWideViewPort(true);
+			webSettings.setLoadWithOverviewMode(true);
 
 		} catch (Exception e) {
 			e.printStackTrace();
