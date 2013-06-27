@@ -62,9 +62,9 @@ public class OngletsDMPFragment extends SherlockFragment implements
 
 		// Création de la boîte de dialogue qui sera affichée lorsque
 		// l'utilisateur cliquera sur des boutons pas développé
-		boite = new AlertDialog.Builder(getSherlockActivity());
+		boite = new AlertDialog.Builder(getSherlockActivity(), R.style.ThemeHoloDialog);
 		boite.setTitle("La fonction n'est pas encore implémentée!");
-		boite.setIcon(R.drawable.en_travaux);
+		boite.setIcon(R.drawable.travaux);
 		boite.setMessage("Cette fonction n'a pas été développée dans cette version.");
 		boite.setNegativeButton("Retour", null);
 		

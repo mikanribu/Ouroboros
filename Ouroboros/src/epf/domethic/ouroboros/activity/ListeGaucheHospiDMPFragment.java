@@ -1,17 +1,20 @@
 package epf.domethic.ouroboros.activity;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
+import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ExpandableListView;
+import android.widget.ExpandableListView.OnGroupClickListener;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.AdapterView.OnItemClickListener;
@@ -93,11 +96,7 @@ public class ListeGaucheHospiDMPFragment extends SherlockFragment {
 					
 					cursor.moveToNext();
 				}
-			} else {
-				for (int j = 0; j < 3; j++) {
-					arrayChildren.add("Child " + j);
-				}
-			}
+			} 
 			parent.setArrayChildren(arrayChildren);
 
 			// in this array we add the Parent object. We will use the arrayParents at the setAdapter
@@ -124,6 +123,23 @@ public class ListeGaucheHospiDMPFragment extends SherlockFragment {
 				return false;
 			}
 		});
+		mExpandableList.setOnGroupClickListener(new OnGroupClickListener() {
+
+            @Override
+            public boolean onGroupClick(ExpandableListView parent, View v, int group_position, long id) {
+                //Log.d("group click", mTag);
+            	if(group_position !=3){
+            		AlertDialog.Builder boite;
+            		boite = new AlertDialog.Builder(getSherlockActivity(), R.style.ThemeHoloDialog);
+            		boite.setTitle("La fonction n'est pas encore implémentée!");
+            		boite.setIcon(R.drawable.travaux);
+            		boite.setMessage("Cette fonction n'a pas été développée dans cette version.");
+            		boite.setNegativeButton("Retour", null);
+            		boite.show();
+            	}
+                return false;
+            }
+        });
 
 		lvlistNewDoc = (ListView)view.findViewById(R.id.liste_new_doc);
         ArrayList<HashMap<String, String>> listItem = new ArrayList<HashMap<String, String>>();
